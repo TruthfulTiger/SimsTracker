@@ -1,0 +1,72 @@
+[
+    {
+        "name": "bcosca/fatfree",
+        "version": "3.6.4",
+        "version_normalized": "3.6.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bcosca/fatfree.git",
+            "reference": "dee4d73918a42076d5ac7db64d6d39706c7f328a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bcosca/fatfree/zipball/dee4d73918a42076d5ac7db64d6d39706c7f328a",
+            "reference": "dee4d73918a42076d5ac7db64d6d39706c7f328a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2018-04-19T17:23:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/base.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
+        "homepage": "http://fatfreeframework.com/"
+    },
+    {
+        "name": "ikkez/f3-assets",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ikkez/f3-assets.git",
+            "reference": "82d2c45f6381cbaa3a1edfb01f652bec3c8b9078"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ikkez/f3-assets/zipball/82d2c45f6381cbaa3a1edfb01f652bec3c8b9078",
+            "reference": "82d2c45f6381cbaa3a1edfb01f652bec3c8b9078",
+            "shasum": ""
+        },
+        "time": "2018-09-13T11:27:43+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "CSS/JS Assets Plugin for PHP Fat-Free Framework",
+        "homepage": "https://github.com/ikkez/f3-assets",
+        "keywords": [
+            "F3",
+            "JS",
+            "css",
+            "fatfree",
+            "minify"
+        ]
+    }
+]

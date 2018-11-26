@@ -1,0 +1,16 @@
+{
+  "name": "SimsTracker",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap-confirm-delete": "^2.1.2",
+    "bootstrap-confirmation2": "^4.0.2"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.85.0"
+  },
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
+  }
+}

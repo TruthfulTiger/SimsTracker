@@ -1,0 +1,30 @@
+<form action="{{ @BASE.'/household/update' }}" validate="true" method="post" class="form-horizontal">
+
+	<div class="form-group">
+		<label for="name">Household Name</label>
+		<input type="text" class="form-control" required="required" name="name" value="{{ @household.name }}" id="name" />
+	</div>
+
+	<div class="form-group">
+	<label for="money">Net Worth</label>
+	<input type="number" class="form-control" required="required" name="money" value="{{ @household.money }}" id="money" />
+</div>
+
+	<div class="form-group">
+		<label for="friends">Total Family Friends</label>
+		<input type="number" class="form-control" required="required" name="friends" value="{{ @household.friends }}" id="friends" />
+	</div>
+
+	<div class="control-group">
+		<div class="">
+			<input type="text" name="hptrap" class="hptrap" />
+			<input type="hidden" name="id" value="{{ @household.hhID }}" />
+			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
+			<input type="hidden" name="update" value="update" />
+			<button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
+			<a href="{{ @BASE.'/sim/create/'. @household.hhID }}" class="btn btn-success"><i class="fa fa-plus"></i> Manage Sims</a>
+			<a href="{{ @BASE.'/challenge/create/household/'. @household.hhID }}" class="btn btn-warning"><i class="fa fa-plus" aria-hidden="true"></i> Set Challenge</a>
+			<a href="{{ @BASE.'/households' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+		</div>
+	</div>
+</form>

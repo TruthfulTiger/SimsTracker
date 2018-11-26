@@ -1,0 +1,86 @@
+<form action="{{ @BASE.'/hood/create' }}" validate="true" method="post" class="form-horizontal">
+
+	<div class="form-group">
+		<label for="name">Neighbourhood Name</label>
+		<input type="text" class="form-control" required="required" name="name" id="name" />
+	</div>
+
+	<div class="form-group">
+		<label for="gameVersion">Game version</label>
+		<select class="custom-select" name="gameVersion" required="required" id="gameVersion">
+			<option value="">-- Sims version --</option>
+			<repeat group="{{ @games }}" key="{{ @key }}" value="{{ @value }}">
+				<option value="{{ @value }}">{{ @value }}</option>
+			</repeat>
+		</select>
+	</div>
+
+	<div class="form-group" id="sims2" style="display:none">
+		<label for="s2type">Type</label>
+		<select class="custom-select" required="required" name="s2type" id="s2type">
+			<option value="">-- Hood type --</option>
+			<repeat group="{{ @s2hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
+				<option value="{{ @value }}">{{ @value }}</option>
+			</repeat>
+		</select>
+	</div>
+
+	<div class="form-group" id="sims3" style="display:none">
+		<label for="s3type">Type</label>
+		<select class="custom-select" name="s3type" id="s3type">
+			<option value="">-- Hood type --</option>
+			<repeat group="{{ @s3hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
+				<option value="{{ @value }}">{{ @value }}</option>
+			</repeat>
+		</select>
+	</div>
+
+	<div class="form-group" id="sims4" style="display:none">
+		<label for="s4type">Type</label>
+		<select class="custom-select" name="s4type" id="s4type">
+			<option value="">-- Hood type --</option>
+			<repeat group="{{ @s4hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
+				<option value="{{ @value }}">{{ @value }}</option>
+			</repeat>
+		</select>
+	</div>
+
+	<div class="control-group">
+		<div class="">
+			<input type="text" name="hptrap" class="hptrap" />
+			<input type="hidden" name="create" value="create" />
+			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Neighbourhood</button>
+			<a href="{{ @BASE.'/hoods' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+		</div>
+	</div>
+</form>
+
+<script>
+	$(function () {
+		$("#gameVersion").change(function(){
+			let v = $("#gameVersion").children("option:selected").val();
+			if (v == 'Sims 2') {
+				$("div#sims2").show();
+				$('select#s2type').attr("name","type");
+			} else  {
+				$("div#sims2").hide();
+				$('select#s2type').attr("name","s2type");
+			}
+			if (v == 'Sims 3') {
+				$("div#sims3").show();
+				$('select#s3type').attr("name","type");
+			} else  {
+				$("div#sims3").hide();
+				$('select#s3type').attr("name","s3type");
+			}
+			if (v == 'Sims 4') {
+				$("div#sims4").show();
+				$('select#s4type').attr("name","type");
+			} else  {
+				$("div#sims4").hide();
+				$('select#s4type').attr("name","s4type");
+			}
+		});
+	});
+</script>

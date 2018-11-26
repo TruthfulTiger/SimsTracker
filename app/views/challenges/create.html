@@ -1,0 +1,40 @@
+<form action="{{ @BASE.'/challenge/create' }}" validate="true" method="post" class="form-horizontal">
+
+	<div class="form-group">
+		<label for="challengeName">Name</label>
+		<input type="text" required="required" class="form-control" name="challengeName" id="challengeName" />
+	</div>
+<check if="{{ @hhID != null }}">
+		<div class="form-group">
+			<label for="hhType">Challenge Type</label>
+			<select class="custom-select" required="required" name="type" id="hhType">
+				<option value="">-- Choose a type --</option>
+				<repeat group="{{ @s2hhchallenges }}" key="{{ @key }}" value="{{ @value }}">
+					<option value="{{ @value }}">{{ @value }}</option>
+				</repeat>
+			</select>
+			<input type="hidden" name="hhID" value="{{ @hhID }}" />
+		</div>
+</check>
+<check if="{{ @nhID != null }}">
+	<div class="form-group">
+		<label for="nhType">Challenge Type</label>
+		<select class="custom-select" required="required" name="type" id="nhType">
+			<option value="">-- Choose a type --</option>
+			<repeat group="{{ @s2hoodchallenges }}" key="{{ @key }}" value="{{ @value }}">
+				<option value="{{ @value }}">{{ @value }}</option>
+			</repeat>
+		</select>
+		<input type="hidden" name="nhID" value="{{ @nhID }}" />
+	</div>
+</check>
+	<div class="control-group">
+		<div class="">
+			<input type="text" name="hptrap" class="hptrap" />
+			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
+			<input type="hidden" name="create" value="create" />
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Challenge</button>
+			<a href="{{ @BASE.'/challenges' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+		</div>
+	</div>
+</form>
