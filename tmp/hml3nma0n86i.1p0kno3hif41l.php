@@ -1,1 +1,0 @@
-<p class="mb-3">TO DO: Name generator</p>

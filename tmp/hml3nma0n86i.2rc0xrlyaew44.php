@@ -1,1 +1,0 @@
-<p class="mb-3">This will be an about page</p>
