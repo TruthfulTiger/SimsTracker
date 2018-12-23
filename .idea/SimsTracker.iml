@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/bcosca/fatfree" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/geofmureithi/f3-validate" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ikkez/f3-assets" />
     </content>
     <orderEntry type="inheritedJdk" />

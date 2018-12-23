@@ -33,6 +33,47 @@
         "homepage": "http://fatfreeframework.com/"
     },
     {
+        "name": "geofmureithi/f3-validate",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geofmureithi/f3-validate.git",
+            "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ce160bb752ffb2751e555a24d4a1204bfb917cee",
+            "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee",
+            "shasum": ""
+        },
+        "require": {
+            "bcosca/fatfree": "^3.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^7.3"
+        },
+        "time": "2018-09-09T19:06:56+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Geof Mureithi",
+                "email": "mureithinjuguna@gmail.com"
+            }
+        ],
+        "description": "A validation lib for Fat Free Framework"
+    },
+    {
         "name": "ikkez/f3-assets",
         "version": "dev-master",
         "version_normalized": "9999999-dev",

@@ -4,8 +4,7 @@
 <div class="collapse" id="setsHelp">
 	<div class="card card-body">
 		<dt>From SimsLegacyChallenge.com</dt>
-		<dd><h6>Legacy Tree</h6>
-			1 point per Alien pregnancy<br/>
+		<dd>1 point per Alien pregnancy<br/>
 			It does not matter if the pregnancy results in twins or not, it’s still 1 point.
 			<br/><br/>
 			1 point for each complete set of platinum graves.<br/>

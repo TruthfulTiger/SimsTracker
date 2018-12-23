@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Assets' => $vendorDir . '/ikkez/f3-assets/lib/assets.php',
+    'Validate' => $vendorDir . '/geofmureithi/f3-validate/lib/validate.php',
 );

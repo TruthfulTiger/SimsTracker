@@ -20,13 +20,13 @@
 			<td><?= (trim($user['role'])) ?></td>
 			<td><?= (trim($user['created'])) ?></td>
 			<td><?= (trim($user['lastLogin'])) ?></td>
-			<td><a href="<?= ($BASE.'/user/update/'. $user['id']) ?>" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
+			<td><a href="<?= ($BASE.'/user/update/'. $user['id']) ?>" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 				<a href="<?= ($BASE.'/user/delete/'. $user['id']) ?>" data-toggle="confirmation"
 				   data-content="This will delete this user and all associated data."
-				   class="btn btn-danger delete"><i class="fa fa-trash"></i>
+				   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
 					Delete</a></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
-<a href="<?= ($BASE.'/user/create') ?>" class="btn btn-success"><i class="fa fa-plus"></i> Create</a>
+<a href="<?= ($BASE.'/user/create') ?>" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>

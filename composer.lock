@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0de9be8b09c4bb86713a87219b055ff",
+    "content-hash": "be093e2f4988dd770c8cf9fb45f98dbf",
     "packages": [
         {
             "name": "bcosca/fatfree",
@@ -36,6 +36,45 @@
             "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
             "homepage": "http://fatfreeframework.com/",
             "time": "2018-04-19T17:23:25+00:00"
+        },
+        {
+            "name": "geofmureithi/f3-validate",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geofmureithi/f3-validate.git",
+                "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ce160bb752ffb2751e555a24d4a1204bfb917cee",
+                "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee",
+                "shasum": ""
+            },
+            "require": {
+                "bcosca/fatfree": "^3.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Geof Mureithi",
+                    "email": "mureithinjuguna@gmail.com"
+                }
+            ],
+            "description": "A validation lib for Fat Free Framework",
+            "time": "2018-09-09T19:06:56+00:00"
         },
         {
             "name": "ikkez/f3-assets",
@@ -77,7 +116,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ikkez/f3-assets": 20
+        "ikkez/f3-assets": 20,
+        "geofmureithi/f3-validate": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

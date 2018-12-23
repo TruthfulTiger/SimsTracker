@@ -12,6 +12,7 @@ class ComposerStaticInit180b3275034f4552b5a7099f9f94b96a
 
     public static $classMap = array (
         'Assets' => __DIR__ . '/..' . '/ikkez/f3-assets/lib/assets.php',
+        'Validate' => __DIR__ . '/..' . '/geofmureithi/f3-validate/lib/validate.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

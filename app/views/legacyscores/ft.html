@@ -20,6 +20,7 @@
         <div class="form-group">
             <label for="familyhobby">Family Hobby</label>
             <select class="custom-select" name="familyhobby" id="familyhobby">
+                <option value="None">None</option>
                 <repeat group="{{ @hobbies }}" key="{{ @key }}" value="{{ @hobby }}">
                     <option value="{{ @key }}" <check if="{{ @s2legacy.familyhobby == @key}}">
 					selected
