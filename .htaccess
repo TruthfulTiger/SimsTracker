@@ -14,3 +14,20 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php [L,QSA]
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+Header add Link "</ui/css/sticky-footer-navbar.css>; rel=preload; as=style"
+Header add Link "</ui/css/off-canvas.css>; rel=preload; as=style"
+Header add Link "</node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js>; rel=preload; as=script"
+Header add Link "</ui/css/6.png>; rel=preload; as=image"
+Header add Link "</ui/js/jquery-simple-validator.min.js>; rel=preload; as=script"
+Header add Link "</ui/js/randomiser.js>; rel=preload; as=script"
+Header add Link "</ui/js/aspgen.js>; rel=preload; as=script"
+Header add Link "</ui/css/bootstrap.min.css>; rel=preload; as=style"
+Header add Link "</ui/fonts/Kabel Medium Regular.ttf>; rel=preload; as=font"
+Header add Link "</ui/fonts/SimlishSans-byasha.ttf>; rel=preload; as=font"
+Header add Link "</ui/fonts/SimsLLHP.ttf>; rel=preload; as=font"
+Header add Link "</ui/fonts/open-sans-v15-greek_latin_latin-ext_vietnamese_greek-ext_cyrillic_cyrillic-ext-regular.eot>; rel=preload; as=font"
+Header add Link "</ui/fonts/open-sans-v15-greek_latin_latin-ext_vietnamese_greek-ext_cyrillic_cyrillic-ext-regular.woff2>; rel=preload; as=font"
+Header add Link "</ui/fonts/open-sans-v15-greek_latin_latin-ext_vietnamese_greek-ext_cyrillic_cyrillic-ext-regular.woff>; rel=preload; as=font"
+Header add Link "</ui/fonts/open-sans-v15-greek_latin_latin-ext_vietnamese_greek-ext_cyrillic_cyrillic-ext-regular.ttf>; rel=preload; as=font"
+Header add Link "</ui/fonts/open-sans-v15-greek_latin_latin-ext_vietnamese_greek-ext_cyrillic_cyrillic-ext-regular.svg>; rel=preload; as=font"
