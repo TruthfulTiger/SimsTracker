@@ -19,36 +19,4 @@
 		<div class="row">
 			<div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
 				<h1 class="text-primary mt-5">{{ @title }}</h1>
-				<check if="{{ @SESSION.success }}">
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.success }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</check>
-				<check if="{{ @SESSION.error }}">
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						<i class="fa fa-times" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.error }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</check>
-				<check if="{{ @SESSION.warning }}">
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						<i class="fa fa-warning" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.warning }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</check>
-				<check if="{{ @SESSION.info }}">
-					<div class="alert alert-info alert-dismissible fade show" role="alert">
-						<i class="fa fa-info" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.info }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</check>
 
