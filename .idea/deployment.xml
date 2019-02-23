@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="samgoacher.co.uk" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="samgoacher.co.uk">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/simstracker.samgoacher.co.uk/htdocs" local="$PROJECT_DIR$" web="/" />
+            <mapping local="" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/simstracker.samgoacher.co.uk/htdocs/config/globals.cfg" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+  </component>
+</project>

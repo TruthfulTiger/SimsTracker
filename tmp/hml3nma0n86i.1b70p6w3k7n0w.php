@@ -1,1 +1,0 @@
-<p class="mb-3">This will be a home page</p>

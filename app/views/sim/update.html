@@ -79,29 +79,6 @@
 		<div class="collapse mb-3" id="s2personality">
 			<div class="card card-body">
 				<div class="form-row">
-					<div class="col">
-						<div class="form-group">
-							<h5 class="text-center text-primary mb-3">Personality Points</h5>
-						<label for="neatPoints">Sloppy - Neat:  <output for="neatPoints" id="nP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.neatPoints) }}" class="form-control-range" name="neatPoints" id="neatPoints" oninput="neatUpdate(value)">
-					</div>
-						<div class="form-group">
-							<label for="outgoingPoints">Shy - Outgoing:  <output for="outgoingPoints" id="oP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.outgoingPoints) }}" class="form-control-range" name="outgoingPoints" id="outgoingPoints" oninput="outgoingUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="activePoints">Lazy - Active:  <output for="activePoints" id="aP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.activePoints) }}" class="form-control-range" name="activePoints" id="activePoints" oninput="activeUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="playfulPoints">Serious - Playful:  <output for="playfulPoints" id="pP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.playfulPoints) }}" class="form-control-range" name="playfulPoints" id="playfulPoints" oninput="playfulUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="nicePoints">Grouchy - Nice:  <output for="nicePoints" id="ncP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nicePoints) }}" class="form-control-range" name="nicePoints" id="nicePoints" oninput="niceUpdate(value)">
-						</div>
-					</div>
 					<div class="col text-center">
 						<h5 class="mb-3 text-primary">Star Sign</h5>
 						<div class="form-group">
@@ -203,6 +180,29 @@
 					</div>
 						</div>
 					</div>
+					<div class="col">
+						<div class="form-group">
+							<h5 class="text-center text-primary mb-3">Personality Points</h5>
+							<label for="neatPoints">Sloppy - Neat:  <output for="neatPoints" id="nP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.neatPoints) }}" class="form-control-range" name="neatPoints" id="neatPoints" oninput="neatUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="outgoingPoints">Shy - Outgoing:  <output for="outgoingPoints" id="oP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.outgoingPoints) }}" class="form-control-range" name="outgoingPoints" id="outgoingPoints" oninput="outgoingUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="activePoints">Lazy - Active:  <output for="activePoints" id="aP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.activePoints) }}" class="form-control-range" name="activePoints" id="activePoints" oninput="activeUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="playfulPoints">Serious - Playful:  <output for="playfulPoints" id="pP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.playfulPoints) }}" class="form-control-range" name="playfulPoints" id="playfulPoints" oninput="playfulUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="nicePoints">Grouchy - Nice:  <output for="nicePoints" id="ncP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nicePoints) }}" class="form-control-range" name="nicePoints" id="nicePoints" oninput="niceUpdate(value)">
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -221,12 +221,31 @@
 <script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
 <script>
 	$(function () {
-		document.querySelector('#nP').value = {{ trim(@sim.neatPoints) }};
-		document.querySelector('#oP').value = {{ trim(@sim.outgoingPoints) }};
-		document.querySelector('#aP').value = {{ trim(@sim.activePoints) }};
-		document.querySelector('#pP').value = {{ trim(@sim.playfulPoints) }};
-		document.querySelector('#ncP').value = {{ trim(@sim.nicePoints) }};
-
+		document.querySelector('#nP').value = {;
+		{
+			trim(@sim.neatPoints)
+		}
+	}
+		document.querySelector('#oP').value = {;
+		{
+			trim(@sim.outgoingPoints)
+		}
+	}
+		document.querySelector('#aP').value = {;
+		{
+			trim(@sim.activePoints)
+		}
+	}
+		document.querySelector('#pP').value = {;
+		{
+			trim(@sim.playfulPoints)
+		}
+	}
+		document.querySelector('#ncP').value = {;
+		{
+			trim(@sim.nicePoints)
+		}
+	}
 		let asp = $('#aspiration').children("option:selected").val();
 		$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
 			.siblings().removeAttr('disabled');

@@ -14,6 +14,7 @@ class HouseholdController extends Controller {
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->household->sims='SELECT COUNT(*) as simscount FROM sims where sims.hhID = household.hhID GROUP BY hhID ';
+
 		if($this->f3->exists('PARAMS.id')){
 			$nhID = $this->f3->get('PARAMS.id');
 			$this->f3->set('hoods',$this->hood->getById($nhID));

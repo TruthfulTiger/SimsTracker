@@ -6,6 +6,8 @@
 				<th scope="col">Name</th>
 				<th scope="col">Neighbourhood</th>
 				<th scope="col">Sims in household</th>
+				<th scope="col">Net worth</th>
+				<th scope="col">Family friends</th>
 				<th scope="col">Action</th>
 			</tr>
 			</thead>
@@ -25,6 +27,8 @@
 					<td>0</td>
 					</false>
 					</check>
+					<td>§ {{  '{0,number,decimal,0}', trim(@household.money) | format }}</td>
+					<td>{{ trim(@household.friends) }}</td>
 					<td><a href="{{ @BASE.'/household/update/'. @household.hhID }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 						<a href="{{ @BASE.'/household/delete/'. @household.hhID }}"
 						   data-toggle="confirmation"

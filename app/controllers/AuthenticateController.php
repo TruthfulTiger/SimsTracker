@@ -21,6 +21,7 @@ class AuthenticateController  extends Controller {
 		} else {
 			$username = $this->f3->get('POST.email');
 			$password = $this->f3->get('POST.password');
+			$login = date('Y-m-d H:i:s');
 
 			$user = new User($this->db);
 			$user->getByName($username);
@@ -31,7 +32,8 @@ class AuthenticateController  extends Controller {
 			}
 
 			if(password_verify($password, $user->password)) {
-				$user->lastLogin = time();
+				$user->lastLogin = $login;
+				$user->save();
 				$this->f3->set('SESSION.user', array($user->name, $user->role, $user->id));
 				$this->f3->reroute('/user/profile');
 			} else {

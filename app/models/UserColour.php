@@ -1,9 +1,9 @@
 <?php
 
-class S2Legacy extends DB\SQL\Mapper{
+class UserColour extends DB\SQL\Mapper{
 
 	public function __construct(DB\SQL $db) {
-		parent::__construct($db,'s2legacy');
+		parent::__construct($db,'usercolour');
 	}
 
 	public function all() {
@@ -16,13 +16,8 @@ class S2Legacy extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
-	public function getByCID($id) {
-		$this->load(array('cid=?',$id));
-		return $this->query;
-	}
-
-	public function getByhhID($id) {
-		$this->load(array('hhID=?',$id));
+	public function getByName($id) {
+		$this->load(array('name=?',$id));
 		return $this->query;
 	}
 
@@ -31,11 +26,13 @@ class S2Legacy extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
+	public function getByChallenge($id) {
+		$this->load(array('challengeID=?',$id));
+		return $this->query;
+	}
+
 	public function add() {
-		$this->copyFrom('GET',function($val) {
-			// the 'GET' array is passed to our callback function
-			return array_intersect_key($val, array_flip(array('PARAMS.cid','PARAMS.userID', 'PARAMS.hhID')));
-		});
+		$this->copyFrom('POST');
 		$this->save();
 	}
 
@@ -50,7 +47,7 @@ class S2Legacy extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(
-			'ALTER TABLE s2legacy AUTO_INCREMENT = '.intval($lastInsertID)
+			'ALTER TABLE usercolour AUTO_INCREMENT = '.intval($lastInsertID)
 		);
 	}
 }

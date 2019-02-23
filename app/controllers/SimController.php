@@ -9,7 +9,6 @@ class SimController extends Controller {
 		$this->household = new Household($this->db);
 	}
 
-
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
@@ -107,5 +106,20 @@ class SimController extends Controller {
 		}
 
 		$this->f3->reroute('/sims');
+	}
+
+	public function view()
+	{
+		$this->sim->getById($this->f3->get('PARAMS.id'));
+		$name = $this->sim->firstName.' '.$this->sim->lastName;
+		$this->f3->config('config/sims2.cfg');
+		if($this->f3->exists('PARAMS.id')) {
+			$this->f3->set('sim',$this->sim);
+			$this->f3->set('title',$name);
+			$this->f3->set('content','sim/view.html');
+		} else {
+			$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
+			$this->f3->reroute('/sims');
+		}
 	}
 }

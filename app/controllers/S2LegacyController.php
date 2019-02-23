@@ -5,6 +5,9 @@ class S2LegacyController extends Controller {
 	private $household;
 	private $challenge;
 	private $sim;
+	private $colour;
+	private $legacygen;
+	private $id;
 
 	public function __construct() {
 		parent::__construct();
@@ -12,6 +15,11 @@ class S2LegacyController extends Controller {
 		$this->household = new Household($this->db);
 		$this->challenge = new Challenge($this->db);
 		$this->sim = new Sim($this->db);
+		$this->colour = new UserColour($this->db);
+		$this->legacygen = new LegacyGen($this->db);
+		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
+		$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
+		$this->id = 0;
 	}
 
 	public function create() {
@@ -42,16 +50,12 @@ class S2LegacyController extends Controller {
 				$this->household->edit($this->f3->get('POST.hhID'));
 				$this->legacy->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Scoresheet has been updated.');
-				//$this->f3->reroute('/challenges');
-				$this->load();
-				}
-		} else
-		{
-			if($this->f3->exists('PARAMS.id')) {
-				$this->legacy->getById($this->f3->get('PARAMS.id'));
-				$this->load();
+				$this->id = $this->f3->get('POST.id');
 			}
+		} else {
+			$this->id = $this->f3->get('PARAMS.id');
 		}
+		$this->load($this->id);
 	}
 
 
@@ -68,19 +72,18 @@ class S2LegacyController extends Controller {
 		$this->f3->reroute('/challenges');
 	}
 
-	function load() {
-		if($this->f3->exists('PARAMS.id')) {
-			$this->legacy->getById($this->f3->get('PARAMS.id'));
-		}
+	function load($id) {
+		$this->legacy->getById($id);
 		$this->f3->config('config/legacy.cfg');
 		$this->f3->config('config/sims2.cfg');
-
-		$this->f3->set('s2legacy',$this->legacy);
 		$this->household->getById($this->legacy->hhID);
-		$this->challenge->getById($this->legacy->cid);
+		$this->challenge->getById($this->f3->get('SESSION.challenge'));
 		$this->f3->set('household', $this->household);
 		$this->f3->set('challenge', $this->challenge);
+		$this->f3->set('colours',$this->colour->getByChallenge($this->f3->get('SESSION.challenge')));
 		$this->f3->set('sims',$this->sim->getByhhID($this->legacy->hhID));
+		$this->f3->set('legacygen',$this->legacygen->getByChallenge($this->f3->get('SESSION.challenge')));
+		$this->f3->set('s2legacy',$this->legacy);
 		$this->f3->set('content','legacy.html');
 		$this->f3->set('title','Legacy Scorecard');
 	}

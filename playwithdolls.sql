@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Dec 23, 2018 at 06:18 AM
+-- Generation Time: Feb 21, 2019 at 08:12 PM
 -- Server version: 10.2.14-MariaDB
 -- PHP Version: 7.2.8
 
@@ -97,6 +97,22 @@ CREATE TABLE IF NOT EXISTS `household` (
 INSERT INTO `household` (`hhID`, `userID`, `nhID`, `name`, `money`, `friends`) VALUES
 (1, 1, 1, 'Aurora', 41503, 2),
 (2, 1, 1, 'Garland', 31937, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `legacygen`
+--
+
+DROP TABLE IF EXISTS `legacygen`;
+CREATE TABLE IF NOT EXISTS `legacygen` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `challengeID` int(11) NOT NULL,
+  `generation` int(11) NOT NULL,
+  `simID` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -262,42 +278,6 @@ CREATE TABLE IF NOT EXISTS `s2legacy` (
 INSERT INTO `s2legacy` (`id`, `userID`, `hhID`, `cid`, `isRainbow`, `currentGen`, `portraits`, `busgens`, `badgecount`, `casfounder`, `adopted`, `other`, `topbilling`, `tree`, `fish`, `juice`, `mementototal`, `vhome`, `vhfounder`, `souvenirs`, `familyhobby`, `fhmax`, `pdhobby`, `alienpreg`, `platgraves`, `elixirs`, `allwants`, `allbugs`, `allhobbies`, `allcareers`, `sheep`, `bunnies`, `spotless`, `started`, `prodigy`, `birthday`, `regrets`, `capitalist`, `league`, `hhorse`, `finish`, `nowhere`, `dressed`, `green`, `diy`, `noble`, `fearless`, `isbi`, `jobs`, `obey`, `behind`, `large`, `patriarchy`, `oneway`, `aspiring`, `extreme`, `love`, `familyvals`, `fitness`, `hypo`, `paranoid`, `ghosts`, `entrepreneur`, `storyteller`, `apocalypse`, `gas`, `cultured`, `turmoil`, `zone`, `oldage`, `cow`, `drown`, `sparky`, `lifts`, `fire`, `flies`, `fright`, `hail`, `illness`, `rallyforth`, `crushed`, `scissors`, `starved`, `sun`, `kaching`, `shrink`, `sw`, `repo`, `dropout`, `visitordeath`, `diva`, `reload`, `aspchange`, `neglect`, `runaway`, `retrieved`, `badvacation`, `familycount`, `wealthcount`, `knowledgecount`, `friendshipcount`, `romancecount`, `pleasurecount`, `cheesecount`, `childrencount`, `grandkidscount`, `earncount`, `opencount`, `skillscount`, `alienscount`, `bestiescount`, `lovescount`, `woohoocount`, `firstdatescount`, `dreamdatescount`, `sarniescount`, `omoney`, `ofriends`, `owants`, `ograves`, `obusiness`, `opets`, `oseasons`, `osets`, `ohandicaps`, `grandtotal`, `legacytotal`, `moneytotal`, `friendstotal`, `wantstotal`, `gravestotal`, `ghoststotal`, `biztotal`, `petstotal`, `seasonstotal`, `bvtotal`, `fttotal`, `setstotal`, `mastertotal`, `handicapstotal`, `overflowtotal`, `penaltiestotal`, `freekaching`) VALUES
 (2, 1, 2, 2, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'None', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '16.50', '2.00', '1.00', '1.50', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '1.00', '1.00', '10.00', '0.00', '0.00', 0);
 
---
--- Triggers `s2legacy`
---
-DROP TRIGGER IF EXISTS `chk_casfounder`;
-DELIMITER $$
-CREATE TRIGGER `chk_casfounder` BEFORE INSERT ON `s2legacy` FOR EACH ROW IF NEW.casfounder < 0 OR NEW.casfounder > 1 THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error: Number must be 0 or 1';
-  END IF
-$$
-DELIMITER ;
-DROP TRIGGER IF EXISTS `chk_casfounder2`;
-DELIMITER $$
-CREATE TRIGGER `chk_casfounder2` BEFORE UPDATE ON `s2legacy` FOR EACH ROW IF NEW.casfounder < 0 OR NEW.casfounder > 1 THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error: Number must be 0 or 1';
-  END IF
-$$
-DELIMITER ;
-DROP TRIGGER IF EXISTS `chk_currentGen`;
-DELIMITER $$
-CREATE TRIGGER `chk_currentGen` BEFORE INSERT ON `s2legacy` FOR EACH ROW IF NEW.currentGen < 1 OR NEW.currentGen > 10 THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error: Number must be between 1 and 10';
-  END IF
-$$
-DELIMITER ;
-DROP TRIGGER IF EXISTS `chk_currentGen2`;
-DELIMITER $$
-CREATE TRIGGER `chk_currentGen2` BEFORE UPDATE ON `s2legacy` FOR EACH ROW IF NEW.currentGen < 1 OR NEW.currentGen > 10 THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Error: Number must be between 1 and 10';
-  END IF
-$$
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
@@ -312,7 +292,9 @@ CREATE TABLE IF NOT EXISTS `sims` (
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(40) NOT NULL,
   `gender` varchar(1) NOT NULL,
+  `generation` int(11) NOT NULL DEFAULT 1,
   `age` varchar(30) NOT NULL DEFAULT 'Infant',
+  `lifeState` varchar(25) NOT NULL DEFAULT '''Alive''',
   `aspiration` varchar(30) NOT NULL DEFAULT 'Grow Up',
   `secondAsp` varchar(30) DEFAULT NULL,
   `LTW` varchar(50) DEFAULT NULL,
@@ -331,13 +313,13 @@ CREATE TABLE IF NOT EXISTS `sims` (
 -- Dumping data for table `sims`
 --
 
-INSERT INTO `sims` (`id`, `userID`, `hhID`, `firstName`, `lastName`, `gender`, `age`, `aspiration`, `secondAsp`, `LTW`, `starSign`, `neatPoints`, `outgoingPoints`, `activePoints`, `playfulPoints`, `nicePoints`) VALUES
-(1, 1, 1, 'Crimson', 'Aurora', 'M', 'Adult', 'Wealth', 'Popularity', NULL, 'Aquarius', 4, 4, 4, 7, 6),
-(2, 1, 1, 'Amber', 'Aurora', 'F', 'Teen', 'Family', 'Knowledge', NULL, 'Gemini', 4, 10, 10, 1, 10),
-(3, 1, 1, 'Ginger', 'Aurora', 'M', 'Teen', 'Knowledge', 'Family', NULL, 'Capricorn', 10, 2, 6, 10, 7),
-(4, 1, 2, 'Hunter', 'Garland', 'M', 'Elder', 'Knowledge', 'Wealth', NULL, 'Cancer', 7, 4, 5, 5, 10),
-(5, 1, 2, 'Sapphire', 'Garland', 'F', 'Young Adult', 'Knowledge', 'Wealth', NULL, 'Sagittarius', 8, 0, 10, 10, 0),
-(6, 1, 2, 'Sky', 'Garland', 'M', 'Young Adult', 'Pleasure', 'Knowledge', NULL, 'Libra', 6, 10, 5, 4, 10);
+INSERT INTO `sims` (`id`, `userID`, `hhID`, `firstName`, `lastName`, `gender`, `generation`, `age`, `lifeState`, `aspiration`, `secondAsp`, `LTW`, `starSign`, `neatPoints`, `outgoingPoints`, `activePoints`, `playfulPoints`, `nicePoints`) VALUES
+(1, 1, 1, 'Crimson', 'Aurora', 'M', 1, 'Adult', 'Alive', 'Wealth', 'Popularity', NULL, 'Aquarius', 4, 4, 4, 7, 6),
+(2, 1, 1, 'Amber', 'Aurora', 'F', 2, 'Teen', 'Alive', 'Family', 'Knowledge', NULL, 'Gemini', 4, 10, 10, 1, 10),
+(3, 1, 1, 'Ginger', 'Aurora', 'M', 2, 'Teen', 'Alive', 'Knowledge', 'Family', NULL, 'Capricorn', 10, 2, 6, 10, 7),
+(4, 1, 2, 'Hunter', 'Garland', 'M', 1, 'Elder', 'Alive', 'Knowledge', 'Wealth', NULL, 'Cancer', 7, 4, 5, 5, 10),
+(5, 1, 2, 'Sapphire', 'Garland', 'F', 2, 'Young Adult', 'Alive', 'Knowledge', 'Wealth', NULL, 'Sagittarius', 8, 0, 10, 10, 0),
+(6, 1, 2, 'Sky', 'Garland', 'M', 2, 'Young Adult', 'Alive', 'Pleasure', 'Knowledge', NULL, 'Libra', 6, 10, 5, 4, 10);
 
 -- --------------------------------------------------------
 
@@ -363,6 +345,38 @@ INSERT INTO `tmp` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `usercolour`
+--
+
+DROP TABLE IF EXISTS `usercolour`;
+CREATE TABLE IF NOT EXISTS `usercolour` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `challengeID` int(11) NOT NULL,
+  `generation` int(11) NOT NULL,
+  `colour` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usercolour`
+--
+
+INSERT INTO `usercolour` (`id`, `userID`, `challengeID`, `generation`, `colour`) VALUES
+(1, 1, 2, 1, 'Green'),
+(2, 1, 2, 2, 'Blue'),
+(3, 1, 2, 3, 'Purple'),
+(4, 1, 2, 4, 'Pink'),
+(5, 1, 2, 5, 'Red'),
+(6, 1, 2, 6, 'Brown'),
+(7, 1, 2, 7, 'Orange'),
+(8, 1, 2, 8, 'Yellow'),
+(9, 1, 2, 9, 'Black'),
+(10, 1, 2, 10, 'White');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -383,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created`, `lastLogin`) VALUES
-(1, 'Sam', 'samgoacher79@gmail.com', '$2y$10$Q3X1fSZ9fNE.rQR.umUg3u159vu4gCdnps52JP0lO9Ln7.uJum1GS', 'Admin', '2018-10-30 06:41:56', NULL);
+(1, 'Sam', 'samgoacher79@gmail.com', '$2y$10$Q3X1fSZ9fNE.rQR.umUg3u159vu4gCdnps52JP0lO9Ln7.uJum1GS', 'Admin', '2018-10-30 06:41:56', '2019-02-18 09:22:26');
 
 --
 -- Constraints for dumped tables

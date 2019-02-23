@@ -4,9 +4,10 @@
 			<thead>
 			<tr>
 				<th scope="col">Household</th>
-				<th scope="col">First Name</th>
-				<th scope="col">Last Name</th>
+				<th scope="col">Name</th>
 				<th scope="col">Age</th>
+				<th scope="col">Life State</th>
+				<th scope="col">Gender</th>
 				<th scope="col">Action</th>
 			</tr>
 			</thead>
@@ -18,9 +19,20 @@
 						<tr>
 							<td>{{ trim(@household.name) }}</td>
 							<td>{{ trim(@sim.firstName) }}</td>
-							<td>{{ trim(@sim.lastName) }}</td>
 							<td>{{ trim(@sim.age) }}</td>
-							<td><a href="{{ @BASE.'/sim/update/'. @sim.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+							<td>{{ trim(@sim.lifeState) }}</td>
+							<td>
+							<check if="{{ @sim.gender == 'M' }}">
+								<true>
+								Male
+								</true>
+								<false>
+								Female
+								</false>
+							</check>
+							</td>
+							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 								<a href="{{ @BASE.'/sim/delete/'. @sim.id }}"
 								   data-toggle="confirmation"
 								   data-content="All sim data will be deleted."

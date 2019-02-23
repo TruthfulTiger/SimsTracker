@@ -15,6 +15,7 @@ class ChallengeController extends Controller {
 
 	public function index()
 	{
+		$this->f3->clear('SESSION.challenge');
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->f3->set('households',$this->household->getByUser($userID));
 		$this->f3->set('hoods',$this->hood->getByUser($userID));
