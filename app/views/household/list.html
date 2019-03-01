@@ -1,10 +1,11 @@
 <check if="{{ @households }}">
 	<true>
-		<table width="600" cellpadding="5" class="table table-hover table-bordered">
+		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
 			<thead>
 			<tr>
 				<th scope="col">Name</th>
 				<th scope="col">Neighbourhood</th>
+				<th scope="col">Game Version</th>
 				<th scope="col">Sims in household</th>
 				<th scope="col">Net worth</th>
 				<th scope="col">Family friends</th>
@@ -19,6 +20,7 @@
 				<tr>
 					<td>{{ trim(@household.name) }}</td>
 					<td>{{ trim(@hood.name) }}</td>
+					<td>{{ trim(@hood.gameVersion) }}</td>
 					<check if="{{ @household.sims > 0 }}">
 					<true>
 						<td>{{ trim(@household.sims) }}</td>

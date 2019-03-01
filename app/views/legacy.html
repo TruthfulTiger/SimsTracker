@@ -2,7 +2,7 @@
 <form method="post" name="legacyscores" validate="true" action="{{ @BASE }}/s2legacy/update/{{ @SESSION.challenge }}">
     <div class="row">
             <div class="col-3">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="nav flex-column nav-pills pl-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-summary-tab" data-toggle="pill" href="#v-pills-summary" role="tab" aria-controls="v-pills-summary" aria-selected="true">Summary</a>
                     <repeat group="{{ @legacycats }}" key="{{ @lkey }}" value="{{ @cat }}">
                             <a class="nav-link" onclick="negText()" id="v-pills-{{ @lkey }}-tab" data-toggle="pill" href="#v-pills-{{ @lkey }}" role="tab" aria-controls="v-pills-{{ @lkey }}" aria-selected="false">{{ @cat }}</a>

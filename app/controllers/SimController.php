@@ -2,11 +2,15 @@
 class SimController extends Controller {
 	private $sim;
 	private $household;
+    private $hood;
+    private $version;
 
 	public function __construct() {
 		parent::__construct();
 		$this->sim = new Sim($this->db);
 		$this->household = new Household($this->db);
+        $this->hood = new Hood($this->db);
+        $this->version = $this->f3->set('SESSION.version', $this->hood->gameVersion);
 	}
 
 	public function index()

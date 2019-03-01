@@ -27,6 +27,7 @@
 				>Male</option>
 			</select>
 		</div>
+
 		<div class="form-group col">
 			<label for="age">Age</label>
 			<select class="custom-select" required="required" name="age" id="age">
@@ -40,6 +41,38 @@
 			</select>
 		</div>
 	</div>
+
+    <div class="form-group">
+        <label for="origin">Origin</label>
+        <select class="custom-select" name="origin" required="required" id="origin">
+            <option>-- Where does this sim come from? --</option>
+            <option value="cas"
+            <check if="{{ @sim.origin == 'cas'}}">
+                selected
+            </check>
+            >CAS</option>
+            <option value="big"
+            <check if="{{ @sim.origin == 'big'}}">
+                selected
+            </check>
+            >Born in-game</option>
+            <option value="npc"
+            <check if="{{ @sim.origin == 'npc'}}">
+                selected
+            </check>
+            >NPC</option>
+            <option value="townie"
+            <check if="{{ @sim.origin == 'townie'}}">
+                selected
+            </check>
+            >Townie</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="genshow" style="display: none;">
+        <label for="generation">What generation is this sim?</label>
+        <input type="number" class="form-control" value="{{ @sim.generation }}" name="generation" id="generation" />
+    </div>
 
 	<div class="form-row">
 		<div class="form-group col">
@@ -72,10 +105,241 @@
 	</div>
 
 		<p>
+			<a class="btn btn-primary" data-toggle="collapse" href="#s2character" role="button" aria-expanded="false" aria-controls="s2character">
+				Character
+			</a>
+			<a class="btn btn-primary" data-toggle="collapse" href="#s2lifeStates" role="button" aria-expanded="false" aria-controls="s2lifeStates">
+				Life states & supernatural
+			</a>
 			<a class="btn btn-primary" data-toggle="collapse" href="#s2personality" role="button" aria-expanded="false" aria-controls="s2personality">
 				Personality
 			</a>
 		</p>
+	<div class="collapse mb-3" id="s2character">
+		<div class="card card-body">
+			<div class="form-row">
+				<div class="col text-center">
+					<h5 class="mb-3 text-primary">Genetics</h5>
+					<div class="form-group">
+						<label for="skintone">Skintone</label>
+						<select class="custom-select" name="skintone" id="skintone">
+							<option value="">-- None --</option>
+							<repeat group="{{ @skintones }}" value="{{ @skin }}">
+								<option value="{{ @skin }}"
+								<check if="{{ @sim.skintone == @skin}}">
+									selected
+								</check>
+								>{{ @skin }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="form-group">
+					<label for="hair">Hair colour</label>
+					<select class="custom-select" name="hair" id="hair">
+						<option value="">-- None --</option>
+						<repeat group="{{ @haircolours }}" value="{{ @hair }}">
+							<option value="{{ @hair }}"
+							<check if="{{ @sim.hair == @hair}}">
+								selected
+							</check>
+							>{{ @hair }}</option>
+						</repeat>
+					</select>
+				</div>
+					<div class="form-group">
+						<label for="eyes">Eye colour</label>
+						<select class="custom-select" name="eyes" id="eyes">
+							<option value="">-- None --</option>
+							<repeat group="{{ @eyecolours }}" value="{{ @eyes }}">
+								<option value="{{ @eyes }}"
+								<check if="{{ @sim.eyes == @eyes}}">
+									selected
+								</check>
+								>{{ @eyes }}</option>
+							</repeat>
+						</select>
+					</div>
+				</div>
+
+				<div class="col text-center">
+					<h5 class="mb-3 text-primary">Chemistry</h5>
+					<div class="form-group">
+						<label for="turnon1">Turn-on 1</label>
+						<select class="custom-select" name="turnon1" id="turnon1">
+							<option value="">-- None --</option>
+							<repeat group="{{ @turnons }}" value="{{ @to }}">
+								<option value="{{ @to }}"
+								<check if="{{ @sim.turnon1 == @to}}">
+									selected
+								</check>
+								>{{ @to }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="turnon2">Turn-on 2</label>
+						<select class="custom-select" name="turnon2" id="turnon2">
+							<option value="">-- None --</option>
+							<repeat group="{{ @turnons }}" value="{{ @to }}">
+								<option value="{{ @to }}"
+								<check if="{{ @sim.turnon2 == @to}}">
+									selected
+								</check>
+								>{{ @to }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="turnon1">Turn-off</label>
+						<select class="custom-select" name="turnoff" id="turnoff">
+							<option value="">-- None --</option>
+							<repeat group="{{ @turnons }}" value="{{ @to }}">
+								<option value="{{ @to }}"
+								<check if="{{ @sim.turnoff == @to}}">
+									selected
+								</check>
+								>{{ @to }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="preference">Gender Preference</label>
+						<select class="custom-select" name="preference" id="preference">
+							<option value="">-- None --</option>
+							<option value="Males"
+							<check if="{{ @sim.preference == 'Males'}}">
+								selected
+							</check>
+							>Males</option>
+							<option value="Females"
+							<check if="{{ @sim.preference == 'Females'}}">
+								selected
+							</check>
+							>Females</option>
+							<option value="Both"
+							<check if="{{ @sim.preference == 'Both'}}">
+								selected
+							</check>
+							>Both</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="collapse mb-3" id="s2lifeStates">
+		<div class="card card-body">
+			<h5>Life and death details</h5>
+			<div class="form-group">
+				<label for="lifeState">Life state</label>
+				<select class="custom-select" name="lifeState" id="lifeState">
+					<option value="Alive"
+					<check if="{{ @sim.lifeState == 'Alive'}}">
+						selected
+					</check>
+					>Alive</option>
+					<option value="Deceased"
+					<check if="{{ @sim.lifeState == 'Deceased'}}">
+						selected
+					</check>
+					>Deceased</option>
+				</select>
+			</div>
+
+			<div class="form-group" id="deathshow" style="display: none;">
+				<label for="death">Cause of death</label>
+				<select class="custom-select" name="death" id="death">
+					<option value="">-- None --</option>
+					<repeat group="{{ @ghosts }}" value="{{ @death }}">
+						<option value="{{ @death }}"
+						<check if="{{ @sim.death == @death}}">
+							selected
+						</check>
+						>{{ @death }}</option>
+					</repeat>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<h5>Supernatural traits</h5>
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" disabled id="ghost" value="1" class="custom-control-input"
+					<check if="{{ @sim.lifeState == 'Deceased'}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="ghost"><img src="{{@BASE}}{{@s2path}}ghost.png" height="64" alt="Ghost"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isAlien" value="1" name="isAlien" class="custom-control-input"
+					<check if="{{ @sim.isAlien == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isAlien"><img src="{{@BASE}}{{@s2path}}ufo.png" height="64" alt="Alien"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isZombie" value="1" name="isZombie" class="custom-control-input"
+					<check if="{{ @sim.isZombie == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" alt="Zombie"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isVampire" value="1" name="isVampire" class="custom-control-input"
+					<check if="{{ @sim.isVampire == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" alt="Vampire"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isServo" value="1" name="isServo" class="custom-control-input"
+					<check if="{{ @sim.isServo == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" alt="Servo"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isWerewolf" value="1" name="isWerewolf" class="custom-control-input"
+					<check if="{{ @sim.isWerewolf == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" alt="Werewolf"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isPlantSim" value="1" name="isPlantSim" class="custom-control-input"
+					<check if="{{ @sim.isPlantSim == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" alt="PlantSim"></label>
+				</div>
+
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isWitch" value="1" name="isWitch" class="custom-control-input"
+					<check if="{{ @sim.isWitch == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" alt="Witch"></label>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
 		<div class="collapse mb-3" id="s2personality">
 			<div class="card card-body">
 				<div class="form-row">
@@ -221,44 +485,56 @@
 <script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
 <script>
 	$(function () {
-		document.querySelector('#nP').value = {;
-		{
-			trim(@sim.neatPoints)
-		}
-	}
-		document.querySelector('#oP').value = {;
-		{
-			trim(@sim.outgoingPoints)
-		}
-	}
-		document.querySelector('#aP').value = {;
-		{
-			trim(@sim.activePoints)
-		}
-	}
-		document.querySelector('#pP').value = {;
-		{
-			trim(@sim.playfulPoints)
-		}
-	}
-		document.querySelector('#ncP').value = {;
-		{
-			trim(@sim.nicePoints)
-		}
-	}
+		document.querySelector('#nP').value = {;{trim(@sim.neatPoints)}}
+		document.querySelector('#oP').value = {;{trim(@sim.outgoingPoints)}}
+		document.querySelector('#aP').value = {;{trim(@sim.activePoints)}}
+		document.querySelector('#pP').value = {;{trim(@sim.playfulPoints)}}
+		document.querySelector('#ncP').value = {;{trim(@sim.nicePoints)}}
 		let asp = $('#aspiration').children("option:selected").val();
 		$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
 			.siblings().removeAttr('disabled');
 		aspCheck();
+        genshow();
+		deathshow();
 		$('#age').change(function () {
 			aspCheck();
+		});
+		$('#lifeState').change(function () {
+			deathshow();
 		});
 		$('#aspiration').change(function () {
 			asp = $('#aspiration').children("option:selected").val();
 			$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
 				.siblings().removeAttr('disabled');
 		});
+		$("#origin").change(function () {
+            genshow();
+        });
 	});
+
+	function genshow() {
+	    if ($("#origin").val() === "big") {
+            $( "#genshow" ).show();
+        }
+	    else {
+            $( "#genshow" ).hide();
+        }
+        if ($("#origin").val() === "cas")
+            $("#generation").val(1);
+        if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
+            $("#generation").val(0);
+    }
+
+	function deathshow() {
+		if ($("#lifeState").val() === "Deceased") {
+			$( "#deathshow" ).show();
+			$("#ghost").prop('checked', true);
+		}
+		else {
+			$( "#deathshow" ).hide();
+			$("#ghost").prop('checked', false);
+		}
+	}
 
 	function aspCheck() {
 		switch ($( "#age" ).val()) {

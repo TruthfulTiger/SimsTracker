@@ -20,6 +20,17 @@
 		</div>
 
 			<div class="form-group">
+				<label for="origin">Origin</label>
+				<select class="custom-select" name="origin" required="required" id="origin">
+					<option>-- Where does this sim come from? --</option>
+					<option value="cas">CAS</option>
+					<option value="big">Born in-game</option>
+					<option value="npc">NPC</option>
+					<option value="townie">Townie</option>
+				</select>
+			</div>
+
+			<div class="form-group">
 				<label for="age">Age</label>
 				<select class="custom-select" required="required" name="age" id="age">
 					<repeat group="{{ @ages }}" value="{{ @age }}">
@@ -40,6 +51,7 @@
 			<div class="control-group">
 				<div class="">
 					<input type="text" name="hptrap" class="hptrap" />
+					<input type="hidden" name="generation" id="generation" value="" />
 					<input type="hidden" name="hhID" value="{{ @hhID }}" />
 					<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
 					<input type="hidden" name="create" value="create" />
@@ -76,11 +88,23 @@
 				$('#url').attr("href","{{ @BASE.'/household/create/' }}");
 			}
 		});
-
+		genshow();
 		$('#age').change(function () {
 			aspCheck();
 		});
+		$("#origin").change(function () {
+			genshow();
+		});
 	});
+
+	function genshow() {
+		if ($("#origin").val() === "big")
+			$("#generation").val(2);
+		if ($("#origin").val() === "cas")
+			$("#generation").val(1);
+		if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
+			$("#generation").val(0);
+	}
 
 	function aspCheck() {
 		switch ($( "#age" ).val()) {

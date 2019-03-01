@@ -5,6 +5,7 @@ $f3 = Base::instance();
 \Assets::instance();
 $f3->set('copyyear', date("Y"));
 $f3->config('config/globals.cfg');
+$f3->config('config/games.cfg');
 $f3->config('config/menus.cfg');
 $f3->config('config/routes.cfg');
 

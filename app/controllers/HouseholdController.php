@@ -2,11 +2,13 @@
 class HouseholdController extends Controller {
 	private $household;
 	private $hood;
+	private $version;
 
 	public function __construct() {
 		parent::__construct();
 		$this->household = new Household($this->db);
 		$this->hood = new Hood($this->db);
+		$this->version = $this->f3->set('SESSION.version', $this->hood->gameVersion);
 	}
 
 

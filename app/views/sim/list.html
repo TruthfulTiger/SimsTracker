@@ -1,6 +1,6 @@
 <check if="{{ @sims }}">
 	<true>
-		<table width="600" cellpadding="5" class="table table-hover table-bordered">
+		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
 			<thead>
 			<tr>
 				<th scope="col">Household</th>
@@ -36,6 +36,7 @@
 								<a href="{{ @BASE.'/sim/delete/'. @sim.id }}"
 								   data-toggle="confirmation"
 								   data-content="All sim data will be deleted."
+								   data-popout="true"
 								   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
 									Delete</a></td>
 						</tr>

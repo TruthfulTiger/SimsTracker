@@ -2,74 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0348334-cbe1-4ab7-ba86-0bcc6323d545" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/LegacyGenController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/UserColourController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/LegacyGen.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/UserColour.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/colour/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/colour/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/colour/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/sim/view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/js/colorpalettepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/games.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/images/sims2/ghost.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/images/sims2/ufo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuthenticateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthenticateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ChallengeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ChallengeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/HouseholdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HouseholdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/S2LegacyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/S2LegacyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/SimController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/SimController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/S2Legacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/S2Legacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/challenges/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/challenges/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/colour/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/colour/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/hood/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hood/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/hood/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hood/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/household/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/household/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/household/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/household/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/legacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/legacyscores/core.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacyscores/core.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/legacyscores/overflow.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacyscores/overflow.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/legacyscores/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacyscores/summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/sim/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/sim/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/sim/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/globals.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/globals.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/legacy.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/legacy.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playwithdolls.sql" beforeDir="false" afterPath="$PROJECT_DIR$/playwithdolls.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.1yglzs6064g00.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.2ca9vu36z1nok.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.2sn67auoftmo4.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.2yc3s8k49vi84.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.46i5saeupspfagtaqdapbvr64b.@" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.9v3b106dkh1b.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.b22m3l5p88fit2dfeqia9ktubd.@" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.ht7od44ikbesfdln8kh1feoqut.@" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/hml3nma0n86i.po5b9po63sz8.schema" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1abxyqw0frjyx.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1b70p6w3k7n0w.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1cbklmndqqe27.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1egc58y81hlym.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1gql88bo6v4me.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1i5ms84d6kzsw.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1lfvvhyyoahm9.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1lx6bo0o8j140.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1q1m5zne2x5p.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1rjn704iuk4ak.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1ymek14lcecgo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.1zaabon9zhk0o.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.20himwbr85i8k.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.26oxueplrgxwc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.271jcvtxb10ko.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.2aqyand4db408.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.2bszook2ti1ws.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.2d2rsxmxti68w.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.2yv1s4bkr5og8.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.30xgw5iyryyo4.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.3kzjj68knpku.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.4qg2ylyqop9j.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.ez2tnji77149.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.f938e557j731.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.j67gk7rlpz1w.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.lq781v6352r9.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.mvxwqnjdyndm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.rzcfgjeybblz.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/hml3nma0n86i.uh1r8qmkfjqo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/css/offcanvas.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/css/offcanvas.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/sims2.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/sims2.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/src/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/src/confirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,20 +64,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/sim/update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            <state relative-caret-position="247">
+              <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/sim/update.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/legacy.cfg">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/sims2.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1403">
-              <caret line="207" column="10" lean-forward="true" selection-start-line="207" selection-start-column="10" selection-end-line="207" selection-end-column="10" />
+            <state relative-caret-position="-816">
+              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/js/aspgen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="466" column="22" lean-forward="true" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -141,6 +126,7 @@
       <find>selec</find>
       <find>session</find>
       <find>simID</find>
+      <find>table</find>
     </findStrings>
   </component>
   <component name="Git.Rebase.Settings">
@@ -153,45 +139,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/hood/update.html" />
-        <option value="$PROJECT_DIR$/app/views/hood/create.html" />
-        <option value="$PROJECT_DIR$/app/views/challenges/update.html" />
-        <option value="$PROJECT_DIR$/app/views/challenges/list.html" />
-        <option value="$PROJECT_DIR$/app/views/challenges/create.html" />
-        <option value="$PROJECT_DIR$/app/views/mainmenu.html" />
-        <option value="$PROJECT_DIR$/app/views/main.html" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/app/views/error.html" />
-        <option value="$PROJECT_DIR$/ui/js/aspgen.js" />
-        <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/app/views/footer.html" />
-        <option value="$PROJECT_DIR$/app/views/header.html" />
-        <option value="&lt;80941385-c7ee-45de-a3c7-61b955ef0c05&gt;/simstracker.samgoacher.co.uk/htdocs/.htaccess" />
         <option value="&lt;80941385-c7ee-45de-a3c7-61b955ef0c05&gt;/yadvt.samgoacher.co.uk/htdocs/.htaccess" />
         <option value="$PROJECT_DIR$/app/views/login.html" />
         <option value="$PROJECT_DIR$/app/controllers/AuthenticateController.php" />
-        <option value="$PROJECT_DIR$/app/views/user/list.html" />
-        <option value="$PROJECT_DIR$/app/views/household/update.html" />
-        <option value="$PROJECT_DIR$/app/controllers/HouseholdController.php" />
-        <option value="$PROJECT_DIR$/app/views/household/list.html" />
-        <option value="$PROJECT_DIR$/app/models/Hood.php" />
         <option value="$PROJECT_DIR$/app/models/Generation.php" />
-        <option value="$PROJECT_DIR$/app/views/sim/list.html" />
         <option value="$PROJECT_DIR$/app/views/sim/view.html" />
-        <option value="$PROJECT_DIR$/app/controllers/SimController.php" />
         <option value="$PROJECT_DIR$/app/controllers/HoodController.php" />
         <option value="$PROJECT_DIR$/config/legacy.cfg" />
-        <option value="$PROJECT_DIR$/config/globals.cfg" />
         <option value="$PROJECT_DIR$/app/models/UserColour.php" />
         <option value="$PROJECT_DIR$/app/views/colour/create.html" />
         <option value="$PROJECT_DIR$/app/views/colour/update.html" />
         <option value="$PROJECT_DIR$/ui/css/sticky-footer-navbar.css" />
-        <option value="$PROJECT_DIR$/app/views/colour/list.html" />
         <option value="$PROJECT_DIR$/ui/css/offcanvas.css" />
         <option value="$PROJECT_DIR$/app/controllers/UserColourController.php" />
-        <option value="$PROJECT_DIR$/app/views/hood/list.html" />
-        <option value="&lt;80941385-c7ee-45de-a3c7-61b955ef0c05&gt;/simstracker.samgoacher.co.uk/htdocs/config/globals.cfg" />
         <option value="$PROJECT_DIR$/playwithdolls.sql" />
         <option value="$PROJECT_DIR$/app/views/legacyscores/core.html" />
         <option value="$PROJECT_DIR$/app/models/User.php" />
@@ -199,10 +159,36 @@
         <option value="$PROJECT_DIR$/app/models/S2Legacy.php" />
         <option value="$PROJECT_DIR$/app/controllers/ChallengeController.php" />
         <option value="$PROJECT_DIR$/app/controllers/S2LegacyController.php" />
-        <option value="$PROJECT_DIR$/app/views/legacy.html" />
         <option value="$PROJECT_DIR$/app/controllers/LegacyGenController.php" />
         <option value="$PROJECT_DIR$/config/routes.cfg" />
+        <option value="$PROJECT_DIR$/app/views/footer.html" />
+        <option value="$PROJECT_DIR$/app/views/header.html" />
+        <option value="$PROJECT_DIR$/app/views/user/list.html" />
+        <option value="$PROJECT_DIR$/app/views/about.html" />
+        <option value="$PROJECT_DIR$/app/views/challenges/list.html" />
         <option value="$PROJECT_DIR$/app/views/legacyscores/summary.html" />
+        <option value="$PROJECT_DIR$/app/views/colour/list.html" />
+        <option value="$PROJECT_DIR$/app/views/legacyscores/overflow.html" />
+        <option value="$PROJECT_DIR$/app/views/legacy.html" />
+        <option value="$PROJECT_DIR$/app/views/home.html" />
+        <option value="$PROJECT_DIR$/app/views/sim/create.html" />
+        <option value="&lt;80941385-c7ee-45de-a3c7-61b955ef0c05&gt;/simstracker.samgoacher.co.uk/htdocs/.htaccess" />
+        <option value="$PROJECT_DIR$/app/views/sim/list.html" />
+        <option value="$PROJECT_DIR$/app/views/hood/create.html" />
+        <option value="$PROJECT_DIR$/app/views/hood/update.html" />
+        <option value="$PROJECT_DIR$/app/views/hood/list.html" />
+        <option value="$PROJECT_DIR$/config/globals.cfg" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="&lt;80941385-c7ee-45de-a3c7-61b955ef0c05&gt;/simstracker.samgoacher.co.uk/htdocs/config/globals.cfg" />
+        <option value="$PROJECT_DIR$/app/models/Household.php" />
+        <option value="$PROJECT_DIR$/app/models/Hood.php" />
+        <option value="$PROJECT_DIR$/app/views/household/list.html" />
+        <option value="$PROJECT_DIR$/app/controllers/HouseholdController.php" />
+        <option value="$PROJECT_DIR$/app/views/household/create.html" />
+        <option value="$PROJECT_DIR$/app/controllers/SimController.php" />
+        <option value="$PROJECT_DIR$/app/views/household/update.html" />
+        <option value="$PROJECT_DIR$/config/games.cfg" />
+        <option value="$PROJECT_DIR$/config/sims2.cfg" />
         <option value="$PROJECT_DIR$/app/views/sim/update.html" />
       </list>
     </option>
@@ -278,6 +264,27 @@
             <path>
               <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="hood" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="household" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="sim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,18 +296,20 @@
               <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="fonts" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="sims2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -326,7 +335,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -428,6 +437,9 @@
       <workItem from="1550430988844" duration="58559000" />
       <workItem from="1550778941338" duration="15911000" />
       <workItem from="1550872422316" duration="13445000" />
+      <workItem from="1551368222618" duration="2887000" />
+      <workItem from="1551452105477" duration="7342000" />
+      <workItem from="1551459511663" duration="11091000" />
     </task>
     <task id="LOCAL-00001" summary="Is it working this time?">
       <created>1543237880310</created>
@@ -447,15 +459,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="630466000" />
+    <option name="totallyTimeSpent" value="651786000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16687042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Unicode Browser" order="2" weight="0.32885087" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292978" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3292978" />
@@ -467,17 +481,17 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989154" weight="0.32818073" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989154" weight="0.32792208" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5026399" side_tool="true" weight="0.3091119" />
-      <window_info anchor="bottom" id="Flow" order="13" weight="0.3292978" />
+      <window_info anchor="bottom" id="Flow" order="13" weight="0.32900432" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32936978" />
-      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49736008" visible="true" weight="0.3091119" />
+      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49736008" visible="true" weight="0.30844155" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32935917" />
       <window_info anchor="right" id="Json Parser" order="4" weight="0.32935917" />
-      <window_info anchor="right" id="Remote Host" order="5" weight="0.25427872" />
+      <window_info anchor="right" id="Remote Host" order="5" visible="true" weight="0.25426438" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16687042" />
@@ -518,223 +532,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Is it working this time?" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/menus.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="16" column="49" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hood/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="52" column="98" selection-start-line="52" selection-start-column="98" selection-end-line="52" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Hood.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/household/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/household/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Generation.php" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/HouseholdController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sim/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="6" column="545" selection-start-line="6" selection-start-column="545" selection-end-line="6" selection-end-column="545" />
-          <folding>
-            <element signature="e#120#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sim/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="51" selection-start-line="51" selection-end-line="51" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/legacy.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17250" column="17" selection-start-line="17250" selection-start-column="17" selection-end-line="17250" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/js/colorpalettepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/globals.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/bv.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="78" column="47" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/SimController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="59" column="12" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/challenges/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/challenges/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="40" column="78" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/colour/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/css/sticky-footer-navbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Challenge.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HoodController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/css/offcanvas.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/UserColour.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/challenges/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hood/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -749,20 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hood/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/colour/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -784,13 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="293" column="31" lean-forward="true" selection-start-line="293" selection-start-column="31" selection-end-line="293" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/core.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -820,13 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/legacy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/LegacyGenController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
@@ -848,31 +621,263 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/summary.html">
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/css/sticky-footer-navbar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="597" column="9" lean-forward="true" selection-start-line="597" selection-start-column="9" selection-end-line="597" selection-end-column="9" />
+        <state relative-caret-position="270">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/S2LegacyController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/user/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        <state>
+          <caret column="64" selection-start-column="64" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/challenges/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="83" column="23" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/core.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/colour/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="84" selection-start-line="2" selection-start-column="84" selection-end-line="2" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/overflow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state>
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mainmenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1122">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sim/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sim/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="109" column="36" lean-forward="true" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/hood/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/hood/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/profile.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/legacy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/legacyscores/summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/S2LegacyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="64" lean-forward="true" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/globals.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HoodController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Hood.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Household.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/household/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/hood/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/household/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="86" selection-start-line="13" selection-start-column="86" selection-end-line="13" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HouseholdController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/household/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="127" selection-start-line="31" selection-start-column="127" selection-end-line="31" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/SimController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/legacy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/games.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/js/aspgen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="466" column="22" lean-forward="true" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/sims2.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/sim/update.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="207" column="10" lean-forward="true" selection-start-line="207" selection-start-column="10" selection-end-line="207" selection-end-column="10" />
+        <state relative-caret-position="247">
+          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
