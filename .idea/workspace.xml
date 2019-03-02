@@ -2,41 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0348334-cbe1-4ab7-ba86-0bcc6323d545" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/games.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/images/sims2/ghost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/images/sims2/ufo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HouseholdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HouseholdController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/SimController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/SimController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/challenges/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/challenges/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/colour/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/colour/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/hood/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hood/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/hood/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hood/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/household/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/household/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/household/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/household/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/legacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/legacyscores/overflow.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacyscores/overflow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/legacyscores/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/legacyscores/summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sim/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sim/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/sim/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sim/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/globals.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/globals.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/sims2.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config/sims2.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/src/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-confirmation2/src/confirmation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,12 +35,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/sim/update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+            <state relative-caret-position="336">
+              <caret line="498" column="18" lean-forward="true" selection-start-line="498" selection-start-column="18" selection-end-line="498" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/SimController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -85,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/sims2.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-816">
+            <state relative-caret-position="966">
               <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
             </state>
           </provider>
@@ -94,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/js/aspgen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="466" column="22" lean-forward="true" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
+            <state relative-caret-position="10718">
+              <caret line="466" column="22" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -185,10 +162,10 @@
         <option value="$PROJECT_DIR$/app/views/household/list.html" />
         <option value="$PROJECT_DIR$/app/controllers/HouseholdController.php" />
         <option value="$PROJECT_DIR$/app/views/household/create.html" />
-        <option value="$PROJECT_DIR$/app/controllers/SimController.php" />
         <option value="$PROJECT_DIR$/app/views/household/update.html" />
         <option value="$PROJECT_DIR$/config/games.cfg" />
         <option value="$PROJECT_DIR$/config/sims2.cfg" />
+        <option value="$PROJECT_DIR$/app/controllers/SimController.php" />
         <option value="$PROJECT_DIR$/app/views/sim/update.html" />
       </list>
     </option>
@@ -305,12 +282,6 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="sims2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SimsTracker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimsTracker" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -335,7 +306,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -439,7 +410,9 @@
       <workItem from="1550872422316" duration="13445000" />
       <workItem from="1551368222618" duration="2887000" />
       <workItem from="1551452105477" duration="7342000" />
-      <workItem from="1551459511663" duration="11091000" />
+      <workItem from="1551459511663" duration="11193000" />
+      <workItem from="1551539172258" duration="590000" />
+      <workItem from="1551539845653" duration="6056000" />
     </task>
     <task id="LOCAL-00001" summary="Is it working this time?">
       <created>1543237880310</created>
@@ -455,17 +428,24 @@
       <option name="project" value="LOCAL" />
       <updated>1546357525500</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Latest update">
+      <created>1551472340915</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551472340915</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="651786000" />
+    <option name="totallyTimeSpent" value="658534000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1748401" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Unicode Browser" order="2" weight="0.32885087" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -485,7 +465,7 @@
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5026399" side_tool="true" weight="0.3091119" />
       <window_info anchor="bottom" id="Flow" order="13" weight="0.32900432" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32936978" />
-      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49736008" visible="true" weight="0.30844155" />
+      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49736008" visible="true" weight="0.30734965" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -529,7 +509,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Is it working this time?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Is it working this time?" />
+    <MESSAGE value="Latest update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/views/challenges/create.html">
@@ -717,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sim/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="109" column="36" lean-forward="true" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/hood/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -825,29 +799,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HouseholdController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/household/update.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="31" column="127" selection-start-line="31" selection-start-column="127" selection-end-line="31" selection-end-column="127" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/SimController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/legacy.cfg">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/games.cfg">
       <provider selected="true" editor-type-id="text-editor">
@@ -856,24 +813,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/js/aspgen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="466" column="22" lean-forward="true" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/config/legacy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/sims2.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
+        <state relative-caret-position="966">
           <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/js/aspgen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10718">
+          <caret line="466" column="22" selection-start-line="466" selection-start-column="22" selection-end-line="466" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sim/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="109" column="36" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HouseholdController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/SimController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/sim/update.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+        <state relative-caret-position="336">
+          <caret line="498" column="18" lean-forward="true" selection-start-line="498" selection-start-column="18" selection-end-line="498" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#!!top" expanded="true" />

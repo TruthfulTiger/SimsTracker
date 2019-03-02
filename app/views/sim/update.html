@@ -3,11 +3,11 @@
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="firstName">First Name</label>
-			<input type="text" required="required" class="form-control" name="firstName" value="{{ @sim.firstName }}" id="firstName" />
+			<input type="text" required="required" class="form-control" name="firstName" value="{{ trim(@sim.firstName) }}" id="firstName" />
 		</div>
 		<div class="form-group col">
 			<label for="lastName">Last Name</label>
-			<input type="text" required="required" class="form-control" name="lastName" value="{{ @sim.lastName }}" id="lastName" />
+			<input type="text" required="required" class="form-control" name="lastName" value="{{ trim(@sim.lastName) }}" id="lastName" />
 		</div>
 	</div>
 
@@ -71,7 +71,7 @@
 
     <div class="form-group" id="genshow" style="display: none;">
         <label for="generation">What generation is this sim?</label>
-        <input type="number" class="form-control" value="{{ @sim.generation }}" name="generation" id="generation" />
+        <input type="number" class="form-control" value="{{ trim(@sim.generation) }}" name="generation" id="generation" />
     </div>
 
 	<div class="form-row">
@@ -113,6 +113,12 @@
 			</a>
 			<a class="btn btn-primary" data-toggle="collapse" href="#s2personality" role="button" aria-expanded="false" aria-controls="s2personality">
 				Personality
+			</a>
+			<a class="btn btn-primary" data-toggle="collapse" href="#s2skills" role="button" aria-expanded="false" aria-controls="s2skills">
+				Skills
+			</a>
+			<a class="btn btn-primary" data-toggle="collapse" href="#s2interests" role="button" aria-expanded="false" aria-controls="s2interests">
+				Interests
 			</a>
 		</p>
 	<div class="collapse mb-3" id="s2character">
@@ -445,8 +451,8 @@
 						</div>
 					</div>
 					<div class="col">
+						<h5 class="text-center text-primary mb-3">Personality Points</h5>
 						<div class="form-group">
-							<h5 class="text-center text-primary mb-3">Personality Points</h5>
 							<label for="neatPoints">Sloppy - Neat:  <output for="neatPoints" id="nP">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.neatPoints) }}" class="form-control-range" name="neatPoints" id="neatPoints" oninput="neatUpdate(value)">
 						</div>
@@ -471,6 +477,41 @@
 		</div>
 	</div>
 
+	<div class="collapse mb-3" id="s2skills">
+		<div class="card card-body">
+			<h5 class="text-center text-primary mb-3">Skills</h5>
+			<div class="form-group">
+				<label for="cooking">Cooking:  <output for="cooking" id="ckP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cooking) }}" class="form-control-range" name="cooking" id="cooking" oninput="cookingUpdate(value)">
+			</div>
+			<div class="form-group">
+				<label for="mechanical">Mechanical:  <output for="mechanical" id="mP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.mechanical) }}" class="form-control-range" name="mechanical" id="mechanical" onchange="mechanicalUpdate(value)">
+			</div>
+			<div class="form-group">
+				<label for="charisma">Charisma:  <output for="charisma" id="chP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.charisma) }}" class="form-control-range" name="charisma" id="charisma" onchange="charismaUpdate(value
+				)">
+			</div>
+			<div class="form-group">
+				<label for="body">Body:  <output for="body" id="bP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.body) }}" class="form-control-range" name="body" id="body" onchange="bodyUpdate(value)">
+			</div>
+			<div class="form-group">
+			<label for="logic">Logic:  <output for="logic" id="lP">1</output></label>
+			<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.logic) }}" class="form-control-range" name="nicePoints" id="logic" onchange="logicUpdate(value)">
+		</div>
+			<div class="form-group">
+				<label for="creativity">Creativity:  <output for="creativity" id="cvP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.creativity) }}" class="form-control-range" name="creativity" id="creativity" onchange="creativityUpdate(value)">
+			</div>
+			<div class="form-group">
+				<label for="cleaning">Cleaning:  <output for="cleaning" id="clP">1</output></label>
+				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cleaning) }}" class="form-control-range" name="cleaning" id="cleaning" onchange="cleaningUpdate(value)">
+			</div>
+		</div>
+	</div>
+
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
@@ -485,11 +526,20 @@
 <script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
 <script>
 	$(function () {
-		document.querySelector('#nP').value = {;{trim(@sim.neatPoints)}}
-		document.querySelector('#oP').value = {;{trim(@sim.outgoingPoints)}}
-		document.querySelector('#aP').value = {;{trim(@sim.activePoints)}}
-		document.querySelector('#pP').value = {;{trim(@sim.playfulPoints)}}
-		document.querySelector('#ncP').value = {;{trim(@sim.nicePoints)}}
+		document.querySelector('#nP').value = {{trim(@sim.neatPoints)}};
+		document.querySelector('#oP').value = {{trim(@sim.outgoingPoints)}};
+		document.querySelector('#aP').value = {{trim(@sim.activePoints)}};
+		document.querySelector('#pP').value = {{trim(@sim.playfulPoints)}};
+		document.querySelector('#ncP').value = {{trim(@sim.nicePoints)}};
+
+		document.querySelector('#ckP').value = {{trim(@sim.cooking)}};
+		document.querySelector('#mP').value = {{trim(@sim.mechanical)}};
+		document.querySelector('#chP').value = {{trim(@sim.charisma)}};
+		document.querySelector('#bP').value = {{trim(@sim.body)}};
+		document.querySelector('#lP').value = {{trim(@sim.logic)}};
+		document.querySelector('#cvP').value = {{trim(@sim.creativity)}};
+		document.querySelector('#clP').value = {{trim(@sim.cleaning)}};
+
 		let asp = $('#aspiration').children("option:selected").val();
 		$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
 			.siblings().removeAttr('disabled');
@@ -513,14 +563,13 @@
 	});
 
 	function genshow() {
-	    if ($("#origin").val() === "big") {
+	    if ($("#origin").val() === "big" || $("#origin").val() === "cas") {
             $( "#genshow" ).show();
+			$("#generation").val({{ trim(@sim.generation) }});
         }
 	    else {
             $( "#genshow" ).hide();
         }
-        if ($("#origin").val() === "cas")
-            $("#generation").val(1);
         if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
             $("#generation").val(0);
     }
@@ -604,6 +653,29 @@
 	function niceUpdate(v) {
 		document.querySelector('#ncP').value = v;
 	}
+
+	function cookingUpdate(v) {
+		document.querySelector('#ckP').value = v;
+	}
+	function mechanicalUpdate(v) {
+		document.querySelector('#mP').value = v;
+	}
+	function charismaUpdate(v) {
+		document.querySelector('#chP').value = v;
+	}
+	function bodyUpdate(v) {
+		document.querySelector('#bP').value = v;
+	}
+	function logicUpdate(v) {
+		document.querySelector('#lP').value = v;
+	}
+	function creativityUpdate(v) {
+		document.querySelector('#cvP').value = v;
+	}
+	function cleaningUpdate(v) {
+		document.querySelector('#clP').value = v;
+	}
+
 	function zodiacPoints(v) {
 		let nP;
 		let oP;

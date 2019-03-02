@@ -85,13 +85,13 @@ class SimController extends Controller {
 			}
 		} else
 		{
-			$this->sim->getById($this->f3->get('PARAMS.id'));
+            $this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {
-				$this->f3->set('sim',$this->sim);
+                $this->f3->set('sim',$this->sim);
 				$this->f3->set('title','Update Sim');
 				$this->f3->set('content','sim/update.html');
-			} else {
+            } else {
 				$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
 				$this->f3->reroute('/sims');
 			}
