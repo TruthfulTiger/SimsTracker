@@ -74,36 +74,7 @@
         <input type="number" class="form-control" value="{{ trim(@sim.generation) }}" name="generation" id="generation" />
     </div>
 
-	<div class="form-row">
-		<div class="form-group col">
-			<label for="aspiration">Aspiration</label>
-			<select class="custom-select" name="aspiration" id="aspiration">
-				<repeat group="{{ @aspirations }}" value="{{ @aspiration }}">
-					<option value="{{ @aspiration }}"
-					<check if="{{ @sim.aspiration == @aspiration}}">
-						selected
-					</check>
-					>{{ @aspiration }}</option>
-				</repeat>
-			</select>
-		</div>
-		<div class="form-group col">
-		<label for="secondAsp">Secondary Aspiration</label>
-		<select class="custom-select" name="secondAsp" id="secondAsp">
-			<option value="">-- None --</option>
-			<repeat group="{{ @aspirations }}" value="{{ @secondAsp }}">
-				<check if="{{ @secondAsp != 'Grow Up' }}">
-					<option value="{{ @secondAsp }}"
-					<check if="{{ @sim.secondAsp == @secondAsp}}">
-						selected
-					</check>
-					>{{ @secondAsp }}</option>
-				</check>
-			</repeat>
-		</select>
-		</div>
-	</div>
-
+		<!-- Buttons -->
 		<p>
 			<a class="btn btn-primary" data-toggle="collapse" href="#s2character" role="button" aria-expanded="false" aria-controls="s2character">
 				Character
@@ -111,17 +82,25 @@
 			<a class="btn btn-primary" data-toggle="collapse" href="#s2lifeStates" role="button" aria-expanded="false" aria-controls="s2lifeStates">
 				Life states & supernatural
 			</a>
-			<a class="btn btn-primary" data-toggle="collapse" href="#s2personality" role="button" aria-expanded="false" aria-controls="s2personality">
+			<a class="btn btn-primary infant" data-toggle="collapse" href="#s2personality" role="button" aria-expanded="false" aria-controls="s2personality">
 				Personality
 			</a>
-			<a class="btn btn-primary" data-toggle="collapse" href="#s2skills" role="button" aria-expanded="false" aria-controls="s2skills">
+			<a class="btn btn-primary infant toddler child" data-toggle="collapse" href="#s2aspirations" role="button" aria-expanded="false" aria-controls="s2aspirations">
+				Aspirations and LTW
+			</a>
+			<a class="btn btn-primary infant" data-toggle="collapse" href="#s2skills" role="button" aria-expanded="false" aria-controls="s2skills">
 				Skills
 			</a>
-			<a class="btn btn-primary" data-toggle="collapse" href="#s2interests" role="button" aria-expanded="false" aria-controls="s2interests">
+			<a class="btn btn-primary infant" data-toggle="collapse" href="#s2interests" role="button" aria-expanded="false" aria-controls="s2interests">
 				Interests
 			</a>
+			<a class="btn btn-primary infant toddler" data-toggle="collapse" href="#s2career" role="button" aria-expanded="false" aria-controls="s2career">
+				<span id="workbtntext">Work</span>
+			</a>
 		</p>
-	<div class="collapse mb-3" id="s2character">
+
+	<div class="accordion" id="simstats"><!-- Sim data accordion -->
+		<div class="collapse mb-3" id="s2character" data-parent="#simstats">
 		<div class="card card-body">
 			<div class="form-row">
 				<div class="col text-center">
@@ -233,8 +212,7 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="collapse mb-3" id="s2lifeStates">
+		<div class="collapse mb-3" id="s2lifeStates" data-parent="#simstats">
 		<div class="card card-body">
 			<h5>Life and death details</h5>
 			<div class="form-group">
@@ -345,8 +323,7 @@
 			</div>
 		</div>
 	</div>
-
-		<div class="collapse mb-3" id="s2personality">
+		<div class="collapse mb-3" id="s2personality" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
 					<div class="col text-center">
@@ -476,42 +453,350 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="collapse mb-3" id="s2skills">
-		<div class="card card-body">
-			<h5 class="text-center text-primary mb-3">Skills</h5>
-			<div class="form-group">
-				<label for="cooking">Cooking:  <output for="cooking" id="ckP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cooking) }}" class="form-control-range" name="cooking" id="cooking" oninput="cookingUpdate(value)">
+		<div class="collapse mb-3" id="s2aspirations" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col text-center">
+						<h5 class="mb-3 text-primary">Aspirations</h5>
+						<div class="form-row">
+							<div class="form-group col">
+								<label for="aspiration">Aspiration</label>
+								<select class="custom-select" name="aspiration" id="aspiration">
+									<repeat group="{{ @aspirations }}" value="{{ @aspiration }}">
+										<option value="{{ @aspiration }}"
+										<check if="{{ @sim.aspiration == @aspiration}}">
+											selected
+										</check>
+										>{{ trim(@aspiration) }}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group col" id="sA">
+								<label for="secondAsp">Secondary Aspiration</label>
+								<select class="custom-select" name="secondAsp" id="secondAsp">
+									<option value="">-- None --</option>
+									<repeat group="{{ @aspirations }}" value="{{ @secondAsp }}">
+										<check if="{{ @secondAsp != 'Grow Up' }}">
+											<option value="{{ @secondAsp }}"
+											<check if="{{ @sim.secondAsp == @secondAsp}}">
+												selected
+											</check>
+											>{{ @secondAsp }}</option>
+										</check>
+									</repeat>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col text-center">
+						<h5 class="mb-3 text-primary">LTW</h5>
+						<div class="form-row">
+							<div class="form-group col">
+								<label for="ltw">Lifetime Want</label>
+								<select class="custom-select" name="ltw" id="ltw">
+									<option value="">-- None --</option>
+									<repeat group="{{ @ltws }}" value="{{ @ltw }}">
+										<option value="{{ @ltw }}"
+										<check if="{{ @sim.LTW == @ltw}}">
+											selected
+										</check>
+										>{{ trim(@ltw) }}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group col"> <!-- LTW counter - only pop up if relevant LTW is chosen, change max value accordingly -->
+								<div class="custom-control custom-checkbox">
+									<label for="ltwctr">Counter</label>
+									<input type="number" class="form-control" id="ltwctr" name="ltwctr" value="{{ @sim.ltwctr}}" min="0">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="mechanical">Mechanical:  <output for="mechanical" id="mP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.mechanical) }}" class="form-control-range" name="mechanical" id="mechanical" onchange="mechanicalUpdate(value)">
-			</div>
-			<div class="form-group">
-				<label for="charisma">Charisma:  <output for="charisma" id="chP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.charisma) }}" class="form-control-range" name="charisma" id="charisma" onchange="charismaUpdate(value
-				)">
-			</div>
-			<div class="form-group">
-				<label for="body">Body:  <output for="body" id="bP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.body) }}" class="form-control-range" name="body" id="body" onchange="bodyUpdate(value)">
-			</div>
-			<div class="form-group">
-			<label for="logic">Logic:  <output for="logic" id="lP">1</output></label>
-			<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.logic) }}" class="form-control-range" name="nicePoints" id="logic" onchange="logicUpdate(value)">
 		</div>
-			<div class="form-group">
-				<label for="creativity">Creativity:  <output for="creativity" id="cvP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.creativity) }}" class="form-control-range" name="creativity" id="creativity" onchange="creativityUpdate(value)">
-			</div>
-			<div class="form-group">
-				<label for="cleaning">Cleaning:  <output for="cleaning" id="clP">1</output></label>
-				<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cleaning) }}" class="form-control-range" name="cleaning" id="cleaning" onchange="cleaningUpdate(value)">
+		<div class="collapse mb-3" id="s2skills" data-parent="#simstats">
+		<div class="card card-body">
+			<div class="form-row">
+				<div class="col">
+					<h5 class="text-center text-primary mb-3">Skills</h5>
+					<div class="form-group">
+						<label for="cooking">Cooking:  <output for="cooking" id="ckP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cooking) }}" class="form-control-range" name="cooking" id="cooking" oninput="cookingUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="mechanical">Mechanical:  <output for="mechanical" id="mP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.mechanical) }}" class="form-control-range" name="mechanical" id="mechanical" oninput="mechanicalUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="charisma">Charisma:  <output for="charisma" id="chP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.charisma) }}" class="form-control-range" name="charisma" id="charisma" oninput="charismaUpdate(value
+				)">
+					</div>
+					<div class="form-group">
+						<label for="body">Body:  <output for="body" id="bP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.body) }}" class="form-control-range" name="body" id="body" oninput="bodyUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="logic">Logic:  <output for="logic" id="lP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.logic) }}" class="form-control-range" name="logic" id="logic" oninput="logicUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="creativity">Creativity:  <output for="creativity" id="cvP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.creativity) }}" class="form-control-range" name="creativity" id="creativity" oninput="creativityUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="cleaning">Cleaning:  <output for="cleaning" id="clP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cleaning) }}" class="form-control-range" name="cleaning" id="cleaning" oninput="cleaningUpdate(value)">
+					</div>
+				</div>
+				<div class="col">
+					<h5 class="text-center text-primary mb-3">Badges</h5>
+					<div class="form-row">
+						<div class="col">
+							<div class="form-group">
+								<label>Cosmetology <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="makeup" id="makeup">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.makeup == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Flower arranging <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="flowers" id="flowers">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.flowers == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Cashiering <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="cashier" id="cashier">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.cashier == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Restocking <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="restocking" id="restocking">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.restocking == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Robotics <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="robotics" id="robotics">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.robotics == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Toy making <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="toysbadge" id="toysbadge">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.toysbadge == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>Sales <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+								<select class="custom-select" name="sales" id="sales">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.sales == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Gardening <img src="{{@BASE}}{{@s2path}}Seasons.png" alt="Needs Seasons"></label>
+								<select class="custom-select" name="gardening" id="gardening">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.gardening == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Fishing <img src="{{@BASE}}{{@s2path}}Seasons.png" alt="Needs Seasons"></label>
+								<select class="custom-select" name="fishing" id="fishing">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.fishing == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Sewing <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+								<select class="custom-select" name="sewing" id="sewing">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.sewing == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Pottery <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+								<select class="custom-select" name="pottery" id="pottery">
+									<option value="">Not earned</option>
+									<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+										<option value="{{@level}}"
+										<check if="{{ @sim.pottery == @level}}">
+											selected
+										</check>
+										>{{trim(@levelName)}}</option>
+									</repeat>
+								</select>
+							</div>
+						</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+		<div class="collapse mb-3" id="s2interests" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="text-center text-primary mb-3">Interests</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+						<label for="environment">Environment:  <output for="environment" id="env">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.environment) }}" class="form-control-range" name="environment" id="environment" oninput="envUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="weather">Weather:  <output for="weather" id="wth">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.weather) }}" class="form-control-range" name="weather" id="weather" oninput="weatherUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="money">Money:  <output for="money" id="mny">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.money) }}" class="form-control-range" name="money" id="money" oninput="moneyUpdate(value
+				)">
+					</div>
+						<div class="form-group">
+						<label for="paranormal">Paranormal:  <output for="paranormal" id="para">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.paranormal) }}" class="form-control-range" name="paranormal" id="paranormal" oninput="paraUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="fashion">Fashion:  <output for="fashion" id="fash">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fashion) }}" class="form-control-range" name="fashion" id="fashion" oninput="fashUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="crime">Crime:  <output for="crime" id="crim">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.crime) }}" class="form-control-range" name="crime" id="crime" oninput="crimeUpdate(value)">
+					</div>
 
+					</div>
+					<div class="col">
+						<div class="form-group">
+						<label for="food">Food:  <output for="food" id="fudz">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.food) }}" class="form-control-range" name="food" id="food" oninput="foodUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="culture">Culture:  <output for="culture" id="clt">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.culture) }}" class="form-control-range" name="culture" id="culture" oninput="cultureUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="politics">Politics:  <output for="politics" id="pols">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.politics) }}" class="form-control-range" name="politics" id="politics" oninput="polsUpdate(value
+				)">
+					</div>
+						<div class="form-group">
+						<label for="health">Health:  <output for="health" id="hth">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.health) }}" class="form-control-range" name="health" id="health" oninput="healthUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="travel">Travel:  <output for="travel" id="tvl">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.travel) }}" class="form-control-range" name="travel" id="travel" oninput="travelUpdate(value)">
+					</div>
+						<div class="form-group">
+						<label for="sports">Sports:  <output for="sports" id="spts">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sports) }}" class="form-control-range" name="sports" id="sports" oninput="sportsUpdate(value)">
+					</div>
+
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label for="entertainment">Entertaiment:  <output for="entertainment" id="ents">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.entertainment) }}" class="form-control-range" name="entertainment" id="entertainment" oninput="entsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="work">Work:  <output for="work" id="wk">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.work) }}" class="form-control-range" name="work" id="work" oninput="workUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="toys">Toys:  <output for="toys" id="ty">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.toys) }}" class="form-control-range" name="toys" id="toys" oninput="toysUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="animals">Animals:  <output for="animals" id="amls">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.animals) }}" class="form-control-range" name="animals" id="animals" oninput="animalsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="school">School:  <output for="school" id="sch">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.school) }}" class="form-control-range" name="school" id="school" oninput="schoolUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="scifi">Sci-fi:  <output for="scifi" id="sci">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.scifi) }}" class="form-control-range" name="scifi" id="scifi" oninput="scifiUpdate(value)">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hidden fields and form submission -->
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
@@ -521,17 +806,23 @@
 			<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</div>
 	</div>
+	</div><!-- /accordion -->
 </form>
 
 <script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
 <script>
+	let asp;
+	let secondAsp;
+	let growup = $('select').children('option[value="Grow Up"]');
 	$(function () {
+		// initiate s2personality
 		document.querySelector('#nP').value = {{trim(@sim.neatPoints)}};
 		document.querySelector('#oP').value = {{trim(@sim.outgoingPoints)}};
 		document.querySelector('#aP').value = {{trim(@sim.activePoints)}};
 		document.querySelector('#pP').value = {{trim(@sim.playfulPoints)}};
 		document.querySelector('#ncP').value = {{trim(@sim.nicePoints)}};
 
+		// initialise s2skills
 		document.querySelector('#ckP').value = {{trim(@sim.cooking)}};
 		document.querySelector('#mP').value = {{trim(@sim.mechanical)}};
 		document.querySelector('#chP').value = {{trim(@sim.charisma)}};
@@ -540,9 +831,53 @@
 		document.querySelector('#cvP').value = {{trim(@sim.creativity)}};
 		document.querySelector('#clP').value = {{trim(@sim.cleaning)}};
 
-		let asp = $('#aspiration').children("option:selected").val();
-		$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
-			.siblings().removeAttr('disabled');
+		// initialise s2interests
+		document.querySelector('#env').value = {{trim(@sim.environment)}};
+		document.querySelector('#wth').value = {{trim(@sim.weather)}};
+		document.querySelector('#mny').value = {{trim(@sim.money)}};
+		document.querySelector('#para').value = {{trim(@sim.paranormal)}};
+		document.querySelector('#fash').value = {{trim(@sim.fashion)}};
+		document.querySelector('#crim').value = {{trim(@sim.crime)}};
+		document.querySelector('#ents').value = {{trim(@sim.entertainment)}};
+		document.querySelector('#wk').value = {{trim(@sim.work)}};
+		document.querySelector('#ty').value = {{trim(@sim.toys)}};
+		document.querySelector('#fudz').value = {{trim(@sim.food)}};
+		document.querySelector('#clt').value = {{trim(@sim.culture)}};
+		document.querySelector('#pols').value = {{trim(@sim.politics)}};
+		document.querySelector('#hth').value = {{trim(@sim.health)}};
+		document.querySelector('#tvl').value = {{trim(@sim.travel)}};
+		document.querySelector('#spts').value = {{trim(@sim.sports)}};
+		document.querySelector('#amls').value = {{trim(@sim.animals)}};
+		document.querySelector('#sch').value = {{trim(@sim.school)}};
+		document.querySelector('#sci').value = {{trim(@sim.scifi)}};
+
+		asp = $('#aspiration').val();
+		secondAsp = $('#secondAsp').val();
+
+		$('#secondAsp').children('option').each(function () {
+			if ($(this).val() == asp) {
+				$(this).hide();
+				if ($(growup).is(':selected') == true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
+		$('#aspiration').children('option').each(function () {
+			if ($(this).val() == secondAsp) {
+				$(this).hide();
+				if ($(growup).is(':selected') == true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
 		aspCheck();
         genshow();
 		deathshow();
@@ -552,11 +887,31 @@
 		$('#lifeState').change(function () {
 			deathshow();
 		});
-		$('#aspiration').change(function () {
-			asp = $('#aspiration').children("option:selected").val();
-			$("#secondAsp").children("option[value="+asp+"]").attr('disabled', true)
-				.siblings().removeAttr('disabled');
+
+		$('#aspiration').on('change', function () {
+			asp = $(this).val();
+
+			$('#secondAsp').children('option').each(function () {
+				if ($(this).val() == asp) {
+					$(this).hide();
+				} else {
+					$(this).show();
+				}
+			});
 		});
+
+		$('#secondAsp').on('change', function () {
+			asp = $(this).val();
+
+			$('#aspiration').children('option').each(function () {
+				if ($(this).val() == asp) {
+					$(this).hide();
+				} else {
+					$(this).show();
+				}
+			});
+		});
+
 		$("#origin").change(function () {
             genshow();
         });
@@ -564,11 +919,11 @@
 
 	function genshow() {
 	    if ($("#origin").val() === "big" || $("#origin").val() === "cas") {
-            $( "#genshow" ).show();
+            $( "#genshow" ).attr('aria-hidden', 'false').show();
 			$("#generation").val({{ trim(@sim.generation) }});
         }
 	    else {
-            $( "#genshow" ).hide();
+            $( "#genshow" ).attr('aria-hidden', 'true').hide();
         }
         if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
             $("#generation").val(0);
@@ -576,14 +931,15 @@
 
 	function deathshow() {
 		if ($("#lifeState").val() === "Deceased") {
-			$( "#deathshow" ).show();
+			$( "#deathshow" ).attr('aria-hidden', 'false').show();
 			$("#ghost").prop('checked', true);
 		}
 		else {
-			$( "#deathshow" ).hide();
+			$( "#deathshow" ).attr('aria-hidden', 'true').hide();
 			$("#ghost").prop('checked', false);
 		}
 	}
+
 
 	function aspCheck() {
 		switch ($( "#age" ).val()) {
@@ -591,53 +947,85 @@
 				$("#aspiration").val("Grow Up");
 				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
 				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'true').hide();
 				break;
 			case 'Toddler':
 				$("#aspiration").val("Grow Up");
 				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
 				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'true').hide();
 				break;
 			case 'Child':
 				$("#aspiration").val("Grow Up");
 				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
 				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'true').hide();
+				$("#workbtntext").text("School");
 				break;
 			case 'Teen':
-				//$("#aspiration").val("Family");
 				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
+				growup.hide();
 				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$("#workbtntext").text("Work & school");
 				break;
 			case 'Young Adult':
-				//$("#aspiration").val("Family");
 				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
+				growup.hide();
 				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$("#workbtntext").text("Major");
 				break;
 			case 'Adult':
-				//$("#aspiration").val("Family");
 				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
+				growup.hide();
 				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$("#workbtntext").text("Career");
 				break;
 			case 'Elder':
-				//$("#aspiration").val("Family");
 				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
+				growup.hide();
 				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$("#workbtntext").text("Career");
 				break;
 			default:
 				$("#aspiration").val("Grow Up");
 				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
 				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
 				break;
 		}
 	}
 
+	// check s2personality
 	function neatUpdate(v) {
 		document.querySelector('#nP').value = v;
 	}
@@ -654,6 +1042,7 @@
 		document.querySelector('#ncP').value = v;
 	}
 
+	// check s2skills
 	function cookingUpdate(v) {
 		document.querySelector('#ckP').value = v;
 	}
@@ -674,6 +1063,62 @@
 	}
 	function cleaningUpdate(v) {
 		document.querySelector('#clP').value = v;
+	}
+
+	// check s2interests
+	function envUpdate(v) {
+		document.querySelector('#env').value = v;
+	}
+	function weatherUpdate(v) {
+		document.querySelector('#wth').value = v;
+	}
+	function moneyUpdate(v) {
+		document.querySelector('#mny').value = v;
+	}
+	function paraUpdate(v) {
+		document.querySelector('#para').value = v;
+	}
+	function fashUpdate(v) {
+		document.querySelector('#fash').value = v;
+	}
+	function crimeUpdate(v) {
+		document.querySelector('#crim').value = v;
+	}
+	function entsUpdate(v) {
+		document.querySelector('#ents').value = v;
+	}
+	function workUpdate(v) {
+		document.querySelector('#wk').value = v;
+	}
+	function toysUpdate(v) {
+		document.querySelector('#ty').value = v;
+	}
+	function foodUpdate(v) {
+		document.querySelector('#fudz').value = v;
+	}
+	function cultureUpdate(v) {
+		document.querySelector('#clt').value = v;
+	}
+	function polsUpdate(v) {
+		document.querySelector('#pols').value = v;
+	}
+	function healthUpdate(v) {
+		document.querySelector('#hth').value = v;
+	}
+	function travelUpdate(v) {
+		document.querySelector('#tvl').value = v;
+	}
+	function sportsUpdate(v) {
+		document.querySelector('#spts').value = v;
+	}
+	function animalsUpdate(v) {
+		document.querySelector('#amls').value = v;
+	}
+	function schoolUpdate(v) {
+		document.querySelector('#sch').value = v;
+	}
+	function scifiUpdate(v) {
+		document.querySelector('#sci').value = v;
 	}
 
 	function zodiacPoints(v) {

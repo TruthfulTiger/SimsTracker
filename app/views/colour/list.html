@@ -1,3 +1,4 @@
+<check if="{{ @challenge.hhID == null }}">
 <check if="{{ @colours }}">
 	<true>
 		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
@@ -28,6 +29,7 @@
 	<false>
 		<p>No colours found.</p>
 	</false>
+</check>
 </check>
 <a href="{{ @BASE.'/colour/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
 <button class="btn btn-secondary" onclick="sessionStorage.removeItem('challenge');window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</button>

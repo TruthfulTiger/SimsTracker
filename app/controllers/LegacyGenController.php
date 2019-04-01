@@ -8,16 +8,16 @@ class LegacyGenController extends Controller {
 		parent::__construct();
 		$this->legacygen = new LegacyGen($this->db);
 		$this->challenge = new Challenge($this->db);
+		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 	}
 
 	public function index()
 	{
-		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 		$this->challengeID = $this->f3->get('SESSION.challenge');
 		$this->f3->set('legacygen',$this->legacygen->getByChallenge($this->challengeID));
 		$this->f3->set('challenge',$this->challenge->getById($this->challengeID));
-		$this->f3->set('title','Colours for '.$this->challenge->challengeName);
-		$this->f3->set('content','colour/list.html');
+		$this->f3->set('title','Heir(ess) list for '.$this->challenge->challengeName);
+		$this->f3->set('content','legacygen/list.html');
 	}
 
 	public function create()
@@ -48,17 +48,18 @@ class LegacyGenController extends Controller {
 			die("Nice try, Spam-A-Lot");
 		} else {
 			$this->f3->scrub($_POST,'p; br;');
-			$this->db->exec(
-				'UPDATE legacygen
-					 SET userID = ?, generation = ?, challengeID = ?, simID = ? 
-					 WHERE id = '.$this->f3->get('PARAMS.id'),
-				array($this->f3->get('PARAMS.userID'),
-					$this->f3->get('PARAMS.generation'),
-					$this->f3->get('PARAMS.challengeID'),
-					$this->f3->get('PARAMS.simID')
-				)
-			);
-			$this->f3->set('SESSION.success', 'Details have been saved.');
+
+			if ($this->f3->exists('PARAMS.id')) {
+				$this->db->exec(
+					'UPDATE legacygen SET simID = ? WHERE id = ?',
+					array(
+						$this->f3->get('PARAMS.simID'),
+						$this->f3->get('PARAMS.id'),
+					)
+				);
+				$this->f3->set('SESSION.success', 'Details have been saved.');
+			}
+
 			$this->f3->reroute($_SESSION['url']);
 		}
 	}
@@ -66,9 +67,9 @@ class LegacyGenController extends Controller {
 	public function delete() {
 		if ($this->f3->exists('PARAMS.id')) {
 			$this->legacygen->delete($this->f3->get('PARAMS.id'));
-			$this->f3->set('SESSION.success','Colour was deleted');
+			$this->f3->set('SESSION.success','Generation data was deleted');
 		} else {
-			$this->f3->set('SESSION.error','Colour doesn\'t exist');
+			$this->f3->set('SESSION.error','Generation data doesn\'t exist');
 		}
 		$this->f3->reroute($_SESSION['url']);
 	}

@@ -53,6 +53,11 @@
 
     function legacySub(g, p) {
         let n = p * 0.5;
+		if (g >= 1) {
+			$("tr#founder").show();
+		} else  {
+			$("tr#founder").hide();
+		}
 
 		if (g >= 2) {
 			$("tr#gen2heir").show();

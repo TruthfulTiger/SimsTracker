@@ -4,6 +4,8 @@ class ChallengeController extends Controller {
 	private $household;
 	private $hood;
 	private $legacy;
+	private $legacygen;
+	private $usercolour;
 
 	public function __construct() {
 		parent::__construct();
@@ -11,11 +13,14 @@ class ChallengeController extends Controller {
 		$this->household = new Household($this->db);
 		$this->hood = new Hood($this->db);
 		$this->legacy = new S2Legacy($this->db);
+		$this->legacygen = new LegacyGen($this->db);
+		$this->usercolour = new UserColour($this->db);
+		$this->f3->clear('SESSION.url');
+		$this->f3->clear('SESSION.challenge');
 	}
 
 	public function index()
 	{
-		$this->f3->clear('SESSION.challenge');
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->f3->set('households',$this->household->getByUser($userID));
 		$this->f3->set('hoods',$this->hood->getByUser($userID));
@@ -84,6 +89,7 @@ class ChallengeController extends Controller {
 		{
 			$this->challenge->getById($this->f3->get('PARAMS.id'));
 			$this->legacy->getByCID($this->f3->get('PARAMS.id'));
+			$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 			if($this->f3->exists('PARAMS.id')) {
 				$this->f3->set('challenge',$this->challenge);
 				$this->f3->set('s2legacy', $this->legacy);
@@ -101,6 +107,35 @@ class ChallengeController extends Controller {
 	{
 		if($this->f3->exists('PARAMS.id'))
 		{
+			if ($this->legacy) {
+				$lastInsertID = $this->legacygen->get('_id');
+				$this->db->exec(
+					array(
+						'DELETE FROM legacygen WHERE challengeID=?',
+						'ALTER TABLE legacygen AUTO_INCREMENT = '.intval($lastInsertID)
+					),
+					array($this->f3->get('SESSION.challenge'))
+				);
+				if ($this->usercolour) {
+					$lastInsertID = $this->usercolour->get('_id');
+					$this->db->exec(
+						array(
+							'DELETE FROM usercolour WHERE challengeID=?',
+							'ALTER TABLE usercolour AUTO_INCREMENT = '.intval($lastInsertID)
+						),
+						array($this->f3->get('SESSION.challenge'))
+					);
+				}
+				$lastInsertID = $this->legacy->get('_id');
+				$this->db->exec(
+					array(
+						'DELETE FROM s2legacy WHERE cid=?',
+						'ALTER TABLE s2legacy AUTO_INCREMENT = '.intval($lastInsertID)
+					),
+					array($this->f3->get('SESSION.challenge'))
+				);
+			}
+
 			$this->challenge->delete($this->f3->get('PARAMS.id'));
 			$this->f3->set('SESSION.success', 'Challenge was deleted');
 		} else {

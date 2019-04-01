@@ -40,12 +40,12 @@
 			<input type="hidden" name="id" value="{{ @challenge.id }}" />
 			<button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
 			<check if="{{ @challenge.type == 'Legacy Challenge' }}">
-				<check if="{{ @s2legacy.id == 0}}">
+				<check if="{{ @s2legacy.cid !== @challenge.id}}">
 					<true>
-						<a href="{{ @BASE.'/s2legacy/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Go to scoresheet</a>
+						<a href="{{ @BASE.'/s2legacy/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Create scoresheet</a>
 					</true>
 					<false>
-						<a href="{{ @BASE.'/s2legacy/'. @s2legacy.id }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Go to scoresheet</a>
+						<a id="url" href="{{ @BASE.'/s2legacy/'. @s2legacy.id }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Go to scoresheet</a>
 					</false>
 				</check>
 			</check>
@@ -54,3 +54,4 @@
 	</div>
 
 </form>
+

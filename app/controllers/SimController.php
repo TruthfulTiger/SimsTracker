@@ -16,6 +16,7 @@ class SimController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
+		$this->f3->clear('SESSION.url');
 		if($this->f3->exists('PARAMS.id')){
 			$hhID = $this->f3->get('PARAMS.id');
 			$this->f3->set('households',$this->household->getById($hhID));
@@ -81,10 +82,13 @@ class SimController extends Controller {
 				$this->f3->scrub($_POST,'p; br;');
 				$this->sim->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Sim has been updated.');
-				$this->f3->reroute('/sims');
+
+				$this->f3->reroute($this->f3->get('SESSION.url'));
 			}
 		} else
 		{
+			if(!$this->f3->exists('SESSION.url'))
+				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
             $this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {

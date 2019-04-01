@@ -13,9 +13,8 @@ class UserColourController extends Controller {
 	public function index()
 	{
 		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
-		$userID = $this->f3->get('SESSION.user[2]');
 		$this->challengeID = $this->f3->get('SESSION.challenge');
-		$this->f3->set('colours',$this->colour->getByUser($userID));
+		$this->f3->set('colours',$this->colour->getByChallenge($this->challengeID));
 		$this->f3->set('challenge',$this->challenge->getById($this->challengeID));
 		$this->f3->set('title','Colours for '.$this->challenge->challengeName);
 		$this->f3->set('content','colour/list.html');

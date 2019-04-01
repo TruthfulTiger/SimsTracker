@@ -18,8 +18,10 @@ class S2LegacyController extends Controller {
 		$this->colour = new UserColour($this->db);
 		$this->legacygen = new LegacyGen($this->db);
 		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
-		$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
 		$this->id = 0;
+		if (!$this->f3->exists('SESSION.url')) {
+			$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
+		}
 	}
 
 	public function create() {
@@ -31,7 +33,7 @@ class S2LegacyController extends Controller {
 		$lastID = $this->legacy->get('_id');
 		if ($lastID !== $lastAdded) {
 			$this->f3->set('SESSION.success', 'Scoresheet has been added.');
-			$this->load();
+			$this->load($this->legacy->get('_id'));
 		} else {
 			$this->f3->set('SESSION.error', 'Couldn\'t create scoresheet.');
 			$this->f3->reroute('/challenges');
@@ -63,12 +65,30 @@ class S2LegacyController extends Controller {
 	{
 		if($this->f3->exists('PARAMS.id'))
 		{
+			if ($this->colour) {
+				$lastInsertID = $this->colour->get('_id');
+				$this->db->exec(
+					array(
+						'DELETE FROM usercolour WHERE challengeID=?',
+						'ALTER TABLE usercolour AUTO_INCREMENT = '.intval($lastInsertID)
+					),
+					array($this->f3->get('SESSION.challenge'))
+				);
+			}
+			$lastInsertID = $this->legacygen->get('_id');
+			$this->db->exec(
+				array(
+					'DELETE FROM legacygen WHERE challengeID=?',
+					'ALTER TABLE legacygen AUTO_INCREMENT = '.intval($lastInsertID)
+				),
+				array($this->f3->get('SESSION.challenge'))
+			);
 			$this->legacy->delete($this->f3->get('PARAMS.id'));
+			$this->f3->clear('SESSION.url');
 			$this->f3->set('SESSION.success', 'Scoresheet was deleted');
 		} else {
 			$this->f3->set('SESSION.error', 'Scoresheet doesn\'t exist');
 		}
-
 		$this->f3->reroute('/challenges');
 	}
 
