@@ -13,6 +13,16 @@
 				</check>
 				>{{ @accitem }} <check if="{{ @title == @accitem }}"><span class="sr-only">(current)</span></check></a>
 			</repeat>
+			<a href="{{@BASE}}/pets"
+			<check if="{{ @title == 'Pets' }}">
+				<true>
+					class="nav-link active"
+				</true>
+				<false>
+					class="nav-link"
+				</false>
+			</check>
+			>Pets <check if="{{ @title == 'Pets' }}"><span class="sr-only">(current)</span></check></a>
 		</nav>
 	</div>
 </div>

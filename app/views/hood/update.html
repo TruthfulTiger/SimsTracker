@@ -9,8 +9,8 @@
 		<label for="gameVersion">Game version</label>
 		<select class="custom-select" required="required" name="gameVersion" id="gameVersion">
 			<option value="">-- Sims version --</option>
-			<repeat group="{{ @games }}" key="{{ @key }}" value="{{ @value }}">
-				<option value="{{ @value }}" <check if="{{ @hood.gameVersion == @value}}">
+			<repeat group="{{ @games }}" key="{{@gkey}}" value="{{ @value }}">
+				<option value="{{ @gkey }}" <check if="{{ @hood.gameVersion == @gkey}}">
 				selected
 			</check>>{{ @value }}</option>
 			</repeat>
@@ -63,7 +63,7 @@
 			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
 			<input type="hidden" name="update" value="update" />
 			<button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Update</button>
-			<a href="{{ @BASE.'/household/create/'. @hood.id }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Manage Households</a>
+			<a href="{{ @BASE.'/household/create/'. @hood.id }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add Household</a>
 			<a href="{{ @BASE.'/challenge/create/hood/'. @hood.id }}" class="btn btn-warning"><i class="fa fa-plus" aria-hidden="true"></i> Set Challenge</a>
 			<a href="{{ @BASE.'/hoods' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</div>
@@ -80,7 +80,7 @@
 		});
 	});
 	function gameChange(v) {
-		if (v == 'Sims 2') {
+		if (v == 2) {
 			$("div#sims2").show();
 			$('select#s2type').attr("name","type");
 			$("#s2type").val('{{@hood.type}}');
@@ -89,7 +89,7 @@
 			$('select#s2type').attr("name","s2type");
 			$("#s2type").val('');
 		}
-		if (v == 'Sims 3') {
+		if (v == 3) {
 			$("div#sims3").show();
 			$('select#s3type').attr("name","type");
 			$("#s3type").val('{{@hood.type}}');
@@ -98,7 +98,7 @@
 			$('select#s3type').attr("name","s3type");
 			$("#s3type").val('');
 		}
-		if (v == 'Sims 4') {
+		if (v == 4) {
 			$("div#sims4").show();
 			$('select#s4type').attr("name","type");
 			$("#s4type").val('{{@hood.type}}');

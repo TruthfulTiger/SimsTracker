@@ -1,4 +1,4 @@
-<p class="mb-3">Pick a random aspiration for when your child Sim becomes a Teen. Includes turn-ons / offs where applicable.</p>
+<p class="mb-3">Pick a random family for your next Prosperity Challenge, or just to keep things interesting.</p>
 <ul class="nav nav-tabs" id="games" role="tablist">
 	<li class="nav-item">
 		<a class="nav-link active" id="sims2-tab" data-toggle="tab" href="#sims2" role="tab" aria-controls="sims2" aria-selected="true">Sims 2</a>
@@ -12,8 +12,9 @@
 </ul>
 <div class="tab-content mt-3" id="gamesContent">
 	<div class="tab-pane fade show active" id="sims2" role="tabpanel" aria-labelledby="sims2-tab">
-		<p>Which expansions do you own?</p>
-		<div class="form-group mb-4">
+		{* EPs *}
+		<div class="form-group mb-3">
+			<p>Which expansions do you own?</p>
 			<div class="custom-control custom-checkbox custom-control-inline">
 				<input type="checkbox" id="uni" checked name="uni" class="custom-control-input s2eps">
 				<label class="custom-control-label" for="uni"><img src="{{@BASE}}{{@s2path}}UNI.png" alt="University"></label>
@@ -46,35 +47,853 @@
 				<input type="checkbox" id="al" checked name="al" class="custom-control-input s2eps">
 				<label class="custom-control-label" for="al"><img src="{{@BASE}}{{@s2path}}AL.png" alt="Apartment Life"></label>
 			</div>
-			<div class="form-group mt-3">
-				<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
-					<input type="checkbox" class="custom-control-input s2eps" id="cheese">
-					<label class="custom-control-label" for="cheese">Include Grilled Cheese</label>
+		</div>
+
+		{* Number of Sims *}
+		<div class="form-row">
+			<div class="col">
+				<div class="form-group">
+					<label for="numberSims">Number of Sims</label>
+					<div class="input-group mb-3">
+						<input type="number" class="form-control" value="1" min="1" max="8" id="numberSims" name="numberSims"/>
+						<div class="input-group-append">
+							<button class="btn btn-secondary" type="button" id="randomSims" onclick="randomSims();">Random</button>
+						</div>
+					</div>
 				</div>
-				<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
-					<input type="checkbox" class="custom-control-input s2eps" checked id="tocheck">
-					<label class="custom-control-label" for="tocheck">Check for turn-ons</label>
+			</div>
+			<div class="col ml-3">
+				<div class="form-group">
+					<p>At least one:</p>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="minTeen" value="minTeen" name="minAge" class="custom-control-input">
+						<label class="custom-control-label" for="minTeen">Teen</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="minAdult" value="minAdult" checked name="minAge" class="custom-control-input">
+						<label class="custom-control-label" for="minAdult">Adult</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="minElder" value="minElder" name="minAge" class="custom-control-input">
+						<label class="custom-control-label" for="minElder">Elder</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="minAny" value="minAny" name="minAge" class="custom-control-input">
+						<label class="custom-control-label" for="minAny">Any age</label>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="card w-25">
-			<div class="card-body text-center">
-				<img id="aspiration" src="{{@BASE}}{{@s2path}}Null.png" alt="">
-				<hr/>
-				<div class="row">
-					<div class="col">
-						<img id="ton1" src="{{@BASE}}{{@s2path}}null.png" alt="">
-						<img id="ton2" src="{{@BASE}}{{@s2path}}null.png" alt="">
-						<img id="toff" src="{{@BASE}}{{@s2path}}null.png" alt="">
+		{* Genetics *}
+		<div class="form-group">
+			<h6>Genetics</h6>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="age" name="age" class="custom-control-input">
+				<label class="custom-control-label" for="age">Age</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="gender" name="gender" class="custom-control-input">
+				<label class="custom-control-label" for="gender">Gender</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="skin" name="skin" class="custom-control-input">
+				<label class="custom-control-label" for="skin">Skintone</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="hair" name="hair" class="custom-control-input">
+				<label class="custom-control-label" for="hair">Hair</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="eyes" name="eyes" class="custom-control-input">
+				<label class="custom-control-label" for="eyes">Eyes</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="zodiac" name="zodiac" class="custom-control-input">
+				<label class="custom-control-label" for="zodiac">Zodiac</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="personality" name="personality" class="custom-control-input">
+				<label class="custom-control-label" for="personality">Personality</label>
+			</div>
+		</div>
+
+		{* Visuals *}
+		<h6>Visuals</h6>
+		{* Fitness *}
+		<div class="form-row">
+			<div class="col-8">
+			<div class="form-group">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<div class="input-group-text">
+							<input type="checkbox" id="fitness" aria-label="Checkbox for fitness">
+						</div>
+						<span class="input-group-text">Chance of fatness</span>
+					</div>
+					<input type="number" id="fatnessChance" min="0" max="100" value="20" class="form-control" aria-label="Percentage of fatness">
+					<div class="input-group-append">
+						<span class="input-group-text">%</span>
 					</div>
 				</div>
 			</div>
-			<div class="card-footer text-center">
-				<button class="btn btn-success" id="sims2gen">Randomise</button>
+		</div>
+		</div>
+		{* Facial hair *}
+		<div class="form-row">
+			<div class="col-8">
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="facialHair" aria-label="Checkbox for facial hair">
+							</div>
+							<span class="input-group-text">Chance of facial hair</span>
+						</div>
+						<input type="number" min="0" max="100" id="facialHairChance" value="20" class="form-control" aria-label="Percentage of facial hair">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
 			</div>
-		</span>
-	</div> {* End Sims 2 *}
+		</div>
+		{* Glasses *}
+		<div class="form-row">
+			<div class="col-8">
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="glasses" aria-label="Checkbox for glasses">
+							</div>
+							<span class="input-group-text">Chance of glasses</span>
+						</div>
+						<input type="number" min="0" max="100" id="glassesChance" value="20" class="form-control" aria-label="Percentage of glasses">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Hats *}
+		<div class="form-row">
+			<div class="col-8">
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="hats" aria-label="Checkbox for hats">
+							</div>
+							<span class="input-group-text">Chance of hats</span>
+						</div>
+						<input type="number" min="0" max="100" id="hatsChance" value="20" class="form-control" aria-label="Percentage of hats">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Make-up *}
+		<div class="form-row">
+			<div class="col-8">
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="makeUp" aria-label="Checkbox for make-up">
+							</div>
+							<span class="input-group-text">Chance of make-up</span>
+						</div>
+						<input type="number" min="0" max="100" id="makeUpChance" value="20" class="form-control" aria-label="Percentage of make-up">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Supernatural *}
+		<div class="form-row">
+			<div class="col-8">
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="supernatural" aria-label="Checkbox for supernatural">
+							</div>
+							<span class="input-group-text">Chance of supernatural</span>
+						</div>
+						<input type="number" min="0" max="100" id="supernaturalChance" value="20" class="form-control" aria-label="Percentage of supernatural">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-row supernaturals">
+			<div class="col">
+				<div class="form-group">
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" value="1" id="zombie" name="zombie" class="custom-control-input">
+						<label class="custom-control-label" for="zombie"><img src="{{@BASE}}{{@s2path}}zombie_small.png" alt="Zombie"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" value="1" id="vampire" name="vampire" class="custom-control-input">
+						<label class="custom-control-label" for="vampire"><img src="{{@BASE}}{{@s2path}}vampire_small.png" alt="Vampire"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" value="1" id="werewolf" name="werewolf" class="custom-control-input">
+						<label class="custom-control-label" for="werewolf"><img src="{{@BASE}}{{@s2path}}werewolf_small.png" alt="Werewolf"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" value="1" id="plantSim" name="plantSim" class="custom-control-input">
+						<label class="custom-control-label" for="plantSim"><img src="{{@BASE}}{{@s2path}}plant_small.png" alt="Plant Sim"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" value="1" id="witch" name="witch" class="custom-control-input">
+						<label class="custom-control-label" for="witch"><img src="{{@BASE}}{{@s2path}}witch_small.png" alt="Witch"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{* Aspirations etc *}
+		<div class="form-group">
+			<h6>Aspirations, career and hobbies</h6>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="aspiration" name="aspiration" class="custom-control-input">
+				<label class="custom-control-label" for="aspiration">Aspiration</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="secondAsp" name="secondAsp" class="custom-control-input">
+				<label class="custom-control-label" for="secondAsp">Secondary Aspiration</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="career" name="career" class="custom-control-input">
+				<label class="custom-control-label" for="career">Career</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="hobby" name="hobby" class="custom-control-input">
+				<label class="custom-control-label" for="hobby">Predestined Hobby</label>
+			</div>
+		</div>
+
+		{* Chemistry *}
+		<div class="form-group">
+			<h6>Turn-ons and gender preference</h6>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="tocheck" name="turnons" class="custom-control-input">
+				<label class="custom-control-label" for="tocheck">Turn-ons and turn-offs</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-control-inline">
+				<input type="checkbox" id="preference" name="preference" class="custom-control-input">
+				<label class="custom-control-label" for="preference">Gender preference</label>
+			</div>
+		</div>
+		<div class="input-group mb-3 preference">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Percentage of straight, gay and bi</span>
+			</div>
+			<input type="number" id="straight" min="0" max="100" value="75" aria-label="Straight" class="form-control">
+			<input type="number" id="gay" min="0" max="100" value="15" aria-label="Gay" class="form-control">
+			<input type="number" id="bi" min="0" max="100" value="10" aria-label="Bi" class="form-control">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+		<button class="btn btn-success mb-3" id="sims2gen">Randomise</button>
+
+		{* Results display *}
+		<div class="card text-center" id="sim1">
+			<div class="card-header">
+				<h6><span id="personality1"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row mb-2">
+					<div class="col">
+						<img id="age1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}AgeNull.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="gender1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="skintone1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="hair1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="eyes1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="zodiac1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="body1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+					<div class="col">
+						<img id="lifeState1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt=""/>
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="col">
+						<img id="hat1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton11" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton21" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff1" data-toggle="tooltip" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim2">
+			<div class="card-header">
+				<h6><span id="personality2"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton12" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton22" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim3">
+			<div class="card-header">
+				<h6><span id="personality3"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton13" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton23" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff3" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim4">
+			<div class="card-header">
+				<h6><span id="personality4"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton14" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton24" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff4" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim5">
+			<div class="card-header">
+				<h6><span id="personality5"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton15" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton25" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff5" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim6">
+			<div class="card-header">
+				<h6><span id="personality6"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton16" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton26" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff6" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim7">
+			<div class="card-header">
+				<h6><span id="personality7"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton17" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton27" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff7" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-center" id="sim8">
+			<div class="card-header">
+				<h6><span id="personality8"></span></h6>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img id="age8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="gender8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="zodiac8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="lifeState8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="skintone8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hair8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="eyes8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="body8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="hat8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="glasses8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="facialHair8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="makeUp8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="aspiration8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="secondAsp8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="career8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="hobby8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img id="preference8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton18" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="ton28" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+					<div class="col">
+						<img id="toff8" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		{* End Sims 2 *}
 	<div class="tab-pane fade" id="sims3" role="tabpanel" aria-labelledby="sims3-tab">
 		TO DO: Sims 3
 	</div> {* End Sims 3 *}
@@ -84,4 +903,10 @@
 
 	<script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
 		<script src="{{@BASE}}/ui/js/randomiser.js"></script>
-	<script src="{{@BASE}}/ui/js/aspgen.js"></script>
+	<script src="{{@BASE}}/ui/js/families.js"></script>
+		<script>
+			function randomSims() {
+				let random = getRandomInt(1, 8);
+				$('#numberSims').val(random);
+			}
+		</script>

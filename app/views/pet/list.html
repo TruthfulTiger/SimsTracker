@@ -1,0 +1,87 @@
+<check if="{{ @pets }}">
+	<true>
+		<check if="{{ @title === 'Pets' }}">
+			<true>
+				<div class="dropdown mb-3">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						View by household:
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<repeat group="{{ @households }}" value="{{ @household }}">
+							<a class="dropdown-item" href="{{@BASE}}/pets/{{@household.hhID}}">{{@household.name}}</a>
+						</repeat>
+					</div>
+				</div>
+			</true>
+			<false>
+				<a class="btn btn-secondary mb-3" href="{{@BASE}}/pets"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All pets</a>
+			</false>
+		</check>
+		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+			<thead>
+			<tr>
+				<th scope="col">Household</th>
+				<th scope="col">Name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Species</th>
+				<th scope="col">Gender</th>
+				<th scope="col">Action</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<repeat group="{{ @households }}" value="{{ @household }}">
+				<repeat group="{{ @pets }}" value="{{ @pet }}">
+					<check if="{{ @pet.hhID == @household.hhID }}">
+						<tr>
+							<td>{{ trim(@household.name) }}</td>
+							<td>{{ trim(@pet.name) }}</td>
+							<td>
+								<check if="{{ @pet.age == 'Baby' }}">
+									<true>
+										<check if="{{ @pet.species == 'Cat' }}">
+											<true>
+												Kitten
+											</true>
+											<false>
+												Puppy
+											</false>
+										</check>
+									</true>
+									<false>
+										{{ trim(@pet.age)}}
+									</false>
+								</check>
+							</td>
+							<td>{{ trim(@pet.species) }}</td>
+							<td>
+							<check if="{{ @pet.gender == 'M' }}">
+								<true>
+								Male
+								</true>
+								<false>
+								Female
+								</false>
+							</check>
+							</td>
+							<td><a href="{{ @BASE.'/pet/view/'. @pet.id }}" class="btn btn-info" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+								<a href="{{ @BASE.'/pet/update/'. @pet.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+								<a href="{{ @BASE.'/pet/delete/'. @pet.id }}"
+								   data-toggle="confirmation"
+								   data-content="All pet data will be deleted."
+								   data-popout="true"
+								   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
+									Delete</a></td>
+						</tr>
+					</check>
+				</repeat>
+			</repeat>
+			</tbody>
+		</table>
+	</true>
+	<false>
+		<p>No pets found.</p>
+	</false>
+</check>
+<a href="{{ @BASE.'/pet/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>

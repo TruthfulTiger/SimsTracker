@@ -1,5 +1,23 @@
 <check if="{{ @households }}">
 	<true>
+		<check if="{{ @title === 'Households' }}">
+			<true>
+				<div class="dropdown mb-3">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						View by hood:
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<repeat group="{{ @hoods }}" value="{{ @hood }}">
+							<a class="dropdown-item" href="{{@BASE}}/households/{{@hood.id}}">{{@hood.name}}</a>
+						</repeat>
+					</div>
+				</div>
+			</true>
+			<false>
+				<a class="btn btn-secondary mb-3" href="{{@BASE}}/households"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All hoods</a>
+			</false>
+		</check>
 		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
 			<thead>
 			<tr>

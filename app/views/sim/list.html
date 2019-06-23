@@ -1,5 +1,23 @@
 <check if="{{ @sims }}">
 	<true>
+		<check if="{{ @title === 'Sims' }}">
+			<true>
+				<div class="dropdown mb-3">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						View by household:
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<repeat group="{{ @households }}" value="{{ @household }}">
+							<a class="dropdown-item" href="{{@BASE}}/sims/{{@household.hhID}}">{{@household.name}}</a>
+						</repeat>
+					</div>
+				</div>
+			</true>
+			<false>
+				<a class="btn btn-secondary mb-3" href="{{@BASE}}/sims"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All sims</a>
+			</false>
+		</check>
 		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
 			<thead>
 			<tr>
@@ -31,7 +49,7 @@
 								</false>
 							</check>
 							</td>
-							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" class="btn btn-info" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
 								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 								<a href="{{ @BASE.'/sim/delete/'. @sim.id }}"
 								   data-toggle="confirmation"

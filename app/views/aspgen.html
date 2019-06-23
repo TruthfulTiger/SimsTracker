@@ -13,7 +13,7 @@
 <div class="tab-content mt-3" id="gamesContent">
 	<div class="tab-pane fade show active" id="sims2" role="tabpanel" aria-labelledby="sims2-tab">
 		<p>Which expansions do you own?</p>
-		<div class="form-group mb-4">
+		<div class="form-group mb-3">
 			<div class="custom-control custom-checkbox custom-control-inline">
 				<input type="checkbox" id="uni" checked name="uni" class="custom-control-input s2eps">
 				<label class="custom-control-label" for="uni"><img src="{{@BASE}}{{@s2path}}UNI.png" alt="University"></label>
@@ -46,34 +46,38 @@
 				<input type="checkbox" id="al" checked name="al" class="custom-control-input s2eps">
 				<label class="custom-control-label" for="al"><img src="{{@BASE}}{{@s2path}}AL.png" alt="Apartment Life"></label>
 			</div>
-			<div class="form-group mt-3">
-				<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
-					<input type="checkbox" class="custom-control-input s2eps" id="cheese">
-					<label class="custom-control-label" for="cheese">Include Grilled Cheese</label>
-				</div>
-				<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
-					<input type="checkbox" class="custom-control-input s2eps" checked id="tocheck">
-					<label class="custom-control-label" for="tocheck">Check for turn-ons</label>
-				</div>
+		</div>
+
+
+
+		<div class="form-group mb-3">
+			<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
+				<input type="checkbox" class="custom-control-input s2eps" id="cheese">
+				<label class="custom-control-label" for="cheese">Include Grilled Cheese</label>
+			</div>
+			<div class="custom-control custom-checkbox custom-checkbox custom-control-inline">
+				<input type="checkbox" class="custom-control-input s2eps" checked id="tocheck">
+				<label class="custom-control-label" for="tocheck">Check for turn-ons</label>
 			</div>
 		</div>
 
 		<div class="card w-25">
 			<div class="card-body text-center">
-				<img id="aspiration" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+				<div class="col">
+					<img id="aspiration" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+				</div>
 				<hr/>
 				<div class="row">
 					<div class="col">
-						<img id="ton1" src="{{@BASE}}{{@s2path}}null.png" alt="">
-						<img id="ton2" src="{{@BASE}}{{@s2path}}null.png" alt="">
-						<img id="toff" src="{{@BASE}}{{@s2path}}null.png" alt="">
+						<img id="ton1" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+						<img id="ton2" src="{{@BASE}}{{@s2path}}Null.png" alt="">
+						<img id="toff" src="{{@BASE}}{{@s2path}}Null.png" alt="">
 					</div>
 				</div>
 			</div>
 			<div class="card-footer text-center">
 				<button class="btn btn-success" id="sims2gen">Randomise</button>
 			</div>
-		</span>
 	</div> {* End Sims 2 *}
 	<div class="tab-pane fade" id="sims3" role="tabpanel" aria-labelledby="sims3-tab">
 		TO DO: Sims 3

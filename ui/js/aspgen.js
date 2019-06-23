@@ -10,7 +10,8 @@ $(function () {
 			$("#toff").attr("src",s2path+'Null.png');
 			$("#toff").attr("alt",'');
 			// If turn-ons not applicable, disable TO option
-			$("#tocheck").prop("disabled", !this.checked);
+			$("#tocheck").prop("checked", false);
+			$("#tocheck").prop("disabled", true);
 		} else {
 			// If relevant EPs checked, enable TO option and see if it's checked
 			$("#tocheck").prop("disabled", false);
@@ -25,8 +26,10 @@ $(function () {
 
 		if ($("#cheese").prop("checked")) {
 			sims2asp = getRandomInt(1, 7);
-		} else {
+		} else if ($('#nl').prop('checked')) {
 			sims2asp = getRandomInt(1, 6);
+		} else {
+			sims2asp = getRandomInt(1, 5);
 		}
 
 		switch (sims2asp) {

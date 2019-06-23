@@ -12,9 +12,23 @@ class HoodController extends Controller {
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->hood->households='SELECT COUNT(*) as hhcount FROM household where id = nhID GROUP BY id ';
-		$this->f3->set('hoods',$this->hood->getByUser($userID));
-		$this->f3->set('title','Neighbourhoods');
-		$this->f3->set('content','hood/list.html');
+		if($this->f3->exists('PARAMS.id')){
+			$game= $this->f3->get('PARAMS.id');
+			$this->f3->set('hoods',$this->hood->getByGame($game));
+			if ($this->hood->userID != $userID) {
+				$this->f3->set('SESSION.error', 'No such hood associated with this user.');
+				$this->f3->reroute('/hoods');
+			} else {
+				$game= $this->f3->get('PARAMS.id');
+				$this->f3->set('hoods',$this->hood->getByGame($game));
+				$this->f3->set('title','Hoods in Sims '.$this->hood->gameVersion);
+				$this->f3->set('content','hood/list.html');
+			}
+		} else {
+			$this->f3->set('hoods',$this->hood->getByUser($userID));
+			$this->f3->set('title','Neighbourhoods');
+			$this->f3->set('content','hood/list.html');
+		}
 	}
 
 	public function create()

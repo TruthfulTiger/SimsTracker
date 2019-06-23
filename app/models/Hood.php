@@ -16,6 +16,11 @@ class Hood extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
+	public function getByGame($id) {
+		$this->load(array('gameVersion=?',$id));
+		return $this->query;
+	}
+
 	public function getByUser($id) {
 		$this->load(array('userID=?',$id));
 		return $this->query;

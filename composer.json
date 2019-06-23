@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "bcosca/fatfree": "3.6.4",
     "ikkez/f3-assets": "dev-master",
-    "geofmureithi/f3-validate": "dev-master"
+    "geofmureithi/f3-validate": "dev-master",
+    "bcosca/fatfree": "3.6.5"
   }
 }

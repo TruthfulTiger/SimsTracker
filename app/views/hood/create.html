@@ -9,8 +9,8 @@
 		<label for="gameVersion">Game version</label>
 		<select class="custom-select" name="gameVersion" required="required" id="gameVersion">
 			<option value="">-- Sims version --</option>
-			<repeat group="{{ @games }}" key="{{ @key }}" value="{{ @value }}">
-				<option value="{{ @key }}">{{ @value }}</option>
+			<repeat group="{{ @games }}" key="{{@gkey}}" value="{{ @game }}">
+				<option value="{{ @gkey }}">{{ @game }}</option>
 			</repeat>
 		</select>
 	</div>
@@ -19,8 +19,8 @@
 		<label for="s2type">Type</label>
 		<select class="custom-select" required="required" name="s2type" id="s2type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s2hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
-				<option value="{{ @value }}">{{ @value }}</option>
+			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}">
+				<option value="{{ @s2value }}">{{ @s2value }}</option>
 			</repeat>
 		</select>
 	</div>
@@ -29,8 +29,8 @@
 		<label for="s3type">Type</label>
 		<select class="custom-select" name="s3type" id="s3type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s3hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
-				<option value="{{ @value }}">{{ @value }}</option>
+			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}">
+				<option value="{{ @s3value }}">{{ @s3value }}</option>
 			</repeat>
 		</select>
 	</div>
@@ -39,8 +39,8 @@
 		<label for="s4type">Type</label>
 		<select class="custom-select" name="s4type" id="s4type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s4hoodTypes }}" key="{{ @key }}" value="{{ @value }}">
-				<option value="{{ @value }}">{{ @value }}</option>
+			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}">
+				<option value="{{ @s4value }}">{{ @s4value }}</option>
 			</repeat>
 		</select>
 	</div>
@@ -60,21 +60,21 @@
 	$(function () {
 		$("#gameVersion").change(function(){
 			let v = $("#gameVersion").children("option:selected").val();
-			if (v == 'Sims 2') {
+			if (v == 2) {
 				$("div#sims2").show();
 				$('select#s2type').attr("name","type");
 			} else  {
 				$("div#sims2").hide();
 				$('select#s2type').attr("name","s2type");
 			}
-			if (v == 'Sims 3') {
+			if (v == 3) {
 				$("div#sims3").show();
 				$('select#s3type').attr("name","type");
 			} else  {
 				$("div#sims3").hide();
 				$('select#s3type').attr("name","s3type");
 			}
-			if (v == 'Sims 4') {
+			if (v == 4) {
 				$("div#sims4").show();
 				$('select#s4type').attr("name","type");
 			} else  {

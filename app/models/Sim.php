@@ -26,6 +26,11 @@ class Sim extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
+	public function getBynhID($id) {
+		$this->load(array('nhID=?',$id));
+		return $this->query;
+	}
+
 	public function getByName($id) {
 		$this->load(array('firstName=?',$id));
 		return $this->query;

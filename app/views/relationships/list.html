@@ -1,0 +1,96 @@
+<check if="{{ @relationships }}">
+	<true>
+		<check if="{{ @title === 'Relationships' }}">
+			<true>
+				<div class="dropdown mb-3">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						View by hood:
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<repeat group="{{ @hoods }}" value="{{ @hood }}">
+							<a class="dropdown-item" href="{{@BASE}}/relationships/{{@hood.id}}">{{@hood.name}}</a>
+						</repeat>
+					</div>
+				</div>
+			</true>
+			<false>
+				<a class="btn btn-secondary mb-3" href="{{@BASE}}/relationships"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All relationships</a>
+			</false>
+		</check>
+		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
+			<thead>
+			<tr>
+				<th scope="col">Neighbourhood</th>
+				<th scope="col">Sim 1</th>
+				<th scope="col">Sim 2</th>
+				<th scope="col">Relationship</th>
+				<th scope="col">Relationship flags</th>
+				<th scope="col">Action</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<repeat group="{{ @hoods }}" value="{{ @hood }}">
+				<repeat group="{{ @relationships }}" value="{{ @ship }}">
+					<tr>
+						<td>{{ trim(@hood.name) }}</td>
+						<repeat group="{{ @sims }}" value="{{ @sim }}">
+							<check if="{{ @ship.sim1 == @sim.id}}">
+								<td>{{ trim(@sim.firstName) }} {{ trim(@sim.lastName) }}</td>
+							</check>
+						</repeat>
+						<repeat group="{{ @sims }}" value="{{ @sim }}">
+							<check if="{{ @ship.sim2 == @sim.id}}">
+								<td>{{ trim(@sim.firstName) }} {{ trim(@sim.lastName) }}</td>
+							</check>
+						</repeat>
+							<td>{{ trim(@ship.relName) }}</td>
+							<td>
+								<check if="{{ @ship.isFamily }}">
+									<img src="{{@BASE}}{{@s2path}}family.png" height="24" alt="Family">
+								</check>
+
+								<check if="{{ @ship.isSteady }}">
+									<img src="{{@BASE}}{{@s2path}}steady.png" height="24" alt="Going Steady">
+								</check>
+								<check if="{{ @ship.isEngaged }}">
+									<img src="{{@BASE}}{{@s2path}}engaged.png" height="24" alt="Engaged">
+								</check>
+								<check if="{{ @ship.isMarried }}">
+									<img src="{{@BASE}}{{@s2path}}married.png" height="24" alt="Married / Joined">
+								</check>
+								<br/>
+								<check if="{{ @ship.isEnemy }}">
+									<img src="{{@BASE}}{{@s2path}}enemy.png" height="24" alt="Enemy">
+								</check>
+								<check if="{{ @ship.isFriend }}">
+									<img src="{{@BASE}}{{@s2path}}friend.png" height="24" alt="Friend">
+								</check>
+								<check if="{{ @ship.isBF }}">
+									<img src="{{@BASE}}{{@s2path}}bf.png" height="24" alt="Best Friend">
+								</check>
+								<check if="{{ @ship.isCrush }}">
+									<img src="{{@BASE}}{{@s2path}}crush.png" height="24" alt="Crush">
+								</check>
+								<check if="{{ @ship.isLove }}">
+									<img src="{{@BASE}}{{@s2path}}love.png" height="24" alt="Love">
+								</check>
+							</td>
+							<td><a href="{{ @BASE.'/relationship/update/'. @ship.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+								<a href="{{ @BASE.'/relationship/delete/'. @ship.id }}"
+						   data-toggle="confirmation"
+						   data-content="This will delete this relationship and all associated data."
+						   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
+							Delete</a></td>
+					</tr>
+				</repeat>
+			</repeat>
+			</tbody>
+		</table>
+	</true>
+	<false>
+		<p>No relationships found.</p>
+	</false>
+</check>
+<a href="{{ @BASE.'/relationship/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
