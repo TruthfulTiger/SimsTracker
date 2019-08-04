@@ -1,5 +1,6 @@
 <form action="{{ @BASE.'/sim/update' }}" validate="true" method="post" class="form-horizontal">
 
+	{* Sim's name *}
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="firstName">First Name</label>
@@ -11,6 +12,7 @@
 		</div>
 	</div>
 
+	{* Gender and age *}
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="gender">Gender</label>
@@ -42,6 +44,7 @@
 		</div>
 	</div>
 
+	{* Origin *}
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="origin">Origin</label>
@@ -75,6 +78,7 @@
 		</div>
 	</div>
 
+	{* Parents *}
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="parent1">Parent 1</label>
@@ -148,29 +152,25 @@
 				<a class="dropdown-item infant toddler child ya career" data-toggle="collapse" href="#s2career" role="button" aria-expanded="false" aria-controls="s2career">
 					Career
 				</a>
+				<a class="dropdown-item" data-toggle="collapse" href="#s2ltws" role="button" aria-expanded="false" aria-controls="s2ltws">Lifetime Wants</a>
+				<a class="dropdown-item" data-toggle="collapse" href="#s2chemistry" role="button" aria-expanded="false" aria-controls="s2chemistry">Chemistry</a>
 			</div>
 		</div>
 		<!-- Dropdown - Uni -->
-		<div class="btn-group" role="group">
-			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="uniLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				University
-			</a>
+		<check if="{{ @user.uni == 1 }}">
+			<div class="btn-group" role="group">
+				<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="uniLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					University
+				</a>
 				<div class="dropdown-menu" aria-labelledby="uniLink">
-					<a class="dropdown-item" data-toggle="collapse" href="#s2ltws" role="button" aria-expanded="false" aria-controls="s2ltws">Lifetime Wants</a>
 					<a class="dropdown-item" data-toggle="collapse" href="#s2scholarships" role="button" aria-expanded="false" aria-controls="s2scholarships">Scholarships</a>
 					<a class="dropdown-item infant toddler child teen" data-toggle="collapse" href="#s2major" role="button" aria-expanded="false" aria-controls="s2major">Major</a>
 				</div>
-		</div>
-		<!-- Dropdown - NL -->
-		<div class="btn-group" role="group">
-			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="nlLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Nightlife
-			</a>
-				<div class="dropdown-menu" aria-labelledby="nlLink">
-					<a class="dropdown-item" data-toggle="collapse" href="#s2chemistry" role="button" aria-expanded="false" aria-controls="s2chemistry">Chemistry</a>
-				</div>
-		</div>
+			</div>
+		</check>
+
 		<!-- Dropdown - OFB -->
+		<check if="{{ @user.ofb == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="businessLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Business
@@ -180,7 +180,9 @@
 					<a class="dropdown-item" data-toggle="collapse" href="#s2perks" role="button" aria-expanded="false" aria-controls="s2perks">Perks</a>
 				</div>
 		</div>
+		</check>
 		<!-- Dropdown - Seasons -->
+		<check if="{{ @user.sns == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="seasonsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Seasons
@@ -189,7 +191,9 @@
 					<a class="dropdown-item" data-toggle="collapse" href="#s2snsbadges" role="button" aria-expanded="false" aria-controls="s2snsbadges">Badges</a>
 				</div>
 		</div>
+		</check>
 		<!-- Dropdown - BV -->
+		<check if="{{ @user.bv == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="bvLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Bon Voyage
@@ -198,7 +202,9 @@
 					<a class="dropdown-item" data-toggle="collapse" href="#s2mementos" role="button" aria-expanded="false" aria-controls="s2mementos">Mementos</a>
 				</div>
 		</div>
+		</check>
 		<!-- Dropdown - FT -->
+		<check if="{{ @user.ft == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="ftLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Free Time
@@ -209,7 +215,9 @@
 					<a class="dropdown-item" data-toggle="collapse" href="#s2bugs" role="button" aria-expanded="false" aria-controls="s2bugs">Bugs</a>
 				</div>
 		</div>
+		</check>
 		<!-- Dropdown - AL -->
+		<check if="{{ @user.al == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="alLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Apartment Life
@@ -217,12 +225,14 @@
 				<div class="dropdown-menu" aria-labelledby="alLink">
 					<a class="dropdown-item infant toddler" data-toggle="collapse" href="#s2rep" role="button" aria-expanded="false" aria-controls="s2rep">Reputation</a>
 					<a class="dropdown-item infant toddler" data-toggle="collapse" href="#s2lifeskills" role="button" aria-expanded="false" aria-controls="s2lifeskills">Life skills</a>
-					<a class="dropdown-item infant toddler child" data-toggle="collapse" href="#s2witchcraft" role="button" aria-expanded="false" aria-controls="s2witchcraft">Witchcraft</a>
+					<a class="dropdown-item infant toddler child" id="witch" data-toggle="collapse" href="#s2witchcraft" role="button" aria-expanded="false" aria-controls="s2witchcraft">Witchcraft</a>
 				</div>
 		</div>
+		</check>
 	</div>
 
 	<div class="accordion" id="simstats"><!-- Sim data accordion -->
+		{* Character *}
 		<div class="collapse mb-3" id="s2character" data-parent="#simstats">
 		<div class="card card-body">
 			<div class="form-row">
@@ -271,6 +281,7 @@
 			</div>
 		</div>
 	</div>
+		{* Life states *}
 		<div class="collapse mb-3" id="s2lifeStates" data-parent="#simstats">
 		<div class="card card-body">
 			<h5>Life and death details</h5>
@@ -329,6 +340,9 @@
 					<check if="{{ @sim.isZombie == 1}}">
 						checked
 					</check>
+					<check if="{{ @user.uni != 1 }}">
+						disabled
+					</check>
 					>
 					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" alt="Zombie"></label>
 				</div>
@@ -337,6 +351,9 @@
 					<input type="checkbox" id="isVampire" name="isVampire" value="1" class="custom-control-input"
 					<check if="{{ @sim.isVampire == 1}}">
 						checked
+					</check>
+					<check if="{{ @user.nl != 1 }}">
+						disabled
 					</check>
 					>
 					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" alt="Vampire"></label>
@@ -347,6 +364,9 @@
 					<check if="{{ @sim.isServo == 1}}">
 						checked
 					</check>
+					<check if="{{ @user.ofb != 1 }}">
+						disabled
+					</check>
 					>
 					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" alt="Servo"></label>
 				</div>
@@ -356,6 +376,9 @@
 					<check if="{{ @sim.isWerewolf == 1}}">
 						checked
 					</check>
+					<check if="{{ @user.pets != 1 }}">
+						disabled
+					</check>
 					>
 					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" alt="Werewolf"></label>
 				</div>
@@ -364,6 +387,9 @@
 					<input type="checkbox" id="isPlantSim" name="isPlantSim" value="1" class="custom-control-input"
 					<check if="{{ @sim.isPlantSim == 1}}">
 						checked
+					</check>
+					<check if="{{ @user.sns != 1 }}">
+						disabled
 					</check>
 					>
 					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" alt="PlantSim"></label>
@@ -375,13 +401,16 @@
 					<check if="{{ @sim.isWitch == 1}}">
 						checked
 					</check>
+					<check if="{{ @user.al != 1 }}">
+						disabled
+					</check>
 					>
 					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" alt="Witch"></label>
 				</div>
-
 			</div>
 		</div>
 	</div>
+		{* Personality *}
 		<div class="collapse mb-3" id="s2personality" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-group">
@@ -533,6 +562,7 @@
 			</div>
 		</div>
 	</div>
+		{* Aspirations *}
 		<div class="collapse mb-3" id="s2aspirations" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -571,6 +601,7 @@
 				</div>
 			</div>
 		</div>
+		{* Skills *}
 		<div class="collapse mb-3" id="s2skills" data-parent="#simstats">
 		<div class="card card-body">
 			<div class="form-row">
@@ -636,6 +667,7 @@
 			</div>
 		</div>
 	</div>
+		{* Interests *}
 		<div class="collapse mb-3" id="s2interests" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="text-primary mb-3">Interests</h5>
@@ -725,6 +757,7 @@
 				</div>
 			</div>
 		</div>
+		{* School *}
 		<div class="collapse mb-3" id="s2school" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">School</h5>
@@ -822,6 +855,7 @@
 				</div>
 			</div>
 		</div>
+		{* Work *}
 		<div class="collapse mb-3" id="s2work" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Work</h5>
@@ -870,6 +904,7 @@
 				</div>
 			</div>
 		</div>
+		{* Career *}
 		<div class="collapse mb-3" id="s2career" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Career</h5>
@@ -922,7 +957,7 @@
 				</exclude>
 			</div>
 		</div>
-
+		{* LTWs *}
 		<div class="collapse mb-3" id="s2ltws" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -963,6 +998,7 @@
 				</div>
 			</div>
 		</div>
+		{* Scholarships *}
 		<div class="collapse mb-3" id="s2scholarships" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -1073,6 +1109,7 @@
 				</div>
 			</div>
 		</div>
+		{* Major *}
 		<div class="collapse mb-3" id="s2major" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Major</h5>
@@ -1140,7 +1177,7 @@
 				</div>
 			</div>
 		</div>
-
+		{* Chemistry *}
 		<div class="collapse mb-3" id="s2chemistry" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -1189,7 +1226,7 @@
 				</div>
 			</div>
 		</div>
-
+		{* Business badges *}
 		<div class="collapse mb-3" id="s2bizbadges" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -1297,6 +1334,7 @@
 				</div>
 			</div>
 		</div>
+		{* Perks *}
 		<div class="collapse mb-3" id="s2perks" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Business Perks</h5>
@@ -1494,7 +1532,7 @@
 				</div>
 			</div>
 		</div>
-
+		{* Seasons badges *}
 		<div class="collapse mb-3" id="s2snsbadges" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -1534,7 +1572,7 @@
 			</div>
 		</div>
 		</div>
-
+		{* Mementos *}
 		<div class="collapse mb-3" id="s2mementos" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Mementos</h5>
@@ -1869,7 +1907,7 @@
 				</div>
 			</div>
 		</div>
-
+		{* Hobbies *}
 		<div class="collapse mb-3" id="s2hobbies" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="text-primary mb-3">Hobbies</h5>
@@ -2011,6 +2049,7 @@
 
 			</div>
 		</div>
+		{* FT badges *}
 		<div class="collapse mb-3" id="s2ftbadges" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -2050,6 +2089,7 @@
 				</div>
 			</div>
 		</div>
+		{* Bugs *}
 		<div class="collapse mb-3" id="s2bugs" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Bug Collection</h5>
@@ -2276,7 +2316,7 @@
 				</div>
 			</div>
 		</div>
-
+		{* Reputation *}
 		<div class="collapse mb-3" id="s2rep" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Reputation</h5>
@@ -2291,6 +2331,7 @@
 				</div>
 			</div>
 		</div>
+		{* Life skills *}
 		<div class="collapse mb-3" id="s2lifeskills" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Life Skills</h5>
@@ -2333,6 +2374,7 @@
 				</div>
 			</div>
 		</div>
+		{* Witchcraft *}
 		<div class="collapse mb-3" id="s2witchcraft" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Witchcraft</h5>
@@ -2656,6 +2698,7 @@
 		aspCheck();
         genshow();
 		deathshow();
+		witchshow();
 		repUpdate($('#reputation').val());
 		alignUpdate($('#alignment').val());
 		magicUpdate($('#magicLevel').val());
@@ -2694,6 +2737,10 @@
 		$("#origin").change(function () {
             genshow();
         });
+
+		$("#isWitch").change(function () {
+			witchshow();
+		});
 	});
 
 	function genshow() {
@@ -2716,6 +2763,15 @@
 		else {
 			$( "#deathshow" ).attr('aria-hidden', 'true').hide();
 			$("#ghost").prop('checked', false);
+		}
+	}
+
+	function witchshow() {
+		if ($("#isWitch").prop('checked')) {
+			$( "#witch" ).attr('aria-hidden', 'false').show();
+		}
+		else {
+			$( "#witch" ).attr('aria-hidden', 'true').hide();
 		}
 	}
 

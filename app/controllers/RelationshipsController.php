@@ -118,7 +118,7 @@ class RelationshipsController extends Controller {
 	{
 		if($this->f3->exists('PARAMS.id'))
 		{
-			$this->sim->delete($this->f3->get('PARAMS.id'));
+			$this->relationship->delete($this->f3->get('PARAMS.id'));
 			$this->f3->set('SESSION.success', 'Relationship was deleted');
 		} else {
 			$this->f3->set('SESSION.error', 'Relationship doesn\'t exist');

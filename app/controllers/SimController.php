@@ -4,13 +4,17 @@ class SimController extends Controller {
 	private $household;
     private $hood;
     private $version;
+    private $relationship;
+    private $user;
 
 	public function __construct() {
 		parent::__construct();
 		$this->sim = new Sim($this->db);
 		$this->household = new Household($this->db);
         $this->hood = new Hood($this->db);
+        $this->user = new User($this->db);
         $this->version = $this->f3->set('SESSION.version', $this->hood->gameVersion);
+        $this->relationship = new Relationships($this->db);
 	}
 
 	public function index()
@@ -96,9 +100,16 @@ class SimController extends Controller {
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('sim', $sim);
+				$this->user->getById($this->f3->get('SESSION.user[2]'));
+				$this->f3->set('user', $this->user);
 				$this->f3->set('parents', $parents);
 				$this->f3->set('title','Update Sim');
 				$this->f3->set('content','sim/update.html');
+				if ($this->f3->exists('POST.parent1') && $this->f3->exists('POST.parent2')) {
+					$parent1  = $this->f3->get('POST.parent1');
+					$parent2  = $this->f3->get('POST.parent2');
+					relCreate($parent1, $parent2, $sim);
+				}
             } else {
 				$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
 				$this->f3->reroute('/sims');
@@ -283,5 +294,9 @@ class SimController extends Controller {
 			$this->f3->set('POST.learnedPhysio',isset($_POST["learnedPhysio"])?1:0);
 			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
 		}
+	}
+
+	function relCreate($parent1, $parent2, $sim){
+		$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
 	}
 }

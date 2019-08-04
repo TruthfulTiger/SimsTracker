@@ -8,6 +8,7 @@ class S2LegacyController extends Controller {
 	private $colour;
 	private $legacygen;
 	private $id;
+	private $user;
 
 	public function __construct() {
 		parent::__construct();
@@ -16,6 +17,7 @@ class S2LegacyController extends Controller {
 		$this->challenge = new Challenge($this->db);
 		$this->sim = new Sim($this->db);
 		$this->colour = new UserColour($this->db);
+		$this->user = new User($this->db);
 		$this->legacygen = new LegacyGen($this->db);
 		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 		$this->id = 0;
@@ -99,6 +101,8 @@ class S2LegacyController extends Controller {
 		$this->household->getById($this->legacy->hhID);
 		$this->challenge->getById($this->f3->get('SESSION.challenge'));
 		$this->f3->set('household', $this->household);
+		$this->user->getById($this->f3->get('SESSION.user[2]'));
+		$this->f3->set('user', $this->user);
 		$this->f3->set('challenge', $this->challenge);
 		$this->f3->set('colours',$this->colour->getByChallenge($this->f3->get('SESSION.challenge')));
 		$this->f3->set('sims',$this->sim->getByhhID($this->legacy->hhID));

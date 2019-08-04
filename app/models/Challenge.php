@@ -2,8 +2,11 @@
 
 class Challenge extends DB\SQL\Mapper{
 
+	protected $table;
+
 	public function __construct(DB\SQL $db) {
-		parent::__construct($db,'challenge');
+		$this->table = 'challenge';
+		parent::__construct($db,$this->table);
 	}
 
 	public function all() {
@@ -37,6 +40,7 @@ class Challenge extends DB\SQL\Mapper{
 	}
 
 	public function add() {
+		$this->reset();
 		$this->copyFrom('POST');
 		$this->save();
 	}
@@ -55,7 +59,7 @@ class Challenge extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(
-			'ALTER TABLE challenge AUTO_INCREMENT = '.intval($lastInsertID)
+			'ALTER TABLE '.$this->table.' AUTO_INCREMENT = '.intval($lastInsertID)
 		);
 	}
 }

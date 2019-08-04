@@ -5,19 +5,43 @@
 <footer class="footer text-light shadow-sm">
     <div class="container-fluid">
 		<div class="container">
+			<ul class="nav nav-white justify-content-center">
+			<repeat group="{{ @footer }}" key="{{ @fkey }}" value="{{ @fitem }}">
+				<li <check if="{{ @title == @fitem }}">
+				<true>
+					class="nav-item active"
+				</true>
+				<false>
+					class="nav-item"
+				</false>
+			</check>
+				>
+				<a href="{{@BASE}}{{@fkey}}" <check if="{{ @title == @fitem }}">
+				<true>
+					class="nav-link active"
+				</true>
+				<false>
+					class="nav-link"
+				</false>
+			</check>
+				>{{@fitem}} <check if="{{ @title == @fitem }}"><span class="sr-only">(current)</span></check></a>
+				</li>
+			</repeat>
+			</ul>
+			<small>
 	This site is not endorsed by or affiliated with Electronic Arts, or its licensors. Trademarks are the property of their respective owners. Game content and materials copyright Electronic Arts Inc. and its licensors. All Rights Reserved. Site built by Sam Phoenix &copy;
 		<check if="{{ @copyyear == 2018}}">
 			<true>{{ @copyyear }}</true>
 			<false>2018 - {{ @copyyear }}</false>
 		</check>
+			</small>
 		</div>
     </div>
 </footer>
 <include href="login.html" />
 {* Scripts *}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="{{@BASE}}/ui/js/shards.min.js"></script>
 <script src="{{@BASE}}/ui/js/jquery-simple-validator.min.js"></script>
 <script src="{{@BASE}}/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js"></script>
 <script>
@@ -27,6 +51,7 @@
 			$('.offcanvas-collapse').toggleClass('open')
 		});
 	});
+	$("body").tooltip({ selector: '[data-toggle=tooltip]' });
 	$('[data-toggle=confirmation]').confirmation({
 		rootSelector: '[data-toggle=confirmation]'
 		// other options

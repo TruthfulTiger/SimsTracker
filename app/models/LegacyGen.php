@@ -22,6 +22,7 @@ class LegacyGen extends DB\SQL\Mapper{
 	}
 
 	public function add() {
+		$this->reset();
 		$this->copyFrom('GET',function($val) {
 			// the 'GET' array is passed to our callback function
 			return array_intersect_key($val, array_flip(array('PARAMS.userID', 'PARAMS.generation', 'PARAMS.challengeID','PARAMS.simID')));

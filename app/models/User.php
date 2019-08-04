@@ -21,11 +21,18 @@ class User extends DB\SQL\Mapper{
 	}
 
 	public function add() {
+		$this->reset();
 		$this->copyFrom('POST');
 		$this->save();
 	}
 
 	public function edit($id) {
+		$this->load(array('id=?',$id));
+		$this->copyFrom('POST');
+		$this->update();
+	}
+
+	public function editNP($id) {
 		$this->load(array('id=?',$id));
 		$this->copyFrom('POST');
 		$this->update();

@@ -27,11 +27,15 @@ class UserColour extends DB\SQL\Mapper{
 	}
 
 	public function getByChallenge($id) {
-		$this->load(array('challengeID=?',$id));
+		$this->load(array('challengeID=?',$id),
+            array(
+            'order'=>'generation'
+        ));
 		return $this->query;
 	}
 
 	public function add() {
+		$this->reset();
 		$this->copyFrom('POST');
 		$this->save();
 	}

@@ -31,5 +31,5 @@
 	</false>
 </check>
 </check>
-<a href="{{ @BASE.'/colour/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
-<button class="btn btn-secondary" onclick="sessionStorage.removeItem('challenge');window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+<a href="{{ @BASE.'/colour/create/'. @SESSION.challenge }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<button class="btn btn-secondary" onclick="window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</button>

@@ -37,6 +37,7 @@ class Sim extends DB\SQL\Mapper{
 	}
 
 	public function add() {
+		$this->reset();
 		$this->copyFrom('POST');
 		$this->save();
 	}

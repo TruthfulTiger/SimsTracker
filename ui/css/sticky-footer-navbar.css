@@ -30,19 +30,18 @@ body,
 .main-container{
 	overflow-x: hidden; /* Prevent scroll on narrow devices */
 	position: relative;
-	min-height: 95vh;
-	height: 100%;
+	min-height: 86.35vh;
 }
 
 .main-container {
 	padding: 20px 20px;
+	margin-top: 1rem;
 	background-color: white;
 }
 
 body {
 	/* Margin bottom by footer height */
 	font-family: 'Open Sans', sans-serif;
-	/*margin-bottom: 60px;*/
 }
 
 .bg {
@@ -58,17 +57,18 @@ body {
 }
 
 .footer {
-/*  position: absolute;
-  bottom: 0;
-  width: 100%;*/
 	background-color: #005cbf;
-  /* Set the fixed height of the footer here */
-  /*height: 60px;*/
+	padding: 1rem;
+  height: 7rem;
+}
 
+.footer .nav a {
+	text-decoration: underline;
 }
 
 .title {
     font-family: "Sims LLHP";
+	padding: 0;
 }
 
 h1, h2, h3, h4 {
@@ -147,7 +147,6 @@ code {
 }
 .modal-login .modal-content {
 	padding: 20px;
-	border-radius: 5px;
 	border: none;
 }
 .modal-login .modal-header {
@@ -187,14 +186,7 @@ code {
 	top: -5px;
 	right: -5px;
 }
-/*.modal-login .btn {
-	background: #00ce81;
-	border: none;
-	line-height: normal;
-}
-.modal-login .btn:hover, .modal-login .btn:focus {
-	background: #00bf78;
-}*/
+
 .modal-login .modal-footer {
 /*	background: #ecf0f1;
 	border-color: #dee4e7; */

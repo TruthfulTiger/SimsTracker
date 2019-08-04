@@ -1,8 +1,8 @@
 <header>
 	<!-- Fixed navbar -->
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
 		<div class="container">
-			<a class="navbar-brand mb-0 h1 title" href="#">Sims Tracker</a>
+			<a class="navbar-brand title" style="font-size: xx-large" href="#">Sims Tracker</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -31,9 +31,9 @@
 					</repeat>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Generators</a>
-						<div class="dropdown-menu bg-dark">
+						<div class="dropdown-menu">
 							<repeat group="{{ @generators }}" key="@genkey" value="{{ @genitem }}">
-								<a class="dropdown-item text-light" href="{{@BASE}}{{ @genkey }}">{{ @genitem }}</a>
+								<a class="dropdown-item" href="{{@BASE}}{{ @genkey }}">{{ @genitem }}</a>
 							</repeat>
 						</div>
 					</li>
@@ -43,12 +43,12 @@
 						<true>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user">&nbsp;</i> My Account</a>
-								<div class="dropdown-menu bg-dark">
-									<a class="dropdown-item text-light" href="#">Dashboard</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Dashboard</a>
 									<check if="{{ @SESSION.user[1] == 'Admin' }}">
 										<div class="dropdown-divider"></div>
 										<repeat group="{{ @admin }}" key="@adminkey" value="{{ @adminitem }}">
-											<a class="dropdown-item text-light" href="{{@BASE}}{{ @adminkey }}">{{ @adminitem }}</a>
+											<a class="dropdown-item" href="{{@BASE}}{{ @adminkey }}">{{ @adminitem }}</a>
 										</repeat>
 									</check>
 								</div>

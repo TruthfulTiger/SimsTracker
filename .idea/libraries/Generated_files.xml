@@ -1,0 +1,45 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/aspgen.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/colorpalettepicker.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/extras.1.1.0.min.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/families.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/jquery.session.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/randomiser.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/shards-dashboards.1.1.0.min.js" />
+        <item url="file://$PROJECT_DIR$/ui/js/shards-dashboards.1.1.0.min.min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-new-post.1.1.0.min.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-blog-overview.1.1.0.min.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/app/app-components-overview.1.1.0.min.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/aspgen.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/colorpalettepicker.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/extras.1.1.0.min.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/families.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/jquery.session.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/randomiser.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/shards-dashboards.1.1.0.min.js" />
+      <root url="file://$PROJECT_DIR$/ui/js/shards-dashboards.1.1.0.min.min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

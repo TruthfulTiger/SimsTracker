@@ -1,8 +1,33 @@
-<table width="600" cellpadding="5" class="table">
-	<tr>
-		<th scope="row">Sim Name</th>
-		<td>{{ trim(@sim.firstName) }}&nbsp;{{ trim(@sim.lastName) }}</td>
-	</tr>
-</table>
+<div class="row">
+	<div class="col">
+		<check if="{{ @sim.gender == 'F'}}">
+			<img src="{{@BASE}}{{@s2path}}Female.png" alt="Female" data-toggle="tooltip" title="Female">
+		</check>
+		<check if="{{ @sim.gender == 'M'}}">
+			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male">
+		</check>
+	</div>
+	<div class="col">
+		<check if="{{ @sim.age == 'infant'}}">
+			<img src="{{@BASE}}{{@s2path}}Female.png" alt="Infant" data-toggle="tooltip" title="Infant">
+		</check>
+		<check if="{{ @sim.age == 'toddler'}}">
+			<img src="{{@BASE}}{{@s2path}}Age1.png" alt="Toddler" data-toggle="tooltip" title="Toddler">
+		</check>
+		<check if="{{ @sim.age == 'child'}}">
+			<img src="{{@BASE}}{{@s2path}}Age2.png" alt="Child" data-toggle="tooltip" title="Child">
+		</check>
+		<check if="{{ @sim.age == 'teen'}}">
+			<img src="{{@BASE}}{{@s2path}}Age3.png" alt="Teen" data-toggle="tooltip" title="Teen">
+		</check>
+		<check if="{{ @sim.age == 'adult'}}">
+			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Adult" data-toggle="tooltip" title="Adult">
+		</check>
+		<check if="{{ @sim.age == 'elder'}}">
+			<img src="{{@BASE}}{{@s2path}}Age5.png" alt="Elder" data-toggle="tooltip" title="Elder">
+		</check>
+	</div>
+</div>
+
  <a href="{{ @BASE.'/sims' }}" class="btn btn-secondary" onclick="window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</a>
 

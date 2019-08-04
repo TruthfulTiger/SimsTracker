@@ -30,6 +30,47 @@ class Controller {
 			$f3->get('db_pass'), array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)
 		);
 
+		if (!function_exists('debug_to_console')) {
+			function debug_to_console($data) {
+				$output=$data;
+				if (is_array($output))
+					$output=implode(',',$output);
+
+				echo "<script>console.log( 'Debug Objects: ".$output."' );</script>";
+			}
+		}
+
+
+        /**
+         * searches a simple as well as multi dimension array
+         * @param type $needle
+         * @param type $haystack
+         * @return boolean
+         */
+		if (!function_exists('in_array_multi'))   {
+        function in_array_multi($needle, $haystack){
+            $needle = trim($needle);
+            if(!is_array($haystack))
+                return False;
+
+            foreach($haystack as $key=>$value){
+                if(is_array($value)){
+                    if(self::in_array_multi($needle, $value))
+                        return True;
+                    else
+                        self::in_array_multi($needle, $value);
+                }
+                else
+                    if(trim($value) === trim($needle)){//visibility fix//
+                        error_log("$value === $needle setting visibility to 1 hidden");
+                        return True;
+                    }
+            }
+
+            return False;
+            }
+        }
+
 		$this->f3=$f3;
 		$this->db=$db;
 	}
