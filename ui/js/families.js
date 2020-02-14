@@ -18,7 +18,7 @@ $(function () {
 	let eyes = $("#eyes");
 	let zodiac = $("#zodiac");
 	let personality = $("#personality");
-	let points = [0, 0, 0, 0, 0];
+	let points = [];
 
 	let fitness = $("#fitness");
 	let facialHair = $("#facialHair");
@@ -49,112 +49,16 @@ $(function () {
 	let gayChance = $("#gay");
 	let biChance = $("#bi");
 
-	let zodiacPoints = [];
+	checkEPs();
 
 	// Checks for Sims 2 EP checkboxes
 	$(".s2eps").change(function(){
-		// If only Uni (or no EPs) checked, don't randomise turn-ons
-		if (nl.prop('checked') === false && ofb.prop('checked') === false && pets.prop('checked') === false && sns.prop('checked') === false && bv.prop('checked') === false && ft.prop('checked') === false && al.prop('checked') === false) {
-			ton11.attr("src",s2path+'Null.png');
-			ton11.attr("alt",'');
-			ton21.attr("src",s2path+'Null.png');
-			ton21.attr("alt",'');
-			toff1.attr("src",s2path+'Null.png');
-			toff1.attr("alt",'');
-			ton12.attr("src",s2path+'Null.png');
-			ton12.attr("alt",'');
-			ton22.attr("src",s2path+'Null.png');
-			ton22.attr("alt",'');
-			toff2.attr("src",s2path+'Null.png');
-			toff2.attr("alt",'');
-			ton13.attr("src",s2path+'Null.png');
-			ton13.attr("alt",'');
-			ton23.attr("src",s2path+'Null.png');
-			ton23.attr("alt",'');
-			toff3.attr("src",s2path+'Null.png');
-			toff3.attr("alt",'');
-			ton14.attr("src",s2path+'Null.png');
-			ton14.attr("alt",'');
-			ton24.attr("src",s2path+'Null.png');
-			ton24.attr("alt",'');
-			toff4.attr("src",s2path+'Null.png');
-			toff4.attr("alt",'');
-			ton15.attr("src",s2path+'Null.png');
-			ton15.attr("alt",'');
-			ton25.attr("src",s2path+'Null.png');
-			ton25.attr("alt",'');
-			toff5.attr("src",s2path+'Null.png');
-			toff5.attr("alt",'');
-			ton16.attr("src",s2path+'Null.png');
-			ton16.attr("alt",'');
-			ton26.attr("src",s2path+'Null.png');
-			ton26.attr("alt",'');
-			toff6.attr("src",s2path+'Null.png');
-			toff6.attr("alt",'');
-			ton17.attr("src",s2path+'Null.png');
-			ton17.attr("alt",'');
-			ton27.attr("src",s2path+'Null.png');
-			ton27.attr("alt",'');
-			toff7.attr("src",s2path+'Null.png');
-			toff7.attr("alt",'');
-			ton18.attr("src",s2path+'Null.png');
-			ton18.attr("alt",'');
-			ton28.attr("src",s2path+'Null.png');
-			ton28.attr("alt",'');
-			toff8.attr("src",s2path+'Null.png');
-			toff8.attr("alt",'');
-			// If turn-ons not applicable, disable TO option
-			tocheck.prop("checked", false);
-			tocheck.prop("disabled", true);
-		} else {
-			// If relevant EPs checked, enable TO option and see if it's checked
-			tocheck.prop("disabled", false);
-		}
-		// If EP is checked, enable supernaturals
-		if (uni.prop('checked')) {
-			zombie.prop("disabled", false);
-		} else {
-			zombie.prop("checked", false);
-			zombie.prop("disabled", true);
-		}
-		if (nl.prop('checked')) {
-			vampire.prop("disabled", false);
-		} else {
-			vampire.prop("checked", false);
-			vampire.prop("disabled", true);
-		}
-		if (pets.prop('checked')) {
-			werewolf.prop("disabled", false);
-		} else {
-			werewolf.prop("checked", false);
-			werewolf.prop("disabled", true);
-		}
-		if (sns.prop('checked')) {
-			plantSim.prop("disabled", false);
-		} else {
-			plantSim.prop("checked", false);
-			plantSim.prop("disabled", true);
-		}
-		if (ft.prop('checked')) {
-			hobby.prop("disabled", false);
-			secondAsp.prop("disabled", false);
-		} else {
-			hobby.prop("checked", false);
-			hobby.prop("disabled", true);
-			secondAsp.prop("checked", false);
-			secondAsp.prop("disabled", true);
-		}
-		if (al.prop('checked')) {
-			witch.prop("disabled", false);
-		} else {
-			witch.prop("checked", false);
-			witch.prop("disabled", true);
-		}
+		checkEPs();
 	});
 
 	supernatural.change(function() {
 		let checked = $(this).prop('checked');
-		$('.supernaturals').find('input:checkbox').prop('checked', checked);
+		$('.supernaturals').find('input:checkbox:enabled').prop('checked', checked);
 	});
 
 	// Sims 2 specific functions
@@ -168,27 +72,28 @@ $(function () {
 		let agealt = '';
 		let ageRnd = 0;
 
-		if (age.prop("checked")) {
-			switch (n) {
-				case 'minTeen':
-					ageRnd = getRandomInt(3, 5);
-					break;
-				case 'minAdult':
-					ageRnd = getRandomInt(4, 5);
-					break;
-				case 'minElder':
-					ageRnd = ageRnd = 5;
-					break;
-				default:
-					ageRnd = getRandomInt(1, 5);
-					break;
-			}
-		} else {
-			ageRnd = 0;
-		}
-
-		//TODO: Randomise age properly and account for at least one of min age
 		for (let i = 1; i <= numsims; i++) {
+			if (i === 1) {
+				switch (n) {
+					case 'minTeen':
+						ageRnd = getRandomInt(3, 5);
+						break;
+					case 'minAdult':
+						ageRnd = getRandomInt(4, 5);
+						break;
+					case 'minElder':
+						ageRnd = ageRnd = 5;
+						break;
+					default:
+						ageRnd = getRandomInt(1, 5);
+						break;
+				}
+			}
+
+			if (i > 1 && i <= 8) {
+				ageRnd = getRandomInt(1, 5);
+			}
+
 			switch (ageRnd) {
 				case 1:
 					ageimg = "Age1.png";
@@ -227,11 +132,11 @@ $(function () {
 		let genderalt = '';
 		let genderRnd = 0;
 
-		if (gender.prop("checked")) {
-			genderRnd = getRandomInt(1, 2);
-		}
-
 		for (let i = 1; i <= numsims; i++) {
+			if (gender.prop("checked")) {
+				genderRnd = getRandomInt(1, 2);
+			}
+
 			switch (genderRnd) {
 				case 1:
 					genderimg = "Female.png";
@@ -258,11 +163,11 @@ $(function () {
 		let skinalt = '';
 		let skinRnd = 0;
 
-		if (skintone.prop("checked")) {
-			skinRnd = getRandomInt(1, 4);
-		}
-
 		for (let i = 1; i <= numsims; i++) {
+			if (skintone.prop("checked")) {
+				 skinRnd = getRandomInt(1, 4);
+			} 
+
 			switch (skinRnd) {
 				case 1:
 					skinimg = "S1.png";
@@ -297,11 +202,11 @@ $(function () {
 		let hairalt = '';
 		let hairRnd = 0;
 
-		if (hair.prop("checked")) {
-			hairRnd = getRandomInt(1, 4);
-		}
-
 		for (let i = 1; i <= numsims; i++) {
+			if (hair.prop("checked")) {
+				hairRnd = getRandomInt(1, 4);
+			} 
+
 			switch (hairRnd) {
 				case 1:
 					hairimg = "turnon15.png";
@@ -336,11 +241,11 @@ $(function () {
 		let eyesalt = '';
 		let eyesRnd = 0;
 
-		if (eyes.prop("checked")) {
-			eyesRnd = getRandomInt(1, 5);
-		}
-
 		for (let i = 1; i <= numsims; i++) {
+			if (eyes.prop("checked")) {
+				eyesRnd = getRandomInt(1, 5);
+			} 
+
 			switch (eyesRnd) {
 				case 1:
 					eyesimg = "brown_eyes.png";
@@ -378,12 +283,12 @@ $(function () {
 		let zodiacimg = '';
 		let zodiacalt = '';
 		let zodiacRnd = 0;
-
-		if (zodiac.prop("checked")) {
-			zodiacRnd = getRandomInt(1, 12);
-		}
-
+		
 		for (let i = 1; i <= numsims; i++) {
+			if (zodiac.prop("checked")) {
+				zodiacRnd = getRandomInt(1, 12);
+			}
+
 			switch (zodiacRnd) {
 				case 1:
 					zodiacimg = "Zodiac1.png";
@@ -438,86 +343,99 @@ $(function () {
 					zodiacalt = "";
 					break;
 			}
-			zodiacPoints[i] = zodiacalt;
 			$('#zodiac'+i).attr("src", s2path + zodiacimg);
 			$('#zodiac'+i).attr("alt", zodiacalt);
-			$('#zodiac'+i).attr("title", zodiacalt);
+			$('#zodiac'+i).attr("title", zodiacalt);			
 		}
 	}
 
 	// Personality randomiser
 	function personalityRand() {
-		let pointsRnd = 0;
-
+		points = [];
+		let zodName = "";
 		for (let i = 1; i <= numsims; i++) {
-			if (!personality.prop('checked')) {
-				if (zodiacPoints[i] === "Capricorn")
-					points = [7, 4, 1, 8, 5];
-				if (zodiacPoints[i] === "Sagittarius")
-					points = [2, 3, 9, 7, 4];
-				if (zodiacPoints[i] === "Libra")
-					points = [2, 8, 2, 6, 7];
-				if (zodiacPoints[i] === "Aquarius")
-					points = [4, 4, 4, 7, 6];
-				if (zodiacPoints[i] === "Aries")
-					points = [5, 8, 6, 3, 3];
-				if (zodiacPoints[i] === "Cancer")
-					points = [6, 3, 6, 4, 6];
-				if (zodiacPoints[i] === "Gemini")
-					points = [4, 7, 8, 3, 3];
-				if (zodiacPoints[i] === "Leo")
-					points = [4, 10, 4, 4, 3];
-				if (zodiacPoints[i] === "Pisces")
-					points = [5, 3, 7, 3, 7];
-				if (zodiacPoints[i] === "Scorpio")
-					points = [6, 5, 8, 3, 3];
-				if (zodiacPoints[i] === "Taurus")
-					points = [5, 5, 3, 8, 4];
-				if (zodiacPoints[i] === "Virgo")
-					points = [9, 2, 6, 3, 5];
-			} else {
-				for (let i = 0; i < points.length; i++) {
-					if (personality.prop("checked")) {
-						pointsRnd = getRandomInt(1, 10);
-					} else {
-						pointsRnd = 0;
-					}
-					points[i] = pointsRnd;
+			if (!personality.prop('checked') && !zodiac.prop('checked'))	
+				points = [0, 0, 0, 0, 0];		
+
+			if (!personality.prop('checked') && zodiac.prop('checked')) {
+				zodName = $('#zodiac'+i).attr("alt");
+				switch(zodName) {
+					case "Capricorn":
+						points = [7, 4, 1, 8, 5];
+						break;
+					case "Sagittarius":
+						points = [2, 3, 9, 7, 4];
+						break;
+					case "Libra":
+						points = [2, 8, 2, 6, 7];
+						break;
+					case "Aquarius":
+						points = [4, 4, 4, 7, 6];
+						break;
+					case "Aries":
+						points = [5, 8, 6, 3, 3];
+						break;
+					case "Cancer":
+						points = [6, 3, 6, 4, 6];
+						break;
+					case "Gemini":
+						points = [4, 7, 8, 3, 3];
+						break;
+					case "Leo":
+						points = [4, 10, 4, 4, 3];
+						break;
+					case "Pisces":
+						points = [5, 3, 7, 3, 7];
+						break;
+					case "Scorpio":
+						points = [6, 5, 8, 3, 3];
+						break;
+					case "Taurus":
+						points = [5, 5, 3, 8, 4];
+						break;
+					case "Virgo":
+						points = [9, 2, 6, 3, 5];
+						break;
+					default:
+						points = [0, 0, 0, 0, 0];					
+						break;
 				}
 			}
-			$('#personality'+i).text("Personality: " + points.join('-'));
+
+			if (personality.prop('checked')) {
+				points = [getRandomInt(0, 10), getRandomInt(0, 10), getRandomInt(0, 10), getRandomInt(0, 10), getRandomInt(0, 10)];				
+			}
+				$('#personality'+i).text("Personality: " + points.join('-'));
+			} 
 		}
-	}
 
 	// Body randomiser
 	function fitnessRand() {
 		let fitnessimg = '';
 		let fitnessalt = '';
-		let fat = 0;
-		let thin = 0;
+
+		let fat = fatnessChance.val() / 100;
+		let thin = (100 - fatnessChance.val()) / 100;
 
 		let list = ['thin', 'fat'];
 		let weight = [thin, fat];
 
-		if (fitness.prop("checked")) {
-			for (let i = 1; i <= numsims; i++) {
-				fat = fatnessChance.val() / 100;
-				thin = (100 - fatnessChance.val()) / 100;
-				let random_item = getWeightedRandom(list, weight);
+		for (let i = 1; i <= numsims; i++) {
 
-				if (random_item === 'thin') {
-					fitnessimg = "skinny.png";
-					fitnessalt = "Skinny";
-				}
+			let random_fit = getWeightedRandom(list, weight);
 
-				if (random_item === 'fat') {
-					fitnessimg = "fat.png";
-					fitnessalt = "Fat";
-				}
-				$('#fitness'+i).attr("src", s2path + fitnessimg);
-				$('#fitness'+i).attr("alt", fitnessalt);
-				$('#fitness'+i).attr("title", fitnessalt);
+			if (random_fit === 'thin') {
+				fitnessimg = "skinny.png";
+				fitnessalt = "Thin";
 			}
+
+			if (random_fit === 'fat') {
+				fitnessimg = "fat.png";
+				fitnessalt = "Fat";
+			}
+			$('#body'+i).attr("src", s2path + fitnessimg);
+			$('#body'+i).attr("alt", fitnessalt);
+			$('#body'+i).attr("title", fitnessalt);
 		}
 	}
 
@@ -531,20 +449,24 @@ $(function () {
 
 		let list = ['nohair', 'hair'];
 		let weight = [nohair, hair];
-		let random_item = getWeightedRandom(list, weight);
 
-		if (random_item === 'nohair') {
-			fhimg = "turnoff10.png";
-			fhalt = "No facial hair";
-		}
+		for (let i = 1; i <= numsims; i++) {
+			let random_fhair = getWeightedRandom(list, weight);
 
-		if (random_item === 'hair') {
-			fhimg = "turnon10.png";
-			fhalt = "Has facial hair";
+			if (random_fhair === 'nohair') {
+				fhimg = "turnoff10.png";
+				fhalt = "No facial hair";
+			}
+
+			if (random_fhair === 'hair') {
+				fhimg = "turnon10.png";
+				fhalt = "Has facial hair";
+			}
+
+			$('#facialHair'+i).attr("src", s2path + fhimg);
+			$('#facialHair'+i).attr("alt", fhalt);
+			$('#facialHair'+i).attr("title", fhalt);
 		}
-		result[14] = fhimg;
-		result[15] = fhalt;
-		return result;
 	}
 
 	// Glasses randomiser
@@ -557,20 +479,24 @@ $(function () {
 
 		let list = ['noglasses', 'glasses'];
 		let weight = [noglasses, glasses];
-		let random_item = getWeightedRandom(list, weight);
 
-		if (random_item === 'noglasses') {
-			glassesimg = "turnoff11.png";
-			glassesalt = "No glasses";
-		}
+		for (let i = 1; i <= numsims; i++) {
+			let random_glasses = getWeightedRandom(list, weight);
 
-		if (random_item === 'glasses') {
-			glassesimg = "turnon11.png";
-			glassesalt = "Has glasses";
+			if (random_glasses === 'noglasses') {
+				glassesimg = "turnoff11.png";
+				glassesalt = "No glasses";
+			}
+
+			if (random_glasses === 'glasses') {
+				glassesimg = "turnon11.png";
+				glassesalt = "Has glasses";
+			}
+
+			$('#glasses'+i).attr("src", s2path + glassesimg);
+			$('#glasses'+i).attr("alt", glassesalt);
+			$('#glasses'+i).attr("title", glassesalt);
 		}
-		result[16] = glassesimg;
-		result[17] = glassesalt;
-		return result;
 	}
 
 	// Hats randomiser
@@ -583,20 +509,24 @@ $(function () {
 
 		let list = ['nohats', 'hats'];
 		let weight = [nohats, hats];
-		let random_item = getWeightedRandom(list, weight);
 
-		if (random_item === 'nohats') {
-			hatimg = "turnoff14.png";
-			hatalt = "No hat";
-		}
+		for (let i = 1; i <= numsims; i++) {
+			let random_hats = getWeightedRandom(list, weight);
 
-		if (random_item === 'hats') {
-			hatimg = "turnon14.png";
-			hatalt = "Has hat";
+			if (random_hats === 'nohats') {
+				hatimg = "turnoff14.png";
+				hatalt = "No hat";
+			}
+
+			if (random_hats === 'hats') {
+				hatimg = "turnon14.png";
+				hatalt = "Has hat";
+			}
+
+			$('#hat'+i).attr("src", s2path + hatimg);
+			$('#hat'+i).attr("alt", hatalt);
+			$('#hat'+i).attr("title", hatalt);
 		}
-		result[18] = hatimg;
-		result[19] = hatalt;
-		return result;
 	}
 
 	// Makeup randomiser
@@ -609,20 +539,24 @@ $(function () {
 
 		let list = ['nomakeUp', 'makeUp'];
 		let weight = [nomakeUp, makeUp];
-		let random_item = getWeightedRandom(list, weight);
 
-		if (random_item === 'nomakeUp') {
-			makeUpimg = "turnoff12.png";
-			makeUpalt = "No make-up";
-		}
+		for (let i = 1; i <= numsims; i++) {
+			let random_makeup = getWeightedRandom(list, weight);
 
-		if (random_item === 'makeUp') {
-			makeUpimg = "turnon12.png";
-			makeUpalt = "Has make-up";
+			if (random_makeup === 'nomakeUp') {
+				makeUpimg = "turnoff12.png";
+				makeUpalt = "No make-up";
+			}
+
+			if (random_makeup === 'makeUp') {
+				makeUpimg = "turnon12.png";
+				makeUpalt = "Has make-up";
+			}
+
+			$('#makeUp'+i).attr("src", s2path + makeUpimg);
+			$('#makeUp'+i).attr("alt", makeUpalt);
+			$('#makeUp'+i).attr("title", makeUpalt);
 		}
-		result[20] = makeUpimg;
-		result[21] = makeUpalt;
-		return result;
 	}
 
 	// Supernatural randomiser
@@ -635,58 +569,62 @@ $(function () {
 
 		let list = ['human', 'supernatural'];
 		let weight = [human, supernatural];
-		let random_item = getWeightedRandom(list, weight);
 
-		if (random_item === 'human') {
-			lifeStateimg = "human.png";
-			lifeStatealt = "Human";
+		for (let i = 1; i <= numsims; i++) {
+			let random_supernatural = getWeightedRandom(list, weight);
+
+			if (random_supernatural === 'human') {
+				lifeStateimg = "human.png";
+				lifeStatealt = "Human";
+			}
+
+			if (random_supernatural === 'supernatural') {
+				let checked = [];
+				if (zombie.prop("checked"))
+					checked.push("zombie");
+				if (vampire.prop("checked"))
+					checked.push("vampire");
+				if (werewolf.prop("checked"))
+					checked.push("werewolf");
+				if (plantSim.prop("checked"))
+					checked.push("plantSim");
+				if (witch.prop("checked"))
+					checked.push("witch");
+	
+				let snWeight = [];
+				let snPercent = 1 / checked.length;
+	
+				for (let i = 0; i < checked.length; i++) {
+					snWeight.push(snPercent);
+				}
+	
+				let snRandom = getWeightedRandom(checked, snWeight);
+				if (snRandom === 'zombie') {
+					lifeStateimg = "turnon29.png";
+					lifeStatealt = "Zombie";
+				}
+				if (snRandom === 'vampire') {
+					lifeStateimg = "turnon9.png";
+					lifeStatealt = "Vampire";
+				}
+				if (snRandom === 'werewolf') {
+					lifeStateimg = "turnon33.png";
+					lifeStatealt = "Werewolf";
+				}
+				if (snRandom === 'plantSim') {
+					lifeStateimg = "turnon32.png";
+					lifeStatealt = "Plant Sim";
+				}
+				if (snRandom === 'witch') {
+					lifeStateimg = "turnon34.png";
+					lifeStatealt = "Witch";
+				}
+			}
+
+			$('#lifeState'+i).attr("src", s2path + lifeStateimg);
+			$('#lifeState'+i).attr("alt", lifeStatealt);
+			$('#lifeState'+i).attr("title", lifeStatealt);
 		}
-
-		if (random_item === 'supernatural') {
-			let checked = [];
-			if (zombie.prop("checked"))
-				checked.push("zombie");
-			if (vampire.prop("checked"))
-				checked.push("vampire");
-			if (werewolf.prop("checked"))
-				checked.push("werewolf");
-			if (plantSim.prop("checked"))
-				checked.push("plantSim");
-			if (witch.prop("checked"))
-				checked.push("witch");
-
-			let snWeight = [];
-			let snPercent = 1 / checked.length;
-
-			for (let i = 0; i < checked.length; i++) {
-				snWeight.push(snPercent);
-			}
-
-			let snRandom = getWeightedRandom(checked, snWeight);
-			if (snRandom === 'zombie') {
-				lifeStateimg = "turnon29.png";
-				lifeStatealt = "Zombie";
-			}
-			if (snRandom === 'vampire') {
-				lifeStateimg = "turnon9.png";
-				lifeStatealt = "Vampire";
-			}
-			if (snRandom === 'werewolf') {
-				lifeStateimg = "turnon33.png";
-				lifeStatealt = "Werewolf";
-			}
-			if (snRandom === 'plantSim') {
-				lifeStateimg = "turnon32.png";
-				lifeStatealt = "Plant Sim";
-			}
-			if (snRandom === 'witch') {
-				lifeStateimg = "turnon34.png";
-				lifeStatealt = "Witch";
-			}
-		}
-		result[22] = lifeStateimg;
-		result[23] = lifeStatealt;
-		return result;
 	}
 
 	// Career randomiser
@@ -848,6 +786,7 @@ $(function () {
 		let asp2alt = '';
 		let aspresult = [];
 
+		for (let i = 1; i <= numsims; i++) {
 		// Randomise aspiration
 		if (secondAsp.prop("checked")) {
 			if (aspiration.prop("checked")) {
@@ -870,17 +809,8 @@ $(function () {
 				} else {
 					sims2asp = getRandomInt(1, 5);
 				}
-			} else {
-				aspiration1.attr("src", "src", s2path + 'Null.png');
-				aspiration1.attr("alt", "");
-				aspiration1.attr("title", "");
-				secondAsp1.attr("src", "src", s2path + 'Null.png');
-				secondAsp1.attr("alt", "");
-				secondAsp1.attr("title", "");
-			}
-			return result;
+			} 
 		}
-
 		switch (sims2asp) {
 			case 1:
 				aspimg = "Aspiration1.png";
@@ -944,22 +874,23 @@ $(function () {
 				asp2img = "Null.png";
 				asp2alt = "";
 				break;
+			}
+		
+		$('#aspiration'+i).attr("src", s2path + aspimg);
+		$('#aspiration'+i).attr("alt", aspalt);
+		$('#aspiration'+i).attr("title", aspalt);	
+		$('#secondAsp'+i).attr("src", s2path + asp2img);
+		$('#secondAsp'+i).attr("alt", asp2alt);
+		$('#secondAsp'+i).attr("title", asp2alt);	
 		}
-
-		result[26] = aspimg;
-		result[27] = aspalt;
-		result[28] = asp2img;
-		result[29] = asp2alt;
-		return result;
 	}
 
 	function hobbyRand() {
 		let hobbyimg = '';
 		let hobbyalt = '';
-		let hobbyRnd = 0;
 
 		for (let i = 1; i <= numsims; i++) {
-			hobbyRnd = getRandomInt(1, 10);
+			let hobbyRnd = getRandomInt(1, 10);
 
 			switch (hobbyRnd) {
 				case 1:
@@ -1017,6 +948,8 @@ $(function () {
 		let prefimg = '';
 		let prefalt = '';
 
+		for (let i = 1; i <= numsims; i++) {
+			
 		if (gender.prop("checked")) {
 			let straight = straightChance.val() / 100;
 			let gay = gayChance.val() / 100;
@@ -1024,32 +957,33 @@ $(function () {
 
 			let list = ['straight', 'gay', 'bi'];
 			let weight = [straight, gay, bi];
-			let random_item = getWeightedRandom(list, weight);
 
-			if (gender1.attr("alt") === "Female" && random_item === "straight") {
+			let random_pref = getWeightedRandom(list, weight);
+
+			if ($('#gender'+i).attr("alt") === "Female" && random_pref === "straight") {
 				prefimg = "pref_male.png";
 				prefalt = "Prefers males";
 			}
-			if (gender1.attr("alt")  === "Male" && random_item === "straight") {
+			if ($('#gender'+i).attr("alt")  === "Male" && random_pref === "straight") {
 				prefimg = "pref_female.png";
 				prefalt = "Prefers females";
 			}
-			if (gender1.attr("alt")  === "Female" && random_item === "gay") {
+			if ($('#gender'+i).attr("alt")  === "Female" && random_pref === "gay") {
 				prefimg = "pref_female.png";
 				prefalt = "Prefers females";
 			}
-			if (gender1.attr("alt") === "Male" && random_item === "gay") {
+			if ($('#gender'+i).attr("alt") === "Male" && random_pref === "gay") {
 				prefimg = "pref_male.png";
 				prefalt = "Prefers males";
 			}
-			if (random_item === "bi") {
+			if (random_pref === "bi") {
 				prefimg = "pref_both.png";
 				prefalt = "Likes both";
 			}
 		} else {
-			let random_item = getRandomInt(1, 3);
+			let random_pref = getRandomInt(1, 3);
 
-			switch (random_item) {
+			switch (random_pref) {
 				case 1:
 					prefimg = "pref_male.png";
 					prefalt = "Prefers males";
@@ -1068,9 +1002,10 @@ $(function () {
 					break;
 			}
 		}
-		result[32] = prefimg;
-		result[33] = prefalt;
-		return result;
+		$('#preference'+i).attr("src", s2path + prefimg);
+		$('#preference'+i).attr("alt", prefalt);
+		$('#preference'+i).attr("title", prefalt);
+		}
 	}
 
 	// Turn on / off randomiser
@@ -1085,6 +1020,8 @@ $(function () {
 		let to2alt = ''; // Alt text for 2nd turn-on
 		let toffimg = ''; // Relative path for turn-off
 		let toffalt = ''; // Alt text for turn-off
+
+		for (let i = 1; i <= numsims; i++) {
 
 		// If AL is false, don't include witches
 		if (al.prop('checked') === false) {
@@ -1482,20 +1419,25 @@ $(function () {
 			toffimg = "turnoff34.png";
 			toffalt = "Witch";
 		}
-		result[34] = to1img;
-		result[35] = to1alt;
-		result[36] = to2img;
-		result[37] = to2alt;
-		result[38] = toffimg;
-		result[39] = toffalt;
-		return result;
+		$('#ton1'+i).attr("src", s2path + to1img);
+		$('#ton1'+i).attr("alt", to1alt);
+		$('#ton1'+i).attr("title", to1alt);
+		$('#ton2'+i).attr("src", s2path + to2img);
+		$('#ton2'+i).attr("alt", to2alt);
+		$('#ton2'+i).attr("title", to2alt);
+		$('#toff'+i).attr("src", s2path + toffimg);
+		$('#toff'+i).attr("alt", toffalt);
+		$('#toff'+i).attr("title", toffalt);
+		}
 	}
 
 	function displayResult() {
 		numsims = $('#numberSims').val();
 		// Randomise age
 		minAge = $("input[name='minAge']:checked").val();
-		ageRand(minAge);
+		if (age.prop("checked")) {
+			ageRand(minAge);
+		}	
 		// Randomise gender
 		genderRand();
 		// Randomise skin
@@ -1509,7 +1451,10 @@ $(function () {
 		// Randomise personality
 		personalityRand();
 		// Randomise fitness
-		fitnessRand();
+		if (fitness.prop("checked")) {
+			fitnessRand();
+		}
+		
 		// Randomise facial hair
 		if (facialHair.prop("checked")) {
 			facialHairRand();
@@ -1549,4 +1494,60 @@ $(function () {
 			tofrandom();
 		}
 	}
+
+	function checkEPs() {
+				// If only Uni (or no EPs) checked, don't randomise turn-ons
+				if (!nl.prop('checked') && !ofb.prop('checked') && !pets.prop('checked') && !sns.prop('checked') && !bv.prop('checked') && !ft.prop('checked') && !al.prop('checked')) {
+					// If turn-ons not applicable, disable TO option
+					tocheck.prop("checked", false);
+					tocheck.prop("disabled", true);
+					supernatural.prop("checked", false);
+					supernatural.prop("disabled", true);
+				} else {
+					// If relevant EPs checked, enable TO option and see if it's checked
+					tocheck.prop("disabled", false);
+					supernatural.prop("disabled", false);
+				}
+				// If EP is checked, enable supernaturals
+				if (uni.prop('checked')) {
+					supernatural.prop("disabled", false);
+					zombie.prop("disabled", false);
+				} else {
+					zombie.prop("checked", false);
+					zombie.prop("disabled", true);
+				}
+				if (nl.prop('checked')) {
+					vampire.prop("disabled", false);
+				} else {
+					vampire.prop("checked", false);
+					vampire.prop("disabled", true);
+				}
+				if (pets.prop('checked')) {
+					werewolf.prop("disabled", false);
+				} else {
+					werewolf.prop("checked", false);
+					werewolf.prop("disabled", true);
+				}
+				if (sns.prop('checked')) {
+					plantSim.prop("disabled", false);
+				} else {
+					plantSim.prop("checked", false);
+					plantSim.prop("disabled", true);
+				}
+				if (ft.prop('checked')) {
+					hobby.prop("disabled", false);
+					secondAsp.prop("disabled", false);
+				} else {
+					hobby.prop("checked", false);
+					hobby.prop("disabled", true);
+					secondAsp.prop("checked", false);
+					secondAsp.prop("disabled", true);
+				}
+				if (al.prop('checked')) {
+					witch.prop("disabled", false);
+				} else {
+					witch.prop("checked", false);
+					witch.prop("disabled", true);
+				}
+			}
 });

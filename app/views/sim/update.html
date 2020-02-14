@@ -323,7 +323,7 @@
 						checked
 					</check>
 					>
-					<label class="custom-control-label" for="ghost"><img src="{{@BASE}}{{@s2path}}ghost.png" height="64" alt="Ghost"></label>
+					<label class="custom-control-label" for="ghost"><img src="{{@BASE}}{{@s2path}}ghost.png" data-toggle="tooltip" height="64" title="Ghost" alt="Ghost"></label>
 				</div>
 
 				<div class="custom-control custom-checkbox custom-control-inline">
@@ -332,81 +332,70 @@
 						checked
 					</check>
 					>
-					<label class="custom-control-label" for="isAlien"><img src="{{@BASE}}{{@s2path}}ufo.png" height="64" alt="Alien"></label>
+					<label class="custom-control-label" for="isAlien"><img src="{{@BASE}}{{@s2path}}ufo.png" data-toggle="tooltip" height="64" title="Alien" alt="Alien"></label>
 				</div>
 
+			<check if="{{ @user.uni == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isZombie" name="isZombie" value="1" class="custom-control-input"
 					<check if="{{ @sim.isZombie == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.uni != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" alt="Zombie"></label>
+					</check>>
+					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" data-toggle="tooltip" title="Zombie" alt="Zombie"></label>
 				</div>
+			</check>
 
+			<check if="{{ @user.nl == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isVampire" name="isVampire" value="1" class="custom-control-input"
 					<check if="{{ @sim.isVampire == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.nl != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" alt="Vampire"></label>
+					</check>>
+					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" data-toggle="tooltip" title="Vampire" alt="Vampire"></label>
 				</div>
+			</check>
 
+			<check if="{{ @user.ofb == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isServo" name="isServo" value="1" class="custom-control-input"
 					<check if="{{ @sim.isServo == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.ofb != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" alt="Servo"></label>
+					</check>>
+					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" data-toggle="tooltip" title="Servo" alt="Servo"></label>
 				</div>
+			</check>
 
+			<check if="{{ @user.pets == 1 }}">	
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isWerewolf" name="isWerewolf" value="1" class="custom-control-input"
 					<check if="{{ @sim.isWerewolf == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.pets != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" alt="Werewolf"></label>
+					</check>>
+					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" data-toggle="tooltip" title="Werewolf" alt="Werewolf"></label>
 				</div>
+			</check>
 
+			<check if="{{ @user.sns == 1 }}">	
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isPlantSim" name="isPlantSim" value="1" class="custom-control-input"
 					<check if="{{ @sim.isPlantSim == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.sns != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" alt="PlantSim"></label>
+					</check>>
+					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" data-toggle="tooltip" title="PlantSim" alt="PlantSim"></label>
 				</div>
+			</check>
 
 
+			<check if="{{ @user.al == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isWitch" name="isWitch" value="1" class="custom-control-input"
 					<check if="{{ @sim.isWitch == 1}}">
 						checked
-					</check>
-					<check if="{{ @user.al != 1 }}">
-						disabled
-					</check>
-					>
-					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" alt="Witch"></label>
+					</check>>
+					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" data-toggle="tooltip" title="Witch" alt="Witch"></label>
 				</div>
+			</check>
+
 			</div>
 		</div>
 	</div>
@@ -444,7 +433,7 @@
 									checked
 								</check>
 								>
-							<label class="custom-control-label" for="aries"><img src="{{@BASE}}{{@s2path}}Zodiac5.png" alt="Aries"></label>
+							<label class="custom-control-label" for="aries"><img src="{{@BASE}}{{@s2path}}Zodiac5.png" data-toggle="tooltip" title="Aries" alt="Aries"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="taurus" value="Taurus" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -452,7 +441,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="taurus"><img src="{{@BASE}}{{@s2path}}Zodiac11.png" alt="Aries"></label>
+							<label class="custom-control-label" for="taurus"><img src="{{@BASE}}{{@s2path}}Zodiac11.png" data-toggle="tooltip" title="Taurus" alt="Taurus"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="gemini" value="Gemini" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -460,7 +449,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="gemini"><img src="{{@BASE}}{{@s2path}}Zodiac7.png" alt="Gemini"></label>
+							<label class="custom-control-label" for="gemini"><img src="{{@BASE}}{{@s2path}}Zodiac7.png" data-toggle="tooltip" title="Gemini" alt="Gemini"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="cancer" value="Cancer" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -468,7 +457,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="cancer"><img src="{{@BASE}}{{@s2path}}Zodiac6.png" alt="Cancer"></label>
+							<label class="custom-control-label" for="cancer"><img src="{{@BASE}}{{@s2path}}Zodiac6.png" data-toggle="tooltip" title="Cancer" alt="Cancer"></label>
 						</div>
 							<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="leo" value="Leo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -476,7 +465,7 @@
 									checked
 								</check>
 							>
-							<label class="custom-control-label" for="leo"><img src="{{@BASE}}{{@s2path}}Zodiac8.png" alt="Leo"></label>
+							<label class="custom-control-label" for="leo"><img src="{{@BASE}}{{@s2path}}Zodiac8.png" data-toggle="tooltip" title="Leo" alt="Leo"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="virgo" value="Virgo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -484,7 +473,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="virgo"><img src="{{@BASE}}{{@s2path}}Zodiac12.png" alt="Virgo"></label>
+							<label class="custom-control-label" for="virgo"><img src="{{@BASE}}{{@s2path}}Zodiac12.png" data-toggle="tooltip" title="Virgo" alt="Virgo"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="libra" value="Libra" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
@@ -492,7 +481,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="libra"><img src="{{@BASE}}{{@s2path}}Zodiac3.png" alt="Libra"></label>
+							<label class="custom-control-label" for="libra"><img src="{{@BASE}}{{@s2path}}Zodiac3.png" data-toggle="tooltip" title="Libra" alt="Libra"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="scorpio" onchange="zodiacPoints(value)" value="Scorpio" name="starSign" class="custom-control-input"
@@ -500,7 +489,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="scorpio"><img src="{{@BASE}}{{@s2path}}Zodiac10.png" alt="Scorpio"></label>
+							<label class="custom-control-label" for="scorpio"><img src="{{@BASE}}{{@s2path}}Zodiac10.png" data-toggle="tooltip" title="Scorpio" alt="Scorpio"></label>
 						</div>
 							<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="sag" onchange="zodiacPoints(value)" value="Sagittarius" name="starSign" class="custom-control-input"
@@ -508,7 +497,7 @@
 									checked
 								</check>
 						>
-						<label class="custom-control-label" for="sag"><img src="{{@BASE}}{{@s2path}}Zodiac2.png" alt="Sagittarius"></label>
+						<label class="custom-control-label" for="sag"><img src="{{@BASE}}{{@s2path}}Zodiac2.png" data-toggle="tooltip" title="Sagittarius" alt="Sagittarius"></label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="capricorn" onchange="zodiacPoints(value)" value="Capricorn" name="starSign" class="custom-control-input"
@@ -516,7 +505,7 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="capricorn"><img src="{{@BASE}}{{@s2path}}Zodiac1.png" alt="Capricorn"></label>
+						<label class="custom-control-label" for="capricorn"><img src="{{@BASE}}{{@s2path}}Zodiac1.png" data-toggle="tooltip" title="Capricorn" alt="Capricorn"></label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="aquarius" onchange="zodiacPoints(value)" value="Aquarius" name="starSign" class="custom-control-input"
@@ -524,7 +513,7 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="aquarius"><img src="{{@BASE}}{{@s2path}}Zodiac4.png" alt="Aquarius"></label>
+						<label class="custom-control-label" for="aquarius"><img src="{{@BASE}}{{@s2path}}Zodiac4.png" data-toggle="tooltip" title="Aquarius" alt="Aquarius"></label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="pisces" onchange="zodiacPoints(value)" value="Pisces" name="starSign" class="custom-control-input"
@@ -532,7 +521,7 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="pisces"><img src="{{@BASE}}{{@s2path}}Zodiac9.png" alt="Pisces"></label>
+						<label class="custom-control-label" for="pisces"><img src="{{@BASE}}{{@s2path}}Zodiac9.png" data-toggle="tooltip" title="Pisces" alt="Pisces"></label>
 					</div>
 						</div>
 					</div>
@@ -580,7 +569,7 @@
 										>{{ trim(@aspiration) }}</option>
 									</repeat>
 								</select>
-							</div>
+							</div><!-- TODO: make it appear only if user has FT+ -->
 							<div class="form-group col" id="sA">
 								<label for="secondAsp">Secondary Aspiration</label>
 								<select class="custom-select" name="secondAsp" id="secondAsp">
@@ -645,7 +634,7 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="walking"><img src="{{@BASE}}{{@s2path}}walking.png" alt="Walking"></label>
+						<label class="custom-control-label" for="walking"><img src="{{@BASE}}{{@s2path}}walking.png" data-toggle="tooltip" title="Walking" alt="Walking"></label>
 					</div>
 					<div class="custom-control custom-checkbox custom-control-inline">
 						<input type="checkbox" id="talking" name="talking" value="1" class="custom-control-input"
@@ -653,7 +642,7 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="talking"><img src="{{@BASE}}{{@s2path}}talking.png" alt="Talking"></label>
+						<label class="custom-control-label" for="talking"><img src="{{@BASE}}{{@s2path}}talking.png" data-toggle="tooltip" title="Talking" alt="Talking"></label>
 					</div>
 					<div class="custom-control custom-checkbox custom-control-inline">
 						<input type="checkbox" id="housebroken" name="housebroken" value="1" class="custom-control-input"
@@ -661,8 +650,20 @@
 							checked
 						</check>
 						>
-						<label class="custom-control-label" for="housebroken"><img src="{{@BASE}}{{@s2path}}housebroken.png" alt="Housebroken"></label>
+						<label class="custom-control-label" for="housebroken"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Housebroken" alt="Housebroken"></label>
 					</div>
+					<exclude>
+					<check if="{{ @sim.ft == 1}}">
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="rhyme" name="rhyme" value="1" class="custom-control-input"
+							<check if="{{ @sim.rhyme == 1}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="rhyme"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Nursery Rhyme" alt="Nursery Rhyme"></label>
+						</div>
+					</check>
+				</exclude>
 				</div>
 			</div>
 		</div>
@@ -769,14 +770,14 @@
 							<check if="{{ @sim.schoolType == 'public'}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="public"><img src="{{@BASE}}{{@s2path}}publicschool.png" alt="Public School"></label>
+							<label class="custom-control-label" for="public"><img src="{{@BASE}}{{@s2path}}publicschool.png" data-toggle="tooltip" title="Public School" alt="Public School"></label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="private" value="private" name="schoolType" class="custom-control-input"
 							<check if="{{ @sim.schoolType == 'private'}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="private"><img src="{{@BASE}}{{@s2path}}privateschool.png" alt="Private School"></label>
+							<label class="custom-control-label" for="private"><img src="{{@BASE}}{{@s2path}}privateschool.png" data-toggle="tooltip" title="Private School" alt="Private School"></label>
 						</div>
 					</div>
 					<div class="col">
@@ -957,7 +958,7 @@
 				</exclude>
 			</div>
 		</div>
-		{* LTWs *}
+		{* LTWs - TODO: only show if uni+ is ticked *}
 		<div class="collapse mb-3" id="s2ltws" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -970,7 +971,7 @@
 										<div class="input-group mb-3">
 											<div class="input-group-prepend">
 												<div class="input-group-text">
-													<input type="checkbox" aria-label="Checkbox for following text input">
+													<input type="checkbox" id="fulfilled" name ="fulfilled" aria-label="LTW is fulfilled">
 												</div>
 											</div>
 											<label for="ltw" class="sr-only">Lifetime Want</label>
@@ -1979,70 +1980,70 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" alt="Arts and Crafts"></label>
+							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" data-toggle="tooltip" title="Arts and Crafts" alt="Arts and Crafts"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="filmplq" name="filmplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.filmplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="filmplq"><img src="{{@BASE}}{{@s2path}}hobby2.png" alt="Film and Lit"></label>
+							<label class="custom-control-label" for="filmplq"><img src="{{@BASE}}{{@s2path}}hobby2.png" data-toggle="tooltip" title="Film and Lit" alt="Film and Lit"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="fitplq" name="fitplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.fitplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" alt="Fitness"></label>
+							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" data-toggle="tooltip" title="Fitness" alt="Fitness"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="cusplaq" name="cusplaq" value="1" class="custom-control-input"
 							<check if="{{ @sim.cusplaq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" alt="Cuisine"></label>
+							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" data-toggle="tooltip" title="Cuisine" alt="Cuisine"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="gamesplq" name="gamesplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.gamesplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="gamesplq"><img src="{{@BASE}}{{@s2path}}hobby5.png" alt="Games"></label>
+							<label class="custom-control-label" for="gamesplq"><img src="{{@BASE}}{{@s2path}}hobby5.png" data-toggle="tooltip" title="Games" alt="Games"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="musicplq" name="musicplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.musicplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" alt="Music and Dance"></label>
+							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Music and Dance" alt="Music and Dance"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="natplq" name="natplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.natplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" alt="Nature"></label>
+							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" data-toggle="tooltip" title="Nature" alt="Nature"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sciplq" name="sciplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.sciplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="sciplq"><img src="{{@BASE}}{{@s2path}}hobby8.png" alt="Science"></label>
+							<label class="custom-control-label" for="sciplq"><img src="{{@BASE}}{{@s2path}}hobby8.png" data-toggle="tooltip" title="Science" alt="Science"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sportplq" name="sportplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.sportplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="sportplq"><img src="{{@BASE}}{{@s2path}}hobby9.png" alt="Sports"></label>
+							<label class="custom-control-label" for="sportplq"><img src="{{@BASE}}{{@s2path}}hobby9.png" data-toggle="tooltip" title="Sports" alt="Sports"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="tinkplq" name="tinkplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.tinkplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" alt="Tinkering"></label>
+							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" data-toggle="tooltip" title="Tinkering" alt="Tinkering"></label>
 						</div>
 					</div>
 				</div>
@@ -2691,6 +2692,10 @@
 			ltwCheck();
 		});
 
+		$('#ltwctr').change(function () {
+			ltwCheck();
+		});
+
 		$('input.scholars:checkbox').change(function () {
 			scholarshipTotal();
 		});
@@ -2790,6 +2795,7 @@
 		let ltw = $('#ltw').val();
 		let ltwhide = $('.ltwhide');
 		let ltwctr = $('#ltwctr');
+		let max = 0;
 
 		switch (ltw) {
 			case "Graduate 3 Children from College":
@@ -2863,6 +2869,14 @@
 			default:
 				ltwhide.attr('aria-hidden', 'true').hide();
 				break;
+		}
+		max = ltwctr.attr('max');
+
+		if (ltwctr.val() === max){
+			$('#fulfilled').prop("checked", true);
+		}
+		else {
+			$('#fulfilled').prop("checked", false);
 		}
 	}
 

@@ -1,25 +1,9 @@
 $(function () {
 	// Checks for Sims 2 related checkboxes
+	checkEPs();
 	$(".s2eps").change(function(){
-		// If only Uni (or no EPs) checked, don't randomise turn-ons
-		if ($('#nl').prop('checked') === false && $('#ofb').prop('checked') === false && $('#pets').prop('checked') === false && $('#sns').prop('checked') === false && $('#bv').prop('checked') === false && $('#ft').prop('checked') === false && $('#al').prop('checked') === false) {
-			$("#ton1").attr("src",s2path+'Null.png');
-			$("#ton1").attr("alt",'');
-			$("#ton1").attr("title",'');
-			$("#ton2").attr("src",s2path+'Null.png');
-			$("#ton2").attr("alt",'');
-			$("#ton2").attr("title",'');
-			$("#toff").attr("src",s2path+'Null.png');
-			$("#toff").attr("alt",'');
-			$("#toff").attr("title",'');
-			// If turn-ons not applicable, disable TO option
-			$("#tocheck").prop("checked", false);
-			$("#tocheck").prop("disabled", true);
-		} else {
-			// If relevant EPs checked, enable TO option and see if it's checked
-			$("#tocheck").prop("disabled", false);
-		}
-	});
+		checkEPs();
+	});	
 
 	// Sims 2 specific functions
 	$("button#sims2gen").click(function(){ // Sims 2 aspirations
@@ -69,7 +53,7 @@ $(function () {
 		$("#aspiration").attr("alt",aspalt);
 		$("#aspiration").attr("title",aspalt);
 
-		if ($("#tocheck").prop("disabled") === false && $("#tocheck").prop("checked")) {
+		if (!$("#tocheck").prop("disabled") && $("#tocheck").prop("checked")) {
 			tofrandom();
 		} else {
 			$("#ton1").attr("src",s2path+'Null.png');
@@ -505,4 +489,29 @@ $(function () {
 		$("#toff").attr("alt",toffalt);
 		$("#toff").attr("title",toffalt);
 	}
+
+	function checkEPs() {
+				// If only Uni (or no EPs) checked, don't randomise turn-ons
+				if (!$('#nl').prop('checked') && !$('#ofb').prop('checked') && !$('#pets').prop('checked') && !$('#sns').prop('checked') && !$('#bv').prop('checked') && !$('#ft').prop('checked') && !$('#al').prop('checked')) {
+					$("#ton1").attr("src",s2path+'Null.png');
+					$("#ton1").attr("alt",'');
+					$("#ton1").attr("title",'');
+					$("#ton2").attr("src",s2path+'Null.png');
+					$("#ton2").attr("alt",'');
+					$("#ton2").attr("title",'');
+					$("#toff").attr("src",s2path+'Null.png');
+					$("#toff").attr("alt",'');
+					$("#toff").attr("title",'');
+					// If turn-ons not applicable, disable TO and cheese options
+					$("#tocheck").prop("checked", false);
+					$("#tocheck").prop("disabled", true);
+					$("#cheese").prop("checked", false);
+					$("#cheese").prop("disabled", true);
+				} else {
+					// If relevant EPs checked, enable TO / cheese options and see if it's checked
+					$("#tocheck").prop("disabled", false);
+					$("#cheese").prop("disabled", false);
+				}
+	}
+
 });

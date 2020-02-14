@@ -1,1 +1,52 @@
-<p class="mb-3">TO DO: Name generator</p>
+<p class="mb-3">Pick from the options below to generate a name for your new Sim.</p>
+<div class="form-group">
+    <h6>Gender</h6>
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="male" name="male" class="custom-control-input">
+        <label class="custom-control-label" for="male">Male</label>
+    </div>
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="female" name="female" class="custom-control-input">
+        <label class="custom-control-label" for="female">Female</label>
+    </div>
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="unisex" name="unisex" class="custom-control-input">
+        <label class="custom-control-label" for="unisex">Unisex</label>
+    </div>
+</div>
+<button class="btn btn-primary">Generate name</button>
+<p><span id="name"></span></p>
+
+
+<script>
+$(function () {
+    let json1 = "{{@BASE}}/ui/js/test.json";
+    let json2 = "{{@BASE}}/ui/js/test2.json";
+
+    $("button").click(function(){
+    $.when(
+    $.getJSON(json1, function(data) {
+        json1Data = data;
+    }),
+    $.getJSON(json2, function(data) {
+        json2Data = data;
+    })
+).then(function() {
+    if (json1Data) {
+        $("span").append(json1Data.name);
+    }
+    else {
+        console.log("Couldn't handle json1");
+    }
+    if (json2Data) {
+        if (json2Data) {
+            $("span").append(json2Data.name);
+    }
+    }
+    else {
+        console.log("Couldn't handle json2");
+    }
+});
+    });
+});
+</script>
