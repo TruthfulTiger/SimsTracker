@@ -109,7 +109,7 @@ class UserColourController extends Controller {
             $this->f3->set('PARAMS.id', $this->f3->get('SESSION.challenge'));
             $this->f3->reroute('/colours/@id');
         }
-        elseif ($this->f3->get('POST.generation') == $gen || $this->f3->get('POST.colour') != $col) {
+/*         elseif ($this->f3->get('POST.generation') == $gen || $this->f3->get('POST.colour') != $col) {
             $this->f3->set('SESSION.error', 'Colour already exists for this generation.');
             $this->f3->set('SESSION.challenge', $this->f3->get('POST.challengeID'));
             $this->f3->reroute('/colour/'.$post.'/'.$this->params);
@@ -118,6 +118,6 @@ class UserColourController extends Controller {
             $this->f3->set('SESSION.error', 'Generation already exists for this colour.');
             $this->f3->set('SESSION.challenge', $this->f3->get('POST.challengeID'));
             $this->f3->reroute('/colour/'.$post.'/'.$this->params);
-        }
+        } */
     }
 }

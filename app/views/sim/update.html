@@ -652,8 +652,7 @@
 						>
 						<label class="custom-control-label" for="housebroken"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Housebroken" alt="Housebroken"></label>
 					</div>
-					<exclude>
-					<check if="{{ @sim.ft == 1}}">
+					<check if="{{ @user.ft == 1}}">
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="rhyme" name="rhyme" value="1" class="custom-control-input"
 							<check if="{{ @sim.rhyme == 1}}">
@@ -663,7 +662,6 @@
 							<label class="custom-control-label" for="rhyme"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Nursery Rhyme" alt="Nursery Rhyme"></label>
 						</div>
 					</check>
-				</exclude>
 				</div>
 			</div>
 		</div>
@@ -675,80 +673,78 @@
 				<div class="form-row">
 					<div class="col">
 						<div class="form-group">
-						<label for="environment">Environment:  <output for="environment" id="env">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.environment) }}" class="form-control-range" name="environment" id="environment" oninput="envUpdate(value)">
-					</div>
+							<label for="politics">Politics:  <output for="politics" id="pols">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.politics) }}" class="form-control-range" name="politics" id="politics" oninput="polsUpdate(value)">
+						</div>
 						<div class="form-group">
-						<label for="weather">Weather:  <output for="weather" id="wth">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.weather) }}" class="form-control-range" name="weather" id="weather" oninput="weatherUpdate(value)">
-					</div>
+							<label for="crime">Crime:  <output for="crime" id="crim">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.crime) }}" class="form-control-range" name="crime" id="crime" oninput="crimeUpdate(value)">
+						</div>
 						<div class="form-group">
-						<label for="money">Money:  <output for="money" id="mny">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.money) }}" class="form-control-range" name="money" id="money" oninput="moneyUpdate(value
-				)">
-					</div>
+							<label for="food">Food:  <output for="food" id="fudz">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.food) }}" class="form-control-range" name="food" id="food" oninput="foodUpdate(value)">
+						</div>
 						<div class="form-group">
-						<label for="paranormal">Paranormal:  <output for="paranormal" id="para">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.paranormal) }}" class="form-control-range" name="paranormal" id="paranormal" oninput="paraUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="fashion">Fashion:  <output for="fashion" id="fash">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fashion) }}" class="form-control-range" name="fashion" id="fashion" oninput="fashUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="crime">Crime:  <output for="crime" id="crim">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.crime) }}" class="form-control-range" name="crime" id="crime" oninput="crimeUpdate(value)">
-					</div>
-
-					</div>
-					<div class="col">
-						<div class="form-group">
-						<label for="food">Food:  <output for="food" id="fudz">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.food) }}" class="form-control-range" name="food" id="food" oninput="foodUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="culture">Culture:  <output for="culture" id="clt">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.culture) }}" class="form-control-range" name="culture" id="culture" oninput="cultureUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="politics">Politics:  <output for="politics" id="pols">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.politics) }}" class="form-control-range" name="politics" id="politics" oninput="polsUpdate(value
-				)">
-					</div>
-						<div class="form-group">
-						<label for="health">Health:  <output for="health" id="hth">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.health) }}" class="form-control-range" name="health" id="health" oninput="healthUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="travel">Travel:  <output for="travel" id="tvl">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.travel) }}" class="form-control-range" name="travel" id="travel" oninput="travelUpdate(value)">
-					</div>
-						<div class="form-group">
-						<label for="sports">Sports:  <output for="sports" id="spts">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sports) }}" class="form-control-range" name="sports" id="sports" oninput="sportsUpdate(value)">
-					</div>
-
-					</div>
-					<div class="col">
-						<div class="form-group">
-							<label for="entertainment">Entertaiment:  <output for="entertainment" id="ents">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.entertainment) }}" class="form-control-range" name="entertainment" id="entertainment" oninput="entsUpdate(value)">
+							<label for="sports">Sports:  <output for="sports" id="spts">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sports) }}" class="form-control-range" name="sports" id="sports" oninput="sportsUpdate(value)">
 						</div>
 						<div class="form-group">
 							<label for="work">Work:  <output for="work" id="wk">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.work) }}" class="form-control-range" name="work" id="work" oninput="workUpdate(value)">
 						</div>
 						<div class="form-group">
+							<label for="school">School:  <output for="school" id="sch">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.school) }}" class="form-control-range" name="school" id="school" oninput="schoolUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="money">Money:  <output for="money" id="mny">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.money) }}" class="form-control-range" name="money" id="money" oninput="moneyUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="entertainment">Entertaiment:  <output for="entertainment" id="ents">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.entertainment) }}" class="form-control-range" name="entertainment" id="entertainment" oninput="entsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="health">Health:  <output for="health" id="hth">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.health) }}" class="form-control-range" name="health" id="health" oninput="healthUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="paranormal">Paranormal:  <output for="paranormal" id="para">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.paranormal) }}" class="form-control-range" name="paranormal" id="paranormal" oninput="paraUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="weather">Weather:  <output for="weather" id="wth">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.weather) }}" class="form-control-range" name="weather" id="weather" oninput="weatherUpdate(value)">
+						</div>
+						<div class="form-group">
 							<label for="toys">Toys:  <output for="toys" id="ty">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.toys) }}" class="form-control-range" name="toys" id="toys" oninput="toysUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="environment">Environment:  <output for="environment" id="env">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.environment) }}" class="form-control-range" name="environment" id="environment" oninput="envUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="culture">Culture:  <output for="culture" id="clt">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.culture) }}" class="form-control-range" name="culture" id="culture" oninput="cultureUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="fashion">Fashion:  <output for="fashion" id="fash">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fashion) }}" class="form-control-range" name="fashion" id="fashion" oninput="fashUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="travel">Travel:  <output for="travel" id="tvl">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.travel) }}" class="form-control-range" name="travel" id="travel" oninput="travelUpdate(value)">
 						</div>
 						<div class="form-group">
 							<label for="animals">Animals:  <output for="animals" id="amls">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.animals) }}" class="form-control-range" name="animals" id="animals" oninput="animalsUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="school">School:  <output for="school" id="sch">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.school) }}" class="form-control-range" name="school" id="school" oninput="schoolUpdate(value)">
 						</div>
 						<div class="form-group">
 							<label for="scifi">Sci-fi:  <output for="scifi" id="sci">1</output></label>
@@ -971,7 +967,9 @@
 										<div class="input-group mb-3">
 											<div class="input-group-prepend">
 												<div class="input-group-text">
-													<input type="checkbox" id="fulfilled" name ="fulfilled" aria-label="LTW is fulfilled">
+													<input type="checkbox" id="ltwDone" name ="ltwDone" aria-label="LTW is fulfilled"	<check if="{{ @sim.ltwDone == 1}}">
+									checked
+								</check>>
 												</div>
 											</div>
 											<label for="ltw" class="sr-only">Lifetime Want</label>
@@ -989,10 +987,6 @@
 										</div>
 									</div>
 								</div>
-								<exclude>
-								<h5 class="mb-3 text-primary">Fulfilled LTWs</h5>
-								<span id="ltwList"></span>
-								</exclude>
 							</div>
 						</div>
 					</div>
@@ -1923,41 +1917,41 @@
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.film) }}" class="form-control-range" name="film" id="film" oninput="litUpdate(value)">
 						</div>
 						<div class="form-group">
+							<label for="games">Games:  <output for="games" id="gms">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.games) }}" class="form-control-range" name="games" id="games" oninput="gamesUpdate(value)">
+						</div>
+						<div class="form-group">
 							<label for="tinkering">Tinkering:  <output for="tinkering" id="tnk">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.tinkering) }}" class="form-control-range" name="tinkering" id="tinkering" oninput="tinkUpdate(value
-				)">
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.tinkering) }}" class="form-control-range" name="tinkering" id="tinkering" oninput="tinkUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="science">Science:  <output for="science" id="ftsci">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.science) }}" class="form-control-range" name="science" id="science" oninput="ftsciUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="arts">Arts and Crafts:  <output for="arts" id="crafts">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.arts) }}" class="form-control-range" name="arts" id="arts" oninput="craftsUpdate(value)">
 						</div>
 						<div class="form-group">
 							<label for="sport">Sports:  <output for="sport" id="ftspt">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sport) }}" class="form-control-range" name="sport" id="sport" oninput="ftsptUpdate(value)">
 						</div>
 						<div class="form-group">
-							<label for="music">Music and Dance:  <output for="music" id="dance">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.music) }}" class="form-control-range" name="music" id="music" oninput="danceUpdate(value)">
+							<label for="nature">Nature:  <output for="nature" id="nat">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nature) }}" class="form-control-range" name="nature" id="nature" oninput="natureUpdate(value)">
 						</div>
-					</div>
-					<div class="col">
 						<div class="form-group">
 							<label for="fitness">Fitness:  <output for="fitness" id="fit">1</output></label>
 							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fitness) }}" class="form-control-range" name="fitness" id="fitness" oninput="fitUpdate(value)">
 						</div>
 						<div class="form-group">
-							<label for="arts">Arts and Crafts:  <output for="arts" id="crafts">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.arts) }}" class="form-control-range" name="arts" id="arts" oninput="craftsUpdate(value)">
+							<label for="music">Music and Dance:  <output for="music" id="dance">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.music) }}" class="form-control-range" name="music" id="music" oninput="danceUpdate(value)">
 						</div>
-						<div class="form-group">
-							<label for="science">Science:  <output for="science" id="ftsci">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.science) }}" class="form-control-range" name="science" id="science" oninput="ftsciUpdate(value
-				)">
-						</div>
-						<div class="form-group">
-							<label for="games">Games:  <output for="games" id="gms">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.games) }}" class="form-control-range" name="games" id="games" oninput="gamesUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="nature">Nature:  <output for="nature" id="nat">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nature) }}" class="form-control-range" name="nature" id="nature" oninput="natureUpdate(value)">
-						</div>
+
 					</div>
 				</div>
 				<label for="pdHobby">Predestined Hobby</label>
@@ -1975,12 +1969,11 @@
 					<div class="col">
 						<h6 class="mt-3">Hobby award achieved</h6>
 						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="artsplq" name="artsplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.artsplq == 1}}">
+							<input type="checkbox" id="cusplaq" name="cusplaq" value="1" class="custom-control-input"
+							<check if="{{ @sim.cusplaq == 1}}">
 								checked
-							</check>
-							>
-							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" data-toggle="tooltip" title="Arts and Crafts" alt="Arts and Crafts"></label>
+							</check>>
+							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" data-toggle="tooltip" title="Cuisine" alt="Cuisine"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="filmplq" name="filmplq" value="1" class="custom-control-input"
@@ -1990,20 +1983,6 @@
 							<label class="custom-control-label" for="filmplq"><img src="{{@BASE}}{{@s2path}}hobby2.png" data-toggle="tooltip" title="Film and Lit" alt="Film and Lit"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="fitplq" name="fitplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.fitplq == 1}}">
-								checked
-							</check>>
-							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" data-toggle="tooltip" title="Fitness" alt="Fitness"></label>
-						</div>
-						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="cusplaq" name="cusplaq" value="1" class="custom-control-input"
-							<check if="{{ @sim.cusplaq == 1}}">
-								checked
-							</check>>
-							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" data-toggle="tooltip" title="Cuisine" alt="Cuisine"></label>
-						</div>
-						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="gamesplq" name="gamesplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.gamesplq == 1}}">
 								checked
@@ -2011,18 +1990,11 @@
 							<label class="custom-control-label" for="gamesplq"><img src="{{@BASE}}{{@s2path}}hobby5.png" data-toggle="tooltip" title="Games" alt="Games"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="musicplq" name="musicplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.musicplq == 1}}">
+							<input type="checkbox" id="tinkplq" name="tinkplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.tinkplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Music and Dance" alt="Music and Dance"></label>
-						</div>
-						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="natplq" name="natplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.natplq == 1}}">
-								checked
-							</check>>
-							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" data-toggle="tooltip" title="Nature" alt="Nature"></label>
+							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" data-toggle="tooltip" title="Tinkering" alt="Tinkering"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sciplq" name="sciplq" value="1" class="custom-control-input"
@@ -2032,6 +2004,13 @@
 							<label class="custom-control-label" for="sciplq"><img src="{{@BASE}}{{@s2path}}hobby8.png" data-toggle="tooltip" title="Science" alt="Science"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="artsplq" name="artsplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.artsplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" data-toggle="tooltip" title="Arts and Crafts" alt="Arts and Crafts"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sportplq" name="sportplq" value="1" class="custom-control-input"
 							<check if="{{ @sim.sportplq == 1}}">
 								checked
@@ -2039,11 +2018,25 @@
 							<label class="custom-control-label" for="sportplq"><img src="{{@BASE}}{{@s2path}}hobby9.png" data-toggle="tooltip" title="Sports" alt="Sports"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="tinkplq" name="tinkplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.tinkplq == 1}}">
+							<input type="checkbox" id="natplq" name="natplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.natplq == 1}}">
 								checked
 							</check>>
-							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" data-toggle="tooltip" title="Tinkering" alt="Tinkering"></label>
+							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" data-toggle="tooltip" title="Nature" alt="Nature"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="fitplq" name="fitplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.fitplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" data-toggle="tooltip" title="Fitness" alt="Fitness"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="musicplq" name="musicplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.musicplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Music and Dance" alt="Music and Dance"></label>
 						</div>
 					</div>
 				</div>

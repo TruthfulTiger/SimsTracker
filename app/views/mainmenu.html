@@ -44,7 +44,8 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user">&nbsp;</i> My Account</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Dashboard</a>
+									<a class="dropdown-item" href="{{@BASE}}/user/profile">Profile</a>
+									
 									<check if="{{ @SESSION.user[1] == 'Admin' }}">
 										<div class="dropdown-divider"></div>
 										<repeat group="{{ @admin }}" key="@adminkey" value="{{ @adminitem }}">

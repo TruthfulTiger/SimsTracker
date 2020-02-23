@@ -1,9 +1,10 @@
 <div class="nav-scroller position-fixed bg-white shadow-sm w-100">
 	<div class="container">
 		<nav class="nav nav-underline">
-			<repeat group="{{ @account }}" key="@acckey" value="{{ @accitem }}">
-				<a href="{{@BASE}}{{ @acckey }}"
-				<check if="{{ @title == @accitem }}">
+		<a class="navbar-brand" href="#">Sims 2</a>
+			<repeat group="{{ @sims2 }}" key="@s2key" value="{{ @s2item }}">
+				<a href="{{@BASE}}{{ @s2key }}"
+				<check if="{{ @title == @s2item }}">
 					<true>
 						class="nav-link active"
 					</true>
@@ -11,18 +12,8 @@
 						class="nav-link"
 					</false>
 				</check>
-				>{{ @accitem }} <check if="{{ @title == @accitem }}"><span class="sr-only">(current)</span></check></a>
+				>{{ @s2item }} <check if="{{ @title == @s2item }}"><span class="sr-only">(current)</span></check></a>
 			</repeat>
-			<a href="{{@BASE}}/pets"
-			<check if="{{ @title == 'Pets' }}">
-				<true>
-					class="nav-link active"
-				</true>
-				<false>
-					class="nav-link"
-				</false>
-			</check>
-			>Pets <check if="{{ @title == 'Pets' }}"><span class="sr-only">(current)</span></check></a>
 		</nav>
 	</div>
 </div>
