@@ -158,6 +158,8 @@ class SimController extends Controller {
 			$this->f3->set('POST.walking',isset($_POST["walking"])?1:0);
 			$this->f3->set('POST.talking',isset($_POST["talking"])?1:0);
 			$this->f3->set('POST.housebroken',isset($_POST["housebroken"])?1:0);
+			$this->f3->set('POST.rhyme',isset($_POST["rhyme"])?1:0);
+			$this->f3->set('POST.ltwDone',isset($_POST["ltwDone"])?1:0);
 
 			$this->f3->set('POST.earnedAthletics', isset($_POST["earnedAthletics"])?1:0);
 			$this->f3->set('POST.earnedCharisma',isset($_POST["earnedCharisma"])?1:0);

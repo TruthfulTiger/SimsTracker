@@ -1,5 +1,3 @@
-<check if="{{ @households }}">
-	<true>
 		<check if="{{ @title === 'Households' }}">
 			<true>
 				<div class="dropdown mb-3">
@@ -18,13 +16,17 @@
 				<a class="btn btn-secondary mb-3" href="{{@BASE}}/households"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All hoods</a>
 			</false>
 		</check>
+<check if="{{ @households }}">
+	<true>
 		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
 			<thead>
 			<tr>
 				<th scope="col">Name</th>
 				<th scope="col">Neighbourhood</th>
-				<th scope="col">Game Version</th>
-				<th scope="col">Sims in household</th>
+				<th scope="col">Game</th>
+				<th scope="col">Sims</th>
+				<th scope="col">Pets</th>
+				<th scope="col">Businesses</th>
 				<th scope="col">Net worth</th>
 				<th scope="col">Family friends</th>
 				<th scope="col">Action</th>
@@ -38,10 +40,26 @@
 				<tr>
 					<td>{{ trim(@household.name) }}</td>
 					<td>{{ trim(@hood.name) }}</td>
-					<td>{{ trim(@hood.gameVersion) }}</td>
+					<td>Sims {{ trim(@hood.gameVersion) }}</td>
 					<check if="{{ @household.sims > 0 }}">
 					<true>
 						<td>{{ trim(@household.sims) }}</td>
+					</true>
+					<false>
+					<td>0</td>
+					</false>
+					</check>
+					<check if="{{ @household.pets > 0 }}">
+					<true>
+						<td>{{ trim(@household.pets) }}</td>
+					</true>
+					<false>
+					<td>0</td>
+					</false>
+					</check>
+					<check if="{{ @household.businesses > 0 }}">
+					<true>
+						<td>{{ trim(@household.businesses) }}</td>
 					</true>
 					<false>
 					<td>0</td>
