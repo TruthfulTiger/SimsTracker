@@ -1,0 +1,60 @@
+		<check if="{{ @title === 'Businesses' }}">
+			<true>
+				<div class="dropdown mb-3">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						View by household:
+					</a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<repeat group="{{ @households }}" value="{{ @household }}">
+							<a class="dropdown-item" href="{{@BASE}}/biz/{{@household.hhID}}">{{@household.name}}</a>
+						</repeat>
+					</div>
+				</div>
+			</true>
+			<false>
+				<a class="btn btn-secondary mb-3" href="{{@BASE}}/biz"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All businesses</a>
+			</false>
+		</check>
+<check if="{{ @biz }}">
+	<true>
+		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+			<thead>
+			<tr>
+				<th scope="col">Household</th>
+				<th scope="col">Name</th>
+				<th scope="col">Type</th>
+				<th scope="col">Rank</th>
+				<th scope="col">Action</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<repeat group="{{ @households }}" value="{{ @household }}">
+				<repeat group="{{ @biz }}" value="{{ @b }}">
+					<check if="{{ @b.hhID == @household.hhID }}">
+						<tr>
+							<td>{{ trim(@household.name) }}</td>
+							<td>{{ trim(@b.busName) }}</td>
+							<td>{{ trim(@b.type) }}</td>
+							<td>{{ trim(@b.rank) }}</td>
+							<td><a href="{{ @BASE.'/biz/view/'. @b.id }}" class="btn btn-info" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+								<a href="{{ @BASE.'/biz/update/'. @b.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+								<a href="{{ @BASE.'/biz/delete/'. @b.id }}"
+								   data-toggle="confirmation"
+								   data-content="All business data will be deleted."
+								   data-popout="true"
+								   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
+									Delete</a></td>
+						</tr>
+					</check>
+				</repeat>
+			</repeat>
+			</tbody>
+		</table>
+	</true>
+	<false>
+		<p>No businesses found.</p>
+	</false>
+</check>
+<a href="{{ @BASE.'/biz/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
