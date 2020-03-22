@@ -3,6 +3,7 @@ class Controller {
 
 	protected $f3;
 	protected $db;
+	protected $web;
 
 	function beforeroute() {
 		if($this->f3->get('SESSION.user') === null ) {
@@ -23,7 +24,7 @@ class Controller {
 
 	function __construct() {
 		$f3 = Base::instance();
-		\Assets::instance();
+		$web = \Web::instance();
 		$db=new DB\SQL(
 			$f3->get('db_dns') . $f3->get('db_name'),
 			$f3->get('db_user'),
@@ -55,10 +56,10 @@ class Controller {
 
             foreach($haystack as $key=>$value){
                 if(is_array($value)){
-                    if(self::in_array_multi($needle, $value))
+                    if(in_array_multi($needle, $value))
                         return True;
                     else
-                        self::in_array_multi($needle, $value);
+                        in_array_multi($needle, $value);
                 }
                 else
                     if(trim($value) === trim($needle)){//visibility fix//
@@ -73,5 +74,6 @@ class Controller {
 
 		$this->f3=$f3;
 		$this->db=$db;
+		$this->web=$web;
 	}
 }

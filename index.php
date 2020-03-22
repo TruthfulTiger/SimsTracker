@@ -2,7 +2,6 @@
 date_default_timezone_set( "Europe/London" );
 require 'vendor/autoload.php';
 $f3 = Base::instance();
-\Assets::instance();
 $f3->set('copyyear', date("Y"));
 $f3->config('config/globals.cfg');
 $f3->config('config/games.cfg');

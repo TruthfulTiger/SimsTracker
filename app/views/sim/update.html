@@ -1114,8 +1114,8 @@
 							<label for="major">Major name</label>
 							<select class="custom-select" name="major" id="major">
 								<repeat group="{{ @majors }}" key="{{@mj}}" value="{{ @major }}">
-									<option value="{{ @major }}"
-									<check if="{{ @sim.major == @major}}">
+									<option value="{{ @mj }}"
+									<check if="{{ @sim.major == @mj}}">
 										selected
 									</check>
 									>{{ @major }}</option>
