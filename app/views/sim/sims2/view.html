@@ -1,0 +1,757 @@
+<div class="row">
+	<div class="col">
+		<check if="{{ @sim.gender == 'F'}}">
+			<img src="{{@BASE}}{{@s2path}}Female.png" alt="Female" data-toggle="tooltip" title="Female">
+		</check>
+		<check if="{{ @sim.gender == 'M'}}">
+			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male">
+		</check>
+	</div>
+	<div class="col">
+    <input hidden id = "age" value="{{trim(@sim.age)}}" />
+		<check if="{{ @sim.age == 'Infant'}}">
+        	<img src="{{@BASE}}{{@s2path}}Female.png" alt="Infant" data-toggle="tooltip" title="Infant">
+		</check>
+		<check if="{{ @sim.age == 'Toddler'}}">
+			<img src="{{@BASE}}{{@s2path}}Age1.png" alt="Toddler" data-toggle="tooltip" title="Toddler">
+		</check>
+		<check if="{{ @sim.age == 'Child'}}">
+			<img src="{{@BASE}}{{@s2path}}Age2.png" alt="Child" data-toggle="tooltip" title="Child">
+		</check>
+		<check if="{{ @sim.age == 'Teen'}}">
+			<img src="{{@BASE}}{{@s2path}}Age3.png" alt="Teen" data-toggle="tooltip" title="Teen">
+		</check>
+        <check if="{{ @sim.age == 'Young Adult'}}">
+			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Young Adult" data-toggle="tooltip" title="Young Adult">
+		</check>
+		<check if="{{ @sim.age == 'Adult'}}">
+			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Adult" data-toggle="tooltip" title="Adult">
+		</check>
+		<check if="{{ @sim.age == 'Elder'}}">
+			<img src="{{@BASE}}{{@s2path}}Age5.png" alt="Elder" data-toggle="tooltip" title="Elder">
+		</check>
+	</div>
+</div>
+<check if="{{ @sim.careerTrack == 0}}">
+    <true>
+        <check if="{{ @sim.id == @business.owner}}">
+            <true>
+            <p>Self-employed</p>
+            </true>
+            <false>
+            <p>Unemployed</p>
+            </false>
+        </check>    
+    </true>
+    <false>
+				<div class="card mb-3">
+					<div class="card-header">
+						<h6><a data-toggle="collapse" href="#career" aria-expanded="false" aria-controls="career">Career<span id="careerTitle"></span></a></h6>
+					</div>
+					<div class="card-body collapse" id="career">
+                    <div class="row">
+                    <div class="col">
+                    <h6>Current</h6>
+                    <p><b>Job: </b><span id="job"></span></p>
+                    <p><b>Pay: </b><span id="pay"></span></p>
+                    <p><b>Bonus: </b><span id="bonus"></span></p>
+                    <p class="reward"><b>Career reward: </b><span id="reward"></span></p>
+                    </div>
+                    <div class="col">
+                    <h6>Needed to advance</h6>
+                    <ul class="s2bullets">
+                        <li class="friends"><span id="friends"></span></li>
+                        <li class="cook"><span id="cook"></span></li>                    
+                        <li class="mech"><span id="mech"></span></li>
+                        <li class="char"><span id="char"></span></li>
+                        <li class="body"><span id="body"></span></li>
+                        <li class="logic"><span id="logic"></span></li>
+                        <li class="create"><span id="create"></span></li>
+                        <li class="clean"><span id="clean"></span></li>
+                    </ul>
+                    </div>
+                    </div>                   
+
+					</div>
+				</div>
+    </false>
+</check>
+
+<check if="{{ @sim.isWitch == 1}}">
+<p><span id="alignLevel">Alignment level</span></p>
+				<div class="card mb-3" >
+					<div class="card-header">
+						<h6><a data-toggle="collapse" href="#spells" aria-expanded="false" aria-controls="spells">Available Spells</a></h6>
+					</div>
+					<div class="card-body collapse" id="spells">
+						<table class="table table-responsive">
+							<thead>
+							<tr>
+								<th scope="col">Magic level</th>
+								<th scope="col">Evil</th>
+								<th scope="col">Neutral</th>
+								<th scope="col">Good</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<th scope="row">0</th>
+								<td><span class="meanDown">Corruptus Locus</span><br/>
+									<span class="goodDown">Mellifera Attackum</span><br/>
+									Spiritus Poultria
+								</td>
+								<td>Aqua Deletus<br/>
+									Cleanius Corpus<br/>
+									Folium Deletus
+								</td>
+								<td><span class="nicePlus">Beautificus Locus</span><br/>
+									Benemoodus Simae<br/>
+									<span class="evilPlus">Creatum Insecto Volucris</span>
+								</td>
+							</tr>
+							<tr class="level1">
+								<th scope="row">1</th>
+								<td></td>
+								<td>Corpus Athleticus<br/>
+									Corpus Fleshicus
+								</td>
+								<td></td>
+							</tr>
+							<tr class="level2">
+								<th scope="row">2</th>
+								<td><span class="niceDown">Inflammo</span></td>
+								<td></td>
+								<td><span class="meanPlus">Exflammo</span></td>
+							</tr>
+							<tr class="level3">
+								<th scope="row">3</th>
+								<td>
+									<span class="neutralDown">Heavus Ho</span></td>
+								<td>Magivestigium</td>
+								<td><span class="neutralPlus">Remedis Simae</span></td>
+							</tr>
+							<tr class="level4">
+								<th scope="row">4</th>
+								<td></td>
+								<td>Creatum Nutrimens<br/>
+									Expello Simae
+								</td>
+								<td></td>
+							</tr>
+							<tr class="level5">
+								<th scope="row">5</th>
+								<td><span class="meanDown">Compello Discrepo</span></td>
+								<td>Appello Cattus Amicus</td>
+								<td><span class="nicePlus">Compello Acceptus</span></td>
+							</tr>
+							<tr class="level6">
+								<th scope="row">6</th>
+								<td><span class="evilDown">Servantus Attackum</span></td>
+								<td>Purgomagus</td>
+								<td><span class="goodPlus">Appello Servantus</span></td>
+							</tr>
+							<tr class="level7">
+								<th scope="row">7</th>
+								<td><span class="evilDown">Tabula Rasa</span></td>
+								<td>Appello Simae</td>
+								<td><span class="goodPlus">Benemoodus Populus</span></td>
+							</tr>
+							<tr class="level8">
+								<th scope="row">8</th>
+								<td><span class="vEvilDown">Extractum Amorus</span></td>
+								<td></td>
+								<td><span class="vGoodPlus">Mactoamicus</span></td>
+							</tr>
+							<tr class="level9">
+								<th scope="row">9</th>
+								<td><span class="vEvilDown">Vivificus Zombiae</span></td>
+								<td>Magus Mutatio</td>
+								<td><span class="vGoodPlus">Expello Mortis</span></td>
+							</tr>
+							<tr class="level10">
+								<th scope="row">10</th>
+								<td></td>
+								<td>Tempus Interruptus</td>
+								<td></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="card mb-3">
+					<div class="card-header">
+						<h6><a data-toggle="collapse" href="#craftables" aria-expanded="false" aria-controls="craftables">Available Craftables</a></h6>
+					</div>
+					<div class="card-body collapse" id="craftables">
+						<table class="table table-responsive">
+							<thead>
+							<tr>
+								<th scope="col">Magic level</th>
+								<th scope="col">Type</th>
+								<th scope="col">Evil</th>
+								<th scope="col">Neutral</th>
+								<th scope="col">Good</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<th scope="row">0</th>
+								<td>Reagent</td>
+								<td>
+									Eye of Newt<br/>
+									Viper's Essence
+								</td>
+								<td>Dragon Scales<br/>
+									Mystic Dust
+								</td>
+								<td>
+									Essence of Light<br/>
+									Crystallised Moonbeams
+								</td>
+							</tr>
+							<tr class="level1">
+								<th scope="row">1</th>
+								<td>Potion</td>
+								<td></td>
+								<td>Lycanthropic-B<br/>
+									Plantophic-C<br/>
+									Vampirocilin-D<br/>
+									Witchbegone-E
+								</td>
+								<td></td>
+							</tr>
+							<tr class="level2">
+								<th scope="row">2</th>
+								<td>Object</td>
+								<td><span class="mean">Hand of Darkness Floor Lamp</span></td>
+								<td>Little Miss Wendolyn Sculture</td>
+								<td><span class="nice">Faerie Fire Floor Lamp</span></td>
+							</tr>
+							<tr class="level4">
+								<th scope="row">4</th>
+								<td>Potion</td>
+								<td><span class="mean">Enchanted Essence of Cur Tails</span></td>
+								<td></td>
+								<td><span class="nice">Magically Spiced Sugar</span></td>
+							</tr>
+							<tr class="level5">
+								<th scope="row">5</th>
+								<td>Object</td>
+								<td><span class="evil">Palm of Darkness Wall Sconce</span><br/>
+									<span class="evil">Fist of Darkness Ceiling Lamp</span>
+								</td>
+								<td></td>
+								<td><span class="good">Stardust Wall Sconce</span><br/>
+									<span class="good">Star Dusted Ceiling Lamp</span>
+								</td>
+							</tr>
+							<tr class="level7">
+								<th scope="row">7</th>
+								<td>Potion</td>
+								<td></td>
+								<td>Love Potion #8.5<br/>
+									ReNuYu Porta-Chug
+								</td>
+								<td></td>
+							</tr>
+							<tr class="level9">
+								<th scope="row">9</th>
+								<td>Object</td>
+								<td><span class="vEvil">Claw of Darkness Throne</span></td>
+								<td></td>
+								<td><span class="vGood">Throne of Light</span></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+                </check>
+
+{* Scripts *}
+<script>
+$(function () {
+    let careerTitle = $('#careerTitle');
+    let job = $('#job');
+    let pay = $('#pay');
+    let bonus = $('#bonus');
+    let friends = $('#friends');
+    let reward = $('#reward');
+    let cook = $('#cook');
+    let mech = $('#mech');
+    let char = $('#char');
+    let body = $('#body');
+    let logic = $('#logic');
+    let create = $('#create');
+    let clean = $('#clean');
+    let jobLevel = 0;
+    let json = "";
+    let align = {{trim(@sim.alignment)}};
+    let magic = {{trim(@sim.magicLevel)}};
+    let career = {{trim(@sim.careerTrack)}};
+
+    alignUpdate(align);
+    magicUpdate(magic);
+    careerLoad(career);    
+});
+
+    function alignUpdate(v) {
+        let alignLevel = $('#alignLevel');
+		let vEvil = $(".vEvil");
+		let evil = $(".evil");
+		let mean = $(".mean");
+		let nice = $(".nice");
+		let good = $(".good");
+		let vGood = $(".vGood");
+		let vEvilPlus = $(".vEvilPlus");
+		let evilPlus = $(".evilPlus");
+		let meanPlus = $(".meanPlus");
+		let neutralPlus = $(".neutralPlus");
+		let nicePlus = $(".nicePlus");
+		let goodPlus = $(".goodPlus");
+		let vGoodPlus = $(".vGoodPlus");
+		let vEvilDown = $(".vEvilDown");
+		let evilDown = $(".evilDown");
+		let meanDown = $(".meanDown");
+		let neutralDown = $(".neutralDown");
+		let niceDown = $(".niceDown");
+		let goodDown = $(".goodDown");
+		let vGoodDown = $(".vGoodDown");
+
+		if (v >= -100 && v <= -90) {
+			alignLevel.text("Atrociously Evil");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'true').hide();
+			nice.attr('aria-hidden', 'true').hide();
+			mean.attr('aria-hidden', 'false').show();
+			evil.attr('aria-hidden', 'false').show();
+			vEvil.attr('aria-hidden', 'false').show();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'true').hide();
+			nicePlus.attr('aria-hidden', 'true').hide();
+			neutralPlus.attr('aria-hidden', 'true').hide();
+			meanPlus.attr('aria-hidden', 'true').hide();
+			evilPlus.attr('aria-hidden', 'true').hide();
+			vEvilPlus.attr('aria-hidden', 'true').hide();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'false').show();
+			neutralDown.attr('aria-hidden', 'false').show();
+			meanDown.attr('aria-hidden', 'false').show();
+			evilDown.attr('aria-hidden', 'false').show();
+			vEvilDown.attr('aria-hidden', 'false').show();
+		} else if (v > -90 && v <= -50) {
+			alignLevel.text("Evil");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'true').hide();
+			nice.attr('aria-hidden', 'true').hide();
+			mean.attr('aria-hidden', 'false').show();
+			evil.attr('aria-hidden', 'false').show();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'true').hide();
+			nicePlus.attr('aria-hidden', 'true').hide();
+			neutralPlus.attr('aria-hidden', 'true').hide();
+			meanPlus.attr('aria-hidden', 'true').hide();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'false').show();
+			neutralDown.attr('aria-hidden', 'false').show();
+			meanDown.attr('aria-hidden', 'false').show();
+			evilDown.attr('aria-hidden', 'false').show();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+		else if (v > -50 && v <= -20) {
+			alignLevel.text("Mean");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'true').hide();
+			nice.attr('aria-hidden', 'true').hide();
+			mean.attr('aria-hidden', 'false').show();
+			evil.attr('aria-hidden', 'true').hide();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'true').hide();
+			nicePlus.attr('aria-hidden', 'true').hide();
+			neutralPlus.attr('aria-hidden', 'true').hide();
+			meanPlus.attr('aria-hidden', 'false').show();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'false').show();
+			neutralDown.attr('aria-hidden', 'false').show();
+			meanDown.attr('aria-hidden', 'false').show();
+			evilDown.attr('aria-hidden', 'true').hide();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+		else if (v > -20 && v < 20) {
+			alignLevel.text("Neutral");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'true').hide();
+			nice.attr('aria-hidden', 'false').show();
+			mean.attr('aria-hidden', 'true').hide();
+			evil.attr('aria-hidden', 'true').hide();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'true').hide();
+			nicePlus.attr('aria-hidden', 'true').hide();
+			neutralPlus.attr('aria-hidden', 'false').show();
+			meanPlus.attr('aria-hidden', 'false').show();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'false').show();
+			neutralDown.attr('aria-hidden', 'false').show();
+			meanDown.attr('aria-hidden', 'true').hide();
+			evilDown.attr('aria-hidden', 'true').hide();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+		else if (v >= 20 && v < 50) {
+			alignLevel.text("Nice");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'true').hide();
+			nice.attr('aria-hidden', 'false').show();
+			mean.attr('aria-hidden', 'true').hide();
+			evil.attr('aria-hidden', 'true').hide();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'true').hide();
+			nicePlus.attr('aria-hidden', 'false').show();
+			neutralPlus.attr('aria-hidden', 'false').show();
+			meanPlus.attr('aria-hidden', 'false').show();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'false').show();
+			neutralDown.attr('aria-hidden', 'true').hide();
+			meanDown.attr('aria-hidden', 'true').hide();
+			evilDown.attr('aria-hidden', 'true').hide();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+		else if (v >= 50 && v < 90) {
+			alignLevel.text("Good");
+			vGood.attr('aria-hidden', 'true').hide();
+			good.attr('aria-hidden', 'false').show();
+			nice.attr('aria-hidden', 'false').show();
+			mean.attr('aria-hidden', 'true').hide();
+			evil.attr('aria-hidden', 'true').hide();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'true').hide();
+			goodPlus.attr('aria-hidden', 'false').show();
+			nicePlus.attr('aria-hidden', 'false').show();
+			neutralPlus.attr('aria-hidden', 'false').show();
+			meanPlus.attr('aria-hidden', 'false').show();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'false').show();
+			niceDown.attr('aria-hidden', 'true').hide();
+			neutralDown.attr('aria-hidden', 'true').hide();
+			meanDown.attr('aria-hidden', 'true').hide();
+			evilDown.attr('aria-hidden', 'true').hide();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+		else if (v >= 90 && v <= 100) {
+			alignLevel.text("Infallibly Good");
+			vGood.attr('aria-hidden', 'false').show();
+			good.attr('aria-hidden', 'false').show();
+			nice.attr('aria-hidden', 'false').show();
+			mean.attr('aria-hidden', 'true').hide();
+			evil.attr('aria-hidden', 'true').hide();
+			vEvil.attr('aria-hidden', 'true').hide();
+			vGoodPlus.attr('aria-hidden', 'false').show();
+			goodPlus.attr('aria-hidden', 'false').show();
+			nicePlus.attr('aria-hidden', 'false').show();
+			neutralPlus.attr('aria-hidden', 'false').show();
+			meanPlus.attr('aria-hidden', 'false').show();
+			evilPlus.attr('aria-hidden', 'false').show();
+			vEvilPlus.attr('aria-hidden', 'false').show();
+			vGoodDown.attr('aria-hidden', 'false').show();
+			goodDown.attr('aria-hidden', 'true').hide();
+			niceDown.attr('aria-hidden', 'true').hide();
+			neutralDown.attr('aria-hidden', 'true').hide();
+			meanDown.attr('aria-hidden', 'true').hide();
+			evilDown.attr('aria-hidden', 'true').hide();
+			vEvilDown.attr('aria-hidden', 'true').hide();
+		}
+	}
+
+	function magicUpdate(v) {
+		let lv11 = $(".level1");
+		let lv12 = $(".level2");
+		let lv13 = $(".level3");
+		let lv14 = $(".level4");
+		let lv15 = $(".level5");
+		let lv16 = $(".level6");
+		let lv17 = $(".level7");
+		let lv18 = $(".level8");
+		let lv19 = $(".level9");
+		let lv110 = $(".level10");
+
+		switch (parseInt(v)) {
+			case 1:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'true').hide();
+				lv13.attr('aria-hidden', 'true').hide();
+				lv14.attr('aria-hidden', 'true').hide();
+				lv15.attr('aria-hidden', 'true').hide();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 2:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'true').hide();
+				lv14.attr('aria-hidden', 'true').hide();
+				lv15.attr('aria-hidden', 'true').hide();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 3:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'true').hide();
+				lv15.attr('aria-hidden', 'true').hide();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 4:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'true').hide();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 5:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 6:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'false').show();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 7:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'false').show();
+				lv17.attr('aria-hidden', 'false').show();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 8:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'false').show();
+				lv17.attr('aria-hidden', 'false').show();
+				lv18.attr('aria-hidden', 'false').show();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 9:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'false').show();
+				lv17.attr('aria-hidden', 'false').show();
+				lv18.attr('aria-hidden', 'false').show();
+				lv19.attr('aria-hidden', 'false').show();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+			case 10:
+				lv11.attr('aria-hidden', 'false').show();
+				lv12.attr('aria-hidden', 'false').show();
+				lv13.attr('aria-hidden', 'false').show();
+				lv14.attr('aria-hidden', 'false').show();
+				lv15.attr('aria-hidden', 'false').show();
+				lv16.attr('aria-hidden', 'false').show();
+				lv17.attr('aria-hidden', 'false').show();
+				lv18.attr('aria-hidden', 'false').show();
+				lv19.attr('aria-hidden', 'false').show();
+				lv110.attr('aria-hidden', 'false').show();
+				break;
+			default:
+				lv11.attr('aria-hidden', 'true').hide();
+				lv12.attr('aria-hidden', 'true').hide();
+				lv13.attr('aria-hidden', 'true').hide();
+				lv14.attr('aria-hidden', 'true').hide();
+				lv15.attr('aria-hidden', 'true').hide();
+				lv16.attr('aria-hidden', 'true').hide();
+				lv17.attr('aria-hidden', 'true').hide();
+				lv18.attr('aria-hidden', 'true').hide();
+				lv19.attr('aria-hidden', 'true').hide();
+				lv110.attr('aria-hidden', 'true').hide();
+				break;
+		}
+	}
+                
+    function careerLoad(c) {
+         switch(c) {
+            case 1: 
+            json = "{{@BASE}}/ui/js/s2careers/s2athletic.json";   
+            break;
+            default:
+            break;
+        }
+
+        $.ajax({ 
+            type: 'POST', 
+            url: json, 
+            data: { get_param: 'value' }, 
+            dataType: 'json',
+            success: function (data) {
+                jobLevel = {{@sim.jobLevel}} - 1;
+                careerTitle.append(": " + data.name);
+                if ($('#age').val() == "Teen") {
+                    $(".reward").attr('aria-hidden', 'true').hide(); 
+                    job.append(data.teen[jobLevel].name); 
+                    pay.append("§" + data.teen[jobLevel].pay); 
+                    data.teen[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append("§" + data.teen[jobLevel].bonus);
+                    friends.append(data.teen[jobLevel].friends);
+                    if ($.isNumeric(data.teen[jobLevel].cooking)) {                        
+                        cook.append(data.teen[jobLevel].cooking);
+                        $(".cook").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".cook").attr('aria-hidden', 'true').hide();                          
+                    }       
+                    if ($.isNumeric(data.teen[jobLevel].mechanical)) {                        
+                        mech.append(data.teen[jobLevel].mechanical);
+                        $(".mech").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".mech").attr('aria-hidden', 'true').hide();                          
+                    }      
+                    if ($.isNumeric(data.teen[jobLevel].charisma)) {                        
+                        char.append(data.teen[jobLevel].charisma);
+                        $(".char").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".char").attr('aria-hidden', 'true').hide();                          
+                    }                                
+                    if ($.isNumeric(data.teen[jobLevel].body)) {                        
+                        body.append(data.teen[jobLevel].body);
+                        $(".body").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".body").attr('aria-hidden', 'true').hide();                          
+                    }                          
+                    if ($.isNumeric(data.teen[jobLevel].logic)) {                        
+                        logic.append(data.teen[jobLevel].logic);
+                        $(".logic").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".logic").attr('aria-hidden', 'true').hide();                          
+                    }                          
+                    if ($.isNumeric(data.teen[jobLevel].creativity)) {                        
+                        create.append(data.teen[jobLevel].creativity);
+                        $(".create").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".create").attr('aria-hidden', 'true').hide();                          
+                    }                         
+                    if ($.isNumeric(data.teen[jobLevel].cleaning)) {                        
+                        clean.append(data.teen[jobLevel].cleaning);
+                        $(".clean").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".clean").attr('aria-hidden', 'true').hide();                          
+                    }   
+                }
+                if ($('#age').val() == "Adult" || $('#age').val() == "Elder") {
+                    $(".reward").attr('aria-hidden', 'false').show();
+                    job.append(data.adult[jobLevel].name); 
+                    pay.append("§" + data.adult[jobLevel].pay); 
+                    data.adult[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append("§" + data.adult[jobLevel].bonus);
+                    friends.append(data.adult[jobLevel].friends);
+                    if ({{@sim.jobLevel}} < data.unlock) {
+                        reward.append("Locked");                        
+                    } else {
+                         reward.append(data.reward); 
+                    }
+                    if ($.isNumeric(data.adult[jobLevel].cooking)) {                        
+                        cook.append(data.adult[jobLevel].cooking);
+                        $(".cook").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".cook").attr('aria-hidden', 'true').hide();                          
+                    }       
+                    if ($.isNumeric(data.adult[jobLevel].mechanical)) {                        
+                        mech.append(data.adult[jobLevel].mechanical);
+                        $(".mech").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".mech").attr('aria-hidden', 'true').hide();                          
+                    }      
+                    if ($.isNumeric(data.adult[jobLevel].charisma)) {                        
+                        char.append(data.adult[jobLevel].charisma);
+                        $(".char").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".char").attr('aria-hidden', 'true').hide();                          
+                    }                                
+                    if ($.isNumeric(data.adult[jobLevel].body)) {                        
+                        body.append(data.adult[jobLevel].body);
+                        $(".body").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".body").attr('aria-hidden', 'true').hide();                          
+                    }                          
+                    if ($.isNumeric(data.adult[jobLevel].logic)) {                        
+                        logic.append(data.adult[jobLevel].logic);
+                        $(".logic").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".logic").attr('aria-hidden', 'true').hide();                          
+                    }                          
+                    if ($.isNumeric(data.adult[jobLevel].creativity)) {                        
+                        create.append(data.adult[jobLevel].creativity);
+                        $(".create").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".create").attr('aria-hidden', 'true').hide();                          
+                    }                         
+                    if ($.isNumeric(data.adult[jobLevel].cleaning)) {                        
+                        clean.append(data.adult[jobLevel].cleaning);
+                        $(".clean").attr('aria-hidden', 'false').show();  				            
+                    } else {
+                        $(".clean").attr('aria-hidden', 'true').hide();                          
+                    }                                            
+                }
+            },
+            error: function (result) {
+                careerTitle.append(": unknown");
+            }
+        });
+    } 
+    </script>

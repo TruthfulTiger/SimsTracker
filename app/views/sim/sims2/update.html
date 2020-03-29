@@ -1,0 +1,2983 @@
+	<!-- Buttons -->
+	<div class="btn-group mb-3" role="group" aria-label="Drop down buttons showing game options">
+		<!-- Dropdown - base -->
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="baseLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Base game
+			</a>
+			<div class="dropdown-menu" aria-labelledby="baseLink">
+				<a class="dropdown-item" data-toggle="collapse" href="#s2character" role="button" aria-expanded="false" aria-controls="s2character">
+					Genetics
+				</a>
+				<a class="dropdown-item" data-toggle="collapse" href="#s2lifeStates" role="button" aria-expanded="false" aria-controls="s2lifeStates">
+					Life states & supernatural
+				</a>
+				<a class="dropdown-item infant" data-toggle="collapse" href="#s2personality" role="button" aria-expanded="false" aria-controls="s2personality">
+					Personality
+				</a>
+				<a class="dropdown-item infant toddler child" data-toggle="collapse" href="#s2aspirations" role="button" aria-expanded="false" aria-controls="s2aspirations">
+					Aspirations
+				</a>
+				<a class="dropdown-item infant" data-toggle="collapse" href="#s2skills" role="button" aria-expanded="false" aria-controls="s2skills">
+					Skills
+				</a>
+				<a class="dropdown-item infant" data-toggle="collapse" href="#s2interests" role="button" aria-expanded="false" aria-controls="s2interests">
+					Interests
+				</a>
+				<a class="dropdown-item infant toddler ya" data-toggle="collapse" href="#s2school" role="button" aria-expanded="false" aria-controls="s2school">
+					<span id="schoolbtntext">School</span>
+				</a>
+				<a class="dropdown-item infant toddler child ya work" data-toggle="collapse" href="#s2work" role="button" aria-expanded="false" aria-controls="s2work">
+					Work
+				</a>
+				<a class="dropdown-item infant toddler child ya career" data-toggle="collapse" href="#s2career" role="button" aria-expanded="false" aria-controls="s2career">
+					Career
+				</a>
+				<a class="dropdown-item" data-toggle="collapse" href="#s2ltws" role="button" aria-expanded="false" aria-controls="s2ltws">Lifetime Wants</a>
+				<a class="dropdown-item" data-toggle="collapse" href="#s2chemistry" role="button" aria-expanded="false" aria-controls="s2chemistry">Chemistry</a>
+			</div>
+		</div>
+		<!-- Dropdown - Uni -->
+		<check if="{{ @user.uni == 1 }}">
+			<div class="btn-group" role="group">
+				<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="uniLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					University
+				</a>
+				<div class="dropdown-menu" aria-labelledby="uniLink">
+					<a class="dropdown-item" data-toggle="collapse" href="#s2scholarships" role="button" aria-expanded="false" aria-controls="s2scholarships">Scholarships</a>
+					<a class="dropdown-item infant toddler child teen" data-toggle="collapse" href="#s2major" role="button" aria-expanded="false" aria-controls="s2major">Major</a>
+				</div>
+			</div>
+		</check>
+
+		<!-- Dropdown - OFB -->
+		<check if="{{ @user.ofb == 1 }}">
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="businessLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Business
+			</a>
+				<div class="dropdown-menu" aria-labelledby="businessLink">
+					<a class="dropdown-item" data-toggle="collapse" href="#s2bizbadges" role="button" aria-expanded="false" aria-controls="s2bizbadges">Badges</a>
+					<a class="dropdown-item" data-toggle="collapse" href="#s2perks" role="button" aria-expanded="false" aria-controls="s2perks">Perks</a>
+				</div>
+		</div>
+		</check>
+		<!-- Dropdown - Seasons -->
+		<check if="{{ @user.sns == 1 }}">
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="seasonsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Seasons
+			</a>
+				<div class="dropdown-menu" aria-labelledby="seasonsLink">
+					<a class="dropdown-item" data-toggle="collapse" href="#s2snsbadges" role="button" aria-expanded="false" aria-controls="s2snsbadges">Badges</a>
+				</div>
+		</div>
+		</check>
+		<!-- Dropdown - BV -->
+		<check if="{{ @user.bv == 1 }}">
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="bvLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Bon Voyage
+			</a>
+				<div class="dropdown-menu" aria-labelledby="bvLink">
+					<a class="dropdown-item" data-toggle="collapse" href="#s2mementos" role="button" aria-expanded="false" aria-controls="s2mementos">Mementos</a>
+				</div>
+		</div>
+		</check>
+		<!-- Dropdown - FT -->
+		<check if="{{ @user.ft == 1 }}">
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="ftLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Free Time
+			</a>
+				<div class="dropdown-menu" aria-labelledby="ftLink">
+					<a class="dropdown-item" data-toggle="collapse" href="#s2hobbies" role="button" aria-expanded="false" aria-controls="s2hobbies">Hobbies</a>
+					<a class="dropdown-item" data-toggle="collapse" href="#s2ftbadges" role="button" aria-expanded="false" aria-controls="s2ftbadges">Badges</a>
+					<a class="dropdown-item" data-toggle="collapse" href="#s2bugs" role="button" aria-expanded="false" aria-controls="s2bugs">Bugs</a>
+				</div>
+		</div>
+		</check>
+		<!-- Dropdown - AL -->
+		<check if="{{ @user.al == 1 }}">
+		<div class="btn-group" role="group">
+			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="alLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Apartment Life
+			</a>
+				<div class="dropdown-menu" aria-labelledby="alLink">
+					<a class="dropdown-item infant toddler" data-toggle="collapse" href="#s2rep" role="button" aria-expanded="false" aria-controls="s2rep">Reputation</a>
+					<a class="dropdown-item infant toddler" data-toggle="collapse" href="#s2lifeskills" role="button" aria-expanded="false" aria-controls="s2lifeskills">Life skills</a>
+					<a class="dropdown-item infant toddler child" id="witch" data-toggle="collapse" href="#s2witchcraft" role="button" aria-expanded="false" aria-controls="s2witchcraft">Witchcraft</a>
+				</div>
+		</div>
+		</check>
+	</div>
+
+	<div class="accordion" id="simstats"><!-- Sim data accordion -->
+		{* Character *}
+		<div class="collapse mb-3" id="s2character" data-parent="#simstats">
+		<div class="card card-body">
+			<div class="form-row">
+				<div class="col">
+					<h5 class="mb-3 text-primary">Genetics</h5>
+					<div class="form-group">
+						<label for="skintone">Skintone</label>
+						<select class="custom-select" name="skintone" id="skintone">
+							<option value="">-- None --</option>
+							<repeat group="{{ @skintones }}" value="{{ @skin }}">
+								<option value="{{ @skin }}"
+								<check if="{{ @sim.skintone == @skin}}">
+									selected
+								</check>
+								>{{ @skin }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="form-group">
+					<label for="hair">Hair colour</label>
+					<select class="custom-select" name="hair" id="hair">
+						<option value="">-- None --</option>
+						<repeat group="{{ @haircolours }}" value="{{ @hair }}">
+							<option value="{{ @hair }}"
+							<check if="{{ @sim.hair == @hair}}">
+								selected
+							</check>
+							>{{ @hair }}</option>
+						</repeat>
+					</select>
+				</div>
+					<div class="form-group">
+						<label for="eyes">Eye colour</label>
+						<select class="custom-select" name="eyes" id="eyes">
+							<option value="">-- None --</option>
+							<repeat group="{{ @eyecolours }}" value="{{ @eyes }}">
+								<option value="{{ @eyes }}"
+								<check if="{{ @sim.eyes == @eyes}}">
+									selected
+								</check>
+								>{{ @eyes }}</option>
+							</repeat>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		{* Life states *}
+		<div class="collapse mb-3" id="s2lifeStates" data-parent="#simstats">
+		<div class="card card-body">
+			<h5>Life and death details</h5>
+			<div class="form-group">
+				<label for="lifeState">Life state</label>
+				<select class="custom-select" name="lifeState" id="lifeState">
+					<option value="Alive"
+					<check if="{{ @sim.lifeState == 'Alive'}}">
+						selected
+					</check>
+					>Alive</option>
+					<option value="Deceased"
+					<check if="{{ @sim.lifeState == 'Deceased'}}">
+						selected
+					</check>
+					>Deceased</option>
+				</select>
+			</div>
+
+			<div class="form-group" id="deathshow" style="display: none;">
+				<label for="death">Cause of death</label>
+				<select class="custom-select" name="death" id="death">
+					<option value="">-- None --</option>
+					<repeat group="{{ @ghosts }}" value="{{ @death }}">
+						<option value="{{ @death }}"
+						<check if="{{ @sim.death == @death}}">
+							selected
+						</check>
+						>{{ @death }}</option>
+					</repeat>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<h5>Supernatural traits</h5>
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" disabled id="ghost" value="1" class="custom-control-input"
+					<check if="{{ @sim.lifeState == 'Deceased'}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="ghost"><img src="{{@BASE}}{{@s2path}}ghost.png" data-toggle="tooltip" height="64" title="Ghost" alt="Ghost"></label>
+				</div>
+
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isAlien" name="isAlien" value="1" class="custom-control-input"
+					<check if="{{ @sim.isAlien == 1}}">
+						checked
+					</check>
+					>
+					<label class="custom-control-label" for="isAlien"><img src="{{@BASE}}{{@s2path}}ufo.png" data-toggle="tooltip" height="64" title="Alien" alt="Alien"></label>
+				</div>
+
+			<check if="{{ @user.uni == 1 }}">
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isZombie" name="isZombie" value="1" class="custom-control-input"
+					<check if="{{ @sim.isZombie == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" data-toggle="tooltip" title="Zombie" alt="Zombie"></label>
+				</div>
+			</check>
+
+			<check if="{{ @user.nl == 1 }}">
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isVampire" name="isVampire" value="1" class="custom-control-input"
+					<check if="{{ @sim.isVampire == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" data-toggle="tooltip" title="Vampire" alt="Vampire"></label>
+				</div>
+			</check>
+
+			<check if="{{ @user.ofb == 1 }}">
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isServo" name="isServo" value="1" class="custom-control-input"
+					<check if="{{ @sim.isServo == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" data-toggle="tooltip" title="Servo" alt="Servo"></label>
+				</div>
+			</check>
+
+			<check if="{{ @user.pets == 1 }}">	
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isWerewolf" name="isWerewolf" value="1" class="custom-control-input"
+					<check if="{{ @sim.isWerewolf == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" data-toggle="tooltip" title="Werewolf" alt="Werewolf"></label>
+				</div>
+			</check>
+
+			<check if="{{ @user.sns == 1 }}">	
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isPlantSim" name="isPlantSim" value="1" class="custom-control-input"
+					<check if="{{ @sim.isPlantSim == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" data-toggle="tooltip" title="PlantSim" alt="PlantSim"></label>
+				</div>
+			</check>
+
+
+			<check if="{{ @user.al == 1 }}">
+				<div class="custom-control custom-checkbox custom-control-inline">
+					<input type="checkbox" id="isWitch" name="isWitch" value="1" class="custom-control-input"
+					<check if="{{ @sim.isWitch == 1}}">
+						checked
+					</check>>
+					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" data-toggle="tooltip" title="Witch" alt="Witch"></label>
+				</div>
+			</check>
+
+			</div>
+		</div>
+	</div>
+		{* Personality *}
+		<div class="collapse mb-3" id="s2personality" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-group">
+					<label for="preference">Gender Preference</label>
+					<select class="custom-select" name="preference" id="preference">
+						<option value="">-- None --</option>
+						<option value="Males"
+						<check if="{{ @sim.preference == 'Males'}}">
+							selected
+						</check>
+						>Males</option>
+						<option value="Females"
+						<check if="{{ @sim.preference == 'Females'}}">
+							selected
+						</check>
+						>Females</option>
+						<option value="Both"
+						<check if="{{ @sim.preference == 'Both'}}">
+							selected
+						</check>
+						>Both</option>
+					</select>
+				</div>
+				<div class="form-row">
+					<div class="col text-center">
+						<h5 class="mb-3 text-primary">Star Sign</h5>
+						<div class="form-group">
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="aries" value="Aries" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+								<check if="{{ @sim.starSign == 'Aries'}}">
+									checked
+								</check>
+								>
+							<label class="custom-control-label" for="aries"><img src="{{@BASE}}{{@s2path}}Zodiac5.png" data-toggle="tooltip" title="Aries" alt="Aries"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="taurus" value="Taurus" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Taurus'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="taurus"><img src="{{@BASE}}{{@s2path}}Zodiac11.png" data-toggle="tooltip" title="Taurus" alt="Taurus"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="gemini" value="Gemini" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Gemini'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="gemini"><img src="{{@BASE}}{{@s2path}}Zodiac7.png" data-toggle="tooltip" title="Gemini" alt="Gemini"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="cancer" value="Cancer" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Cancer'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="cancer"><img src="{{@BASE}}{{@s2path}}Zodiac6.png" data-toggle="tooltip" title="Cancer" alt="Cancer"></label>
+						</div>
+							<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="leo" value="Leo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+								<check if="{{ @sim.starSign == 'Leo'}}">
+									checked
+								</check>
+							>
+							<label class="custom-control-label" for="leo"><img src="{{@BASE}}{{@s2path}}Zodiac8.png" data-toggle="tooltip" title="Leo" alt="Leo"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="virgo" value="Virgo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Virgo'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="virgo"><img src="{{@BASE}}{{@s2path}}Zodiac12.png" data-toggle="tooltip" title="Virgo" alt="Virgo"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="libra" value="Libra" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Libra'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="libra"><img src="{{@BASE}}{{@s2path}}Zodiac3.png" data-toggle="tooltip" title="Libra" alt="Libra"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="scorpio" onchange="zodiacPoints(value)" value="Scorpio" name="starSign" class="custom-control-input"
+							<check if="{{ @sim.starSign == 'Scorpio'}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="scorpio"><img src="{{@BASE}}{{@s2path}}Zodiac10.png" data-toggle="tooltip" title="Scorpio" alt="Scorpio"></label>
+						</div>
+							<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sag" onchange="zodiacPoints(value)" value="Sagittarius" name="starSign" class="custom-control-input"
+								<check if="{{ @sim.starSign == 'Sagittarius'}}">
+									checked
+								</check>
+						>
+						<label class="custom-control-label" for="sag"><img src="{{@BASE}}{{@s2path}}Zodiac2.png" data-toggle="tooltip" title="Sagittarius" alt="Sagittarius"></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="capricorn" onchange="zodiacPoints(value)" value="Capricorn" name="starSign" class="custom-control-input"
+						<check if="{{ @sim.starSign == 'Capricorn'}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="capricorn"><img src="{{@BASE}}{{@s2path}}Zodiac1.png" data-toggle="tooltip" title="Capricorn" alt="Capricorn"></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="aquarius" onchange="zodiacPoints(value)" value="Aquarius" name="starSign" class="custom-control-input"
+						<check if="{{ @sim.starSign == 'Aquarius'}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="aquarius"><img src="{{@BASE}}{{@s2path}}Zodiac4.png" data-toggle="tooltip" title="Aquarius" alt="Aquarius"></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="pisces" onchange="zodiacPoints(value)" value="Pisces" name="starSign" class="custom-control-input"
+						<check if="{{ @sim.starSign == 'Pisces'}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="pisces"><img src="{{@BASE}}{{@s2path}}Zodiac9.png" data-toggle="tooltip" title="Pisces" alt="Pisces"></label>
+					</div>
+						</div>
+					</div>
+					<div class="col">
+						<h5 class="text-center text-primary mb-3">Personality Points</h5>
+						<div class="form-group">
+							<label for="neatPoints">Sloppy - Neat:  <output for="neatPoints" id="nP">1</output></label>
+							<div id="skills-slider">
+								<input type="hidden" class='custom-slider-input' name="custom-slider-value">
+							</div>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.neatPoints) }}" class="form-control-range" name="neatPoints" id="neatPoints" oninput="neatUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="outgoingPoints">Shy - Outgoing:  <output for="outgoingPoints" id="oP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.outgoingPoints) }}" class="form-control-range" name="outgoingPoints" id="outgoingPoints" oninput="outgoingUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="activePoints">Lazy - Active:  <output for="activePoints" id="aP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.activePoints) }}" class="form-control-range" name="activePoints" id="activePoints" oninput="activeUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="playfulPoints">Serious - Playful:  <output for="playfulPoints" id="pP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.playfulPoints) }}" class="form-control-range" name="playfulPoints" id="playfulPoints" oninput="playfulUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="nicePoints">Grouchy - Nice:  <output for="nicePoints" id="ncP">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nicePoints) }}" class="form-control-range" name="nicePoints" id="nicePoints" oninput="niceUpdate(value)">
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+		{* Aspirations *}
+		<div class="collapse mb-3" id="s2aspirations" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="mb-3 text-primary">Aspirations</h5>
+						<div class="form-row">
+							<div class="form-group col">
+								<label for="aspiration">Aspiration</label>
+								<select class="custom-select" name="aspiration" id="aspiration">
+									<repeat group="{{ @aspirations }}" value="{{ @aspiration }}">
+										<option value="{{ @aspiration }}"
+										<check if="{{ @sim.aspiration == @aspiration}}">
+											selected
+										</check>
+										>{{ trim(@aspiration) }}</option>
+									</repeat>
+								</select>
+							</div>
+                            <check if="{{ @user.ft == 1}}">
+							<div class="form-group col" id="sA">
+								<label for="secondAsp">Secondary Aspiration</label>
+								<select class="custom-select" name="secondAsp" id="secondAsp">
+									<option value="">-- None --</option>
+									<repeat group="{{ @aspirations }}" value="{{ @secondAsp }}">
+										<check if="{{ @secondAsp != 'Grow Up' }}">
+											<option value="{{ @secondAsp }}"
+											<check if="{{ @sim.secondAsp == @secondAsp}}">
+												selected
+											</check>
+											>{{ @secondAsp }}</option>
+										</check>
+									</repeat>
+								</select>
+							</div>
+                            </check>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Skills *}
+		<div class="collapse mb-3" id="s2skills" data-parent="#simstats">
+		<div class="card card-body">
+			<div class="form-row">
+				<div class="col">
+					<h5 class="text-center text-primary mb-3">Skills</h5>
+					<div class="form-group">
+						<label for="cooking">Cooking:  <output for="cooking" id="ckP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cooking) }}" class="form-control-range" name="cooking" id="cooking" oninput="cookingUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="mechanical">Mechanical:  <output for="mechanical" id="mP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.mechanical) }}" class="form-control-range" name="mechanical" id="mechanical" oninput="mechanicalUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="charisma">Charisma:  <output for="charisma" id="chP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.charisma) }}" class="form-control-range" name="charisma" id="charisma" oninput="charismaUpdate(value
+				)">
+					</div>
+					<div class="form-group">
+						<label for="body">Body:  <output for="body" id="bP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.body) }}" class="form-control-range" name="body" id="body" oninput="bodyUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="logic">Logic:  <output for="logic" id="lP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.logic) }}" class="form-control-range" name="logic" id="logic" oninput="logicUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="creativity">Creativity:  <output for="creativity" id="cvP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.creativity) }}" class="form-control-range" name="creativity" id="creativity" oninput="creativityUpdate(value)">
+					</div>
+					<div class="form-group">
+						<label for="cleaning">Cleaning:  <output for="cleaning" id="clP">1</output></label>
+						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cleaning) }}" class="form-control-range" name="cleaning" id="cleaning" oninput="cleaningUpdate(value)">
+					</div>
+				</div>
+				<div class="col text-center">
+					<h5>Toddler Skills</h5>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" id="walking" name="walking" value="1" class="custom-control-input"
+						<check if="{{ @sim.walking == 1}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="walking"><img src="{{@BASE}}{{@s2path}}walking.png" data-toggle="tooltip" title="Walking" alt="Walking"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" id="talking" name="talking" value="1" class="custom-control-input"
+						<check if="{{ @sim.talking == 1}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="talking"><img src="{{@BASE}}{{@s2path}}talking.png" data-toggle="tooltip" title="Talking" alt="Talking"></label>
+					</div>
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" id="housebroken" name="housebroken" value="1" class="custom-control-input"
+						<check if="{{ @sim.housebroken == 1}}">
+							checked
+						</check>
+						>
+						<label class="custom-control-label" for="housebroken"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Housebroken" alt="Housebroken"></label>
+					</div>
+					<check if="{{ @user.ft == 1}}">
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="rhyme" name="rhyme" value="1" class="custom-control-input"
+							<check if="{{ @sim.rhyme == 1}}">
+								checked
+							</check>
+							>
+							<label class="custom-control-label" for="rhyme"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Nursery Rhyme" alt="Nursery Rhyme"></label>
+						</div>
+					</check>
+				</div>
+			</div>
+		</div>
+	</div>
+		{* Interests *}
+		<div class="collapse mb-3" id="s2interests" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="text-primary mb-3">Interests</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="politics">Politics:  <output for="politics" id="pols">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.politics) }}" class="form-control-range" name="politics" id="politics" oninput="polsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="crime">Crime:  <output for="crime" id="crim">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.crime) }}" class="form-control-range" name="crime" id="crime" oninput="crimeUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="food">Food:  <output for="food" id="fudz">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.food) }}" class="form-control-range" name="food" id="food" oninput="foodUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="sports">Sports:  <output for="sports" id="spts">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sports) }}" class="form-control-range" name="sports" id="sports" oninput="sportsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="work">Work:  <output for="work" id="wk">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.work) }}" class="form-control-range" name="work" id="work" oninput="workUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="school">School:  <output for="school" id="sch">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.school) }}" class="form-control-range" name="school" id="school" oninput="schoolUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="money">Money:  <output for="money" id="mny">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.money) }}" class="form-control-range" name="money" id="money" oninput="moneyUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="entertainment">Entertaiment:  <output for="entertainment" id="ents">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.entertainment) }}" class="form-control-range" name="entertainment" id="entertainment" oninput="entsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="health">Health:  <output for="health" id="hth">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.health) }}" class="form-control-range" name="health" id="health" oninput="healthUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="paranormal">Paranormal:  <output for="paranormal" id="para">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.paranormal) }}" class="form-control-range" name="paranormal" id="paranormal" oninput="paraUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="weather">Weather:  <output for="weather" id="wth">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.weather) }}" class="form-control-range" name="weather" id="weather" oninput="weatherUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="toys">Toys:  <output for="toys" id="ty">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.toys) }}" class="form-control-range" name="toys" id="toys" oninput="toysUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="environment">Environment:  <output for="environment" id="env">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.environment) }}" class="form-control-range" name="environment" id="environment" oninput="envUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="culture">Culture:  <output for="culture" id="clt">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.culture) }}" class="form-control-range" name="culture" id="culture" oninput="cultureUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="fashion">Fashion:  <output for="fashion" id="fash">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fashion) }}" class="form-control-range" name="fashion" id="fashion" oninput="fashUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="travel">Travel:  <output for="travel" id="tvl">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.travel) }}" class="form-control-range" name="travel" id="travel" oninput="travelUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="animals">Animals:  <output for="animals" id="amls">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.animals) }}" class="form-control-range" name="animals" id="animals" oninput="animalsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="scifi">Sci-fi:  <output for="scifi" id="sci">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.scifi) }}" class="form-control-range" name="scifi" id="scifi" oninput="scifiUpdate(value)">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* School *}
+		<div class="collapse mb-3" id="s2school" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">School</h5>
+				<div class="form-row">
+					<div class="col">
+						<p>School type</p>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="public" value="public" name="schoolType" class="custom-control-input"
+							<check if="{{ @sim.schoolType == 'public'}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="public"><img src="{{@BASE}}{{@s2path}}publicschool.png" data-toggle="tooltip" title="Public School" alt="Public School"></label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="private" value="private" name="schoolType" class="custom-control-input"
+							<check if="{{ @sim.schoolType == 'private'}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="private"><img src="{{@BASE}}{{@s2path}}privateschool.png" data-toggle="tooltip" title="Private School" alt="Private School"></label>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label for="grade">Grade</label>
+							<select class="custom-select" name="grade" id="grade">
+								<option value="">-- None --</option>
+								<option value="A+"
+								<check if="{{ @sim.grade == 'A+'}}">
+									selected
+								</check>
+								>A+</option>
+								<option value="A"
+								<check if="{{ @sim.grade == 'A'}}">
+									selected
+								</check>
+								>A</option>
+								<option value="A-"
+								<check if="{{ @sim.grade == 'A-'}}">
+									selected
+								</check>
+								>A-</option>
+								<option value="B+"
+								<check if="{{ @sim.grade == 'B+'}}">
+									selected
+								</check>
+								>B+</option>
+								<option value="B"
+								<check if="{{ @sim.grade == 'B'}}">
+									selected
+								</check>
+								>B</option>
+								<option value="B-"
+								<check if="{{ @sim.grade == 'B-'}}">
+									selected
+								</check>
+								>B-</option>
+								<option value="C+"
+								<check if="{{ @sim.grade == 'C+'}}">
+									selected
+								</check>
+								>C+</option>
+								<option value="C"
+								<check if="{{ @sim.grade == 'C'}}">
+									selected
+								</check>
+								>C</option>
+								<option value="C-"
+								<check if="{{ @sim.grade == 'C-'}}">
+									selected
+								</check>
+								>C-</option>
+								<option value="D+"
+								<check if="{{ @sim.grade == 'D+'}}">
+									selected
+								</check>
+								>D+</option>
+								<option value="D"
+								<check if="{{ @sim.grade == 'D'}}">
+									selected
+								</check>
+								>D</option>
+								<option value="D-"
+								<check if="{{ @sim.grade == 'D-'}}">
+									selected
+								</check>
+								>D-</option>
+								<option value="F"
+								<check if="{{ @sim.grade == 'F'}}">
+									selected
+								</check>
+								>F</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Work *}
+		<div class="collapse mb-3" id="s2work" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Work</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="workfield">Career Track</label>
+							<select class="custom-select" name="workfield" id="workfield">
+								<repeat group="{{ @basecareers }}" key="{{@bkey}}" value="{{ @basecareer }}">
+									<option value="{{ @bkey }}"
+									<check if="{{ @sim.careerTrack == @bkey}}">
+										selected
+									</check>
+									>{{ @basecareer }}</option>
+								</repeat>
+								<check if="{{ @sim.age !='Teen' }}">
+									<repeat group="{{ @unicareers }}" key="{{@ukey}}" value="{{ @unicareer }}">
+										<option value="{{ @ukey }}"
+										<check if="{{ @sim.careerTrack == @ukey}}">
+											selected
+										</check>
+										>{{ @unicareer }}</option>
+									</repeat>
+								</check>
+								<repeat group="{{ @snscareers }}" key="{{@skey}}" value="{{ @snscareer }}">
+									<option value="{{ @skey }}"
+									<check if="{{ @sim.careerTrack == @skey}}">
+										selected
+									</check>
+									>{{ @snscareer }}</option>
+								</repeat>
+								<repeat group="{{ @ftcareers }}" key="{{@fkey}}" value="{{ @ftcareer }}">
+									<option value="{{ @fkey }}"
+									<check if="{{ @sim.careerTrack == @fkey}}">
+										selected
+									</check>
+									>{{ @ftcareer }}</option>
+								</repeat>
+							</select>
+						</div>
+					</div>
+					<div class="col">
+						<label for="jobLvl">Job Level</label>
+						<input type="number" class="form-control" value="{{ @sim.jobLevel }}" id="jobLvl" name="jobLvl" min="1" max="3" />
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Career *}
+		<div class="collapse mb-3" id="s2career" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Career</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="careerTrack">Career Track</label>
+							<select class="custom-select" name="workfield" id="careerTrack">
+								<repeat group="{{ @basecareers }}" key="{{@bkey}}" value="{{ @basecareer }}">
+									<option value="{{ @bkey }}"
+									<check if="{{ @sim.careerTrack == @bkey}}">
+										selected
+									</check>
+									>{{ @basecareer }}</option>
+								</repeat>
+								<check if="{{ @sim.studyStatus == 2 }}">
+									<repeat group="{{ @unicareers }}" key="{{@ukey}}" value="{{ @unicareer }}">
+										<option value="{{ @ukey }}"
+										<check if="{{ @sim.careerTrack == @ukey}}">
+											selected
+										</check>
+										>{{ @unicareer }}</option>
+									</repeat>
+								</check>
+								<repeat group="{{ @snscareers }}" key="{{@skey}}" value="{{ @snscareer }}">
+									<option value="{{ @skey }}"
+									<check if="{{ @sim.careerTrack == @skey}}">
+										selected
+									</check>
+									>{{ @snscareer }}</option>
+								</repeat>
+								<repeat group="{{ @ftcareers }}" key="{{@fkey}}" value="{{ @ftcareer }}">
+									<option value="{{ @fkey }}"
+									<check if="{{ @sim.careerTrack == @fkey}}">
+										selected
+									</check>
+									>{{ @ftcareer }}</option>
+								</repeat>
+							</select>
+						</div>
+					</div>
+					<div class="col">
+						<label for="jobLevel">Job Level</label>
+						<input type="number" class="form-control" id="jobLevel" value="{{ @sim.jobLevel }}" name="jobLvl" min="1" max="10" />
+					</div>
+				</div>
+			</div>
+		</div>
+		{* LTWs - TODO: only show if uni+ is ticked *}
+		<div class="collapse mb-3" id="s2ltws" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="mb-3 text-primary">Lifetime Wants</h5>
+						<div class="form-row">
+							<div class="col text-center">
+								<div class="form-row">
+									<div class="form-group col">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input type="checkbox" id="ltwDone" name ="ltwDone" aria-label="LTW is fulfilled"	<check if="{{ @sim.ltwDone == 1}}">
+									checked
+								</check>>
+												</div>
+											</div>
+											<label for="ltw" class="sr-only">Lifetime Want</label>
+											<select class="custom-select" aria-labelledby="ltw" name="LTW" id="ltw">
+												<option value="">-- None --</option>
+												<repeat group="{{ @ltws }}" value="{{ @ltw }}">
+													<option value="{{ @ltw }}"
+													<check if="{{ @sim.LTW == @ltw}}">
+														selected
+													</check>
+													>{{ trim(@ltw) }}</option>
+												</repeat>
+											</select>
+											<input type="number" class="form-control ltwhide" aria-label="LTW counter" id="ltwctr" name="ltwctr" value="{{ @sim.ltwctr}}" min="0" max="1">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Scholarships *}
+		<div class="collapse mb-3" id="s2scholarships" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="mb-3 text-primary">Scholarships</h5>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedAthletics" name="earnedAthletics"
+								<check if="{{ @sim.earnedAthletics == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedAthletics">Hogan Award for Athletics</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedCharisma" name="earnedCharisma"
+								<check if="{{ @sim.earnedCharisma == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedCharisma">Bain-Gordon Communication Fellowship</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedHygienics" name="earnedHygienics"
+								<check if="{{ @sim.earnedHygienics == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedHygienics">Kim Metro Prize for Hygienics</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedCulinary" name="earnedCulinary"
+								<check if="{{ @sim.earnedCulinary == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedCulinary">London Culinary Arts Scholarship</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedGenius" name="earnedGenius"
+								<check if="{{ @sim.earnedGenius == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedGenius">Will Wright Genius Grant</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedEngineering" name="earnedEngineering"
+								<check if="{{ @sim.earnedEngineering == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedEngineering">Bui Engineering Award</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedArts" name="earnedArts"
+								<check if="{{ @sim.earnedArts == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedArts">Quigley Visual Arts Grant</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedYEA" name="earnedYEA"
+								<check if="{{ @sim.earnedYEA == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedYEA">Young Entrepreneurs Award</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedScholar" name="earnedScholar"
+								<check if="{{ @sim.earnedScholar == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedScholar">SimCity Scholar's Grant</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedBilliards" name="earnedBilliards"
+								<check if="{{ @sim.earnedBilliards == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedBilliards">Phelps-Wilsonoff Billiards Prize</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedFootwork" name="earnedFootwork"
+								<check if="{{ @sim.earnedFootwork == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedFootwork">Tsang Footwork Award</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedUndead" name="earnedUndead"
+								<check if="{{ @sim.earnedUndead == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedUndead">Undead Educational Scholarship</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedOrphan" name="earnedOrphan"
+								<check if="{{ @sim.earnedOrphan == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedOrphan">Orphaned Sims Assistance Fund</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedET" name="earnedET"
+								<check if="{{ @sim.earnedET == 1}}">
+									checked
+								</check>>
+								<label class="custom-control-label" for="earnedET">Extraterrestrial Reparation Grant</label>
+							</div>
+						</div>
+						Total scholarship value: § <span id="scholarshipTotal">0</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Major *}
+		<div class="collapse mb-3" id="s2major" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Major</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="major">Major name</label>
+							<select class="custom-select" name="major" id="major">
+								<repeat group="{{ @majors }}" key="{{@mj}}" value="{{ @major }}">
+									<option value="{{ @mj }}"
+									<check if="{{ @sim.major == @mj}}">
+										selected
+									</check>
+									>{{ @major }}</option>
+								</repeat>
+							</select>
+						</div>
+					</div>
+					<div class="col">
+						<label for="term">Term</label>
+						<select class="custom-select" name="term" id="term">
+							<repeat group="{{ @terms }}" key="{{@tm}}" value="{{ @term }}">
+								<option value="{{ @tm }}"
+								<check if="{{ @sim.term == @tm}}">
+									selected
+								</check>
+								>{{ @term }}</option>
+							</repeat>
+						</select>
+					</div>
+					<div class="col">
+						<label for="class">Class</label>
+						<input type="number" class="form-control" id="class" value="{{ @sim.class}}" name="class" min="0" max="2" />
+					</div>
+					<div class="col">
+						<label for="studyStatus">Status</label>
+						<select class="custom-select" name="studyStatus" id="studyStatus">
+							<option value="0"
+							<check if="{{ @sim.studyStatus == 0}}">
+								selected
+							</check>
+							>Never studied</option>
+								<option value="1"
+								<check if="{{ @sim.studyStatus == 1}}">
+									selected
+								</check>
+								>Studying</option>
+							<option value="2"
+							<check if="{{ @sim.studyStatus == 2}}">
+								selected
+							</check>
+							>Graduated</option>
+							<option value="3"
+							<check if="{{ @sim.studyStatus == 3}}">
+								selected
+							</check>
+							>Probation</option>
+							<option value="4"
+							<check if="{{ @sim.studyStatus == 4}}">
+								selected
+							</check>
+							>Dropped out</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Chemistry *}
+		<div class="collapse mb-3" id="s2chemistry" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="mb-3 text-primary">Chemistry</h5>
+						<div class="form-group">
+							<label for="turnon1">Turn-on 1</label>
+							<select class="custom-select" name="turnon1" id="turnon1">
+								<option value="">-- None --</option>
+								<repeat group="{{ @turnons }}" value="{{ @to }}">
+									<option value="{{ @to }}"
+									<check if="{{ @sim.turnon1 == @to}}">
+										selected
+									</check>
+									>{{ @to }}</option>
+								</repeat>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="turnon2">Turn-on 2</label>
+							<select class="custom-select" name="turnon2" id="turnon2">
+								<option value="">-- None --</option>
+								<repeat group="{{ @turnons }}" value="{{ @to }}">
+									<option value="{{ @to }}"
+									<check if="{{ @sim.turnon2 == @to}}">
+										selected
+									</check>
+									>{{ @to }}</option>
+								</repeat>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="turnon1">Turn-off</label>
+							<select class="custom-select" name="turnoff" id="turnoff">
+								<option value="">-- None --</option>
+								<repeat group="{{ @turnons }}" value="{{ @to }}">
+									<option value="{{ @to }}"
+									<check if="{{ @sim.turnoff == @to}}">
+										selected
+									</check>
+									>{{ @to }}</option>
+								</repeat>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Business badges *}
+		<div class="collapse mb-3" id="s2bizbadges" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="text-primary mb-3">Badges</h5>
+						<div class="form-row">
+							<div class="col">
+								<div class="form-group">
+									<label>Cosmetology</label>
+									<select class="custom-select" name="makeup" id="makeup">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.makeup == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Flower arranging</label>
+									<select class="custom-select" name="flowers" id="flowers">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.flowers == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Cashiering</label>
+									<select class="custom-select" name="cashier" id="cashier">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.cashier == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Restocking</label>
+									<select class="custom-select" name="restocking" id="restocking">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.restocking == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label>Robotics</label>
+									<select class="custom-select" name="robotics" id="robotics">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.robotics == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Toy making</label>
+									<select class="custom-select" name="toysbadge" id="toysbadge">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.toysbadge == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Sales</label>
+									<select class="custom-select" name="sales" id="sales">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.sales == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Perks *}
+		<div class="collapse mb-3" id="s2perks" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Business Perks</h5>
+				<div class="form-row">
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Cash</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cash1" name="cash1"
+							<check if="{{ @sim.cash1 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cash1">LeTourneau Prize</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cash2" name="cash2"
+							<check if="{{ @sim.cash2 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cash2">Valued Client Rebate</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cash3" name="cash3"
+							<check if="{{ @sim.cash3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cash3">Chamber of Commerce Prize</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cash4" name="cash4"
+							<check if="{{ @sim.cash4 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cash4">Owners Association Award</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cash5" name="cash5"
+							<check if="{{ @sim.cash5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cash5">Will Wright Grant</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Wholesale</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="wholesale1" name="wholesale1"
+							<check if="{{ @sim.wholesale1 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="wholesale1">Wholesale Discount</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="wholesale2" name="wholesale2"
+							<check if="{{ @sim.wholesale2 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="wholesale2">Supplier Partnership</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="wholesale3" name="wholesale3"
+							<check if="{{ @sim.wholesale3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="wholesale3">Bargain Hunter</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="wholesale4" name="wholesale4"
+							<check if="{{ @sim.wholesale4 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="wholesale4">Serious Negotiator</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="wholesale5" name="wholesale5"
+							<check if="{{ @sim.wholesale5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="wholesale5">Shark of Sharks</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Perception</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="perception1" name="perception1"
+							<check if="{{ @sim.perception1 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="perception1">Assess Mood</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="perception2" name="perception2"
+							<check if="{{ @sim.perception2 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="perception2">Assess Desire</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="perception3" name="perception3"
+							<check if="{{ @sim.perception3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="perception3">Look for Mark</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="perception4" name="perception4"
+							<check if="{{ @sim.perception4 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="perception4">Convincing Personality</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="perception5" name="perception5"
+							<check if="{{ @sim.perception5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="perception5">Manipulation</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Motivation</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="motivation1" name="motivation1"
+							<check if="{{ @sim.motivation1 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="motivation1">Simply Influential</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="motivation2" name="motivation2"
+							<check if="{{ @sim.motivation2 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="motivation2">Perk Up</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="motivation3" name="motivation3"
+							<check if="{{ @sim.motivation3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="motivation3">Motivational Speech</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="motivation4" name="motivation4"
+							<check if="{{ @sim.motivation4 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="motivation4">Boundless Influence</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="motivation5" name="motivation5"
+							<check if="{{ @sim.motivation5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="motivation5">Rally Forth</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Connections</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="connections1" name="connections1"
+							<check if="{{ @sim.connections1 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="connections1">Notable Reputation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="connections2" name="connections2"
+							<check if="{{ @sim.connections2 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="connections2">Sterling Reputation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="connections3" name="connections3"
+							<check if="{{ @sim.connections3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="connections3">Network</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="connections4" name="connections4"
+							<check if="{{ @sim.connections4 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="connections4">Head for Numbers</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="connections5" name="connections5"
+							<check if="{{ @sim.connections5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="connections5">Power Network</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Seasons badges *}
+		<div class="collapse mb-3" id="s2snsbadges" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="text-primary mb-3">Badges</h5>
+						<div class="form-row">
+							<div class="col">
+								<div class="form-group">
+									<label>Gardening</label>
+									<select class="custom-select" name="gardening" id="gardening">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.gardening == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Fishing</label>
+									<select class="custom-select" name="fishing" id="fishing">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.fishing == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		{* Mementos *}
+		<div class="collapse mb-3" id="s2mementos" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Mementos</h5>
+				<div class="form-row">
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">General</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="goodHols" name="goodHols"
+							<check if="{{ @sim.goodHols == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="goodHols">Had a good vacation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="goodHols3" name="goodHols3"
+							<check if="{{ @sim.goodHols3 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="goodHols3">Had three good vacations</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="goodHols5" name="goodHols5"
+							<check if="{{ @sim.goodHols5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="goodHols5">Had five good vacations</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="tour" name="tour"
+							<check if="{{ @sim.tour == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="tour">Went on a tour</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="tours5" name="tours5"
+							<check if="{{ @sim.tours5 == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="tours5">Went on five tours</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="allTours" name="allTours"
+							<check if="{{ @sim.allTours == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="allTours">Went on all of the tours</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="allGestures" name="allGestures"
+							<check if="{{ @sim.allGestures == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="allGestures">Learned all of the gestures</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="roomService" name="roomService"
+							<check if="{{ @sim.roomService == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="roomService">Ordered room service</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="photoAlbum" name="photoAlbum"
+							<check if="{{ @sim.photoAlbum == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="photoAlbum">Ordered a photo album</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="secretMap" name="secretMap"
+							<check if="{{ @sim.secretMap == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="secretMap">Found a secret map</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="secretLot" name="secretLot"
+							<check if="{{ @sim.secretLot == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="secretLot">Discovered a secret lot</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="secretLotAll" name="secretLotAll"
+							<check if="{{ @sim.secretLotAll == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="secretLotAll">Discovered all of the secret lots</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Mountains</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mountainHols" name="mountainHols"
+							<check if="{{ @sim.mountainHols == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mountainHols">Went on a mountain vacation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="flapjacks" name="flapjacks"
+							<check if="{{ @sim.flapjacks == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="flapjacks">Ate flapjacks</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="chestPound" name="chestPound"
+							<check if="{{ @sim.chestPound == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="chestPound">Learned to chest pound</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="slapDance" name="slapDance"
+							<check if="{{ @sim.slapDance == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="slapDance">Learned to slap dance</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="dtMassage" name="dtMassage"
+							<check if="{{ @sim.dtMassage == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="dtMassage">Learned deep tissue massage</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="tent" name="tent"
+							<check if="{{ @sim.tent == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="tent">Slept in a tent</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="logRoll" name="logRoll"
+							<check if="{{ @sim.logRoll == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="logRoll">Won at log rolling</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="axes" name="axes"
+							<check if="{{ @sim.axes == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="axes">Got a bull's-eye at axe throwing</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="treeRing" name="treeRing"
+							<check if="{{ @sim.treeRing == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="treeRing">Examined the tree ring display</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="bigfoot" name="bigfoot"
+							<check if="{{ @sim.bigfoot == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="bigfoot">Befriended Bigfoot</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Tropics</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="islandHols" name="islandHols"
+							<check if="{{ @sim.islandHols == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="islandHols">Went on an island vacation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="pineapple" name="pineapple"
+							<check if="{{ @sim.pineapple == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="pineapple">Ate pineapple surprise</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="hangLoose" name="hangLoose"
+							<check if="{{ @sim.hangLoose == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="hangLoose">Learned to hang loose</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="hulaDance" name="hulaDance"
+							<check if="{{ @sim.hulaDance == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="hulaDance">Learned to hula dance</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="fireDance" name="fireDance"
+							<check if="{{ @sim.fireDance == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="fireDance">Learned to fire dance</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="hsMassage" name="hsMassage"
+							<check if="{{ @sim.hsMassage == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="hsMassage">Learned hot stone massage</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="monkeyOffering" name="monkeyOffering"
+							<check if="{{ @sim.monkeyOffering == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="monkeyOffering">Made an offering at the monkey ruins</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="playPirate" name="playPirate"
+							<check if="{{ @sim.playPirate == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="playPirate">Played on the pirate ship</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="seaChantey" name="seaChantey"
+							<check if="{{ @sim.seaChantey == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="seaChantey">Learned a sea chantey</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="beachTreasure" name="beachTreasure"
+							<check if="{{ @sim.beachTreasure == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="beachTreasure">Found a beach treasure</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="treasureChest" name="treasureChest"
+							<check if="{{ @sim.treasureChest == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="treasureChest">Dug up a treasure chest</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mrMickles" name="mrMickles"
+							<check if="{{ @sim.mrMickles == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mrMickles">Got a voodoo doll</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Far East</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="easternHols" name="easternHols"
+							<check if="{{ @sim.easternHols == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="easternHols">Went on a Far East vacation</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="chirashi" name="chirashi"
+							<check if="{{ @sim.chirashi == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="chirashi">Ate chirashi</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="bow" name="bow"
+							<check if="{{ @sim.bow == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="bow">Learned to bow</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="taiChi" name="taiChi"
+							<check if="{{ @sim.taiChi == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="taiChi">Learned Tai Chi</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="apMassage" name="apMassage"
+							<check if="{{ @sim.apMassage == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="apMassage">Learned acupressure massage</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="drankTea" name="drankTea"
+							<check if="{{ @sim.drankTea == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="drankTea">Drank tea</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="zen" name="zen"
+							<check if="{{ @sim.zen == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="zen">Raked a Zen garden</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mahjong" name="mahjong"
+							<check if="{{ @sim.mahjong == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mahjong">Won at mahjong</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="shrine" name="shrine"
+							<check if="{{ @sim.shrine == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="shrine">Wished at the lucky shrine</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="teleport" name="teleport"
+							<check if="{{ @sim.teleport == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="teleport">Learned to teleport</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="dragon" name="dragon"
+							<check if="{{ @sim.dragon == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="dragon">Learned the dragon legend</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Hobbies *}
+		<div class="collapse mb-3" id="s2hobbies" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="text-primary mb-3">Hobbies</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="cuisine">Cuisine:  <output for="cuisine" id="cus">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cuisine) }}" class="form-control-range" name="cuisine" id="cuisine" oninput="cusUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="film">Film and Literature:  <output for="film" id="lit">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.film) }}" class="form-control-range" name="film" id="film" oninput="litUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="games">Games:  <output for="games" id="gms">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.games) }}" class="form-control-range" name="games" id="games" oninput="gamesUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="tinkering">Tinkering:  <output for="tinkering" id="tnk">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.tinkering) }}" class="form-control-range" name="tinkering" id="tinkering" oninput="tinkUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="science">Science:  <output for="science" id="ftsci">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.science) }}" class="form-control-range" name="science" id="science" oninput="ftsciUpdate(value)">
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="form-group">
+							<label for="arts">Arts and Crafts:  <output for="arts" id="crafts">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.arts) }}" class="form-control-range" name="arts" id="arts" oninput="craftsUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="sport">Sports:  <output for="sport" id="ftspt">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sport) }}" class="form-control-range" name="sport" id="sport" oninput="ftsptUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="nature">Nature:  <output for="nature" id="nat">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nature) }}" class="form-control-range" name="nature" id="nature" oninput="natureUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="fitness">Fitness:  <output for="fitness" id="fit">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fitness) }}" class="form-control-range" name="fitness" id="fitness" oninput="fitUpdate(value)">
+						</div>
+						<div class="form-group">
+							<label for="music">Music and Dance:  <output for="music" id="dance">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.music) }}" class="form-control-range" name="music" id="music" oninput="danceUpdate(value)">
+						</div>
+
+					</div>
+				</div>
+				<label for="pdHobby">Predestined Hobby</label>
+				<select class="custom-select" name="pdHobby" id="pdHobby">
+					<option selected value="">-- None --</option>
+					<repeat group="{{ @hobbies }}" key="{{@key}}" value="{{ @hobby }}">
+						<option value="{{ @key }}"
+						<check if="{{ @sim.pdHobby == @key}}">
+							selected
+						</check>
+						>{{ trim(@hobby) }}</option>
+					</repeat>
+				</select>
+				<div class="form-row">
+					<div class="col">
+						<h6 class="mt-3">Hobby award achieved</h6>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="cusplaq" name="cusplaq" value="1" class="custom-control-input"
+							<check if="{{ @sim.cusplaq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" data-toggle="tooltip" title="Cuisine" alt="Cuisine"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="filmplq" name="filmplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.filmplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="filmplq"><img src="{{@BASE}}{{@s2path}}hobby2.png" data-toggle="tooltip" title="Film and Lit" alt="Film and Lit"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="gamesplq" name="gamesplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.gamesplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="gamesplq"><img src="{{@BASE}}{{@s2path}}hobby5.png" data-toggle="tooltip" title="Games" alt="Games"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="tinkplq" name="tinkplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.tinkplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" data-toggle="tooltip" title="Tinkering" alt="Tinkering"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="sciplq" name="sciplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.sciplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="sciplq"><img src="{{@BASE}}{{@s2path}}hobby8.png" data-toggle="tooltip" title="Science" alt="Science"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="artsplq" name="artsplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.artsplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" data-toggle="tooltip" title="Arts and Crafts" alt="Arts and Crafts"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="sportplq" name="sportplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.sportplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="sportplq"><img src="{{@BASE}}{{@s2path}}hobby9.png" data-toggle="tooltip" title="Sports" alt="Sports"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="natplq" name="natplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.natplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" data-toggle="tooltip" title="Nature" alt="Nature"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="fitplq" name="fitplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.fitplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" data-toggle="tooltip" title="Fitness" alt="Fitness"></label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="musicplq" name="musicplq" value="1" class="custom-control-input"
+							<check if="{{ @sim.musicplq == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Music and Dance" alt="Music and Dance"></label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		{* FT badges *}
+		<div class="collapse mb-3" id="s2ftbadges" data-parent="#simstats">
+			<div class="card card-body">
+				<div class="form-row">
+					<div class="col">
+						<h5 class="text-primary mb-3">Badges</h5>
+						<div class="form-row">
+							<div class="col">
+								<div class="form-group">
+									<label>Sewing</label>
+									<select class="custom-select" name="sewing" id="sewing">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.sewing == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Pottery</label>
+									<select class="custom-select" name="pottery" id="pottery">
+										<option value="">Not earned</option>
+										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
+											<option value="{{@level}}"
+											<check if="{{ @sim.pottery == @level}}">
+												selected
+											</check>
+											>{{trim(@levelName)}}</option>
+										</repeat>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Bugs *}
+		<div class="collapse mb-3" id="s2bugs" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Bug Collection</h5>
+				<div class="form-row">
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Beetles</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="dpBeetle" name="dpBeetle"
+							<check if="{{ @sim.dpBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="dpBeetle">Dapper Pinstripe Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="pBeetle" name="pBeetle"
+							<check if="{{ @sim.pBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="pBeetle">Polka Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cpBeetle" name="cpBeetle"
+							<check if="{{ @sim.cpBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cpBeetle">Couch Potato Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="gmBeetle" name="gmBeetle"
+							<check if="{{ @sim.gmBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="gmBeetle">Gentleman Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="jBeetle" name="jBeetle"
+							<check if="{{ @sim.jBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="jBeetle">Jack Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="prBeetle" name="prBeetle"
+							<check if="{{ @sim.prBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="prBeetle">Prancer Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="thgBeetle" name="thgBeetle"
+							<check if="{{ @sim.thgBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="thgBeetle">Tri-Horn Greeves Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="rBeetle" name="rBeetle"
+							<check if="{{ @sim.rBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="rBeetle">Ringo Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mlBeetle" name="mlBeetle"
+							<check if="{{ @sim.mlBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mlBeetle">Mock Ladybug Beetle</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="gbBeetle" name="gbBeetle"
+							<check if="{{ @sim.gbBeetle == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="gbBeetle">Green Bottle Beetle</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Butterflies</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="jButterfly" name="jButterfly"
+							<check if="{{ @sim.jButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="jButterfly">Jelly Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="pbButterfly" name="pbButterfly"
+							<check if="{{ @sim.pbButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="pbButterfly">Peanut Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="eButterfly" name="eButterfly"
+							<check if="{{ @sim.eButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="eButterfly">Empress Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="bfwButterfly" name="bfwButterfly"
+							<check if="{{ @sim.bfwButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="bfwButterfly">Blue Featherwing Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mgButterfly" name="mgButterfly"
+							<check if="{{ @sim.mgButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mgButterfly">Margarina Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mButterfly" name="mButterfly"
+							<check if="{{ @sim.mButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mButterfly">Madame Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="vButterfly" name="vButterfly"
+							<check if="{{ @sim.vButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="vButterfly">Vampire Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="pButterfly" name="pButterfly"
+							<check if="{{ @sim.pButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="pButterfly">Pygmalion Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cpButterfly" name="cpButterfly"
+							<check if="{{ @sim.cpButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="cpButterfly">Copper Pot Butterfly</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="sButterfly" name="sButterfly"
+							<check if="{{ @sim.sButterfly == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="sButterfly">Socialus Butterfly</label>
+						</div>
+					</div>
+					<div class="col">
+						<h6 class="mb-3 text-primary text-center">Spiders</h6>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="ssSpider" name="ssSpider"
+							<check if="{{ @sim.ssSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="ssSpider">Striped Spindler Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="gwSpider" name="gwSpider"
+							<check if="{{ @sim.gwSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="gwSpider">Grey Widow Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="pSpider" name="pSpider"
+							<check if="{{ @sim.pSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="pSpider">Paratrooper Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="mSpider" name="mSpider"
+							<check if="{{ @sim.mSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="mSpider">Mock Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="ibSpider" name="ibSpider"
+							<check if="{{ @sim.ibSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="ibSpider">Itsius Bitsius Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="hdSpider" name="hdSpider"
+							<check if="{{ @sim.hdSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="hdSpider">Hot Dog Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="qcSpider" name="qcSpider"
+							<check if="{{ @sim.qcSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="qcSpider">Queen Charlotte Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="hpSpider" name="hpSpider"
+							<check if="{{ @sim.hpSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="hpSpider">Huntsperson Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="sfbSpider" name="sfbSpider"
+							<check if="{{ @sim.sfbSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="sfbSpider">Single-Fanged Betsy Spider</label>
+						</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="tbSpider" name="tbSpider"
+							<check if="{{ @sim.tbSpider == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="tbSpider">Teddy Bear Spider</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Reputation *}
+		<div class="collapse mb-3" id="s2rep" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Reputation</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="reputation">Score:  <output for="reputation" id="rep">1</output></label>
+							<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@sim.reputation) }}" class="form-control-range" name="reputation" id="reputation" oninput="repUpdate(value)">
+							<span id="repLevel">Rep level</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Life skills *}
+		<div class="collapse mb-3" id="s2lifeskills" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Life Skills</h5>
+				<div class="form-group">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="learnedFire" name="learnedFire"
+						<check if="{{ @sim.learnedFire == 1}}">
+							checked
+						</check>>
+						<label class="custom-control-label" for="learnedFire">Fire Prevention</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="learnedAnger" name="learnedAnger"
+						<check if="{{ @sim.learnedAnger == 1}}">
+							checked
+						</check>>
+						<label class="custom-control-label" for="learnedAnger">Anger Management</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="learnedHappiness" name="learnedHappiness"
+						<check if="{{ @sim.learnedHappiness == 1}}">
+							checked
+						</check>>
+						<label class="custom-control-label" for="learnedHappiness">Lifelong Happiness</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="learnedPhysio" name="learnedPhysio"
+						<check if="{{ @sim.learnedPhysio == 1}}">
+							checked
+						</check>>
+						<label class="custom-control-label" for="learnedPhysio">Physiology</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="learnedCounseling" name="learnedCounseling"
+						<check if="{{ @sim.learnedCounseling == 1}}">
+							checked
+						</check>>
+						<label class="custom-control-label" for="learnedCounseling">Couple Counseling</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		{* Witchcraft *}
+		<div class="collapse mb-3" id="s2witchcraft" data-parent="#simstats">
+			<div class="card card-body">
+				<h5 class="mb-3 text-primary">Witchcraft</h5>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="alignment">Alignment:  <output for="alignment" id="align">1</output></label>
+							<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@sim.alignment) }}" class="form-control-range" name="alignment" id="alignment" oninput="alignUpdate(value)">
+							<span id="alignLevel">Alignment level</span>
+						</div>
+						<div class="form-group">
+							<label for="magicLevel">Magic level:  <output for="magicLevel" id="magic">1</output></label>
+							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.magicLevel) }}" class="form-control-range" name="magicLevel" id="magicLevel" oninput="magicUpdate(value)">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+			<!-- Hidden fields and form submission -->
+			<div class="control-group">
+				<div class="">
+					<input type="text" name="hptrap" class="hptrap" />
+					<input type="hidden" name="update" value="update" />
+					<input type="hidden" name="id" value="{{ @sim.id }}" />
+					<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
+					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+				</div>
+			</div>
+
+	</div><!-- /accordion -->
+</form>
+
+<script type="text/javascript">s2path='{{@BASE}}{{@s2path}}';</script>
+<script>
+	let asp;
+	let secondAsp;
+	let growup = $('select').children('option[value="Grow Up"]');
+	$(function () {
+		// initiate s2personality
+		document.querySelector('#nP').value = {{trim(@sim.neatPoints)}};
+		document.querySelector('#oP').value = {{trim(@sim.outgoingPoints)}};
+		document.querySelector('#aP').value = {{trim(@sim.activePoints)}};
+		document.querySelector('#pP').value = {{trim(@sim.playfulPoints)}};
+		document.querySelector('#ncP').value = {{trim(@sim.nicePoints)}};
+
+		// initialise s2skills
+		document.querySelector('#ckP').value = {{trim(@sim.cooking)}};
+		document.querySelector('#mP').value = {{trim(@sim.mechanical)}};
+		document.querySelector('#chP').value = {{trim(@sim.charisma)}};
+		document.querySelector('#bP').value = {{trim(@sim.body)}};
+		document.querySelector('#lP').value = {{trim(@sim.logic)}};
+		document.querySelector('#cvP').value = {{trim(@sim.creativity)}};
+		document.querySelector('#clP').value = {{trim(@sim.cleaning)}};
+
+		// initialise s2interests
+		document.querySelector('#env').value = {{trim(@sim.environment)}};
+		document.querySelector('#wth').value = {{trim(@sim.weather)}};
+		document.querySelector('#mny').value = {{trim(@sim.money)}};
+		document.querySelector('#para').value = {{trim(@sim.paranormal)}};
+		document.querySelector('#fash').value = {{trim(@sim.fashion)}};
+		document.querySelector('#crim').value = {{trim(@sim.crime)}};
+		document.querySelector('#ents').value = {{trim(@sim.entertainment)}};
+		document.querySelector('#wk').value = {{trim(@sim.work)}};
+		document.querySelector('#ty').value = {{trim(@sim.toys)}};
+		document.querySelector('#fudz').value = {{trim(@sim.food)}};
+		document.querySelector('#clt').value = {{trim(@sim.culture)}};
+		document.querySelector('#pols').value = {{trim(@sim.politics)}};
+		document.querySelector('#hth').value = {{trim(@sim.health)}};
+		document.querySelector('#tvl').value = {{trim(@sim.travel)}};
+		document.querySelector('#spts').value = {{trim(@sim.sports)}};
+		document.querySelector('#amls').value = {{trim(@sim.animals)}};
+		document.querySelector('#sch').value = {{trim(@sim.school)}};
+		document.querySelector('#sci').value = {{trim(@sim.scifi)}};
+
+		// initialise s2hobbies
+		document.querySelector('#cus').value = {{trim(@sim.cuisine)}};
+		document.querySelector('#lit').value = {{trim(@sim.film)}};
+		document.querySelector('#tnk').value = {{trim(@sim.tinkering)}};
+		document.querySelector('#ftspt').value = {{trim(@sim.sport)}};
+		document.querySelector('#dance').value = {{trim(@sim.music)}};
+		document.querySelector('#fit').value = {{trim(@sim.fitness)}};
+		document.querySelector('#crafts').value = {{trim(@sim.arts)}};
+		document.querySelector('#ftsci').value = {{trim(@sim.science)}};
+		document.querySelector('#gms').value = {{trim(@sim.games)}};
+		document.querySelector('#nat').value = {{trim(@sim.nature)}};
+
+		// initialise AL
+		document.querySelector('#rep').value = {{trim(@sim.reputation)}};
+		document.querySelector('#align').value = {{trim(@sim.alignment)}};
+		document.querySelector('#magic').value = {{trim(@sim.magicLevel)}};
+
+		// initialise misc functions
+		ltwCheck();
+		scholarshipTotal();
+
+		asp = $('#aspiration').val();
+		secondAsp = $('#secondAsp').val();
+
+		$('#secondAsp').children('option').each(function () {
+			if ($(this).val() == asp) {
+				$(this).hide();
+				if ($(growup).is(':selected') == true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
+		$('#aspiration').children('option').each(function () {
+			if ($(this).val() == secondAsp) {
+				$(this).hide();
+				if ($(growup).is(':selected') == true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
+		$('#ltw').change(function () {
+			ltwCheck();
+		});
+
+		$('#ltwctr').change(function () {
+			ltwCheck();
+		});
+
+		$('input.scholars:checkbox').change(function () {
+			scholarshipTotal();
+		});
+
+		aspCheck();
+        genshow();
+		deathshow();
+		witchshow();
+		repUpdate($('#reputation').val());
+		alignUpdate($('#alignment').val());
+		magicUpdate($('#magicLevel').val());
+
+		$('#age').change(function () {
+			aspCheck();
+		});
+		$('#lifeState').change(function () {
+			deathshow();
+		});
+
+		$('#aspiration').on('change', function () {
+			asp = $(this).val();
+
+			$('#secondAsp').children('option').each(function () {
+				if ($(this).val() == asp) {
+					$(this).hide();
+				} else {
+					$(this).show();
+				}
+			});
+		});
+
+		$('#secondAsp').on('change', function () {
+			asp = $(this).val();
+
+			$('#aspiration').children('option').each(function () {
+				if ($(this).val() == asp) {
+					$(this).hide();
+				} else {
+					$(this).show();
+				}
+			});
+		});
+
+		$("#origin").change(function () {
+            genshow();
+        });
+
+		$("#isWitch").change(function () {
+			witchshow();
+		});
+	});
+
+	function genshow() {
+	    if ($("#origin").val() === "big" || $("#origin").val() === "cas") {
+            $( "#genshow" ).attr('aria-hidden', 'false').show();
+			$("#generation").val({{ trim(@sim.generation) }});
+        }
+	    else {
+            $( "#genshow" ).attr('aria-hidden', 'true').hide();
+        }
+        if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
+            $("#generation").val(0);
+    }
+
+    function careerReset {
+
+    }
+
+	function deathshow() {
+		if ($("#lifeState").val() === "Deceased") {
+			$( "#deathshow" ).attr('aria-hidden', 'false').show();
+			$("#ghost").prop('checked', true);
+		}
+		else {
+			$( "#deathshow" ).attr('aria-hidden', 'true').hide();
+			$("#ghost").prop('checked', false);
+		}
+	}
+
+	function witchshow() {
+		if ($("#isWitch").prop('checked')) {
+			$( "#witch" ).attr('aria-hidden', 'false').show();
+		}
+		else {
+			$( "#witch" ).attr('aria-hidden', 'true').hide();
+		}
+	}
+
+	function scholarshipTotal() {
+		let sT = $('#scholarshipTotal');
+		let arr = [];
+		let total = 0;
+			$('input.scholars:checkbox:checked').each(function () {
+			arr.push(parseInt($(this).val()));
+		});
+		for(let i in arr) { total += arr[i]; }
+		sT.text(total);
+	}
+
+	function ltwCheck() {
+		let ltw = $('#ltw').val();
+		let ltwhide = $('.ltwhide');
+		let ltwctr = $('#ltwctr');
+		let max = 0;
+
+		switch (ltw) {
+			case "Graduate 3 Children from College":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 3);
+				break;
+			case "Marry Off 6 Children":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 6);
+				break;
+			case "Have 6 Grandchildren":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 6);
+				break;
+			case "Raise 20 Puppies or Kittens":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 20);
+				break;
+			case "Earn §100,000":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 100000);
+				break;
+			case "Own 5 Top-Level Businesses":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 5);
+				break;
+			case "Have 6 Pets Reach the Top Career Level":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 6);
+				break;
+			case "Max Out 7 Skills":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 7);
+				break;
+			case "Have 20 Simultaneous Best Friends":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 20);
+				break;
+			case "Have 20 Simultaneous Pet Best Friends":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 20);
+				break;
+			case "Have 20 Simultaneous Lovers":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 20);
+				break;
+			case "WooHoo with 20 Different Sims":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 20);
+				break;
+			case "Have 50 1st Dates":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 50);
+				break;
+			case "Have 50 Dream Dates":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 50);
+				break;
+			case "Eat 200 Grilled Cheese Sandwiches":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 200);
+				break;
+			case "Have 6 Children Joined":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 6);
+				break;
+			case "Have 6 Children Abducted by Aliens":
+				ltwhide.attr('aria-hidden', 'false').show();
+				ltwctr.attr('max', 6);
+				break;
+			default:
+				ltwhide.attr('aria-hidden', 'true').hide();
+				break;
+		}
+		max = ltwctr.attr('max');
+
+		if (ltwctr.val() === max){
+			$('#fulfilled').prop("checked", true);
+		}
+		else {
+			$('#fulfilled').prop("checked", false);
+		}
+	}
+
+
+	function aspCheck() {
+		switch ($( "#age" ).val()) {
+			case 'Infant':
+				$("#aspiration").val("Grow Up");
+				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
+				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'true').hide();
+				break;
+			case 'Toddler':
+				$("#aspiration").val("Grow Up");
+				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
+				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'true').hide();
+				break;
+			case 'Child':
+				$("#aspiration").val("Grow Up");
+				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
+				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'true').hide();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'true').hide();
+				$(".ya").attr('aria-hidden', 'false').show();
+				break;
+			case 'Teen':
+				$('#aspiration').removeAttr("disabled");
+				growup.hide();
+				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$(".teen").attr('aria-hidden', 'true').hide();
+				$(".ya").attr('aria-hidden', 'false').show();
+				$(".work").attr('aria-hidden', 'false').show();
+				$(".career").attr('aria-hidden', 'true').hide();
+				$("#workfield").attr("name", "careerTrack");
+				$("#careerTrack").attr("name", "workfield");
+				$("#jobLvl").attr("name", "jobLevel");
+				$("#jobLevel").attr("name", "jobLvl");
+				break;
+			case 'Young Adult':
+				$('#aspiration').removeAttr("disabled");
+				growup.hide();
+				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$(".ya").attr('aria-hidden', 'true').hide();
+				break;
+			case 'Adult':
+				$('#aspiration').removeAttr("disabled");
+				growup.hide();
+				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$(".teen").attr('aria-hidden', 'true').hide();
+				$(".ya").attr('aria-hidden', 'true').hide();
+				$(".work").attr('aria-hidden', 'true').hide();
+				$(".career").attr('aria-hidden', 'false').show();
+				$("#workfield").attr("name", "workfield");
+				$("#careerTrack").attr("name", "careerTrack");
+				$("#jobLvl").attr("name", "jobLvl");
+				$("#jobLevel").attr("name", "jobLevel");
+				break;
+			case 'Elder':
+				$('#aspiration').removeAttr("disabled");
+				growup.hide();
+				$('#secondAsp').removeAttr("disabled");
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'false').removeClass("disabled");
+				$(".infant").attr('aria-hidden', 'false').show();
+				$(".toddler").attr('aria-hidden', 'false').show();
+				$(".child").attr('aria-hidden', 'false').show();
+				$(".teen").attr('aria-hidden', 'true').hide();
+				$(".ya").attr('aria-hidden', 'true').hide();
+				$(".work").attr('aria-hidden', 'false').show();
+				$(".career").attr('aria-hidden', 'true').hide();
+				$("#workfield").attr("name", "careerTrack");
+				$("#careerTrack").attr("name", "workfield");
+				$("#jobLvl").attr("name", "jobLevel");
+				$("#jobLevel").attr("name", "jobLvl");
+				break;
+			default:
+				$("#aspiration").val("Grow Up");
+				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
+				$('#secondAsp').attr("disabled",'disabled');
+				$( "#sA" ).attr('aria-hidden', 'false').show();
+				$("#aspltw").attr('aria-disabled', 'true').addClass("disabled");
+				break;
+		}
+	}
+
+	// check s2personality
+	function neatUpdate(v) {
+		document.querySelector('#nP').value = v;
+	}
+	function outgoingUpdate(v) {
+		document.querySelector('#oP').value = v;
+	}
+	function activeUpdate(v) {
+		document.querySelector('#aP').value = v;
+	}
+	function playfulUpdate(v) {
+		document.querySelector('#pP').value = v;
+	}
+	function niceUpdate(v) {
+		document.querySelector('#ncP').value = v;
+	}
+
+	// check s2skills
+	function cookingUpdate(v) {
+		document.querySelector('#ckP').value = v;
+	}
+	function mechanicalUpdate(v) {
+		document.querySelector('#mP').value = v;
+	}
+	function charismaUpdate(v) {
+		document.querySelector('#chP').value = v;
+	}
+	function bodyUpdate(v) {
+		document.querySelector('#bP').value = v;
+	}
+	function logicUpdate(v) {
+		document.querySelector('#lP').value = v;
+	}
+	function creativityUpdate(v) {
+		document.querySelector('#cvP').value = v;
+	}
+	function cleaningUpdate(v) {
+		document.querySelector('#clP').value = v;
+	}
+
+	// check s2interests
+	function envUpdate(v) {
+		document.querySelector('#env').value = v;
+	}
+	function weatherUpdate(v) {
+		document.querySelector('#wth').value = v;
+	}
+	function moneyUpdate(v) {
+		document.querySelector('#mny').value = v;
+	}
+	function paraUpdate(v) {
+		document.querySelector('#para').value = v;
+	}
+	function fashUpdate(v) {
+		document.querySelector('#fash').value = v;
+	}
+	function crimeUpdate(v) {
+		document.querySelector('#crim').value = v;
+	}
+	function entsUpdate(v) {
+		document.querySelector('#ents').value = v;
+	}
+	function workUpdate(v) {
+		document.querySelector('#wk').value = v;
+	}
+	function toysUpdate(v) {
+		document.querySelector('#ty').value = v;
+	}
+	function foodUpdate(v) {
+		document.querySelector('#fudz').value = v;
+	}
+	function cultureUpdate(v) {
+		document.querySelector('#clt').value = v;
+	}
+	function polsUpdate(v) {
+		document.querySelector('#pols').value = v;
+	}
+	function healthUpdate(v) {
+		document.querySelector('#hth').value = v;
+	}
+	function travelUpdate(v) {
+		document.querySelector('#tvl').value = v;
+	}
+	function sportsUpdate(v) {
+		document.querySelector('#spts').value = v;
+	}
+	function animalsUpdate(v) {
+		document.querySelector('#amls').value = v;
+	}
+	function schoolUpdate(v) {
+		document.querySelector('#sch').value = v;
+	}
+	function scifiUpdate(v) {
+		document.querySelector('#sci').value = v;
+	}
+
+	// check s2hobbies
+	function cusUpdate(v) {
+		document.querySelector('#cus').value = v;
+	}
+	function litUpdate(v) {
+		document.querySelector('#lit').value = v;
+	}
+	function tinkUpdate(v) {
+		document.querySelector('#tnk').value = v;
+	}
+	function ftsptUpdate(v) {
+		document.querySelector('#ftspt').value = v;
+	}
+	function danceUpdate(v) {
+		document.querySelector('#dance').value = v;
+	}
+	function fitUpdate(v) {
+		document.querySelector('#fit').value = v;
+	}
+	function craftsUpdate(v) {
+		document.querySelector('#crafts').value = v;
+	}
+	function ftsciUpdate(v) {
+		document.querySelector('#ftsci').value = v;
+	}
+	function gamesUpdate(v) {
+		document.querySelector('#gms').value = v;
+	}
+	function natureUpdate(v) {
+		document.querySelector('#nat').value = v;
+	}
+
+	// check AL
+	function repUpdate(v) {
+		let repLevel = $('#repLevel');
+		document.querySelector('#rep').value = v;
+		if (v == -100) {
+			repLevel.text("Sleazy Slimeball");
+		} else if (v > -100 && v <= -80) {
+			repLevel.text("Dirty Dirt Bag");
+		}
+		else if (v > -80 && v <= -60) {
+			repLevel.text("Malodorous Menace");
+		}
+		else if (v > -60 && v <= -40) {
+			repLevel.text("Lousy Loser");
+		}
+		else if (v > -40 && v <= -20) {
+			repLevel.text("Dubious Delinquent");
+		}
+		else if (v > -20 && v < 20) {
+			repLevel.text("Average Cabbage");
+		}
+		else if (v >= 20 && v < 40) {
+			repLevel.text("Amicable Acquaintance");
+		}
+		else if (v >= 40 && v < 60) {
+			repLevel.text("Reputable Resident");
+		}
+		else if (v >= 60 && v < 80) {
+			repLevel.text("Distinguished Do-gooder");
+		}
+		else if (v >= 80 && v < 100) {
+			repLevel.text("Prominent Personality");
+		}
+		else if (v == 100) {
+			repLevel.text("Sociable Celebrity");
+		}
+	}
+
+	function alignUpdate(v) {
+		let alignLevel = $('#alignLevel');
+
+		document.querySelector('#align').value = v;
+		if (v >= -100 && v <= -90) {
+			alignLevel.text("Atrociously Evil");
+		} else if (v > -90 && v <= -50) {
+			alignLevel.text("Evil");
+		}
+		else if (v > -50 && v <= -20) {
+			alignLevel.text("Mean");
+		}
+		else if (v > -20 && v < 20) {
+			alignLevel.text("Neutral");
+		}
+		else if (v >= 20 && v < 50) {
+			alignLevel.text("Nice");
+		}
+		else if (v >= 50 && v < 90) {
+			alignLevel.text("Good");
+		}
+		else if (v >= 90 && v <= 100) {
+			alignLevel.text("Infallibly Good");
+		}
+	}
+
+	function magicUpdate(v) {
+		document.querySelector('#magic').value = v;
+	}
+
+	function zodiacPoints(v) {
+		let nP;
+		let oP;
+		let aP;
+		let pP;
+		let ncP;
+
+		switch (v) {
+			case 'Aries':
+				nP = 5;
+				oP = 8;
+				aP = 6;
+				pP = 3;
+				ncP = 3;
+			break;
+			case 'Taurus':
+				nP = 5;
+				oP = 5;
+				aP = 3;
+				pP = 8;
+				ncP = 4;
+				break;
+			case 'Gemini':
+				nP = 4;
+				oP = 7;
+				aP = 8;
+				pP = 3;
+				ncP = 3;
+				break;
+			case 'Cancer':
+				nP = 6;
+				oP = 3;
+				aP = 6;
+				pP = 4;
+				ncP = 6;
+				break;
+			case 'Leo':
+				nP = 4;
+				oP = 10;
+				aP = 4;
+				pP = 4;
+				ncP = 3;
+				break;
+			case 'Virgo':
+				nP = 9;
+				oP = 2;
+				aP = 6;
+				pP = 3;
+				ncP = 5;
+				break;
+			case 'Libra':
+				nP = 2;
+				oP = 8;
+				aP = 2;
+				pP = 6;
+				ncP = 7;
+				break;
+			case 'Scorpio':
+				nP = 6;
+				oP = 5;
+				aP = 8;
+				pP = 3;
+				ncP = 3;
+				break;
+			case 'Sagittarius':
+				nP = 2;
+				oP = 3;
+				aP = 9;
+				pP = 7;
+				ncP = 4;
+				break;
+			case 'Capricorn':
+				nP = 7;
+				oP = 4;
+				aP = 1;
+				pP = 8;
+				ncP = 5;
+				break;
+			case 'Aquarius':
+				nP = 4;
+				oP = 4;
+				aP = 4;
+				pP = 7;
+				ncP = 6;
+				break;
+			case 'Pisces':
+				nP = 5;
+				oP = 3;
+				aP = 7;
+				pP = 3;
+				ncP = 7;
+				break;
+			default:
+				break;
+		}
+		$('#neatPoints').val(nP);
+		neatUpdate(nP);
+		$('#outgoingPoints').val(oP);
+		outgoingUpdate(oP);
+		$('#activePoints').val(aP);
+		activeUpdate(aP);
+		$('#playfulPoints').val(pP);
+		playfulUpdate(pP);
+		$('#nicePoints').val(ncP);
+		niceUpdate(ncP);
+	}
+
+</script>

@@ -17,6 +17,11 @@ class Business extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
+	public function getByOwner($id) {
+		$this->load(array('owner=?',$id));
+		return $this->query;
+	}
+
 	public function getByUser($id) {
 		$this->load(array('userID=?',$id));
 		return $this->query;

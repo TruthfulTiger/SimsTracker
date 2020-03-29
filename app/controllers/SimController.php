@@ -3,17 +3,17 @@ class SimController extends Controller {
 	private $sim;
 	private $household;
     private $hood;
-    private $version;
     private $relationship;
     private $user;
+	private $business;
 
 	public function __construct() {
 		parent::__construct();
 		$this->sim = new Sim($this->db);
 		$this->household = new Household($this->db);
         $this->hood = new Hood($this->db);
+		$this->business = new Business($this->db);
         $this->user = new User($this->db);
-        $this->version = $this->f3->set('SESSION.version', $this->hood->gameVersion);
         $this->relationship = new Relationships($this->db);
 	}
 
@@ -95,11 +95,14 @@ class SimController extends Controller {
 			if(!$this->f3->exists('SESSION.url'))
 				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
             $this->sim->getById($this->f3->get('PARAMS.id'));
+			$this->hood->getById($this->sim->nhID);
             $sim = $this->sim;
+			$hood = $this->hood;
 			$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('sim', $sim);
+				$this->f3->set('hood', $hood);
 				$this->user->getById($this->f3->get('SESSION.user[2]'));
 				$this->f3->set('user', $this->user);
 				$this->f3->set('parents', $parents);
@@ -134,10 +137,14 @@ class SimController extends Controller {
 	public function view()
 	{
 		$this->sim->getById($this->f3->get('PARAMS.id'));
+		$this->hood->getById($this->sim->nhID);
+		$this->business->getByOwner($this->f3->get('PARAMS.id'));
 		$name = $this->sim->firstName.' '.$this->sim->lastName;
 		$this->f3->config('config/sims2.cfg');
 		if($this->f3->exists('PARAMS.id')) {
 			$this->f3->set('sim',$this->sim);
+			$this->f3->set('hood', $this->hood);
+			$this->f3->set('business', $this->business);
 			$this->f3->set('title',$name);
 			$this->f3->set('content','sim/view.html');
 		} else {
