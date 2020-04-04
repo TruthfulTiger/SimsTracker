@@ -1,192 +1,178 @@
-{
-    "id" : 0,    
+{   
     "name" : "",  
     "unlock" : 0,
     "reward" : "",
-    "teen" : {
-        "lvl1" : {
-            "level" : 1,
+    "teen" : [
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl2" : {
-            "level" : 2,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl3" : {
-            "level" : 3,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         }
-    },
-        "adult" : {
-        "lvl1" : {
-            "level" : 1,
+    ],
+    "adult" : [
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl2" : {
-            "level" : 2,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl3" : {
-            "level" : 3,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl4" : {
-            "level" : 4,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl5" : {
-            "level" : 5,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl6" : {
-            "level" : 6,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl7" : {
-            "level" : 7,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl8" : {
-            "level" : 8,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl9" : {
-            "level" : 9,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         },
-        "lvl10" : {
-            "level" : 10,
+        {
             "name" : "",
             "pay" : 0, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : 0
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
         }
-    }
+    ]
 }

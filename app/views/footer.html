@@ -40,11 +40,12 @@
 </footer>
 <include href="login.html" />
 {* Scripts *}
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="{{@BASE}}/ui/js/jquery-simple-validator.min.js"></script>
 <script src="{{@BASE}}/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js"></script>
+<script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
 <script>
 	$(function () {
 		'use strict';
@@ -77,6 +78,72 @@
 		}
 	});
 </script>
+{* Sliders *}
+
+<check if="{{@hood.gameVersion == 2}}">
+{* Sims 2 sliders *}
+	<check if="{{ @title == 'Update Sim' }}">
+	{* Update-related sliders *}
+		<script>
+		// initiate s2personality
+		let neatVal = {{trim(@sim.neatPoints)}};
+		let outgoingVal = {{trim(@sim.outgoingPoints)}};
+		let activeVal = {{trim(@sim.activePoints)}};
+		let playfulVal = {{trim(@sim.playfulPoints)}};
+		let niceVal = {{trim(@sim.nicePoints)}};
+
+		// initiate s2skills
+		let cookVal = {{trim(@sim.cooking)}};
+		let mechVal = {{trim(@sim.mechanical)}};
+		let charVal = {{trim(@sim.charisma)}};
+		let bodyVal = {{trim(@sim.body)}};
+		let logicVal = {{trim(@sim.logic)}};
+		let createVal = {{trim(@sim.creativity)}};
+		let cleanVal = {{trim(@sim.cleaning)}}; 
+
+		// initialise s2interests
+		let envVal = {{trim(@sim.environment)}};
+		let weatherVal = {{trim(@sim.weather)}};
+		let moneyVal = {{trim(@sim.money)}};
+		let paraVal = {{trim(@sim.paranormal)}};
+		let fashionVal = {{trim(@sim.fashion)}};
+		let crimeVal = {{trim(@sim.crime)}};
+		let entVal = {{trim(@sim.entertainment)}};
+		let workVal = {{trim(@sim.work)}};
+		let toysVal = {{trim(@sim.toys)}};
+		let foodVal = {{trim(@sim.food)}};
+		let cultureVal = {{trim(@sim.culture)}};
+		let politicsVal = {{trim(@sim.politics)}};
+		let healthVal = {{trim(@sim.health)}};
+		let travelVal = {{trim(@sim.travel)}};
+		let sportsVal = {{trim(@sim.sports)}};
+		let animalsVal = {{trim(@sim.animals)}};
+		let schoolVal = {{trim(@sim.school)}};
+		let scifiVal = {{trim(@sim.scifi)}};
+
+		// initialise s2hobbies
+		let cuisineVal = {{trim(@sim.cuisine)}};
+		let filmVal = {{trim(@sim.film)}};
+		let tinkeringVal = {{trim(@sim.tinkering)}};
+		let sportVal = {{trim(@sim.sport)}};
+		let musicVal = {{trim(@sim.music)}};
+		let fitnessVal = {{trim(@sim.fitness)}};
+		let artsVal = {{trim(@sim.arts)}};
+		let scienceVal = {{trim(@sim.science)}};
+		let gamesVal = {{trim(@sim.games)}};
+		let natureVal = {{trim(@sim.nature)}};
+
+		// initiate s2al
+		let repVal = {{ trim(@sim.reputation) }};
+		let alignVal = {{ trim(@sim.alignment) }};
+		let magicVal = {{ trim(@sim.magicLevel) }};
+		</script>
+		<script src="{{@BASE}}/ui/js/s2sliders.min.js"></script>
+	</check>
+</check>
+
+<check if="{{@hood.gameVersion == 3}}"></check>
+<check if="{{@hood.gameVersion == 4}}"></check>
 <include href="messages.html" />
 </body>
 </html>

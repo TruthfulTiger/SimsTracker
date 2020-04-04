@@ -32,51 +32,87 @@
 		</check>
 	</div>
 </div>
-<check if="{{ @sim.careerTrack == 0}}">
-    <true>
-        <check if="{{ @sim.id == @business.owner}}">
-            <true>
-            <p>Self-employed</p>
-            </true>
-            <false>
-            <p>Unemployed</p>
-            </false>
-        </check>    
-    </true>
-    <false>
-				<div class="card mb-3">
-					<div class="card-header">
-						<h6><a data-toggle="collapse" href="#career" aria-expanded="false" aria-controls="career">Career<span id="careerTitle"></span></a></h6>
-					</div>
-					<div class="card-body collapse" id="career">
-                    <div class="row">
-                    <div class="col">
-                    <h6>Current</h6>
-                    <p><b>Job: </b><span id="job"></span></p>
-                    <p><b>Pay: </b><span id="pay"></span></p>
-                    <p><b>Bonus: </b><span id="bonus"></span></p>
-                    <p class="reward"><b>Career reward: </b><span id="reward"></span></p>
-                    </div>
-                    <div class="col">
-                    <h6>Needed to advance</h6>
-                    <ul class="s2bullets">
-                        <li class="friends"><span id="friends"></span></li>
-                        <li class="cook"><span id="cook"></span></li>                    
-                        <li class="mech"><span id="mech"></span></li>
-                        <li class="char"><span id="char"></span></li>
-                        <li class="body"><span id="body"></span></li>
-                        <li class="logic"><span id="logic"></span></li>
-                        <li class="create"><span id="create"></span></li>
-                        <li class="clean"><span id="clean"></span></li>
-                    </ul>
-                    </div>
-                    </div>                   
 
+<h4>Study status</h4>
+	<check if="{{ @sim.studyStatus == 0}}">
+	<true>
+	<p>Never studied</p>
+	</true>
+	<false>
+		<repeat group="{{ @majors }}" key="{{@mkey}}" value="{{ @major }}">
+			<check if="{{ @sim.major == @mkey}}">
+			<check if="{{ @sim.age == 'Young Adult'}}">
+				<check if="{{ @sim.studyStatus == 1}}">
+					<p>Studying {{ @major }}</p>
+				</check>
+				<check if="{{ @sim.studyStatus == 3}}">
+					<p>Academic probation in {{ @major }}</p>
+				</check>
+			</check>
+				<check if="{{ @sim.studyStatus == 2}}">
+					<p>Graduated in {{ @major }}</p>
+				</check>		
+				<check if="{{ @sim.studyStatus == 4}}">
+					<p>Dropped out from {{ @major }}</p>
+				</check>
+			</check>
+		</repeat>	
+	</false>
+	</check>	
+
+<check if="{{ @sim.age != 'Young Adult'}}">
+	<check if="{{ @sim.careerTrack == 0}}">
+		<true>
+			<check if="{{ @sim.id == @business.owner}}">
+				<true>
+				<p>Self-employed</p>
+				</true>
+				<false>
+				<p>Unemployed</p>
+				</false>
+			</check>    
+		</true>
+		<false>
+				<check if="{{ @sim.jobLevel == 0}}">
+				<true>
+				<p>Unemployed</p>
+				</true>
+				<false>
+				<check if="{{ @sim.age != 'Young Adult'}}">
+					<div class="card mb-3">
+						<div class="card-header">
+							<h6><a data-toggle="collapse" href="#career" aria-expanded="false" aria-controls="career">Career<span id="careerTitle"></span></a></h6>
+						</div>
+						<div class="card-body collapse" id="career">
+						<div class="row">
+						<div class="col">
+						<h6>Current</h6>
+						<p><b>Job: </b><span id="job"></span></p>
+						<p><b>Pay: </b><span id="pay"></span></p>
+						<p><b>Bonus: </b><span id="bonus"></span></p>
+						<p class="reward"><b>Career reward: </b><span id="reward"></span></p>
+						</div>
+						<div class="col">
+						<h6>Needed to advance</h6>
+						<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking" data-toggle="tooltip" title="Cooking"> <span id="cook"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical" data-toggle="tooltip" title="Mechanical"> <span id="mech"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma" data-toggle="tooltip" title="Charisma"> <span id="char"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body" data-toggle="tooltip" title="Body"> <span id="body"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic" data-toggle="tooltip" title="Logic"> <span id="logic"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create" alt="Creativity" data-toggle="tooltip" title="Creativity"> <span id="create"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning" data-toggle="tooltip" title="Cleaning"> <span id="clean"></span></p>
+						</div>
+						</div>                   
+						</div>
 					</div>
-				</div>
-    </false>
+				</check>
+
+				</false>
+			</check>   
+		</false>
+	</check>
 </check>
-
 <check if="{{ @sim.isWitch == 1}}">
 <p><span id="alignLevel">Alignment level</span></p>
 				<div class="card mb-3" >
@@ -632,6 +668,9 @@ $(function () {
          switch(c) {
             case 1: 
             json = "{{@BASE}}/ui/js/s2careers/s2athletic.json";   
+            break;
+			case 2: 
+            json = "{{@BASE}}/ui/js/s2careers/s2business.json";   
             break;
             default:
             break;

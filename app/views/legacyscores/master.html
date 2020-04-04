@@ -1,5 +1,5 @@
-<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary title" data-toggle="collapse" data-target="#masterHelp" aria-expanded="false" aria-controls="masterHelp">
-	?</a>
+<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary" data-toggle="collapse" data-target="#masterHelp" aria-expanded="false" aria-label="More details" aria-controls="masterHelp">
+	<i aria-hidden="true" data-toggle="tooltip" title="More details" class="fas fa-question"></i></a>
 	</a></h3>
 <div class="collapse" id="masterHelp">
 	<div class="card card-body">
@@ -25,7 +25,7 @@
 					checked
 				</check>
 				/>
-				<label class="custom-control-label" for="bunnies">Social Bunnies Need Love Too <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+				<label class="custom-control-label" for="bunnies">Social Bunnies Need Love Too <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB" title="Needs OFB" data-toggle="tooltip"></label>
 			</div>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input master" value="1" name="spotless" id="spotless"
@@ -73,7 +73,7 @@
 					checked
 				</check>
 				/>
-				<label class="custom-control-label" for="capitalist">Capitalist Master <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"></label>
+				<label class="custom-control-label" for="capitalist">Capitalist Master <img src="{{@BASE}}{{@s2path}}OFB.png" title="Needs OFB" data-toggle="tooltip" alt="Needs OFB"></label>
 			</div>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input master" value="1" name="league" id="league"
@@ -81,7 +81,7 @@
 					checked
 				</check>
 				/>
-				<label class="custom-control-label" for="league">Ivy League <img src="{{@BASE}}{{@s2path}}UNI.png" alt="Needs University"></label>
+				<label class="custom-control-label" for="league">Ivy League <img src="{{@BASE}}{{@s2path}}UNI.png" title="Needs Uni" data-toggle="tooltip" alt="Needs University"></label>
 			</div>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input master" value="1" name="hhorse" id="hhorse"
@@ -89,7 +89,7 @@
 					checked
 				</check>
 				/>
-				<label class="custom-control-label" for="hhorse">Hobby Horse <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+				<label class="custom-control-label" for="hhorse">Hobby Horse <img src="{{@BASE}}{{@s2path}}FT.png" title="Needs FT" data-toggle="tooltip" alt="Needs FT"></label>
 			</div>
 			<hr/>
 			<div class="custom-control custom-checkbox">

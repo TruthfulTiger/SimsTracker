@@ -2,8 +2,7 @@
   "name": "SimsTracker",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "bootstrap-confirmation2": "^4.0.3",
+    "bootstrap-confirmation2": "^4.1.0",
     "shards-ui": "^3.0.0",
     "yuicompressor": "^2.4.8"
   },

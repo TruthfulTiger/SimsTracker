@@ -27,11 +27,8 @@
 				<a class="dropdown-item infant toddler ya" data-toggle="collapse" href="#s2school" role="button" aria-expanded="false" aria-controls="s2school">
 					<span id="schoolbtntext">School</span>
 				</a>
-				<a class="dropdown-item infant toddler child ya work" data-toggle="collapse" href="#s2work" role="button" aria-expanded="false" aria-controls="s2work">
+				<a class="dropdown-item infant toddler child" data-toggle="collapse" href="#s2career" role="button" aria-expanded="false" aria-controls="s2career">
 					Work
-				</a>
-				<a class="dropdown-item infant toddler child ya career" data-toggle="collapse" href="#s2career" role="button" aria-expanded="false" aria-controls="s2career">
-					Career
 				</a>
 				<a class="dropdown-item" data-toggle="collapse" href="#s2ltws" role="button" aria-expanded="false" aria-controls="s2ltws">Lifetime Wants</a>
 				<a class="dropdown-item" data-toggle="collapse" href="#s2chemistry" role="button" aria-expanded="false" aria-controls="s2chemistry">Chemistry</a>
@@ -409,27 +406,34 @@
 					<div class="col">
 						<h5 class="text-center text-primary mb-3">Personality Points</h5>
 						<div class="form-group">
-							<label for="neatPoints">Sloppy - Neat:  <output for="neatPoints" id="nP">1</output></label>
-							<div id="skills-slider">
-								<input type="hidden" class='custom-slider-input' name="custom-slider-value">
-							</div>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.neatPoints) }}" class="form-control-range" name="neatPoints" id="neatPoints" oninput="neatUpdate(value)">
+						<label for="neatPoints">Sloppy - Neat: <span id="nP"></span></label>
+						<div id="neatPoints" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="neatPoints">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="outgoingPoints">Shy - Outgoing:  <output for="outgoingPoints" id="oP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.outgoingPoints) }}" class="form-control-range" name="outgoingPoints" id="outgoingPoints" oninput="outgoingUpdate(value)">
+						<label for="outgoingPoints">Shy - Outgoing: <span id="oP"></span></label>
+						<div id="outgoingPoints" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="outgoingPoints">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="activePoints">Lazy - Active:  <output for="activePoints" id="aP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.activePoints) }}" class="form-control-range" name="activePoints" id="activePoints" oninput="activeUpdate(value)">
+						<label for="activePoints">Lazy - Active: <span id="aP"></span></label>
+						<div id="activePoints" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="activePoints">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="playfulPoints">Serious - Playful:  <output for="playfulPoints" id="pP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.playfulPoints) }}" class="form-control-range" name="playfulPoints" id="playfulPoints" oninput="playfulUpdate(value)">
+						<label for="playfulPoints">Serious - Playful: <span id="pP"></span></label>
+						<div id="playfulPoints" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="playfulPoints">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="nicePoints">Grouchy - Nice:  <output for="nicePoints" id="ncP">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nicePoints) }}" class="form-control-range" name="nicePoints" id="nicePoints" oninput="niceUpdate(value)">
+						<label for="nicePoints">Grouchy - Nice: <span id="ncP"></span></label>
+						<div id="nicePoints" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="nicePoints">
+						</div>
 						</div>
 					</div>
 			</div>
@@ -479,41 +483,54 @@
 		{* Skills *}
 		<div class="collapse mb-3" id="s2skills" data-parent="#simstats">
 		<div class="card card-body">
+		<h5 class="text-center text-primary mb-3">Skills</h5>
 			<div class="form-row">
-				<div class="col">
-					<h5 class="text-center text-primary mb-3">Skills</h5>
+				<div class="col p-3">
 					<div class="form-group">
-						<label for="cooking">Cooking:  <output for="cooking" id="ckP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cooking) }}" class="form-control-range" name="cooking" id="cooking" oninput="cookingUpdate(value)">
-					</div>
-					<div class="form-group">
-						<label for="mechanical">Mechanical:  <output for="mechanical" id="mP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.mechanical) }}" class="form-control-range" name="mechanical" id="mechanical" oninput="mechanicalUpdate(value)">
-					</div>
-					<div class="form-group">
-						<label for="charisma">Charisma:  <output for="charisma" id="chP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.charisma) }}" class="form-control-range" name="charisma" id="charisma" oninput="charismaUpdate(value
-				)">
-					</div>
-					<div class="form-group">
-						<label for="body">Body:  <output for="body" id="bP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.body) }}" class="form-control-range" name="body" id="body" oninput="bodyUpdate(value)">
-					</div>
-					<div class="form-group">
-						<label for="logic">Logic:  <output for="logic" id="lP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.logic) }}" class="form-control-range" name="logic" id="logic" oninput="logicUpdate(value)">
-					</div>
-					<div class="form-group">
-						<label for="creativity">Creativity:  <output for="creativity" id="cvP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.creativity) }}" class="form-control-range" name="creativity" id="creativity" oninput="creativityUpdate(value)">
-					</div>
-					<div class="form-group">
-						<label for="cleaning">Cleaning:  <output for="cleaning" id="clP">1</output></label>
-						<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cleaning) }}" class="form-control-range" name="cleaning" id="cleaning" oninput="cleaningUpdate(value)">
+					<label for="cooking">Cooking: <span id="ckP"></span></label>
+					<div id="cooking" class="mb-5">
+					<input type="hidden" class='custom-slider-input' name="cooking">
 					</div>
 				</div>
-				<div class="col text-center">
-					<h5>Toddler Skills</h5>
+					<div class="form-group">
+						<label for="mechanical">Mechanical: <span id="mP"></span></label>
+						<div id="mechanical" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="mechanical">
+					</div>
+					</div>
+					<div class="form-group">
+						<label for="charisma">Charisma: <span id="chP"></span></label>
+						<div id="charisma" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="charisma">
+					</div>
+					</div>
+					<div class="form-group">
+						<label for="body">Body: <span id="bP"></span></label>
+						<div id="body" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="body">
+					</div>
+					</div>
+				</div>
+				<div class="col p-3">
+					<div class="form-group">
+						<label for="logic">Logic: <span id="lP"></span></label>
+						<div id="logic" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="logic">
+					</div>
+					</div>
+					<div class="form-group">
+						<label for="creativity">Creativity: <span id="cvP"></span></label>
+						<div id="creativity" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="creativity">
+					</div>
+					</div>
+					<div class="form-group">
+						<label for="cleaning">Cleaning: <span id="clP"></span></label>
+						<div id="cleaning" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="cleaning">
+					</div>
+					</div>
+					<p>Toddler Skills</p>
 					<div class="custom-control custom-checkbox custom-control-inline">
 						<input type="checkbox" id="walking" name="walking" value="1" class="custom-control-input"
 						<check if="{{ @sim.walking == 1}}">
@@ -557,84 +574,120 @@
 			<div class="card card-body">
 				<h5 class="text-primary mb-3">Interests</h5>
 				<div class="form-row">
-					<div class="col">
+					<div class="col p-3">
 						<div class="form-group">
-							<label for="politics">Politics:  <output for="politics" id="pols">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.politics) }}" class="form-control-range" name="politics" id="politics" oninput="polsUpdate(value)">
+						<label for="politics">Politics: <span id="pols"></span></label>
+						<div id="politics" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="politics">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="crime">Crime:  <output for="crime" id="crim">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.crime) }}" class="form-control-range" name="crime" id="crime" oninput="crimeUpdate(value)">
+						<label for="crime">Crime: <span id="crim"></span></label>
+						<div id="crime" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="crime">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="food">Food:  <output for="food" id="fudz">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.food) }}" class="form-control-range" name="food" id="food" oninput="foodUpdate(value)">
+						<label for="food">Food: <span id="fudz"></span></label>
+						<div id="food" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="food">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="sports">Sports:  <output for="sports" id="spts">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sports) }}" class="form-control-range" name="sports" id="sports" oninput="sportsUpdate(value)">
+						<label for="sports">Sports: <span id="spts"></span></label>
+						<div id="sports" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="sports">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="work">Work:  <output for="work" id="wk">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.work) }}" class="form-control-range" name="work" id="work" oninput="workUpdate(value)">
+						<label for="work">Work: <span id="wk"></span></label>
+						<div id="work" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="work">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="school">School:  <output for="school" id="sch">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.school) }}" class="form-control-range" name="school" id="school" oninput="schoolUpdate(value)">
+						<label for="school">School: <span id="sch"></span></label>
+						<div id="school" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="school">
 						</div>
-					</div>
-
-					<div class="col">
-						<div class="form-group">
-							<label for="money">Money:  <output for="money" id="mny">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.money) }}" class="form-control-range" name="money" id="money" oninput="moneyUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="entertainment">Entertaiment:  <output for="entertainment" id="ents">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.entertainment) }}" class="form-control-range" name="entertainment" id="entertainment" oninput="entsUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="health">Health:  <output for="health" id="hth">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.health) }}" class="form-control-range" name="health" id="health" oninput="healthUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="paranormal">Paranormal:  <output for="paranormal" id="para">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.paranormal) }}" class="form-control-range" name="paranormal" id="paranormal" oninput="paraUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="weather">Weather:  <output for="weather" id="wth">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.weather) }}" class="form-control-range" name="weather" id="weather" oninput="weatherUpdate(value)">
-						</div>
-						<div class="form-group">
-							<label for="toys">Toys:  <output for="toys" id="ty">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.toys) }}" class="form-control-range" name="toys" id="toys" oninput="toysUpdate(value)">
 						</div>
 					</div>
 
-					<div class="col">
+					<div class="col p-3">
 						<div class="form-group">
-							<label for="environment">Environment:  <output for="environment" id="env">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.environment) }}" class="form-control-range" name="environment" id="environment" oninput="envUpdate(value)">
+						<label for="money">Money: <span id="mny"></span></label>
+						<div id="money" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="money">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="culture">Culture:  <output for="culture" id="clt">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.culture) }}" class="form-control-range" name="culture" id="culture" oninput="cultureUpdate(value)">
+						<label for="entertainment">Entertainment: <span id="ents"></span></label>
+						<div id="entertainment" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="entertainment">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="fashion">Fashion:  <output for="fashion" id="fash">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fashion) }}" class="form-control-range" name="fashion" id="fashion" oninput="fashUpdate(value)">
+						<label for="health">Health: <span id="hth"></span></label>
+						<div id="health" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="health">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="travel">Travel:  <output for="travel" id="tvl">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.travel) }}" class="form-control-range" name="travel" id="travel" oninput="travelUpdate(value)">
+						<label for="paranormal">Paranormal: <span id="para"></span></label>
+						<div id="paranormal" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="paranormal">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="animals">Animals:  <output for="animals" id="amls">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.animals) }}" class="form-control-range" name="animals" id="animals" oninput="animalsUpdate(value)">
+						<label for="weather">Weather: <span id="wth"></span></label>
+						<div id="weather" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="weather">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="scifi">Sci-fi:  <output for="scifi" id="sci">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.scifi) }}" class="form-control-range" name="scifi" id="scifi" oninput="scifiUpdate(value)">
+						<label for="toys">Toys: <span id="ty"></span></label>
+						<div id="toys" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="toys">
+						</div>
+						</div>
+					</div>
+
+					<div class="col p-3">
+						<div class="form-group">
+						<label for="environment">Environment: <span id="env"></span></label>
+						<div id="environment" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="environment">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="culture">Culture: <span id="clt"></span></label>
+						<div id="culture" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="culture">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="fashion">Fashion: <span id="fash"></span></label>
+						<div id="fashion" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="fashion">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="travel">Travel: <span id="tvl"></span></label>
+						<div id="travel" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="travel">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="animals">Animals: <span id="amls"></span></label>
+						<div id="animals" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="animals">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="scifi">Sci-fi: <span id="sci"></span></label>
+						<div id="scifi" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="scifi">
+						</div>
 						</div>
 					</div>
 				</div>
@@ -738,64 +791,15 @@
 				</div>
 			</div>
 		</div>
-		{* Work *}
-		<div class="collapse mb-3" id="s2work" data-parent="#simstats">
+		{* Career *}
+		<div class="collapse mb-3" id="s2career" data-parent="#simstats">
 			<div class="card card-body">
 				<h5 class="mb-3 text-primary">Work</h5>
 				<div class="form-row">
 					<div class="col">
 						<div class="form-group">
-							<label for="workfield">Career Track</label>
-							<select class="custom-select" name="workfield" id="workfield">
-								<repeat group="{{ @basecareers }}" key="{{@bkey}}" value="{{ @basecareer }}">
-									<option value="{{ @bkey }}"
-									<check if="{{ @sim.careerTrack == @bkey}}">
-										selected
-									</check>
-									>{{ @basecareer }}</option>
-								</repeat>
-								<check if="{{ @sim.age !='Teen' }}">
-									<repeat group="{{ @unicareers }}" key="{{@ukey}}" value="{{ @unicareer }}">
-										<option value="{{ @ukey }}"
-										<check if="{{ @sim.careerTrack == @ukey}}">
-											selected
-										</check>
-										>{{ @unicareer }}</option>
-									</repeat>
-								</check>
-								<repeat group="{{ @snscareers }}" key="{{@skey}}" value="{{ @snscareer }}">
-									<option value="{{ @skey }}"
-									<check if="{{ @sim.careerTrack == @skey}}">
-										selected
-									</check>
-									>{{ @snscareer }}</option>
-								</repeat>
-								<repeat group="{{ @ftcareers }}" key="{{@fkey}}" value="{{ @ftcareer }}">
-									<option value="{{ @fkey }}"
-									<check if="{{ @sim.careerTrack == @fkey}}">
-										selected
-									</check>
-									>{{ @ftcareer }}</option>
-								</repeat>
-							</select>
-						</div>
-					</div>
-					<div class="col">
-						<label for="jobLvl">Job Level</label>
-						<input type="number" class="form-control" value="{{ @sim.jobLevel }}" id="jobLvl" name="jobLvl" min="1" max="3" />
-					</div>
-				</div>
-			</div>
-		</div>
-		{* Career *}
-		<div class="collapse mb-3" id="s2career" data-parent="#simstats">
-			<div class="card card-body">
-				<h5 class="mb-3 text-primary">Career</h5>
-				<div class="form-row">
-					<div class="col">
-						<div class="form-group">
 							<label for="careerTrack">Career Track</label>
-							<select class="custom-select" name="workfield" id="careerTrack">
+							<select class="custom-select" name="careerTrack" id="careerTrack">
 								<repeat group="{{ @basecareers }}" key="{{@bkey}}" value="{{ @basecareer }}">
 									<option value="{{ @bkey }}"
 									<check if="{{ @sim.careerTrack == @bkey}}">
@@ -812,6 +816,7 @@
 										>{{ @unicareer }}</option>
 									</repeat>
 								</check>
+								<check if="{{ @user.sns == 1}}">
 								<repeat group="{{ @snscareers }}" key="{{@skey}}" value="{{ @snscareer }}">
 									<option value="{{ @skey }}"
 									<check if="{{ @sim.careerTrack == @skey}}">
@@ -819,6 +824,8 @@
 									</check>
 									>{{ @snscareer }}</option>
 								</repeat>
+								</check>
+								<check if="{{ @user.ft == 1}}">
 								<repeat group="{{ @ftcareers }}" key="{{@fkey}}" value="{{ @ftcareer }}">
 									<option value="{{ @fkey }}"
 									<check if="{{ @sim.careerTrack == @fkey}}">
@@ -826,12 +833,13 @@
 									</check>
 									>{{ @ftcareer }}</option>
 								</repeat>
+								</check>
 							</select>
 						</div>
 					</div>
 					<div class="col">
 						<label for="jobLevel">Job Level</label>
-						<input type="number" class="form-control" id="jobLevel" value="{{ @sim.jobLevel }}" name="jobLvl" min="1" max="10" />
+						<input type="number" class="form-control" id="jobLevel" value="{{ @sim.jobLevel }}" name="jobLevel" min="0" max="10" />
 					</div>
 				</div>
 			</div>
@@ -1789,49 +1797,69 @@
 			<div class="card card-body">
 				<h5 class="text-primary mb-3">Hobbies</h5>
 				<div class="form-row">
-					<div class="col">
+					<div class="col p-3">
 						<div class="form-group">
-							<label for="cuisine">Cuisine:  <output for="cuisine" id="cus">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.cuisine) }}" class="form-control-range" name="cuisine" id="cuisine" oninput="cusUpdate(value)">
+						<label for="cuisine">Cuisine: <span id="cus"></span></label>
+						<div id="cuisine" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="cuisine">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="film">Film and Literature:  <output for="film" id="lit">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.film) }}" class="form-control-range" name="film" id="film" oninput="litUpdate(value)">
+						<label for="film">Film and Literature: <span id="lit"></span></label>
+						<div id="film" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="film">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="games">Games:  <output for="games" id="gms">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.games) }}" class="form-control-range" name="games" id="games" oninput="gamesUpdate(value)">
+						<label for="games">Games: <span id="gms"></span></label>
+						<div id="games" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="games">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="tinkering">Tinkering:  <output for="tinkering" id="tnk">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.tinkering) }}" class="form-control-range" name="tinkering" id="tinkering" oninput="tinkUpdate(value)">
+						<label for="tinkering">Tinkering: <span id="tnk"></span></label>
+						<div id="tinkering" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="tinkering">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="science">Science:  <output for="science" id="ftsci">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.science) }}" class="form-control-range" name="science" id="science" oninput="ftsciUpdate(value)">
+						<label for="science">Science: <span id="ftsci"></span></label>
+						<div id="science" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="science">
+						</div>
 						</div>
 					</div>
 
-					<div class="col">
+					<div class="col p-3">
 						<div class="form-group">
-							<label for="arts">Arts and Crafts:  <output for="arts" id="crafts">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.arts) }}" class="form-control-range" name="arts" id="arts" oninput="craftsUpdate(value)">
+						<label for="arts">Arts and Crafts: <span id="crafts"></span></label>
+						<div id="arts" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="arts">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="sport">Sports:  <output for="sport" id="ftspt">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.sport) }}" class="form-control-range" name="sport" id="sport" oninput="ftsptUpdate(value)">
+						<label for="sport">Sports: <span id="ftspt"></span></label>
+						<div id="sport" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="sport">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="nature">Nature:  <output for="nature" id="nat">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.nature) }}" class="form-control-range" name="nature" id="nature" oninput="natureUpdate(value)">
+						<label for="nature">Nature: <span id="nat"></span></label>
+						<div id="nature" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="nature">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="fitness">Fitness:  <output for="fitness" id="fit">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.fitness) }}" class="form-control-range" name="fitness" id="fitness" oninput="fitUpdate(value)">
+						<label for="fitness">Fitness: <span id="fit"></span></label>
+						<div id="fitness" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="fitness">
+						</div>
 						</div>
 						<div class="form-group">
-							<label for="music">Music and Dance:  <output for="music" id="dance">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.music) }}" class="form-control-range" name="music" id="music" oninput="danceUpdate(value)">
+						<label for="music">Music and Dance: <span id="dance"></span></label>
+						<div id="music" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="music">
+						</div>
 						</div>
 
 					</div>
@@ -2199,9 +2227,10 @@
 				<div class="form-row">
 					<div class="col">
 						<div class="form-group">
-							<label for="reputation">Score:  <output for="reputation" id="rep">1</output></label>
-							<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@sim.reputation) }}" class="form-control-range" name="reputation" id="reputation" oninput="repUpdate(value)">
-							<span id="repLevel">Rep level</span>
+						<label for="reputation"><span id="repLevel">Rep level</span></label>
+						<div id="reputation" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="reputation">
+					</div>
 						</div>
 					</div>
 				</div>
@@ -2257,13 +2286,16 @@
 				<div class="form-row">
 					<div class="col">
 						<div class="form-group">
-							<label for="alignment">Alignment:  <output for="alignment" id="align">1</output></label>
-							<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@sim.alignment) }}" class="form-control-range" name="alignment" id="alignment" oninput="alignUpdate(value)">
-							<span id="alignLevel">Alignment level</span>
+						<label for="alignment"><span id="alignLevel">Alignment level</span></label>
+						<div id="alignment" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="alignment">
+					</div>
 						</div>
 						<div class="form-group">
-							<label for="magicLevel">Magic level:  <output for="magicLevel" id="magic">1</output></label>
-							<input type="range" class="custom-range" min="0" max="10" value="{{ trim(@sim.magicLevel) }}" class="form-control-range" name="magicLevel" id="magicLevel" oninput="magicUpdate(value)">
+						<label for="magicLevel">Magic level: <span id="magic"></span></label>
+						<div id="magicLevel" class="mb-5">
+						<input type="hidden" class='custom-slider-input' name="magicLevel">
+					</div>
 						</div>
 					</div>
 				</div>
@@ -2291,59 +2323,6 @@
 	let secondAsp;
 	let growup = $('select').children('option[value="Grow Up"]');
 	$(function () {
-		// initiate s2personality
-		document.querySelector('#nP').value = {{trim(@sim.neatPoints)}};
-		document.querySelector('#oP').value = {{trim(@sim.outgoingPoints)}};
-		document.querySelector('#aP').value = {{trim(@sim.activePoints)}};
-		document.querySelector('#pP').value = {{trim(@sim.playfulPoints)}};
-		document.querySelector('#ncP').value = {{trim(@sim.nicePoints)}};
-
-		// initialise s2skills
-		document.querySelector('#ckP').value = {{trim(@sim.cooking)}};
-		document.querySelector('#mP').value = {{trim(@sim.mechanical)}};
-		document.querySelector('#chP').value = {{trim(@sim.charisma)}};
-		document.querySelector('#bP').value = {{trim(@sim.body)}};
-		document.querySelector('#lP').value = {{trim(@sim.logic)}};
-		document.querySelector('#cvP').value = {{trim(@sim.creativity)}};
-		document.querySelector('#clP').value = {{trim(@sim.cleaning)}};
-
-		// initialise s2interests
-		document.querySelector('#env').value = {{trim(@sim.environment)}};
-		document.querySelector('#wth').value = {{trim(@sim.weather)}};
-		document.querySelector('#mny').value = {{trim(@sim.money)}};
-		document.querySelector('#para').value = {{trim(@sim.paranormal)}};
-		document.querySelector('#fash').value = {{trim(@sim.fashion)}};
-		document.querySelector('#crim').value = {{trim(@sim.crime)}};
-		document.querySelector('#ents').value = {{trim(@sim.entertainment)}};
-		document.querySelector('#wk').value = {{trim(@sim.work)}};
-		document.querySelector('#ty').value = {{trim(@sim.toys)}};
-		document.querySelector('#fudz').value = {{trim(@sim.food)}};
-		document.querySelector('#clt').value = {{trim(@sim.culture)}};
-		document.querySelector('#pols').value = {{trim(@sim.politics)}};
-		document.querySelector('#hth').value = {{trim(@sim.health)}};
-		document.querySelector('#tvl').value = {{trim(@sim.travel)}};
-		document.querySelector('#spts').value = {{trim(@sim.sports)}};
-		document.querySelector('#amls').value = {{trim(@sim.animals)}};
-		document.querySelector('#sch').value = {{trim(@sim.school)}};
-		document.querySelector('#sci').value = {{trim(@sim.scifi)}};
-
-		// initialise s2hobbies
-		document.querySelector('#cus').value = {{trim(@sim.cuisine)}};
-		document.querySelector('#lit').value = {{trim(@sim.film)}};
-		document.querySelector('#tnk').value = {{trim(@sim.tinkering)}};
-		document.querySelector('#ftspt').value = {{trim(@sim.sport)}};
-		document.querySelector('#dance').value = {{trim(@sim.music)}};
-		document.querySelector('#fit').value = {{trim(@sim.fitness)}};
-		document.querySelector('#crafts').value = {{trim(@sim.arts)}};
-		document.querySelector('#ftsci').value = {{trim(@sim.science)}};
-		document.querySelector('#gms').value = {{trim(@sim.games)}};
-		document.querySelector('#nat').value = {{trim(@sim.nature)}};
-
-		// initialise AL
-		document.querySelector('#rep').value = {{trim(@sim.reputation)}};
-		document.querySelector('#align').value = {{trim(@sim.alignment)}};
-		document.querySelector('#magic').value = {{trim(@sim.magicLevel)}};
-
 		// initialise misc functions
 		ltwCheck();
 		scholarshipTotal();
@@ -2391,9 +2370,8 @@
         genshow();
 		deathshow();
 		witchshow();
-		repUpdate($('#reputation').val());
-		alignUpdate($('#alignment').val());
-		magicUpdate($('#magicLevel').val());
+		repUpdate(reputation.noUiSlider.get());
+		alignUpdate(alignment.noUiSlider.get());
 
 		$('#age').change(function () {
 			aspCheck();
@@ -2447,9 +2425,9 @@
             $("#generation").val(0);
     }
 
-    function careerReset {
+/*     function careerReset {
 
-    }
+    } */
 
 	function deathshow() {
 		if ($("#lifeState").val() === "Deceased") {
@@ -2613,12 +2591,6 @@
 				$(".child").attr('aria-hidden', 'false').show();
 				$(".teen").attr('aria-hidden', 'true').hide();
 				$(".ya").attr('aria-hidden', 'false').show();
-				$(".work").attr('aria-hidden', 'false').show();
-				$(".career").attr('aria-hidden', 'true').hide();
-				$("#workfield").attr("name", "careerTrack");
-				$("#careerTrack").attr("name", "workfield");
-				$("#jobLvl").attr("name", "jobLevel");
-				$("#jobLevel").attr("name", "jobLvl");
 				break;
 			case 'Young Adult':
 				$('#aspiration').removeAttr("disabled");
@@ -2642,12 +2614,6 @@
 				$(".child").attr('aria-hidden', 'false').show();
 				$(".teen").attr('aria-hidden', 'true').hide();
 				$(".ya").attr('aria-hidden', 'true').hide();
-				$(".work").attr('aria-hidden', 'true').hide();
-				$(".career").attr('aria-hidden', 'false').show();
-				$("#workfield").attr("name", "workfield");
-				$("#careerTrack").attr("name", "careerTrack");
-				$("#jobLvl").attr("name", "jobLvl");
-				$("#jobLevel").attr("name", "jobLevel");
 				break;
 			case 'Elder':
 				$('#aspiration').removeAttr("disabled");
@@ -2660,12 +2626,6 @@
 				$(".child").attr('aria-hidden', 'false').show();
 				$(".teen").attr('aria-hidden', 'true').hide();
 				$(".ya").attr('aria-hidden', 'true').hide();
-				$(".work").attr('aria-hidden', 'false').show();
-				$(".career").attr('aria-hidden', 'true').hide();
-				$("#workfield").attr("name", "careerTrack");
-				$("#careerTrack").attr("name", "workfield");
-				$("#jobLvl").attr("name", "jobLevel");
-				$("#jobLevel").attr("name", "jobLvl");
 				break;
 			default:
 				$("#aspiration").val("Grow Up");
@@ -2677,138 +2637,10 @@
 		}
 	}
 
-	// check s2personality
-	function neatUpdate(v) {
-		document.querySelector('#nP').value = v;
-	}
-	function outgoingUpdate(v) {
-		document.querySelector('#oP').value = v;
-	}
-	function activeUpdate(v) {
-		document.querySelector('#aP').value = v;
-	}
-	function playfulUpdate(v) {
-		document.querySelector('#pP').value = v;
-	}
-	function niceUpdate(v) {
-		document.querySelector('#ncP').value = v;
-	}
-
-	// check s2skills
-	function cookingUpdate(v) {
-		document.querySelector('#ckP').value = v;
-	}
-	function mechanicalUpdate(v) {
-		document.querySelector('#mP').value = v;
-	}
-	function charismaUpdate(v) {
-		document.querySelector('#chP').value = v;
-	}
-	function bodyUpdate(v) {
-		document.querySelector('#bP').value = v;
-	}
-	function logicUpdate(v) {
-		document.querySelector('#lP').value = v;
-	}
-	function creativityUpdate(v) {
-		document.querySelector('#cvP').value = v;
-	}
-	function cleaningUpdate(v) {
-		document.querySelector('#clP').value = v;
-	}
-
-	// check s2interests
-	function envUpdate(v) {
-		document.querySelector('#env').value = v;
-	}
-	function weatherUpdate(v) {
-		document.querySelector('#wth').value = v;
-	}
-	function moneyUpdate(v) {
-		document.querySelector('#mny').value = v;
-	}
-	function paraUpdate(v) {
-		document.querySelector('#para').value = v;
-	}
-	function fashUpdate(v) {
-		document.querySelector('#fash').value = v;
-	}
-	function crimeUpdate(v) {
-		document.querySelector('#crim').value = v;
-	}
-	function entsUpdate(v) {
-		document.querySelector('#ents').value = v;
-	}
-	function workUpdate(v) {
-		document.querySelector('#wk').value = v;
-	}
-	function toysUpdate(v) {
-		document.querySelector('#ty').value = v;
-	}
-	function foodUpdate(v) {
-		document.querySelector('#fudz').value = v;
-	}
-	function cultureUpdate(v) {
-		document.querySelector('#clt').value = v;
-	}
-	function polsUpdate(v) {
-		document.querySelector('#pols').value = v;
-	}
-	function healthUpdate(v) {
-		document.querySelector('#hth').value = v;
-	}
-	function travelUpdate(v) {
-		document.querySelector('#tvl').value = v;
-	}
-	function sportsUpdate(v) {
-		document.querySelector('#spts').value = v;
-	}
-	function animalsUpdate(v) {
-		document.querySelector('#amls').value = v;
-	}
-	function schoolUpdate(v) {
-		document.querySelector('#sch').value = v;
-	}
-	function scifiUpdate(v) {
-		document.querySelector('#sci').value = v;
-	}
-
-	// check s2hobbies
-	function cusUpdate(v) {
-		document.querySelector('#cus').value = v;
-	}
-	function litUpdate(v) {
-		document.querySelector('#lit').value = v;
-	}
-	function tinkUpdate(v) {
-		document.querySelector('#tnk').value = v;
-	}
-	function ftsptUpdate(v) {
-		document.querySelector('#ftspt').value = v;
-	}
-	function danceUpdate(v) {
-		document.querySelector('#dance').value = v;
-	}
-	function fitUpdate(v) {
-		document.querySelector('#fit').value = v;
-	}
-	function craftsUpdate(v) {
-		document.querySelector('#crafts').value = v;
-	}
-	function ftsciUpdate(v) {
-		document.querySelector('#ftsci').value = v;
-	}
-	function gamesUpdate(v) {
-		document.querySelector('#gms').value = v;
-	}
-	function natureUpdate(v) {
-		document.querySelector('#nat').value = v;
-	}
-
 	// check AL
 	function repUpdate(v) {
 		let repLevel = $('#repLevel');
-		document.querySelector('#rep').value = v;
+
 		if (v == -100) {
 			repLevel.text("Sleazy Slimeball");
 		} else if (v > -100 && v <= -80) {
@@ -2846,7 +2678,6 @@
 	function alignUpdate(v) {
 		let alignLevel = $('#alignLevel');
 
-		document.querySelector('#align').value = v;
 		if (v >= -100 && v <= -90) {
 			alignLevel.text("Atrociously Evil");
 		} else if (v > -90 && v <= -50) {
@@ -2867,10 +2698,6 @@
 		else if (v >= 90 && v <= 100) {
 			alignLevel.text("Infallibly Good");
 		}
-	}
-
-	function magicUpdate(v) {
-		document.querySelector('#magic').value = v;
 	}
 
 	function zodiacPoints(v) {
@@ -2968,16 +2795,10 @@
 			default:
 				break;
 		}
-		$('#neatPoints').val(nP);
-		neatUpdate(nP);
-		$('#outgoingPoints').val(oP);
-		outgoingUpdate(oP);
-		$('#activePoints').val(aP);
-		activeUpdate(aP);
-		$('#playfulPoints').val(pP);
-		playfulUpdate(pP);
-		$('#nicePoints').val(ncP);
-		niceUpdate(ncP);
+		neat.noUiSlider.set(nP);
+		outgoing.noUiSlider.set(oP);
+		active.noUiSlider.set(aP);
+		playful.noUiSlider.set(pP);
+		nice.noUiSlider.set(ncP);
 	}
-
 </script>

@@ -116,4 +116,36 @@ class UserController extends Controller {
             $this->f3->set('content','user/profile.html');
         }
 	}
+
+		public function careers()
+	{
+        if(isset($_POST['update']))
+        {
+            if (!empty($_POST['hptrap'])) {
+                die('Nice try, Spam-A-Lot');
+            } else {
+                $this->f3->set('POST.sims2', isset($_POST["sims2"])?1:0);
+                $this->f3->set('POST.sims3', isset($_POST["sims3"])?1:0);
+                $this->f3->set('POST.sims4', isset($_POST["sims4"])?1:0);
+                $this->f3->set('POST.uni', isset($_POST["uni"])?1:0);
+                $this->f3->set('POST.nl', isset($_POST["nl"])?1:0);
+                $this->f3->set('POST.ofb', isset($_POST["ofb"])?1:0);
+                $this->f3->set('POST.pets', isset($_POST["pets"])?1:0);
+                $this->f3->set('POST.sns', isset($_POST["sns"])?1:0);
+                $this->f3->set('POST.ft', isset($_POST["ft"])?1:0);
+                $this->f3->set('POST.bv', isset($_POST["bv"])?1:0);
+                $this->f3->set('POST.al', isset($_POST["al"])?1:0);
+                $this->f3->scrub($_POST,'p; br;');
+                $this->user->edit($this->f3->get('SESSION.user[2]'));
+                $this->f3->set('SESSION.success', 'Career has been updated.');
+                $this->f3->reroute('/user/careers');
+            }
+        } else
+        {
+            $this->user->getById($this->f3->get('SESSION.user[2]'));
+            $this->f3->set('user',$this->user);
+            $this->f3->set('title','Careers Editor');
+            $this->f3->set('content','user/careers.html');
+        }
+	}
 }

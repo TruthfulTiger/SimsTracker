@@ -1,5 +1,5 @@
-<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary title" data-toggle="collapse" data-target="#wantsHelp" aria-expanded="false" aria-controls="wantsHelp">
-    ?</a>
+<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary" data-toggle="collapse" data-target="#wantsHelp" aria-expanded="false" aria-label="More details" aria-controls="wantsHelp">
+    <i aria-hidden="true" data-toggle="tooltip" title="More details" class="fas fa-question"></i></a>
     </a></h3>
 <div class="collapse" id="wantsHelp">
     <div class="card card-body">
@@ -52,7 +52,7 @@
                             <input type="number" oninput="earnChange(value)" min="0" value="{{ trim(@s2legacy.earncount) }}" id="earncount" name="earncount" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="opencount">Open 5 Level 10 Businesses <img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs Open For Business"></label>
+                            <label for="opencount">Open 5 Level 10 Businesses <img src="{{@BASE}}{{@s2path}}OFB.png" data-toggle="tooltip" title="Needs OFB" alt="Needs Open For Business"></label>
                             <input type="number" oninput="openChange(value)" min="0" value="{{ trim(@s2legacy.opencount) }}" id="opencount" name="opencount" class="form-control" />
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                 <div class="card-header" id="pleasure">
                     <h5>
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#coll-pleasure" aria-expanded="true" aria-controls="coll-pleasure">
-                            Pleasure <img src="{{@BASE}}{{@s2path}}NL.png" alt="Needs Nightlife"><img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"><img src="{{@BASE}}{{@s2path}}Pets.png" alt="Needs Pets"><img src="{{@BASE}}{{@s2path}}Seasons.png" alt="Needs Seasons"><img src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"><img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"><img src="{{@BASE}}{{@s2path}}AL.png" alt="Needs AL">
+                            Pleasure <img src="{{@BASE}}{{@s2path}}NL.png" title="Needs at least NL" data-toggle="tooltip" alt="Needs at least Nightlife">
                         </button>
                     </h5>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="card-header" id="cheese">
                     <h5>
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#coll-cheese" aria-expanded="true" aria-controls="coll-cheese">
-                            Grilled Cheese <img src="{{@BASE}}{{@s2path}}NL.png" alt="Needs Nightlife"><img src="{{@BASE}}{{@s2path}}OFB.png" alt="Needs OFB"><img src="{{@BASE}}{{@s2path}}Pets.png" alt="Needs Pets"><img src="{{@BASE}}{{@s2path}}Seasons.png" alt="Needs Seasons"><img src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"><img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"><img src="{{@BASE}}{{@s2path}}AL.png" alt="Needs AL">
+                            Grilled Cheese <img src="{{@BASE}}{{@s2path}}NL.png" title="Needs at least NL" data-toggle="tooltip" alt="Needs at least Nightlife">
                         </button>
                     </h5>
                 </div>

@@ -18,7 +18,7 @@
             <input type="number" min="0" class="form-control" id="repo" oninput="repoChange(value)" value="{{ trim(@s2legacy.repo) }}" name="repo"/>
         </div>
         <div class="form-group">
-            <label for="dropout">Expelled/Dropped Out Of College <img src="{{@BASE}}{{@s2path}}UNI.png" alt="Needs University"></label>
+            <label for="dropout">Expelled/Dropped Out Of College <img src="{{@BASE}}{{@s2path}}UNI.png" title="Neesd Uni" data-toggle="tooltip" alt="Needs University"></label>
             <input type="number" min="0" class="form-control" id="dropout" oninput="dropoutChange(value)" value="{{ trim(@s2legacy.dropout) }}" name="dropout"/>
         </div>
         <div class="form-group">
@@ -26,7 +26,7 @@
             <input type="number" min="0" class="form-control" id="visitordeath" oninput="visitordeathChange(value)" value="{{ trim(@s2legacy.visitordeath) }}" name="visitordeath"/>
         </div>
         <div class="form-group">
-            <label for="diva">Diva/Mr Big Moves In <img src="{{@BASE}}{{@s2path}}NL.png" alt="Needs Nightlife"></label>
+            <label for="diva">Diva/Mr Big Moves In <img src="{{@BASE}}{{@s2path}}NL.png" title="Needs Nightlife" data-toggle="tooltip" alt="Needs Nightlife"></label>
             <input type="number" min="0" class="form-control" id="diva" oninput="divaChange(value)" value="{{ trim(@s2legacy.diva) }}" name="diva"/>
         </div>
         <div class="form-group">
@@ -38,19 +38,19 @@
             <input type="number" min="0" class="form-control" id="aspchange" oninput="aspChange(value)" value="{{ trim(@s2legacy.aspchange) }}" name="aspchange"/>
         </div>
         <div class="form-group">
-            <label for="neglect">Animal Taken Due To Neglect <img src="{{@BASE}}{{@s2path}}Pets.png" alt="Needs Pets"></label>
+            <label for="neglect">Animal Taken Due To Neglect <img src="{{@BASE}}{{@s2path}}Pets.png" title="Needs Pets" data-toggle="tooltip" alt="Needs Pets"></label>
             <input type="number" min="0" class="form-control" id="neglect" oninput="neglectChange(value)" value="{{ trim(@s2legacy.neglect) }}" name="neglect"/>
         </div>
         <div class="form-group">
-            <label for="runaway">Animal That Runs Away <img src="{{@BASE}}{{@s2path}}Pets.png" alt="Needs Pets"></label>
+            <label for="runaway">Animal That Runs Away <img src="{{@BASE}}{{@s2path}}Pets.png" title="Needs Pets" data-toggle="tooltip" alt="Needs Pets"></label>
             <input type="number" min="0" class="form-control" id="runaway" oninput="runawayChange(value)" value="{{ trim(@s2legacy.runaway) }}" name="runaway"/>
         </div>
         <div class="form-group">
-            <label for="retrieved">Animal That Runs Away, But Later Retrieved <img src="{{@BASE}}{{@s2path}}Pets.png" alt="Needs Pets"></label>
+            <label for="retrieved">Animal That Runs Away, But Later Retrieved <img src="{{@BASE}}{{@s2path}}Pets.png" title="Needs Pets" data-toggle="tooltip" alt="Needs Pets"></label>
             <input type="number" min="0" class="form-control" id="retrieved" oninput="retrievedChange(value)" value="{{ trim(@s2legacy.retrieved) }}" name="retrieved"/>
         </div>
         <div class="form-group">
-            <label for="badvacation">Bad Vacation Memory <img src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"></label>
+            <label for="badvacation">Bad Vacation Memory <img src="{{@BASE}}{{@s2path}}BV.png" title="Needs BV" data-toggle="tooltip" alt="Needs BV"></label>
             <input type="number" min="0" class="form-control" id="badvacation" oninput="badvacationChange(value)" value="{{ trim(@s2legacy.badvacation) }}" name="badvacation"/>
         </div>
     </div>

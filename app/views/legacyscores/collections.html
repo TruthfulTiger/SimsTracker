@@ -1,5 +1,5 @@
-<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary title" data-toggle="collapse" data-target="#setsHelp" aria-expanded="false" aria-controls="setsHelp">
-	?</a>
+<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary" aria-label="More details" data-toggle="collapse" data-target="#setsHelp" aria-expanded="false" aria-controls="setsHelp">
+	<i aria-hidden="true" data-toggle="tooltip" title="More details" class="fas fa-question"></i></a>
 	</a></h3>
 <div class="collapse" id="setsHelp">
 	<div class="card card-body">
@@ -61,7 +61,7 @@
 					checked
 				</check>
 				/>
-                <label class="custom-control-label" for="allbugs">Complete Bug Collection <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+                <label class="custom-control-label" for="allbugs">Complete Bug Collection <img src="{{@BASE}}{{@s2path}}FT.png" title="Needs FT" data-toggle="tooltip" alt="Needs FT"></label>
             </div>
             <div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input sets" value="1" name="allhobbies" id="allhobbies"
@@ -69,7 +69,7 @@
 					checked
 				</check>
 				/>
-                <label class="custom-control-label" for="allhobbies">Complete Set of Hobby Awards <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+                <label class="custom-control-label" for="allhobbies">Complete Set of Hobby Awards <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT" title="Needs FT" data-toggle="tooltip"></label>
             </div>
             <div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input sets" value="1" name="allcareers" id="allcareers"

@@ -39,6 +39,13 @@ body,
 	background-color: white;
 }
 
+.emoji {
+    width: 1.1em;
+    height: 1.1em;
+    padding: 0 0 0 0;
+    vertical-align: -0.15em;
+}
+
 body {
 	/* Margin bottom by footer height */
 	font-family: 'Open Sans', sans-serif;
@@ -54,35 +61,6 @@ body {
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
-}
-
-ul > .s2bullets {
-	margin: 0;
-	line-height: 1.5;
-	}
-.friends {
-    list-style-image: url(s2bullets/FriendSm.png);	
-}
-.cook {
-    list-style-image: url(s2bullets/CookingSm.png);
-}
-.mech {
-    list-style-image: url(s2bullets/MechanicalSm.png);
-}
-.char {
-    list-style-image: url(s2bullets/CharismaSm.png);
-}
-.body {
-    list-style-image: url(s2bullets/BodySm.png);
-}
-.logic {
-    list-style-image: url(s2bullets/LogicSm.png);
-}
-.create {
-    list-style-image: url(s2bullets/CreativitySm.png);
-}
-.clean {
-    list-style-image: url(s2bullets/CleaningSm.png);
 }
 
 .footer {

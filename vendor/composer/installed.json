@@ -39,12 +39,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/geofmureithi/f3-validate.git",
-            "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee"
+            "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ce160bb752ffb2751e555a24d4a1204bfb917cee",
-            "reference": "ce160bb752ffb2751e555a24d4a1204bfb917cee",
+            "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
+            "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
             "shasum": ""
         },
         "require": {
@@ -53,7 +53,7 @@
         "require-dev": {
             "phpunit/phpunit": "^7.3"
         },
-        "time": "2018-09-09T19:06:56+00:00",
+        "time": "2019-07-18T22:53:37+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -80,15 +80,15 @@
         "source": {
             "type": "git",
             "url": "https://github.com/ikkez/f3-assets.git",
-            "reference": "81e13eafa840b238b54cfb152fce34b0b4c8adf5"
+            "reference": "669241ae34c34d1de14e6869a05d1436c348fedc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ikkez/f3-assets/zipball/81e13eafa840b238b54cfb152fce34b0b4c8adf5",
-            "reference": "81e13eafa840b238b54cfb152fce34b0b4c8adf5",
+            "url": "https://api.github.com/repos/ikkez/f3-assets/zipball/669241ae34c34d1de14e6869a05d1436c348fedc",
+            "reference": "669241ae34c34d1de14e6869a05d1436c348fedc",
             "shasum": ""
         },
-        "time": "2019-04-25T11:39:18+00:00",
+        "time": "2020-03-27T10:32:06+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
