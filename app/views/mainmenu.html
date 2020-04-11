@@ -9,6 +9,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<repeat group="{{ @menu }}" key="{{ @mkey }}" value="{{ @item }}">
+					</repeat>
 						<li <check if="{{ @title == @item }}">
 						<true>
 							class="nav-item active"
@@ -26,38 +27,39 @@
 							class="nav-link"
 						</false>
 					</check>
-						>{{@item}} <check if="{{ @title == @item }}"><span class="sr-only">(current)</span></check></a>
+						><i class="fas fa-home" aria-hidden="true">&nbsp;&nbsp;</i>{{@item}} <check if="{{ @title == @item }}"><span class="sr-only">(current)</span></check></a>
 						</li>
 					</repeat>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Generators</a>
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-toolbox" aria-hidden="true">&nbsp;&nbsp;</i>Tools</a>
 						<div class="dropdown-menu">
 							<repeat group="{{ @generators }}" key="@genkey" value="{{ @genitem }}">
-								<a class="dropdown-item" href="{{@BASE}}{{ @genkey }}">{{ @genitem }}</a>
+								<a class="dropdown-item" href="{{@BASE}}{{ @genkey }}"><i class="{{@icon}}" aria-hidden="true">&nbsp;&nbsp;</i>
+								{{ @genitem }}</a>
 							</repeat>
 						</div>
 					</li>
 				</ul>
+
 				<ul class="navbar-nav">
 					<check if="{{ @SESSION.user }}">
 						<true>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user">&nbsp;</i> My Account</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user" aria-hidden="true">&nbsp;</i> My Account</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="{{@BASE}}/user/profile">Profile</a>
+									<a class="dropdown-item" href="{{@BASE}}/user/profile"><i class="fas fa-id-badge" aria-hidden="true">&nbsp;</i> Profile</a>
 									<check if="{{ @SESSION.user[1] == 'Admin' }}">
 										<div class="dropdown-divider"></div>
-										<repeat group="{{ @admin }}" key="@adminkey" value="{{ @adminitem }}">
-											<a class="dropdown-item" href="{{@BASE}}{{ @adminkey }}">{{ @adminitem }}</a>
-										</repeat>
+										<a class="dropdown-item" href="{{@BASE}}/users"><i class='fas fa-tools' aria-hidden="true">&nbsp;</i> Admin</a>
 									</check>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{{@BASE}}/user/logout"><i class="fas fa-sign-out-alt" aria-hidden="true">&nbsp;</i> Logout</a>
 								</div>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="{{@BASE}}/user/logout"><i class="fa fa-sign-out">&nbsp;</i> Logout</a></li>
 						</true>
 						<false>
-							<li class="nav-item"><a class="nav-link" href="#login" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true">&nbsp;</i> Login</a></li>
-							<li class="nav-item"><a class="nav-link" href="{{@BASE}}/user/register"><i class="fa fa-user-plus" aria-hidden="true">&nbsp;</i> Register</a></li>
+							<li class="nav-item"><a class="nav-link" href="#login" data-toggle="modal"><i class="fas fa-sign-in-alt" aria-hidden="true">&nbsp;</i> Login</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{@BASE}}/user/register"><i class="fas fa-user-plus" aria-hidden="true">&nbsp;</i> Register</a></li>
 						</false>
 					</check>
 				</ul>

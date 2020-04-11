@@ -10,8 +10,10 @@
     }
   ],
   "require": {
-    "ikkez/f3-assets": "dev-master",
     "geofmureithi/f3-validate": "dev-master",
-    "bcosca/fatfree": "^3.7"
+    "bcosca/fatfree": "^3.7",
+    "phpmailer/phpmailer": "^6.1",
+    "stevenmaguire/oauth2-microsoft": "^2.2",
+    "ikkez/f3-cortex": "1.*"
   }
 }

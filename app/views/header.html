@@ -15,7 +15,7 @@
 	<check if="{{ @SESSION.user }}">
 		<link href="{{@BASE}}/ui/css/offcanvas.min.css" rel="stylesheet"/>
 	</check>
-	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{{@BASE}}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
@@ -28,5 +28,4 @@
 				<check if="{{ @title != 'Home' }}">
 					<h1 class="text-primary mt-5">{{ @title }}</h1>
 				</check>
-
-
+				<include href="messages.html" />

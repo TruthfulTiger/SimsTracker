@@ -1,32 +1,63 @@
+<!-- Wrapping element -->
+<div style="position: relative; z-index: 10000;">
+    <!-- Position toasts -->
+    <div style="position: absolute; top: 0; right: 0;">
+  <!-- Then put toasts within -->
 <check if="{{ @SESSION.success }}">
-	<div class="alert myAlert-bottom alert-success alert-dismissible fade show" role="alert">
-		<i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.success }}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <i class="fa fa-check text-success" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
+    <strong class="mr-auto">Success</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    {{ @SESSION.success }}
+  </div>
+</div>
 </check>
 <check if="{{ @SESSION.error }}">
-	<div class="alert myAlert-bottom alert-danger alert-dismissible fade show" role="alert">
-		<i class="fa fa-times" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.error }}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <i class="fa fa-times text-danger" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
+    <strong class="mr-auto">Error</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    {{ @SESSION.error }}
+  </div>
+</div>
 </check>
 <check if="{{ @SESSION.warning }}">
-	<div class="alert myAlert-bottom alert-warning alert-dismissible fade show" role="alert">
-		<i class="fa fa-warning" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.warning }}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <i class="fa fa-warning text-warning" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
+    <strong class="mr-auto">Warning</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    {{ @SESSION.warning }}
+  </div>
+</div>
 </check>
 <check if="{{ @SESSION.info }}">
-	<div class="alert myAlert-bottom alert-info alert-dismissible fade show" role="alert">
-		<i class="fa fa-info" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i> {{ @SESSION.info }}
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <i class="fa fa-info text-info" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
+    <strong class="mr-auto">Info</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    {{ @SESSION.info }}
+  </div>
+</div>
 </check>
+</div>
+</div>

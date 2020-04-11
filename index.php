@@ -1,6 +1,6 @@
 <?php
-date_default_timezone_set( "Europe/London" );
 require 'vendor/autoload.php';
+date_default_timezone_set( "Europe/London" );
 $f3 = Base::instance();
 $f3->set('copyyear', date("Y"));
 $f3->config('config/globals.cfg');

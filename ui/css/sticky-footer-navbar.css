@@ -39,13 +39,6 @@ body,
 	background-color: white;
 }
 
-.emoji {
-    width: 1.1em;
-    height: 1.1em;
-    padding: 0 0 0 0;
-    vertical-align: -0.15em;
-}
-
 body {
 	/* Margin bottom by footer height */
 	font-family: 'Open Sans', sans-serif;
@@ -202,14 +195,6 @@ code {
 	border-radius: 5px;
 	font-size: 13px;
 	justify-content: center;
-}
-
-.myAlert-bottom{
-	position: fixed;
-	bottom: 5px;
-	left:2%;
-	width: 96%;
-	z-index: 10000;
 }
 
 /* Form validation */
