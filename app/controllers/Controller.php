@@ -31,7 +31,8 @@ class Controller {
 	function __construct() {
 		$f3 = Base::instance();
 		$web = \Web::instance();
-		$page = \Template::instance()->extend('pagebrowser','\Pagination::renderTag');
+		$tpl = \Template::instance();
+		$page = $tpl->extend('pagebrowser','\Pagination::renderTag');
 		$db=new DB\SQL(
 			$f3->get('db_dns') . $f3->get('db_name'),
 			$f3->get('db_user'),
@@ -90,6 +91,11 @@ class Controller {
             return False;
             }
         }
+
+		// declare a new filter named 'price'
+		$tpl->filter('simoleons',function($price){
+		return '§'.number_format($price);
+		});
 
 		$this->f3=$f3;
 		$this->mail=$mail;

@@ -302,6 +302,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.learnedHappiness',isset($_POST["learnedHappiness"])?1:0);
 			$this->f3->set('POST.learnedPhysio',isset($_POST["learnedPhysio"])?1:0);
 			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
+			$this->f3->set('POST.learnedParenting',isset($_POST["learnedParenting"])?1:0);
 		}
 	}
 

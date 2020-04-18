@@ -89,7 +89,7 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="ftLink">
 					<a class="dropdown-item" data-toggle="collapse" href="#s2hobbies" role="button" aria-expanded="false" aria-controls="s2hobbies">Hobbies</a>
-					<a class="dropdown-item" data-toggle="collapse" href="#s2ftbadges" role="button" aria-expanded="false" aria-controls="s2ftbadges">Badges</a>
+					<a class="dropdown-item" data-toggle="collapse" href="#s2ftbadges" role="button" aria-expanded="false" aria-controls="s2ftbadges">Badges & skills</a>
 					<a class="dropdown-item" data-toggle="collapse" href="#s2bugs" role="button" aria-expanded="false" aria-controls="s2bugs">Bugs</a>
 				</div>
 		</div>
@@ -839,7 +839,9 @@
 					</div>
 					<div class="col">
 						<label for="jobLevel">Job Level</label>
-						<input type="number" class="form-control" id="jobLevel" value="{{ @sim.jobLevel }}" name="jobLevel" min="0" max="10" />
+						<select class="custom-select" name="jobLevel" id="jobLevel">
+						<option value="0">-- Unemployed --</option>
+						</select>
 					</div>
 				</div>
 			</div>
@@ -989,7 +991,7 @@
 								<label class="custom-control-label" for="earnedET">Extraterrestrial Reparation Grant</label>
 							</div>
 						</div>
-						Total scholarship value: § <span id="scholarshipTotal">0</span>
+						Total scholarship value: <span id="scholarshipTotal">None</span>
 					</div>
 				</div>
 			</div>
@@ -1958,7 +1960,7 @@
 			<div class="card card-body">
 				<div class="form-row">
 					<div class="col">
-						<h5 class="text-primary mb-3">Badges</h5>
+						<h5 class="text-primary mb-3">Badges & skills</h5>
 						<div class="form-row">
 							<div class="col">
 								<div class="form-group">
@@ -1974,6 +1976,8 @@
 										</repeat>
 									</select>
 								</div>
+							</div>
+							<div class="col">
 								<div class="form-group">
 									<label>Pottery</label>
 									<select class="custom-select" name="pottery" id="pottery">
@@ -1988,6 +1992,13 @@
 									</select>
 								</div>
 							</div>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" id="learnedParenting" name="learnedParenting" value="1" class="custom-control-input"
+							<check if="{{ @sim.learnedParenting == 1}}">
+								checked
+							</check>>
+							<label class="custom-control-label" for="learnedParenting">Learned Parenting</label>
 						</div>
 					</div>
 				</div>
@@ -2321,11 +2332,16 @@
 <script>
 	let asp;
 	let secondAsp;
+	let jobLevel = 0;
 	let growup = $('select').children('option[value="Grow Up"]');
+	let career;
+	let careerAge;
+
 	$(function () {
-		// initialise misc functions
+		// initialise misc functions		
 		ltwCheck();
 		scholarshipTotal();
+		careerLoad();
 
 		asp = $('#aspiration').val();
 		secondAsp = $('#secondAsp').val();
@@ -2366,6 +2382,9 @@
 			scholarshipTotal();
 		});
 
+		$( "#careerTrack" ).on('change', function () {
+			careerLoad();
+		});
 		aspCheck();
         genshow();
 		deathshow();
@@ -2425,10 +2444,6 @@
             $("#generation").val(0);
     }
 
-/*     function careerReset {
-
-    } */
-
 	function deathshow() {
 		if ($("#lifeState").val() === "Deceased") {
 			$( "#deathshow" ).attr('aria-hidden', 'false').show();
@@ -2457,7 +2472,7 @@
 			arr.push(parseInt($(this).val()));
 		});
 		for(let i in arr) { total += arr[i]; }
-		sT.text(total);
+		sT.text(simoleans.to(total));
 	}
 
 	function ltwCheck() {
@@ -2548,7 +2563,6 @@
 			$('#fulfilled').prop("checked", false);
 		}
 	}
-
 
 	function aspCheck() {
 		switch ($( "#age" ).val()) {
@@ -2800,5 +2814,51 @@
 		active.noUiSlider.set(aP);
 		playful.noUiSlider.set(pP);
 		nice.noUiSlider.set(ncP);
+	}
+
+	function careerLoad() {
+		career = parseInt($( "#careerTrack" ).val());
+		jobLevel = {{ @sim.jobLevel}};
+
+		if (career > 0) {
+			careerPath(career);
+			$.ajax({ 
+				type: 'POST', 
+				url: json, 
+				data: { get_param: 'value' }, 
+				dataType: 'json',
+				success: function (data) {
+					if ($('#age').val() == "Teen") {
+						careerAge = data.teen;
+					}
+					if ($('#age').val() == "Adult" || $('#age').val() == "Elder") {
+						careerAge = data.adult;
+					}
+					jobMenu();
+				},
+				error: function (result) {
+					console.log("File not found");
+				}
+			});  
+		} else {
+			$( 'select[name="jobLevel"]' ).empty();
+			$('select[name="jobLevel"]').find('option[value="0"]').show();
+		}
+    } 
+
+	function jobMenu() {
+		let jobOptions = "";
+		let index = -1;
+		$( 'select[name="jobLevel"]' ).empty();
+
+		for(var i = 0; i < careerAge.length; i++) {
+			index = careerAge.findIndex(obj => obj.name == careerAge[i].name);
+			job = index+1;
+			jobOptions += "<option value='" + job + "'>" + careerAge[i].name + "</option>"; 
+		}
+		$( 'select[name="jobLevel"]' ).append( jobOptions );
+		$('select[name="jobLevel"]').find('option[value="'+ jobLevel +'"]').attr("selected",true);
+		$('select[name="jobLevel"]').find('option[value="0"]').attr("selected",false);
+		$('select[name="jobLevel"]').find('option[value="0"]').hide();
 	}
 </script>

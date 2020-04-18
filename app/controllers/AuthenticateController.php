@@ -1,10 +1,12 @@
 <?php
 class AuthenticateController  extends Controller {
 	private $user;
+	private $audit;
 
 	public function __construct() {
 		parent::__construct();
 		$this->user = new User($this->db);
+		$this->audit = \Audit::instance();
 	}
 
 	function beforeroute(){
@@ -59,19 +61,22 @@ class AuthenticateController  extends Controller {
 		if (!empty($_POST['hptrap'])) {
 			die('Nice try, Spam-A-Lot');
 		} else {
-			$username = $this->f3->get('POST.email');
-			$password = password_hash($this->f3->get('POST.password'), PASSWORD_DEFAULT);
-			$this->f3->set('POST.password', $password);
+			if ($this->audit->email($this->f3->get('POST.email'), FALSE)) {
+				$username = $this->f3->get('POST.email');
+				$password = password_hash($this->f3->get('POST.password'), PASSWORD_DEFAULT);
+				$this->f3->set('POST.password', $password);
 
-			$this->user->getByName($username);
+				$this->user->getByName($username);
 
-			if($this->user->dry()) {
-				$this->user->add();
-				$this->f3->set('SESSION.success', 'Registration successful. You may now log in.');
+				if($this->user->dry()) {
+					$this->user->add();
+					$this->f3->set('SESSION.success', 'Registration successful. You may now log in.');
+				} else {
+					$this->f3->set('SESSION.error', 'User already exists');
+				}
 			} else {
-				$this->f3->set('SESSION.error', 'User already exists');
-			}
-
+				$this->f3->set('SESSION.error', 'Email address in invalid.');
+			}	
 			$this->f3->reroute('/');
 		}
 	}

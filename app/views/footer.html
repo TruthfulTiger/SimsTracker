@@ -48,6 +48,7 @@
 <script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
 <script>
+let json = "";
 	$(function () {
 		'use strict';
 		$('[data-toggle="offcanvas"]').on('click', function () {
@@ -85,10 +86,101 @@
 			$("#select_all")[0].checked = true; //change "select all" checked status to true
 		}
 	});
+
+	var simoleans = wNumb({
+	decimals: 0,
+	thousand: ',',
+	prefix: '§'
+});
 </script>
 {* Sliders *}
 
 <check if="{{@hood.gameVersion == 2}}">
+{* Careers *}
+<script>
+function careerPath(c) {
+	    switch(c) {
+            case 1: 
+            json = "{{@BASE}}/ui/js/s2careers/s2athletic.json";   
+            break;
+			case 2: 
+            json = "{{@BASE}}/ui/js/s2careers/s2business.json";   
+            break;
+			case 3: 
+            json = "{{@BASE}}/ui/js/s2careers/s2criminal.json";   
+            break;
+			case 4: 
+			json = ($('#gender').val() == "F") ? "{{@BASE}}/ui/js/s2careers/s2culinaryF.json" : "{{@BASE}}/ui/js/s2careers/s2culinary.json";
+            break;
+            case 5: 
+            json = "{{@BASE}}/ui/js/s2careers/s2lawenforcement.json";   
+            break;
+			case 6: 
+            json = "{{@BASE}}/ui/js/s2careers/s2medicine.json";   
+            break;
+            case 7: 
+            json = "{{@BASE}}/ui/js/s2careers/s2military.json";   
+            break;
+			case 8: 
+            json = "{{@BASE}}/ui/js/s2careers/s2politics.json";   
+            break;
+            case 9: 
+            json = "{{@BASE}}/ui/js/s2careers/s2science.json";   
+            break;
+			case 10: 
+            json = "{{@BASE}}/ui/js/s2careers/s2slacker.json";   
+            break;
+            case 11: 
+            json = "{{@BASE}}/ui/js/s2careers/s2artist.json";   
+            break;
+			case 12: 
+            json = "{{@BASE}}/ui/js/s2careers/s2naturalscience.json";   
+            break;
+            case 13: 
+            json = "{{@BASE}}/ui/js/s2careers/s2paranormal.json";   
+            break;
+			case 14: 
+			json = ($('#gender').val() == "F") ? "{{@BASE}}/ui/js/s2careers/s2showbusinessF.json" : "{{@BASE}}/ui/js/s2careers/s2showbusiness.json";
+            break;
+           	case 15: 
+            json = "{{@BASE}}/ui/js/s2careers/s2law.json";   
+            break;
+			case 16: 
+            json = "{{@BASE}}/ui/js/s2careers/s2gamer.json";   
+            break;
+            case 17: 
+            json = "{{@BASE}}/ui/js/s2careers/s2adventurer.json";   
+            break;
+			case 18: 
+            json = "{{@BASE}}/ui/js/s2careers/s2music.json";   
+            break;
+            case 19: 
+            json = "{{@BASE}}/ui/js/s2careers/s2jouralism.json";   
+            break;
+			case 20: 
+            json = "{{@BASE}}/ui/js/s2careers/s2education.json";   
+            break;
+            case 21: 
+            json = "{{@BASE}}/ui/js/s2careers/s2entertainment.json";   
+            break;
+			case 22: 
+            json = "{{@BASE}}/ui/js/s2careers/s2dance.json";   
+            break;
+            case 23: 
+            json = "{{@BASE}}/ui/js/s2careers/s2architecture.json";   
+            break;
+			case 24: 
+            json = "{{@BASE}}/ui/js/s2careers/s2intelligence.json";   
+            break;
+            case 25: 
+            json = "{{@BASE}}/ui/js/s2careers/s2oceanography.json";   
+            break;
+            default:
+			json = "{{@BASE}}/ui/js/s2careers/s2career.json";  
+            break;
+        }
+}
+</script>
 {* Sims 2 sliders *}
 	<check if="{{ @title == 'Update Sim' }}">
 	{* Update-related sliders *}

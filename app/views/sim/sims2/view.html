@@ -6,6 +6,7 @@
 		<check if="{{ @sim.gender == 'M'}}">
 			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male">
 		</check>
+		<input hidden id="gender" value="{{trim(@sim.gender)}}" />
 	</div>
 	<div class="col">
     <input hidden id = "age" value="{{trim(@sim.age)}}" />
@@ -321,14 +322,11 @@ $(function () {
     let create = $('#create');
     let clean = $('#clean');
     let jobLevel = 0;
-    let json = "";
     let align = {{trim(@sim.alignment)}};
     let magic = {{trim(@sim.magicLevel)}};
-    let career = {{trim(@sim.careerTrack)}};
-
     alignUpdate(align);
     magicUpdate(magic);
-    careerLoad(career);    
+    careerLoad();    
 });
 
     function alignUpdate(v) {
@@ -664,18 +662,8 @@ $(function () {
 		}
 	}
                 
-    function careerLoad(c) {
-         switch(c) {
-            case 1: 
-            json = "{{@BASE}}/ui/js/s2careers/s2athletic.json";   
-            break;
-			case 2: 
-            json = "{{@BASE}}/ui/js/s2careers/s2business.json";   
-            break;
-            default:
-            break;
-        }
-
+    function careerLoad() {
+		careerPath({{trim(@sim.careerTrack)}});
         $.ajax({ 
             type: 'POST', 
             url: json, 
@@ -686,111 +674,71 @@ $(function () {
                 careerTitle.append(": " + data.name);
                 if ($('#age').val() == "Teen") {
                     $(".reward").attr('aria-hidden', 'true').hide(); 
-                    job.append(data.teen[jobLevel].name); 
-                    pay.append("§" + data.teen[jobLevel].pay); 
-                    data.teen[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append("§" + data.teen[jobLevel].bonus);
-                    friends.append(data.teen[jobLevel].friends);
-                    if ($.isNumeric(data.teen[jobLevel].cooking)) {                        
-                        cook.append(data.teen[jobLevel].cooking);
-                        $(".cook").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".cook").attr('aria-hidden', 'true').hide();                          
-                    }       
-                    if ($.isNumeric(data.teen[jobLevel].mechanical)) {                        
-                        mech.append(data.teen[jobLevel].mechanical);
-                        $(".mech").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".mech").attr('aria-hidden', 'true').hide();                          
-                    }      
-                    if ($.isNumeric(data.teen[jobLevel].charisma)) {                        
-                        char.append(data.teen[jobLevel].charisma);
-                        $(".char").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".char").attr('aria-hidden', 'true').hide();                          
-                    }                                
-                    if ($.isNumeric(data.teen[jobLevel].body)) {                        
-                        body.append(data.teen[jobLevel].body);
-                        $(".body").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".body").attr('aria-hidden', 'true').hide();                          
-                    }                          
-                    if ($.isNumeric(data.teen[jobLevel].logic)) {                        
-                        logic.append(data.teen[jobLevel].logic);
-                        $(".logic").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".logic").attr('aria-hidden', 'true').hide();                          
-                    }                          
-                    if ($.isNumeric(data.teen[jobLevel].creativity)) {                        
-                        create.append(data.teen[jobLevel].creativity);
-                        $(".create").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".create").attr('aria-hidden', 'true').hide();                          
-                    }                         
-                    if ($.isNumeric(data.teen[jobLevel].cleaning)) {                        
-                        clean.append(data.teen[jobLevel].cleaning);
-                        $(".clean").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".clean").attr('aria-hidden', 'true').hide();                          
-                    }   
+					careerAge = data.teen;
                 }
                 if ($('#age').val() == "Adult" || $('#age').val() == "Elder") {
                     $(".reward").attr('aria-hidden', 'false').show();
-                    job.append(data.adult[jobLevel].name); 
-                    pay.append("§" + data.adult[jobLevel].pay); 
-                    data.adult[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append("§" + data.adult[jobLevel].bonus);
-                    friends.append(data.adult[jobLevel].friends);
-                    if ({{@sim.jobLevel}} < data.unlock) {
+					if ({{@sim.jobLevel}} < data.unlock) {
                         reward.append("Locked");                        
                     } else {
                          reward.append(data.reward); 
                     }
-                    if ($.isNumeric(data.adult[jobLevel].cooking)) {                        
-                        cook.append(data.adult[jobLevel].cooking);
-                        $(".cook").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".cook").attr('aria-hidden', 'true').hide();                          
-                    }       
-                    if ($.isNumeric(data.adult[jobLevel].mechanical)) {                        
-                        mech.append(data.adult[jobLevel].mechanical);
-                        $(".mech").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".mech").attr('aria-hidden', 'true').hide();                          
-                    }      
-                    if ($.isNumeric(data.adult[jobLevel].charisma)) {                        
-                        char.append(data.adult[jobLevel].charisma);
-                        $(".char").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".char").attr('aria-hidden', 'true').hide();                          
-                    }                                
-                    if ($.isNumeric(data.adult[jobLevel].body)) {                        
-                        body.append(data.adult[jobLevel].body);
-                        $(".body").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".body").attr('aria-hidden', 'true').hide();                          
-                    }                          
-                    if ($.isNumeric(data.adult[jobLevel].logic)) {                        
-                        logic.append(data.adult[jobLevel].logic);
-                        $(".logic").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".logic").attr('aria-hidden', 'true').hide();                          
-                    }                          
-                    if ($.isNumeric(data.adult[jobLevel].creativity)) {                        
-                        create.append(data.adult[jobLevel].creativity);
-                        $(".create").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".create").attr('aria-hidden', 'true').hide();                          
-                    }                         
-                    if ($.isNumeric(data.adult[jobLevel].cleaning)) {                        
-                        clean.append(data.adult[jobLevel].cleaning);
-                        $(".clean").attr('aria-hidden', 'false').show();  				            
-                    } else {
-                        $(".clean").attr('aria-hidden', 'true').hide();                          
-                    }                                            
+					careerAge = data.adult;
                 }
+				careerDetails(); 
             },
             error: function (result) {
                 careerTitle.append(": unknown");
             }
         });
-    } 
+    }
+
+	function careerDetails() {
+			job.append(careerAge[jobLevel].name); 
+			pay.append(simoleans.to(careerAge[jobLevel].pay)); 
+			careerAge[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append(simoleans.to(careerAge[jobLevel].bonus));
+			friends.append(careerAge[jobLevel].friends);
+			if ($.isNumeric(careerAge[jobLevel].cooking)) {                        
+				cook.append(careerAge[jobLevel].cooking);
+				$(".cook").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".cook").attr('aria-hidden', 'true').hide();                          
+			}       
+			if ($.isNumeric(careerAge[jobLevel].mechanical)) {                        
+				mech.append(careerAge[jobLevel].mechanical);
+				$(".mech").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".mech").attr('aria-hidden', 'true').hide();                          
+			}      
+			if ($.isNumeric(careerAge[jobLevel].charisma)) {                        
+				char.append(careerAge[jobLevel].charisma);
+				$(".char").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".char").attr('aria-hidden', 'true').hide();                          
+			}                                
+			if ($.isNumeric(careerAge[jobLevel].body)) {                        
+				body.append(careerAge[jobLevel].body);
+				$(".body").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".body").attr('aria-hidden', 'true').hide();                          
+			}                          
+			if ($.isNumeric(careerAge[jobLevel].logic)) {                        
+				logic.append(careerAge[jobLevel].logic);
+				$(".logic").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".logic").attr('aria-hidden', 'true').hide();                          
+			}                          
+			if ($.isNumeric(careerAge[jobLevel].creativity)) {                        
+				create.append(careerAge[jobLevel].creativity);
+				$(".create").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".create").attr('aria-hidden', 'true').hide();                          
+			}                         
+			if ($.isNumeric(careerAge[jobLevel].cleaning)) {                        
+				clean.append(careerAge[jobLevel].cleaning);
+				$(".clean").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".clean").attr('aria-hidden', 'true').hide();                          
+			}   
+	}
     </script>
