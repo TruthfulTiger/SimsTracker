@@ -56,7 +56,7 @@ class RelationshipsController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create relationship.');
 				}
 
-				$this->f3->reroute('/relationships');
+				$this->index();
 			}
 		} else if ($this->f3->exists('POST.nh')) {
 			$this->f3->scrub($_POST,'p; br;');
@@ -96,7 +96,7 @@ class RelationshipsController extends Controller {
 				$this->f3->set('POST.isMarried',isset($_POST["isMarried"])?1:0);
 				$this->relationship->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Relationship has been updated.');
-				$this->f3->reroute('/relationships');
+				$this->index();
 			}
 		} else
 		{
@@ -109,7 +109,7 @@ class RelationshipsController extends Controller {
 				$this->f3->set('content','relationships/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'Relationship doesn\'t exist');
-				$this->f3->reroute('/relationships');
+				$this->index();
 			}
 		}
 	}
@@ -138,7 +138,7 @@ class RelationshipsController extends Controller {
 			$this->f3->set('content','relationships/view.html');
 		} else {
 			$this->f3->set('SESSION.error', 'Relationship doesn\'t exist');
-			$this->f3->reroute('/relationships');
+			$this->index();
 		}
 	}
 }

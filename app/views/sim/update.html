@@ -98,11 +98,16 @@
 			<label for="parent2">Parent 2</label>
 			<select class="custom-select" name="parent2" id="parent2">
 				<option value="">-- N/A --</option>
+				<option value="9998"
+				<check if="{{ @sim.parent2 == 9998}}">
+					selected
+				</check>
+				>Pollination Technician</option>
 				<option value="9999"
 				<check if="{{ @sim.parent2 == 9999}}">
 					selected
 				</check>
-				>PT or Plantsim</option>
+				>Plantsim</option>
 				<repeat group="{{ @parents }}" value="{{ @parent }}">
 					<check if="{{ @parent.id !=  @sim.id }}">
 						<option value="{{@parent.id}}"
@@ -113,6 +118,21 @@
 					</check>
 				</repeat>
 			</select>
+		</div>
+	</div>
+	{*Household *}
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="hhID">Household</label>
+				<select class="custom-select" name="hhID" id="hhID">
+					<repeat group="{{ @households }}" value="{{ @household }}">
+					<option value="{{ @household.hhID }}"
+						<check if="{{ @sim.hhID == @household.hhID }}">
+							selected
+						</check>
+					>{{ @household.name }}</option>
+					</repeat>
+				</select>
 		</div>
 	</div>
 <include if="{{@hood.gameVersion == 2}}" href="sim/sims2/update.html" /> 

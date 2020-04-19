@@ -17,11 +17,13 @@
 		</select>
 	</div>
 
+<div class="form-row">
+<div class="col">
 	<div class="form-group" id="sims2" style="display:none">
 		<label for="s2type">Type</label>
 		<select class="custom-select" required="required" name="s2type" id="s2type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s2hoodTypes }}" key="{{ @s2key }}" value="{{ @s2value }}"
+			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}"
 			<check if="{{ @hood.type == @s2value}}">
 				selected
 			</check>>
@@ -34,7 +36,7 @@
 		<label for="s3type">Type</label>
 		<select class="custom-select" name="s3type" id="s3type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s3hoodTypes }}" key="{{ @s3key }}" value="{{ @s3value }}"
+			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}"
 			<check if="{{ @hood.type == @s3value}}">
 				selected
 			</check>>
@@ -47,7 +49,7 @@
 		<label for="s4type">Type</label>
 		<select class="custom-select" name="s4type" id="s4type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s4hoodTypes }}" key="{{ @s4key }}" value="{{ @s4value }}"
+			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}"
 			<check if="{{ @hood.type == @s4value}}">
 			selected
 		</check>>
@@ -55,6 +57,25 @@
 			</repeat>
 		</select>
 	</div>
+	</div>
+	<div class="col">
+		<div class="form-group" id="parent">
+		<label for="parentHood">Parent hood</label>
+		<select class="custom-select" name="parentHood" id="parentHood">
+			<option value="">-- None --</option>
+			<repeat group="{{ @parents }}" value="{{ @parent }}">
+				<check if="{{ @parent.parentHood == NULL }}">
+					<option value="{{ @parent.id }}"
+					<check if="{{ @parent.id == @hood.parentHood}}">
+					selected
+				</check>
+					>{{ @parent.name }}</option>
+				</check>
+			</repeat>
+		</select>
+	</div>
+	</div>
+</div>
 
 	<div class="control-group">
 		<div class="">
@@ -73,10 +94,17 @@
 <script>
 	$(function () {
 		let v = $("#gameVersion").children("option:selected").val();
+		let h;
 		gameChange(v);
+
 		$("#gameVersion").change(function(){
 			v = $("#gameVersion").children("option:selected").val();
 			gameChange(v);
+		});
+
+		$("[name=type]").change(function(){
+			h = $("[name=type]").children("option:selected").val();
+			parentCheck(h);
 		});
 	});
 	function gameChange(v) {
@@ -107,5 +135,17 @@
 			$('select#s4type').attr("name","s4type");
 			$("#s4type").val('');
 		}
+		h = $("[name=type]").children("option:selected").val();
+		parentCheck(h);
+	}
+
+		function parentCheck(h) {
+			if (h == 'Main hood') {
+				$('#parentHood').prop('disabled', true);
+				$("#parentHood").val('');
+			} 
+			else {
+				$('#parentHood').prop('disabled', false);
+			}			
 	}
 </script>

@@ -57,7 +57,7 @@ class SimController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create Sim.');
 				}
 
-				$this->f3->reroute('/sims');
+				$this->index();
 			}
 		} else if ($this->f3->exists('POST.hh')) {
 			$this->f3->scrub($_POST,'p; br;');
@@ -96,6 +96,7 @@ class SimController extends Controller {
 				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
             $this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->hood->getById($this->sim->nhID);
+			$userID = $this->f3->get('SESSION.user[2]');
             $sim = $this->sim;
 			$hood = $this->hood;
 			$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
@@ -104,6 +105,7 @@ class SimController extends Controller {
                 $this->f3->set('sim', $sim);
 				$this->f3->set('hood', $hood);
 				$this->user->getById($this->f3->get('SESSION.user[2]'));
+				$this->f3->set('households', $this->household->getByUser($userID));
 				$this->f3->set('user', $this->user);
 				$this->f3->set('parents', $parents);
 				$this->f3->set('title','Update Sim');
@@ -115,7 +117,7 @@ class SimController extends Controller {
 				}
             } else {
 				$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
-				$this->f3->reroute('/sims');
+				$this->index();
 			}
 		}
 	}
@@ -149,7 +151,7 @@ class SimController extends Controller {
 			$this->f3->set('content','sim/view.html');
 		} else {
 			$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
-			$this->f3->reroute('/sims');
+			$this->index();
 		}
 	}
 

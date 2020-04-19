@@ -46,7 +46,7 @@ class ChallengeController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create challenge.');
 				}
 
-				$this->f3->reroute('/challenges');
+				$this->index();
 			}
 		}
 		else
@@ -83,7 +83,7 @@ class ChallengeController extends Controller {
 				$this->f3->scrub($_POST,'p; br;');
 				$this->challenge->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Challenge has been updated.');
-				$this->f3->reroute('/challenges');
+				$this->index();
 			}
 		} else
 		{
@@ -97,7 +97,7 @@ class ChallengeController extends Controller {
 				$this->f3->set('content','challenges/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'Challenge doesn\'t exist');
-				$this->f3->reroute('/challenges');
+				$this->index();
 			}
 		}
 	}

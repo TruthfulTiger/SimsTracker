@@ -54,22 +54,26 @@
 		</select>
 	</div>
 	<div class="form-row">
-		<div class="col">
+		<div class="col mr-3">
 			<div class="form-group">
-				<label for="str">Short-term relationship:  <output for="str" id="st">1</output></label>
-				<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@relationship.str) }}" class="form-control-range" name="str" id="str" oninput="strUpdate(value)">
+				<label for="str">Short-term relationship: <span id="st"></span></label>
+				<div id="str" class="mb-5">
+				<input type="hidden" class='custom-slider-input' name="str">
+				</div>
 			</div>
 		</div>
-		<div class="col">
+		<div class="col ml-3">
 			<div class="form-group">
-				<label for="ltr">Long-term relationship:  <output for="ltr" id="lt">1</output></label>
-				<input type="range" class="custom-range" min="-100" max="100" value="{{ trim(@relationship.ltr) }}" class="form-control-range" name="ltr" id="ltr" oninput="ltrUpdate(value)">
+				<label for="ltr">Short-term relationship: <span id="lt"></span></label>
+				<div id="ltr" class="mb-5">
+				<input type="hidden" class='custom-slider-input' name="ltr">
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="form-row">
-		<div class="form-group col">
+		<div class="form-group col mr-3">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input" name="isEnemy" id="isEnemy"
 				<check if="{{ @relationship.isEnemy == 1}}">
@@ -106,7 +110,7 @@
 				<label class="custom-control-label" for="isLove">Love</label>
 			</div>
 		</div>
-		<div class="form-group col">
+		<div class="form-group col ml-3">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input" name="isFamily" id="isFamily"
 				<check if="{{ @relationship.isFamily == 1}}">
@@ -152,9 +156,6 @@
 
 <script>
 	$(function(){
-		document.querySelector('#st').value = {{trim(@relationship.str)}};
-		document.querySelector('#lt').value = {{trim(@relationship.ltr)}};
-
 		relChange();
 
 		$("#isFamily").change(function () {
@@ -181,13 +182,5 @@
 				$("#isLove").attr("disabled", false);
 			}
 		}
-	}
-
-	function strUpdate(v) {
-		document.querySelector('#st').value = v;
-	}
-
-	function ltrUpdate(v) {
-		document.querySelector('#lt').value = v;
 	}
 </script>

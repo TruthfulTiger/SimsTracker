@@ -119,7 +119,7 @@
 					<div class="form-group">
 						<label for="skintone">Skintone</label>
 						<select class="custom-select" name="skintone" id="skintone">
-							<option value="">-- None --</option>
+							<option value="">-- Unknown --</option>
 							<repeat group="{{ @skintones }}" value="{{ @skin }}">
 								<option value="{{ @skin }}"
 								<check if="{{ @sim.skintone == @skin}}">
@@ -132,7 +132,7 @@
 					<div class="form-group">
 					<label for="hair">Hair colour</label>
 					<select class="custom-select" name="hair" id="hair">
-						<option value="">-- None --</option>
+						<option value="">-- Unknown --</option>
 						<repeat group="{{ @haircolours }}" value="{{ @hair }}">
 							<option value="{{ @hair }}"
 							<check if="{{ @sim.hair == @hair}}">
@@ -145,7 +145,7 @@
 					<div class="form-group">
 						<label for="eyes">Eye colour</label>
 						<select class="custom-select" name="eyes" id="eyes">
-							<option value="">-- None --</option>
+							<option value="">-- Unknown --</option>
 							<repeat group="{{ @eyecolours }}" value="{{ @eyes }}">
 								<option value="{{ @eyes }}"
 								<check if="{{ @sim.eyes == @eyes}}">
@@ -838,7 +838,7 @@
 						</div>
 					</div>
 					<div class="col">
-						<label for="jobLevel">Job Level</label>
+						<label for="jobLevel">Job</label>
 						<select class="custom-select" name="jobLevel" id="jobLevel">
 						<option value="0">-- Unemployed --</option>
 						</select>
@@ -1467,84 +1467,84 @@
 					<div class="col">
 						<h6 class="mb-3 text-primary text-center">General</h6>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="goodHols" name="goodHols"
+							<input type="checkbox" class="custom-control-input counter" id="goodHols" name="goodHols"
 							<check if="{{ @sim.goodHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols">Had a good vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="goodHols3" name="goodHols3"
+							<input type="checkbox" class="custom-control-input counter" id="goodHols3" name="goodHols3"
 							<check if="{{ @sim.goodHols3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols3">Had three good vacations</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="goodHols5" name="goodHols5"
+							<input type="checkbox" class="custom-control-input counter" id="goodHols5" name="goodHols5"
 							<check if="{{ @sim.goodHols5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols5">Had five good vacations</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="tour" name="tour"
+							<input type="checkbox" class="custom-control-input counter" id="tour" name="tour"
 							<check if="{{ @sim.tour == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tour">Went on a tour</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="tours5" name="tours5"
+							<input type="checkbox" class="custom-control-input counter" id="tours5" name="tours5"
 							<check if="{{ @sim.tours5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tours5">Went on five tours</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="allTours" name="allTours"
+							<input type="checkbox" class="custom-control-input counter" id="allTours" name="allTours"
 							<check if="{{ @sim.allTours == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="allTours">Went on all of the tours</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="allGestures" name="allGestures"
+							<input type="checkbox" class="custom-control-input counter" id="allGestures" name="allGestures"
 							<check if="{{ @sim.allGestures == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="allGestures">Learned all of the gestures</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="roomService" name="roomService"
+							<input type="checkbox" class="custom-control-input counter" id="roomService" name="roomService"
 							<check if="{{ @sim.roomService == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="roomService">Ordered room service</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="photoAlbum" name="photoAlbum"
+							<input type="checkbox" class="custom-control-input counter" id="photoAlbum" name="photoAlbum"
 							<check if="{{ @sim.photoAlbum == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="photoAlbum">Ordered a photo album</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="secretMap" name="secretMap"
+							<input type="checkbox" class="custom-control-input counter" id="secretMap" name="secretMap"
 							<check if="{{ @sim.secretMap == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="secretMap">Found a secret map</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="secretLot" name="secretLot"
+							<input type="checkbox" class="custom-control-input counter" id="secretLot" name="secretLot"
 							<check if="{{ @sim.secretLot == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="secretLot">Discovered a secret lot</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="secretLotAll" name="secretLotAll"
+							<input type="checkbox" class="custom-control-input counter" id="secretLotAll" name="secretLotAll"
 							<check if="{{ @sim.secretLotAll == 1}}">
 								checked
 							</check>>
@@ -1554,70 +1554,70 @@
 					<div class="col">
 						<h6 class="mb-3 text-primary text-center">Mountains</h6>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="mountainHols" name="mountainHols"
+							<input type="checkbox" class="custom-control-input counter" id="mountainHols" name="mountainHols"
 							<check if="{{ @sim.mountainHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mountainHols">Went on a mountain vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="flapjacks" name="flapjacks"
+							<input type="checkbox" class="custom-control-input counter" id="flapjacks" name="flapjacks"
 							<check if="{{ @sim.flapjacks == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="flapjacks">Ate flapjacks</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="chestPound" name="chestPound"
+							<input type="checkbox" class="custom-control-input counter" id="chestPound" name="chestPound"
 							<check if="{{ @sim.chestPound == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="chestPound">Learned to chest pound</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="slapDance" name="slapDance"
+							<input type="checkbox" class="custom-control-input counter" id="slapDance" name="slapDance"
 							<check if="{{ @sim.slapDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="slapDance">Learned to slap dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="dtMassage" name="dtMassage"
+							<input type="checkbox" class="custom-control-input counter" id="dtMassage" name="dtMassage"
 							<check if="{{ @sim.dtMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="dtMassage">Learned deep tissue massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="tent" name="tent"
+							<input type="checkbox" class="custom-control-input counter" id="tent" name="tent"
 							<check if="{{ @sim.tent == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tent">Slept in a tent</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="logRoll" name="logRoll"
+							<input type="checkbox" class="custom-control-input counter" id="logRoll" name="logRoll"
 							<check if="{{ @sim.logRoll == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="logRoll">Won at log rolling</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="axes" name="axes"
+							<input type="checkbox" class="custom-control-input counter" id="axes" name="axes"
 							<check if="{{ @sim.axes == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="axes">Got a bull's-eye at axe throwing</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="treeRing" name="treeRing"
+							<input type="checkbox" class="custom-control-input counter" id="treeRing" name="treeRing"
 							<check if="{{ @sim.treeRing == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="treeRing">Examined the tree ring display</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="bigfoot" name="bigfoot"
+							<input type="checkbox" class="custom-control-input counter" id="bigfoot" name="bigfoot"
 							<check if="{{ @sim.bigfoot == 1}}">
 								checked
 							</check>>
@@ -1627,84 +1627,84 @@
 					<div class="col">
 						<h6 class="mb-3 text-primary text-center">Tropics</h6>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="islandHols" name="islandHols"
+							<input type="checkbox" class="custom-control-input counter" id="islandHols" name="islandHols"
 							<check if="{{ @sim.islandHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="islandHols">Went on an island vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="pineapple" name="pineapple"
+							<input type="checkbox" class="custom-control-input counter" id="pineapple" name="pineapple"
 							<check if="{{ @sim.pineapple == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pineapple">Ate pineapple surprise</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="hangLoose" name="hangLoose"
+							<input type="checkbox" class="custom-control-input counter" id="hangLoose" name="hangLoose"
 							<check if="{{ @sim.hangLoose == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hangLoose">Learned to hang loose</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="hulaDance" name="hulaDance"
+							<input type="checkbox" class="custom-control-input counter" id="hulaDance" name="hulaDance"
 							<check if="{{ @sim.hulaDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hulaDance">Learned to hula dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="fireDance" name="fireDance"
+							<input type="checkbox" class="custom-control-input counter" id="fireDance" name="fireDance"
 							<check if="{{ @sim.fireDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="fireDance">Learned to fire dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="hsMassage" name="hsMassage"
+							<input type="checkbox" class="custom-control-input counter" id="hsMassage" name="hsMassage"
 							<check if="{{ @sim.hsMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hsMassage">Learned hot stone massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="monkeyOffering" name="monkeyOffering"
+							<input type="checkbox" class="custom-control-input counter" id="monkeyOffering" name="monkeyOffering"
 							<check if="{{ @sim.monkeyOffering == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="monkeyOffering">Made an offering at the monkey ruins</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="playPirate" name="playPirate"
+							<input type="checkbox" class="custom-control-input counter" id="playPirate" name="playPirate"
 							<check if="{{ @sim.playPirate == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="playPirate">Played on the pirate ship</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="seaChantey" name="seaChantey"
+							<input type="checkbox" class="custom-control-input counter" id="seaChantey" name="seaChantey"
 							<check if="{{ @sim.seaChantey == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="seaChantey">Learned a sea chantey</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="beachTreasure" name="beachTreasure"
+							<input type="checkbox" class="custom-control-input counter" id="beachTreasure" name="beachTreasure"
 							<check if="{{ @sim.beachTreasure == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="beachTreasure">Found a beach treasure</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="treasureChest" name="treasureChest"
+							<input type="checkbox" class="custom-control-input counter" id="treasureChest" name="treasureChest"
 							<check if="{{ @sim.treasureChest == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="treasureChest">Dug up a treasure chest</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="mrMickles" name="mrMickles"
+							<input type="checkbox" class="custom-control-input counter" id="mrMickles" name="mrMickles"
 							<check if="{{ @sim.mrMickles == 1}}">
 								checked
 							</check>>
@@ -1714,84 +1714,85 @@
 					<div class="col">
 						<h6 class="mb-3 text-primary text-center">Far East</h6>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="easternHols" name="easternHols"
+							<input type="checkbox" class="custom-control-input counter" id="easternHols" name="easternHols"
 							<check if="{{ @sim.easternHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="easternHols">Went on a Far East vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="chirashi" name="chirashi"
+							<input type="checkbox" class="custom-control-input counter" id="chirashi" name="chirashi"
 							<check if="{{ @sim.chirashi == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="chirashi">Ate chirashi</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="bow" name="bow"
+							<input type="checkbox" class="custom-control-input counter" id="bow" name="bow"
 							<check if="{{ @sim.bow == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="bow">Learned to bow</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="taiChi" name="taiChi"
+							<input type="checkbox" class="custom-control-input counter" id="taiChi" name="taiChi"
 							<check if="{{ @sim.taiChi == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="taiChi">Learned Tai Chi</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="apMassage" name="apMassage"
+							<input type="checkbox" class="custom-control-input counter" id="apMassage" name="apMassage"
 							<check if="{{ @sim.apMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="apMassage">Learned acupressure massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="drankTea" name="drankTea"
+							<input type="checkbox" class="custom-control-input counter" id="drankTea" name="drankTea"
 							<check if="{{ @sim.drankTea == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="drankTea">Drank tea</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="zen" name="zen"
+							<input type="checkbox" class="custom-control-input counter" id="zen" name="zen"
 							<check if="{{ @sim.zen == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="zen">Raked a Zen garden</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="mahjong" name="mahjong"
+							<input type="checkbox" class="custom-control-input counter" id="mahjong" name="mahjong"
 							<check if="{{ @sim.mahjong == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mahjong">Won at mahjong</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="shrine" name="shrine"
+							<input type="checkbox" class="custom-control-input counter" id="shrine" name="shrine"
 							<check if="{{ @sim.shrine == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="shrine">Wished at the lucky shrine</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="teleport" name="teleport"
+							<input type="checkbox" class="custom-control-input counter" id="teleport" name="teleport"
 							<check if="{{ @sim.teleport == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="teleport">Learned to teleport</label>
 						</div>
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="dragon" name="dragon"
+							<input type="checkbox" class="custom-control-input counter" id="dragon" name="dragon"
 							<check if="{{ @sim.dragon == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="dragon">Learned the dragon legend</label>
 						</div>
 					</div>
-				</div>
+				</div>{* End row *}
+				<p>Total so far: <span id="mementoCount">0</span></p>
 			</div>
 		</div>
 		{* Hobbies *}
@@ -1800,7 +1801,7 @@
 				<h5 class="text-primary mb-3">Hobbies</h5>
 				<div class="form-row">
 					<div class="col p-3">
-						<div class="form-group">
+						<div class="form-group">s
 						<label for="cuisine">Cuisine: <span id="cus"></span></label>
 						<div id="cuisine" class="mb-5">
 						<input type="hidden" class='custom-slider-input' name="cuisine">
@@ -2391,9 +2392,14 @@
 		witchshow();
 		repUpdate(reputation.noUiSlider.get());
 		alignUpdate(alignment.noUiSlider.get());
+		mementoCount();
 
+		$( ".counter" ).on('change', function () {
+			mementoCount();
+		});
 		$('#age').change(function () {
 			aspCheck();
+			careerLoad();
 		});
 		$('#lifeState').change(function () {
 			deathshow();
@@ -2861,4 +2867,9 @@
 		$('select[name="jobLevel"]').find('option[value="0"]').attr("selected",false);
 		$('select[name="jobLevel"]').find('option[value="0"]').hide();
 	}
+
+function mementoCount() {
+    var len = $(".counter:checked").length;
+    if(len>0){$("#mementoCount").text(len);}else{$("#mementoCount").text('0');}
+}
 </script>

@@ -30,7 +30,7 @@ class UserController extends Controller {
 				} else {
 					$this->f3->set('SESSION.error', 'Couldn\'t create user.');
 				}
-				$this->f3->reroute('/users');
+				$this->index();
 			}
 		} else
 		{
@@ -49,7 +49,7 @@ class UserController extends Controller {
 				$this->f3->scrub($_POST,'p; br;');
 				$this->user->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'User has been updated.');
-				$this->f3->reroute('/users');
+				$this->index();
 			}
 		} else
 		{
@@ -60,7 +60,7 @@ class UserController extends Controller {
 				$this->f3->set('content','user/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'User doesn\'t exist');
-				$this->f3->reroute('/users');
+				$this->index();
 			}
 		}
 	}

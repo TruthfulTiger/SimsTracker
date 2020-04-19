@@ -3,14 +3,12 @@ class PetController extends Controller {
 	private $pet;
 	private $household;
     private $hood;
-    private $version;
 
 	public function __construct() {
 		parent::__construct();
 		$this->pet = new Pet($this->db);
 		$this->household = new Household($this->db);
         $this->hood = new Hood($this->db);
-        $this->version = $this->f3->set('SESSION.version', $this->hood->gameVersion);
 	}
 
 	public function index()
@@ -53,7 +51,7 @@ class PetController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create Pet.');
 				}
 
-				$this->f3->reroute('/pets');
+				$this->index();
 			}
 		} else if ($this->f3->exists('POST.hh')) {
 			$this->f3->scrub($_POST,'p; br;');
@@ -91,17 +89,20 @@ class PetController extends Controller {
 			if(!$this->f3->exists('SESSION.url'))
 				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
             $this->pet->getById($this->f3->get('PARAMS.id'));
+			$this->hood->getById($this->pet->nhID);
 			$pet = $this->pet;
+			$hood = $this->hood;
 			$parents = $this->db->exec('SELECT * FROM pets WHERE nhID = ?', $this->pet->nhID);
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('pet',$pet);
 				$this->f3->set('parents', $parents);
+				$this->f3->set('hood', $hood);
 				$this->f3->set('title','Update Pet');
 				$this->f3->set('content','pet/update.html');
             } else {
 				$this->f3->set('SESSION.error', 'Pet doesn\'t exist');
-				$this->f3->reroute('/pets');
+				$this->index();
 			}
 		}
 	}
@@ -131,7 +132,7 @@ class PetController extends Controller {
 			$this->f3->set('content','pet/view.html');
 		} else {
 			$this->f3->set('SESSION.error', 'Pet doesn\'t exist');
-			$this->f3->reroute('/pets');
+			$this->index();
 		}
 	}
 

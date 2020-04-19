@@ -19,12 +19,11 @@ class HoodController extends Controller {
 				$this->f3->set('SESSION.error', 'No such hood associated with this user.');
 				$this->f3->reroute('/hoods');
 			} else {
-				$game= $this->f3->get('PARAMS.id');
-				$this->f3->set('hoods',$this->hood->getByGame($game));
 				$this->f3->set('title','Hoods in Sims '.$this->hood->gameVersion);
 				$this->f3->set('content','hood/list.html');
 			}
 		} else {
+			$this->f3->set('versions',$this->hood->getByGame($this->hood->gameVersion));
 			$this->f3->set('hoods',$this->hood->getByUser($userID));
 			$this->f3->set('title','Neighbourhoods');
 			$this->f3->set('content','hood/list.html');
@@ -48,11 +47,12 @@ class HoodController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create neighbourhood.');
 				}
 
-				$this->f3->reroute('/hoods');
+				$this->index();
 			}
 		} else
 		{
 			$this->f3->set('title','Create Neighbourhood');
+			$this->f3->set('hoods',$this->hood->getByUser($this->f3->get('SESSION.user[2]')));
 			$this->f3->set('game','');
 			$this->f3->set('content','hood/create.html');
 		}
@@ -68,18 +68,20 @@ class HoodController extends Controller {
 				$this->f3->scrub($_POST,'p; br;');
 				$this->hood->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Neighbourhood has been updated.');
-				$this->f3->reroute('/hoods');
+				$this->index();
 			}
 		} else
 		{
-			$this->hood->getById($this->f3->get('PARAMS.id'));
+			$parent = $this->hood->getByUser($this->f3->get('SESSION.user[2]'));
 			if($this->f3->exists('PARAMS.id')) {
+				$this->hood->getById($this->f3->get('PARAMS.id'));
 				$this->f3->set('hood',$this->hood);
+				$this->f3->set('parents', $parent);
 				$this->f3->set('title','Update Neighbourhood');
 				$this->f3->set('content','hood/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'Neighbourhood doesn\'t exist');
-				$this->f3->reroute('/hoods');
+				$this->index();
 			}
 		}
 	}

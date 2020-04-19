@@ -6,8 +6,8 @@
 					</a>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<repeat group="{{ @hoods }}" value="{{ @hood }}">
-							<a class="dropdown-item" href="{{@BASE}}/hoods/{{@hood.gameVersion}}">Sims {{@hood.gameVersion}}</a>
+						<repeat group="{{ @games }}" key="{{ @gkey }}" value="{{ @game }}">
+							<a class="dropdown-item" href="{{@BASE}}/hoods/{{ @gkey }}">{{ @game }}</a>
 						</repeat>
 					</div>
 				</div>

@@ -53,7 +53,7 @@ class BusinessController extends Controller {
 					$this->f3->set('SESSION.error', 'Couldn\'t create Business.');
 				}
 
-				$this->f3->reroute('/biz');
+				$this->index();
 			}
 		} else if ($this->f3->exists('POST.hh')) {
 			$this->f3->scrub($_POST,'p; br;');
@@ -101,7 +101,7 @@ class BusinessController extends Controller {
 				$this->f3->set('content','businesses/update.html');
             } else {
 				$this->f3->set('SESSION.error', 'Business doesn\'t exist');
-				$this->f3->reroute('/biz');
+				$this->index();
 			}
 		}
 	}
@@ -131,7 +131,7 @@ class BusinessController extends Controller {
 			$this->f3->set('content','biz/view.html');
 		} else {
 			$this->f3->set('SESSION.error', 'Business doesn\'t exist');
-			$this->f3->reroute('/biz');
+			$this->index();
 		}
 	}
 

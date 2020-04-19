@@ -1,8 +1,9 @@
-<form action="{{ @BASE.'/hood/create' }}" validate="true" method="post" class="form-horizontal">
+<form action="{{ @BASE.'/hood/create' }}" autocomplete="off" validate="true" method="post" class="form-horizontal">
 
 	<div class="form-group">
 		<label for="name">Neighbourhood Name</label>
 		<input type="text" class="form-control" required="required" name="name" id="name" />
+		<input type="hidden" id="hidden-field">
 	</div>
 
 	<div class="form-group">
@@ -15,11 +16,13 @@
 		</select>
 	</div>
 
+<div class="form-row">
+<div class="col">
 	<div class="form-group" id="sims2" style="display:none">
 		<label for="s2type">Type</label>
 		<select class="custom-select" required="required" name="s2type" id="s2type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}">
+			<repeat group="{{ @s2hoodTypes }}" key="{{ @s2key }}" value="{{ @s2value }}">
 				<option value="{{ @s2value }}">{{ @s2value }}</option>
 			</repeat>
 		</select>
@@ -29,7 +32,7 @@
 		<label for="s3type">Type</label>
 		<select class="custom-select" name="s3type" id="s3type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}">
+			<repeat group="{{ @s3hoodTypes }}" key="{{ @s3key }}" value="{{ @s3value }}">
 				<option value="{{ @s3value }}">{{ @s3value }}</option>
 			</repeat>
 		</select>
@@ -39,11 +42,26 @@
 		<label for="s4type">Type</label>
 		<select class="custom-select" name="s4type" id="s4type">
 			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}">
+			<repeat group="{{ @s4hoodTypes }}" key="{{ @s4key }}" value="{{ @s4value }}">
 				<option value="{{ @s4value }}">{{ @s4value }}</option>
 			</repeat>
 		</select>
 	</div>
+	</div>
+	<div class="col">
+		<div class="form-group" id="parent" style="display:none">
+		<label for="parentHood">Parent hood</label>
+		<select class="custom-select" name="parentHood" id="parentHood">
+			<option value="">-- None --</option>
+			<repeat group="{{ @hoods }}" value="{{ @hood }}">
+				<check if="{{ @hood.parentHood == NULL }}">
+					<option value="{{ @hood.id }}">{{ @hood.name }}</option>
+				</check>
+			</repeat>
+		</select>
+	</div>
+	</div>
+</div>
 
 	<div class="control-group">
 		<div class="">
@@ -58,29 +76,58 @@
 
 <script>
 	$(function () {
+		let v = $("#gameVersion").children("option:selected").val();
+		let h;
+		gameChange(v);
+	
 		$("#gameVersion").change(function(){
-			let v = $("#gameVersion").children("option:selected").val();
-			if (v == 2) {
-				$("div#sims2").show();
-				$('select#s2type').attr("name","type");
-			} else  {
-				$("div#sims2").hide();
-				$('select#s2type').attr("name","s2type");
-			}
-			if (v == 3) {
-				$("div#sims3").show();
-				$('select#s3type').attr("name","type");
-			} else  {
-				$("div#sims3").hide();
-				$('select#s3type').attr("name","s3type");
-			}
-			if (v == 4) {
-				$("div#sims4").show();
-				$('select#s4type').attr("name","type");
-			} else  {
-				$("div#sims4").hide();
-				$('select#s4type').attr("name","s4type");
-			}
+			v = $("#gameVersion").children("option:selected").val();
+			gameChange(v);
+			parentCheck(h);
+		});
+
+		$("[name=type]").change(function(){
+			h = $("[name=type]").children("option:selected").val();
+			parentCheck(h);
 		});
 	});
+	function gameChange(v) {
+		if (v == 2) {
+			$("div#sims2").show();
+			$('select#s2type').attr("name","type");
+			$("#s2type").val('{{@hood.type}}');
+		} else  {
+			$("div#sims2").hide();
+			$('select#s2type').attr("name","s2type");
+			$("#s2type").val('');
+		}
+		if (v == 3) {
+			$("div#sims3").show();
+			$('select#s3type').attr("name","type");
+			$("#s3type").val('{{@hood.type}}');
+		} else  {
+			$("div#sims3").hide();
+			$('select#s3type').attr("name","s3type");
+			$("#s3type").val('');
+		}
+		if (v == 4) {
+			$("div#sims4").show();
+			$('select#s4type').attr("name","type");
+			$("#s4type").val('{{@hood.type}}');
+		} else  {
+			$("div#sims4").hide();
+			$('select#s4type').attr("name","s4type");
+			$("#s4type").val('');
+		}
+	}
+
+	function parentCheck(h) {
+			if (h == 'Main hood' || h == '') {
+				$("#parent").hide();
+				$("#parentHood").val('');
+			} 
+			else {
+				$("#parent").show();
+			}			
+	}
 </script>
