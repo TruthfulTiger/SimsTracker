@@ -22,7 +22,7 @@ class ContactController extends Controller {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				try {
-					$this->f3->scrub($_POST,'p; br;');
+					$this->f3->scrub($_POST,'p; b; i; br;');
 					$this->mail->addAddress('sammyphoenix79@gmail.com', 'Admin');     // Add a recipient
 					$this->mail->addReplyTo($this->f3->get('POST.email'), $this->f3->get('POST.name'));
 

@@ -1,27 +1,16 @@
-		<check if="{{ @title === 'Businesses' }}">
-			<true>
-				<div class="dropdown mb-3">
-					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						View by household:
-					</a>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<repeat group="{{ @households }}" value="{{ @household }}">
-							<a class="dropdown-item" href="{{@BASE}}/biz/{{@household.hhID}}">{{@household.name}}</a>
-						</repeat>
-					</div>
-				</div>
-			</true>
-			<false>
-				<a class="btn btn-secondary mb-3" href="{{@BASE}}/biz"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All businesses</a>
-			</false>
-		</check>
 <check if="{{ @biz }}">
 	<true>
-		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+		<table width="100%" cellpadding="5" id="businesses" class="table table-hover table-bordered">
 			<thead>
 			<tr>
-				<th scope="col">Household</th>
+				<th scope="col">
+						<select class="custom-select" id="hhSort">
+						<option value="">Household</option>
+						<repeat group="{{ @households }}" value="{{ @household }}">
+						<option value="{{ trim(@household.name) }}">{{ trim(@household.name) }}</option>
+						</repeat>
+						</select>
+				</th>
 				<th scope="col">Name</th>
 				<th scope="col">Type</th>
 				<th scope="col">Rank</th>
@@ -58,3 +47,23 @@
 	</false>
 </check>
 <a href="{{ @BASE.'/biz/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+
+<script>
+$(document).ready( function () {
+    let table = $('#businesses').DataTable({
+        responsive: {
+        breakpoints: [
+            { name: 'desktop', width: Infinity },
+            { name: 'tablet',  width: 1024 },
+            { name: 'fablet',  width: 768 },
+            { name: 'phone',   width: 480 }
+        ]
+    }
+	});
+	$('#hhSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		console.log(val);
+		table.columns(0).search(val).draw();
+	});
+} );
+</script>

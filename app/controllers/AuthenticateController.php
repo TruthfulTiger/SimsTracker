@@ -43,7 +43,7 @@ class AuthenticateController  extends Controller {
 				$this->user->save();
 				$this->f3->set('SESSION.user', array($this->user->name, $this->user->role, $this->user->id, $this->user->email));
 				$this->f3->reroute('/user/profile');
-				if($_POST["remember"]=='1' || $_POST["remember"]=='on')
+				if($_POST["remember"]=='1' || $_POST["remember"]=='on' || isset($_POST["remember"]))
                     {
                     $hour = time() + 3600 * 24 * 30;
                     setcookie('username', $username, $hour);
@@ -75,7 +75,7 @@ class AuthenticateController  extends Controller {
 					$this->f3->set('SESSION.error', 'User already exists');
 				}
 			} else {
-				$this->f3->set('SESSION.error', 'Email address in invalid.');
+				$this->f3->set('SESSION.error', 'Email address is invalid.');
 			}	
 			$this->f3->reroute('/');
 		}
@@ -87,53 +87,53 @@ class AuthenticateController  extends Controller {
 		$this->f3->reroute('/');
 	}
 
-		public function forgot () {
-		if (!empty($_POST['hptrap'])) {
-			die('Nice try, Spam-A-Lot');
+	public function forgot () {
+	if (!empty($_POST['hptrap'])) {
+		die('Nice try, Spam-A-Lot');
+	} else {
+		$username = $this->f3->get('POST.email');
+		$this->user->getByName($username);
+
+		if($this->user->dry()) {
+			$this->f3->set('SESSION.error', 'Email address cannot be found.');
 		} else {
-			$username = $this->f3->get('POST.email');
-			$this->user->getByName($username);
+			$this->mail->addAddress($username);     // Add a recipient
+			$this->mail->addReplyTo('sammyphoenix79@gmail.com', 'Admin');
+			// Content
+			$this->mail->isHTML(true);                                 
+			$this->mail->Subject = 'Sims Tracker: Reset password';
+			$this->mail->Body = <<<EOT
+										Greetings,
 
-			if($this->user->dry()) {
-				$this->f3->set('SESSION.error', 'Email address cannot be found.');
-			} else {
-				$this->mail->addAddress($username);     // Add a recipient
-				$this->mail->addReplyTo('sammyphoenix79@gmail.com', 'Admin');
-				// Content
-				$this->mail->isHTML(true);                                 
-				$this->mail->Subject = 'Sims Tracker: Reset password';
-				$this->mail->Body = <<<EOT
-											Greetings,
+										You have received this message because someone with your email address has requested a password reset. If this was not you, we advise you to login and change your password immediately.
 
-											You have received this message because someone with your email address has requested a password reset. If this was not you, we advise you to login and change your password immediately.abstract
+										If this was you, you can reset your password by clicking the below link:
 
-											If this was you, you can reset your password by clicking the below link:
+										<a href="#">Reset my password</a>
 
-											<a href="#">Reset my password</a>
+										Many thanks,
 
-											Many thanks,
-
-											Sims Tracker Admin
+										Sims Tracker Admin
 EOT;
 
-				$this->mail->AltBody = <<<EOT
-											Greetings,
+			$this->mail->AltBody = <<<EOT
+										Greetings,
 
-											You have received this message because someone with your email address has requested a password reset. If this was not you, we advise you to login and change your password immediately.abstract
+										You have received this message because someone with your email address has requested a password reset. If this was not you, we advise you to login and change your password immediately.abstract
 
-											If this was you, you can reset your password by copying the below link and pasting it into your browser's address bar:
+										If this was you, you can reset your password by copying the below link and pasting it into your browser's address bar:
 
-											[url]
+										[url]
 
-											Many thanks,
+										Many thanks,
 
-											Sims Tracker Admin
+										Sims Tracker Admin
 EOT;
 
-				$this->mail->send();
-				$this->f3->set('SESSION.success', 'Thank you, you should receive an email from us soon.');
-			}
-			$this->f3->reroute('/');
+			$this->mail->send();
+			$this->f3->set('SESSION.success', 'Thank you, you should receive an email from us soon.');
+		}
+		$this->f3->reroute('/');
 		}
 	}
 }

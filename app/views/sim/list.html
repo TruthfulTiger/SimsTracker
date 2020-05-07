@@ -1,27 +1,16 @@
-		<check if="{{ @title === 'Sims' }}">
-			<true>
-				<div class="dropdown mb-3">
-					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						View by household:
-					</a>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<repeat group="{{ @households }}" value="{{ @household }}">
-							<a class="dropdown-item" href="{{@BASE}}/sims/{{@household.hhID}}">{{@household.name}}</a>
-						</repeat>
-					</div>
-				</div>
-			</true>
-			<false>
-				<a class="btn btn-secondary mb-3" href="{{@BASE}}/sims"><i class="fa fa-arrow-left" aria-hidden="true"> </i> All sims</a>
-			</false>
-		</check>
 <check if="{{ @sims }}">
 	<true>
-		<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+		<table width="100%" cellpadding="5" id="sims" class="table table-hover table-bordered">
 			<thead>
 			<tr>
-				<th scope="col">Household</th>
+				<th scope="col">
+						<select class="custom-select" id="hhSort">
+						<option value="">Household</option>
+						<repeat group="{{ @households }}" value="{{ @household }}">
+						<option value="{{ trim(@household.name) }}">{{ trim(@household.name) }}</option>
+						</repeat>
+						</select>
+				</th>
 				<th scope="col">Name</th>
 				<th scope="col">Age</th>
 				<th scope="col">Life State</th>
@@ -70,3 +59,23 @@
 	</false>
 </check>
 <a href="{{ @BASE.'/sim/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+
+<script>
+$(document).ready( function () {
+    let table = $('#sims').DataTable({
+        responsive: {
+        breakpoints: [
+            { name: 'desktop', width: Infinity },
+            { name: 'tablet',  width: 1024 },
+            { name: 'fablet',  width: 768 },
+            { name: 'phone',   width: 480 }
+        ]
+    }
+	});
+	$('#hhSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		console.log(val);
+		table.columns(0).search(val).draw();
+	});
+} );
+</script>

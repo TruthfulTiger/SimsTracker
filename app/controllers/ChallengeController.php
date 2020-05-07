@@ -3,6 +3,7 @@ class ChallengeController extends Controller {
 	private $challenge;
 	private $household;
 	private $hood;
+	private $sim;
 	private $legacy;
 	private $legacygen;
 	private $usercolour;
@@ -12,6 +13,7 @@ class ChallengeController extends Controller {
 		$this->challenge = new Challenge($this->db);
 		$this->household = new Household($this->db);
 		$this->hood = new Hood($this->db);
+		$this->sim = new Sim($this->db);
 		$this->legacy = new S2Legacy($this->db);
 		$this->legacygen = new LegacyGen($this->db);
 		$this->usercolour = new UserColour($this->db);
@@ -24,6 +26,7 @@ class ChallengeController extends Controller {
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->f3->set('households',$this->household->getByUser($userID));
 		$this->f3->set('hoods',$this->hood->getByUser($userID));
+		$this->f3->set('sims',$this->sim->getByUser($userID));
 		$this->f3->set('challenges',$this->challenge->getByUser($userID));
 		$this->f3->set('title','Challenges');
 		$this->f3->set('content','challenges/list.html');
@@ -54,21 +57,29 @@ class ChallengeController extends Controller {
 			$userID = $this->f3->get('SESSION.user[2]');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
+			$this->f3->set('sims',$this->sim->getByUser($userID));
 			$this->f3->set('households', $this->household->getByUser($userID));
 			if (strpos($this->f3->get('PARAMS[0]'), '/create/hood/') !== false) {
 				$this->f3->set('hhID', NULL);
+				$this->f3->set('simID', NULL);
 				$this->f3->set('nhID', $this->f3->get('PARAMS.id'));
 				$this->f3->set('title','Create Challenge');
 				$this->f3->set('content','challenges/create.html');
 			} else if (strpos($this->f3->get('PARAMS[0]'), '/create/household/') !== false) {
 				$this->f3->set('hhID', $this->f3->get('PARAMS.id'));
-				$hh = $this->household->getById($this->f3->get('PARAMS.id'));
 				$this->f3->set('nhID', NULL);
+				$this->f3->set('simID', NULL);
+				$this->f3->set('title','Create Challenge');
+				$this->f3->set('content','challenges/create.html');
+			} else if (strpos($this->f3->get('PARAMS[0]'), '/create/character/') !== false) {
+				$this->f3->set('simID', $this->f3->get('PARAMS.id'));
+				$this->f3->set('nhID', NULL);
+				$this->f3->set('hhID', NULL);
 				$this->f3->set('title','Create Challenge');
 				$this->f3->set('content','challenges/create.html');
 			} else {
-				$this->f3->set('SESSION.error', 'You need to add a challenge to either a hood or household.');
-				$this->f3->reroute('/households');
+				$this->f3->set('SESSION.error', 'You need to add a challenge to a hood, household or sim.');
+				$this->f3->reroute('/challenges');
 			}
 		}
 	}

@@ -31,6 +31,20 @@
 			</select>
 		</div>
 	</check>
+	<check if="{{ @challenge.simID != null }}">
+		<div class="form-group">
+			<label for="simType">Challenge Type</label>
+			<select class="custom-select" required="required" name="type" id="simType">
+				<option value="">-- Choose a type --</option>
+				<repeat group="{{ @s2simchallenges }}" key="{{ @key }}" value="{{ @value }}">
+					<option value="{{ @value }}"
+					<check if="{{ @challenge.type == @value}}">
+						selected
+					</check>>{{ @value }}</option>
+				</repeat>
+			</select>
+		</div>
+	</check>
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />

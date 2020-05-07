@@ -1,15 +1,9 @@
 <form action="{{ @BASE.'/hood/create' }}" autocomplete="off" validate="true" method="post" class="form-horizontal">
 
 	<div class="form-group">
-		<label for="name">Neighbourhood Name</label>
-		<input type="text" class="form-control" required="required" name="name" id="name" />
-		<input type="hidden" id="hidden-field">
-	</div>
-
-	<div class="form-group">
 		<label for="gameVersion">Game version</label>
 		<select class="custom-select" name="gameVersion" required="required" id="gameVersion">
-			<option value="">-- Sims version --</option>
+			<option value=0>-- Sims version --</option>
 			<repeat group="{{ @games }}" key="{{@gkey}}" value="{{ @game }}">
 				<option value="{{ @gkey }}">{{ @game }}</option>
 			</repeat>
@@ -20,9 +14,9 @@
 <div class="col">
 	<div class="form-group" id="sims2" style="display:none">
 		<label for="s2type">Type</label>
-		<select class="custom-select" required="required" name="s2type" id="s2type">
-			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s2hoodTypes }}" key="{{ @s2key }}" value="{{ @s2value }}">
+		<select class="custom-select type" required="required" name="s2type" id="s2type">
+			<option value="" selected>-- Hood type --</option>
+			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}">
 				<option value="{{ @s2value }}">{{ @s2value }}</option>
 			</repeat>
 		</select>
@@ -30,9 +24,9 @@
 
 	<div class="form-group" id="sims3" style="display:none">
 		<label for="s3type">Type</label>
-		<select class="custom-select" name="s3type" id="s3type">
-			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s3hoodTypes }}" key="{{ @s3key }}" value="{{ @s3value }}">
+		<select class="custom-select type" name="s3type" id="s3type">
+			<option value="" selected>-- Hood type --</option>
+			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}">
 				<option value="{{ @s3value }}">{{ @s3value }}</option>
 			</repeat>
 		</select>
@@ -40,25 +34,65 @@
 
 	<div class="form-group" id="sims4" style="display:none">
 		<label for="s4type">Type</label>
-		<select class="custom-select" name="s4type" id="s4type">
-			<option value="">-- Hood type --</option>
-			<repeat group="{{ @s4hoodTypes }}" key="{{ @s4key }}" value="{{ @s4value }}">
+		<select class="custom-select type" name="s4type" id="s4type">
+			<option value="" selected>-- Hood type --</option>
+			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}">
 				<option value="{{ @s4value }}">{{ @s4value }}</option>
 			</repeat>
 		</select>
 	</div>
 	</div>
-	<div class="col">
-		<div class="form-group" id="parent" style="display:none">
+	
+	<div class="col" id="parent" style="display:none">
+		<div class="form-group">
 		<label for="parentHood">Parent hood</label>
 		<select class="custom-select" name="parentHood" id="parentHood">
-			<option value="">-- None --</option>
+			<option value="" selected>-- None --</option>
 			<repeat group="{{ @hoods }}" value="{{ @hood }}">
 				<check if="{{ @hood.parentHood == NULL }}">
 					<option value="{{ @hood.id }}">{{ @hood.name }}</option>
 				</check>
 			</repeat>
 		</select>
+	</div>
+	</div>
+</div>
+
+<div class="form-row">
+	<div class="col" id="premade" style="display:none">
+		<div class="form-group">
+		<label for="premade">Neighbourhood</label>
+		<select class="custom-select" name="premade" required="required" id="premade">
+			<option data-value="none" value="">-- Premade hoods --</option>
+			<option data-value="custom" value="custom">Custom</option>
+			<optgroup label="Base hoods">
+			<repeat group="{{ @s2hoodNames }}" value="{{ @s2hood }}">
+				<option data-value="{{ @s2hood }}" value="{{ @s2hood }}">{{ @s2hood }}</option>
+			</repeat>
+			</optgroup>
+			<optgroup label="Universities">
+			<repeat group="{{ @s2uniNames }}" value="{{ @s2uni }}">
+				<option data-value="{{ @s2uni }}" value="{{ @s2uni }}">{{ @s2uni }}</option>
+			</repeat>
+			</optgroup>
+			<optgroup label="Downtown shopping">
+			<repeat group="{{ @s2DTNames }}" value="{{ @s2misc }}">
+				<option data-value="{{ @s2misc }}" value="{{ @s2misc }}">{{ @s2misc }}</option>
+			</repeat>
+			</optgroup>
+			<optgroup label="Vacation hoods">
+			<repeat group="{{ @s2BVNames }}" value="{{ @s2BV }}">
+			<option data-value="{{ @s2BV }}" value="{{ @s2BV }}">{{ @s2BV }}</option>
+			</repeat>
+			</optgroup>
+		</select>
+	</div>
+	</div>
+	<div class="col" id="custom" style="display:none">
+		<div class="form-group">
+		<label for="name">Custom hood</label>
+		<input type="text" class="form-control" name="custom" id="custom" />
+		<input type="hidden" id="hidden-field">
 	</div>
 	</div>
 </div>
@@ -76,26 +110,32 @@
 
 <script>
 	$(function () {
-		let v = $("#gameVersion").children("option:selected").val();
-		let h;
+		let v = $("#gameVersion").find('option:selected').val();
+		let h = $(".type").find('option:selected').val();
+		let p = $("#premade").find('option:selected').val();
 		gameChange(v);
+		parentCheck(h);
+		customCheck(p);
 	
 		$("#gameVersion").change(function(){
-			v = $("#gameVersion").children("option:selected").val();
+			v = $(this).find('option:selected').val();
 			gameChange(v);
+		});
+
+		$(".type").change(function(){
+			h = $(this).find('option:selected').val();
 			parentCheck(h);
 		});
 
-		$("[name=type]").change(function(){
-			h = $("[name=type]").children("option:selected").val();
-			parentCheck(h);
+		$("#premade").change(function(){
+			p = $(this).find('option:selected').val();
+			customCheck(p);
 		});
 	});
 	function gameChange(v) {
 		if (v == 2) {
 			$("div#sims2").show();
 			$('select#s2type').attr("name","type");
-			$("#s2type").val('{{@hood.type}}');
 		} else  {
 			$("div#sims2").hide();
 			$('select#s2type').attr("name","s2type");
@@ -104,7 +144,6 @@
 		if (v == 3) {
 			$("div#sims3").show();
 			$('select#s3type').attr("name","type");
-			$("#s3type").val('{{@hood.type}}');
 		} else  {
 			$("div#sims3").hide();
 			$('select#s3type').attr("name","s3type");
@@ -113,7 +152,6 @@
 		if (v == 4) {
 			$("div#sims4").show();
 			$('select#s4type').attr("name","type");
-			$("#s4type").val('{{@hood.type}}');
 		} else  {
 			$("div#sims4").hide();
 			$('select#s4type').attr("name","s4type");
@@ -122,12 +160,32 @@
 	}
 
 	function parentCheck(h) {
-			if (h == 'Main hood' || h == '') {
+			if (h == "Main hood"  || h == "") {
 				$("#parent").hide();
 				$("#parentHood").val('');
 			} 
 			else {
 				$("#parent").show();
-			}			
+			}	
+			if (h == "") {
+				$("#premade").hide();
+				$("#premade").val('');
+			} else {
+				$("#premade").show();
+			}
 	}
+
+	function customCheck(c) {
+		if (c != "custom") {
+				$('select#premade').attr("name","name");
+				$('input#custom').attr("name","custom");
+				$("#custom").val("");
+				$("#custom").hide();
+		} else {
+			$("#custom").show();
+			$('input#custom').attr("name","name");
+			$('select#premade').attr("name","premade");						
+		}
+	}
+
 </script>

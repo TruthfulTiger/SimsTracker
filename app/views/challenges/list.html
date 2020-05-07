@@ -1,20 +1,17 @@
-<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-	<li class="nav-item">
-		<a class="nav-link active" id="hhs-tab" data-toggle="tab" href="#hhs" role="tab" aria-controls="hhs" aria-selected="true">Households</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" id="hoods-tab" data-toggle="tab" href="#hoods" role="tab" aria-controls="hoods" aria-selected="false">Neighbourhoods</a>
-	</li>
-</ul>
-<div class="tab-content" id="myTabContent">
-	<div class="tab-pane fade show active" id="hhs" role="tabpanel" aria-labelledby="hhs-tab">
 		<check if="{{ @challenges }}">
 			<true>
-				<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+				<table width="100%" cellpadding="5" class="challenges table table-hover table-bordered">
 					<thead>
 					<tr>
+						<th scope="col">
+							<select class="custom-select" id="challengeSort">
+							<option value="">Challenge scope</option>
+							<option value="Neighbourhood">Neighbourhood</option>
+							<option value="Household">Household</option>
+							<option value="Character">Character</option>
+							</select>
+						</th>
 						<th scope="col">Name</th>
-						<th scope="col">Household</th>
 						<th scope="col">Challenge Type</th>
 						<th scope="col">Action</th>
 					</tr>
@@ -25,8 +22,18 @@
 							<repeat group="{{ @households }}" value="{{ @household }}">
 								<check if="{{ @household.hhID == @challenge.hhID }}">
 									<tr>
+										<td>
+										<check if="{{ @challenge.nhID != null }}">
+										Neighbourhood
+										</check>
+										<check if="{{ @challenge.hhID != null }}">
+										Household
+										</check>
+										<check if="{{ @challenge.simID != null }}">
+										Character
+										</check>
+										</td>
 										<td>{{ trim(@challenge.challengeName) }}</td>
-										<td>{{ trim(@household.name) }}</td>
 										<td>{{ trim(@challenge.type) }}</td>
 										<td><a href="{{ @BASE.'/challenge/update/'. @challenge.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 											<a href="{{ @BASE.'/challenge/delete/'. @challenge.id }}"
@@ -47,45 +54,23 @@
 				<p>No challenges found.</p>
 			</false>
 		</check>
-	</div>
-	<div class="tab-pane fade" id="hoods" role="tabpanel" aria-labelledby="hoods-tab">
-		<check if="{{ @challenges }}">
-			<true>
-				<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
-					<thead>
-					<tr>
-						<th scope="col">Name</th>
-						<th scope="col">Hood</th>
-						<th scope="col">Challenge Type</th>
-						<th scope="col">Action</th>
-					</tr>
-					</thead>
-					<tbody>
-					<repeat group="{{ @challenges }}" value="{{ @challenge }}">
-						<repeat group="{{ @hoods }}" value="{{ @hood }}">
-							<check if="{{ @hood.id == @challenge.nhID }}">
-								<check if="{{ @challenge.hhID == null }}">
-									<tr>
-										<td>{{ trim(@challenge.challengeName) }}</td>
-										<td>{{ trim(@hood.name) }}</td>
-										<td>{{ trim(@challenge.type) }}</td>
-										<td><a href="{{ @BASE.'/challenge/update/'. @challenge.id }}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
-											<a href="{{ @BASE.'/challenge/delete/'. @challenge.id }}"
-											   data-toggle="confirmation"
-											   data-content="All challenge data will be deleted."
-											   class="btn btn-danger delete"><i class="fa fa-trash" aria-hidden="true"></i>
-												Delete</a></td>
-									</tr>
-								</check>
-							</check>
-						</repeat>
-					</repeat>
-					</tbody>
-				</table>
-			</true>
-			<false>
-				<p>No challenges found.</p>
-			</false>
-		</check>
-	</div>
-</div>
+
+<script>
+$(document).ready( function () {
+    let table = $('.challenges').DataTable({
+        responsive: {
+        breakpoints: [
+            { name: 'desktop', width: Infinity },
+            { name: 'tablet',  width: 1024 },
+            { name: 'fablet',  width: 768 },
+            { name: 'phone',   width: 480 }
+        ]
+    }
+	});
+	$('#challengeSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		console.log(val);
+		table.columns(0).search(val).draw();
+	});
+} );
+</script>

@@ -1,7 +1,7 @@
 <check if="{{ @challenge.hhID == null }}">
 <check if="{{ @colours }}">
 	<true>
-		<table width="600" cellpadding="5" class="table table-hover table-responsive table-bordered">
+		<table width="100%" cellpadding="5" id="colours" class="table table-hover table-bordered">
 			<thead>
 			<tr>
 				<th scope="col">Colour</th>
@@ -33,3 +33,22 @@
 </check>
 <a href="{{ @BASE.'/colour/create/'. @SESSION.challenge }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
 <button class="btn btn-secondary" onclick="window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+
+<script>
+$(document).ready( function () {
+    let table = $('#colours').DataTable({
+		ordering: false,
+		paging: false,
+		searching: false,
+		order: [[ 1, 'asc' ]],
+        responsive: {
+        breakpoints: [
+            { name: 'desktop', width: Infinity },
+            { name: 'tablet',  width: 1024 },
+            { name: 'fablet',  width: 768 },
+            { name: 'phone',   width: 480 }
+        ]
+    }
+	});
+} );
+</script>

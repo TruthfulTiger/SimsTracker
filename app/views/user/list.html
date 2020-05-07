@@ -1,4 +1,4 @@
-<table width="600" cellpadding="5" class="table table-responsive table-hover table-bordered">
+<table width="100%" cellpadding="5" id="users" class="table table-hover table-bordered">
 	<thead>
 	<tr>
 		<th scope="col">#</th>
@@ -29,5 +29,18 @@
 	</repeat>
 	</tbody>
 </table>
-<pagebrowser items="{{ @articleList.total }}" limit="{{ @articleList.limit }}"/>
 <a href="{{ @BASE.'/user/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<script>
+$(document).ready( function () {
+    $('#users').DataTable({
+        responsive: {
+        breakpoints: [
+            { name: 'desktop', width: Infinity },
+            { name: 'tablet',  width: 1024 },
+            { name: 'fablet',  width: 768 },
+            { name: 'phone',   width: 480 }
+        ]
+    }
+	});
+} );
+</script>
