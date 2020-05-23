@@ -55,32 +55,12 @@ class ChallengeController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
+			$this->f3->set('userID', $userID);
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
 			$this->f3->set('sims',$this->sim->getByUser($userID));
 			$this->f3->set('households', $this->household->getByUser($userID));
-			if (strpos($this->f3->get('PARAMS[0]'), '/create/hood/') !== false) {
-				$this->f3->set('hhID', NULL);
-				$this->f3->set('simID', NULL);
-				$this->f3->set('nhID', $this->f3->get('PARAMS.id'));
-				$this->f3->set('title','Create Challenge');
-				$this->f3->set('content','challenges/create.html');
-			} else if (strpos($this->f3->get('PARAMS[0]'), '/create/household/') !== false) {
-				$this->f3->set('hhID', $this->f3->get('PARAMS.id'));
-				$this->f3->set('nhID', NULL);
-				$this->f3->set('simID', NULL);
-				$this->f3->set('title','Create Challenge');
-				$this->f3->set('content','challenges/create.html');
-			} else if (strpos($this->f3->get('PARAMS[0]'), '/create/character/') !== false) {
-				$this->f3->set('simID', $this->f3->get('PARAMS.id'));
-				$this->f3->set('nhID', NULL);
-				$this->f3->set('hhID', NULL);
-				$this->f3->set('title','Create Challenge');
-				$this->f3->set('content','challenges/create.html');
-			} else {
-				$this->f3->set('SESSION.error', 'You need to add a challenge to a hood, household or sim.');
-				$this->f3->reroute('/challenges');
-			}
+			$this->f3->set('title','Create Challenge');
+			$this->f3->set('content','challenges/create.html');
 		}
 	}
 
@@ -102,6 +82,11 @@ class ChallengeController extends Controller {
 			$this->legacy->getByCID($this->f3->get('PARAMS.id'));
 			$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 			if($this->f3->exists('PARAMS.id')) {
+				$userID = $this->f3->get('SESSION.user[2]');
+				$this->f3->set('userID', $userID);
+				$this->f3->set('hoods', $this->hood->getByUser($userID));
+				$this->f3->set('sims',$this->sim->getByUser($userID));
+				$this->f3->set('households', $this->household->getByUser($userID));
 				$this->f3->set('challenge',$this->challenge);
 				$this->f3->set('s2legacy', $this->legacy);
 				$this->f3->set('title','Update Challenge');

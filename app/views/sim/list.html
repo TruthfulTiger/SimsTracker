@@ -12,9 +12,28 @@
 						</select>
 				</th>
 				<th scope="col">Name</th>
-				<th scope="col">Age</th>
-				<th scope="col">Life State</th>
-				<th scope="col">Gender</th>
+					<th scope="col">
+						<select class="custom-select" id="ageSort">
+						<option value="">Age</option>
+						<repeat group="{{ @ages }}" value="{{ @age }}">
+						<option value="{{ @age }}">{{ @age }}</option>
+						</repeat>
+						</select>
+				</th>
+					<th scope="col">
+						<select class="custom-select" id="lifeSort">
+						<option value="">Life State</option>
+						<option value="Alive">Alive</option>
+						<option value="Deceased">Deceased</option>
+						</select>
+				</th>
+					<th scope="col">
+						<select class="custom-select" id="genderSort">
+						<option value="">Gender</option>
+						<option value="Female">Female</option>
+						<option value="Male">Male</option>
+						</select>
+				</th>
 				<th scope="col">Action</th>
 			</tr>
 			</thead>
@@ -63,6 +82,7 @@
 <script>
 $(document).ready( function () {
     let table = $('#sims').DataTable({
+		ordering: false,
         responsive: {
         breakpoints: [
             { name: 'desktop', width: Infinity },
@@ -76,6 +96,18 @@ $(document).ready( function () {
 		let val = $(this).find('option:selected').val();
 		console.log(val);
 		table.columns(0).search(val).draw();
+	});
+	$('#ageSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		table.columns(2).search(val).draw();
+	});
+	$('#lifeSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		table.columns(3).search(val).draw();
+	});
+	$('#genderSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		table.columns(4).search(val).draw();
 	});
 } );
 </script>

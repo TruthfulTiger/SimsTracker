@@ -87,6 +87,16 @@ class SimController extends Controller {
 				$this->save();
 				$this->f3->scrub($_POST,'p; br;');
 				$this->sim->edit($this->f3->get('POST.id'));
+				$parent1 = $this->sim->parent1;
+				$parent2 = $this->sim->parent2;
+
+				// TODO: Get this working without creating relationships every time sim's updated
+/* 				if ($parent1 > 0) { 
+					$this->relationship->relCreate($this->sim->userID, $this->sim->nhID, $parent1, $this->sim->id);
+				}
+				if ($parent2 > 0 && $parent2 < 9998) {
+					$this->relationship->relCreate($this->sim->userID, $this->sim->nhID, $parent2, $this->sim->id);
+				} */
 				$this->f3->set('SESSION.success', 'Sim has been updated.');
 				$this->f3->reroute($this->f3->get('SESSION.url'));
 			}
@@ -110,11 +120,6 @@ class SimController extends Controller {
 				$this->f3->set('parents', $parents);
 				$this->f3->set('title','Update Sim');
 				$this->f3->set('content','sim/update.html');
-				if ($this->f3->exists('POST.parent1') && $this->f3->exists('POST.parent2')) {
-					$parent1  = $this->f3->get('POST.parent1');
-					$parent2  = $this->f3->get('POST.parent2');
-					relCreate($parent1, $parent2, $sim);
-				}
             } else {
 				$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
 				$this->index();
@@ -306,9 +311,5 @@ class SimController extends Controller {
 			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
 			$this->f3->set('POST.learnedParenting',isset($_POST["learnedParenting"])?1:0);
 		}
-	}
-
-	function relCreate($parent1, $parent2, $sim){
-		$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
 	}
 }

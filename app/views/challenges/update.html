@@ -3,12 +3,76 @@
 		<label for="challengeName">Name</label>
 		<input type="text" required="required" class="form-control" value="{{ @challenge.challengeName }}" name="challengeName" id="challengeName" />
 	</div>
-	<check if="{{ @challenge.hhID != null }}">
-		<div class="form-group">
+
+<check if="{{ @challenge.nhID > 0}}">
+	<div class="form-group" id="hoods">
+		<label for="nhID">Choose Neighbourhood</label>
+		<select class="custom-select" name="nhID" id="nhID">
+		<option value="0">-- None --</option>
+			<repeat group="{{ @hoods }}" value="{{ @hood }}">
+			<option value="{{ @hood.id }}"
+			<check if="{{ @challenge.nhID == @hood.id}}">
+						selected
+			</check>
+			>{{ trim(@hood.name) }}</option>
+			</repeat>
+		</select>
+	</div>
+</check>	
+
+<check if="{{ @challenge.hhID > 0}}">
+	<div class="form-group">
+		<label for="hhID">Choose Household</label>
+		<select class="custom-select" name="hhID" id="hhID">
+		<option value="0">-- None --</option>
+			<repeat group="{{ @households }}" value="{{ @household }}">
+			<option value="{{ @household.hhID }}"
+			<check if="{{ @challenge.hhID == @household.hhID}}">
+						selected
+			</check>
+			>{{ trim(@household.name) }}</option>
+			</repeat>
+		</select>
+	</div>
+</check>
+
+<check if="{{ @challenge.simID > 0}}">
+	<div class="form-group">
+		<label for="simID">Choose Sim</label>
+		<select class="custom-select" name="simID" id="simID">
+		<option value="0">-- None --</option>
+			<repeat group="{{ @sims }}" value="{{ @sim }}">
+			<option value="{{ @sim.id }}"
+			<check if="{{ @challenge.simID == @sim.id}}">
+						selected
+			</check>
+			>{{ trim(@sim.firstName) }}</option>
+			</repeat>
+		</select>
+	</div>
+</check>
+
+<check if="{{ @challenge.nhID > 0}}">
+	<div class="form-group">
+		<label for="nhType">Challenge Type</label>
+		<select class="custom-select" name="type" id="nhType">
+			<option value="">-- Choose a type --</option>
+			<repeat group="{{ @s2hoodchallenges }}" value="{{ @value }}">
+				<option value="{{ @value }}"					
+				<check if="{{ @challenge.type == @value}}">
+						selected
+					</check>>{{ @value }}</option>
+			</repeat>
+		</select>
+	</div>
+</check>
+		
+<check if="{{ @challenge.hhID > 0}}">
+	<div class="form-group">
 			<label for="hhType">Challenge Type</label>
-			<select class="custom-select" required="required" name="type" id="hhType">
+			<select class="custom-select" name="type" id="hhType">
 				<option value="">-- Choose a type --</option>
-				<repeat group="{{ @s2hhchallenges }}" key="{{ @key }}" value="{{ @value }}">
+				<repeat group="{{ @s2hhchallenges }}" value="{{ @value }}">
 					<option value="{{ @value }}"
 					<check if="{{ @challenge.type == @value}}">
 						selected
@@ -17,34 +81,22 @@
 			</select>
 		</div>
 	</check>
-	<check if="{{ @challenge.nhID != null }}">
-		<div class="form-group">
-			<label for="nhType">Challenge Type</label>
-			<select class="custom-select" required="required" name="type" id="nhType">
-				<option value="">-- Choose a type --</option>
-				<repeat group="{{ @s2hoodchallenges }}" key="{{ @key }}" value="{{ @value }}">
-					<option value="{{ @value }}"
-					<check if="{{ @challenge.type == @value}}">
+
+<check if="{{ @challenge.simID > 0}}">
+	<div class="form-group">
+		<label for="simType">Challenge Type</label>
+		<select class="custom-select" name="type" id="simType">
+			<option value="">-- Choose a type --</option>
+			<repeat group="{{ @s2simchallenges }}" value="{{ @value }}">
+				<option value="{{ @value }}"
+				<check if="{{ @challenge.type == @value}}">
 						selected
 					</check>>{{ @value }}</option>
-				</repeat>
-			</select>
-		</div>
-	</check>
-	<check if="{{ @challenge.simID != null }}">
-		<div class="form-group">
-			<label for="simType">Challenge Type</label>
-			<select class="custom-select" required="required" name="type" id="simType">
-				<option value="">-- Choose a type --</option>
-				<repeat group="{{ @s2simchallenges }}" key="{{ @key }}" value="{{ @value }}">
-					<option value="{{ @value }}"
-					<check if="{{ @challenge.type == @value}}">
-						selected
-					</check>>{{ @value }}</option>
-				</repeat>
-			</select>
-		</div>
-	</check>
+			</repeat>
+		</select>
+	</div>
+</check>	
+
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
@@ -68,4 +120,3 @@
 	</div>
 
 </form>
-

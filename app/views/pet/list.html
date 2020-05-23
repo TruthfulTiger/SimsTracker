@@ -73,7 +73,7 @@
 		<p>No pets found.</p>
 	</false>
 </check>
-<a href="{{ @BASE.'/pet/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/pet/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
 
 <script>
 $(document).ready( function () {
@@ -89,7 +89,6 @@ $(document).ready( function () {
 	});
 	$('#hhSort').change(function() {
 		let val = $(this).find('option:selected').val();
-		console.log(val);
 		table.columns(0).search(val).draw();
 	});
 } );

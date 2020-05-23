@@ -82,7 +82,7 @@
 		<div class="form-group col">
 			<label for="parent1">Parent 1</label>
 			<select class="custom-select" name="parent1" id="parent1">
-				<option value="">-- N/A --</option>
+				<option value="0">-- N/A --</option>
 				<repeat group="{{ @parents }}" value="{{ @parent }}">
 					<check if="{{ @parent.id !=  @sim.id}}">
 						<option value="{{@parent.id}}"
@@ -97,7 +97,7 @@
 		<div class="form-group col">
 			<label for="parent2">Parent 2</label>
 			<select class="custom-select" name="parent2" id="parent2">
-				<option value="">-- N/A --</option>
+				<option value="0">-- N/A --</option>
 				<option value="9998"
 				<check if="{{ @sim.parent2 == 9998}}">
 					selected

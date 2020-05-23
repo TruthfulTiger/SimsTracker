@@ -34,6 +34,11 @@ class Challenge extends DB\SQL\Mapper{
 		return $this->query;
 	}
 
+	public function getBysimID($id) {
+		$this->load(array('simID=?',$id));
+		return $this->query;
+	}
+
 	public function getByName($id) {
 		$this->load(array('name=?',$id));
 		return $this->query;

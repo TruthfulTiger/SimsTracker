@@ -49,49 +49,58 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
 <script>
 let json = "";
-	$(function () {
-		'use strict';
-		$('[data-toggle="offcanvas"]').on('click', function () {
-			$('.offcanvas-collapse').toggleClass('open')
-		});
-		    $('.toast').toast({delay: 5000});
-			$('.toast').toast('show');
+$(function () {
+	'use strict';
+	$('[data-toggle="offcanvas"]').on('click', function () {
+		$('.offcanvas-collapse').toggleClass('open')
 	});
-	$("body").tooltip({ selector: '[data-toggle=tooltip]' });
-	$('[data-toggle=confirmation]').confirmation({
-		rootSelector: '[data-toggle=confirmation]'
-		// other options
+		$('.toast').toast({delay: 5000});
+		$('.toast').toast('show');
+});
+$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+$('[data-toggle=confirmation]').confirmation({
+	rootSelector: '[data-toggle=confirmation]'
+	// other options
+});
+//select all checkboxes - https://www.sanwebe.com/2014/01/how-to-select-all-deselect-checkboxes-jquery
+$("#select_all").change(function(){  //"select all" change 
+	var status = this.checked; // "select all" checked status
+	$('.select_all').each(function(){ //iterate all listed checkbox items
+		this.checked = status; //change ".checkbox" checked status
 	});
-		//select all checkboxes - https://www.sanwebe.com/2014/01/how-to-select-all-deselect-checkboxes-jquery
-		$("#select_all").change(function(){  //"select all" change 
-		var status = this.checked; // "select all" checked status
-		$('.select_all').each(function(){ //iterate all listed checkbox items
-			this.checked = status; //change ".checkbox" checked status
-		});
-	});
+});
 
 
-	$('#forgot').on('show.bs.modal', function (e) {
-		$('#login').modal('toggle');
-	});
+$('#forgot').on('show.bs.modal', function (e) {
+	$('#login').modal('toggle');
+});
 
-	$('.select_all').change(function(){ //".checkbox" change 
-		//uncheck "select all", if one of the listed checkbox item is unchecked
-		if(this.checked == false){ //if this item is unchecked
-			$("#select_all")[0].checked = false; //change "select all" checked status to false
-		}
-		
-		//check "select all" if all checkbox items are checked
-		if ($('.select_all:checked').length == $('.select_all').length ){ 
-			$("#select_all")[0].checked = true; //change "select all" checked status to true
-		}
-	});
+$('.select_all').change(function(){ //".checkbox" change 
+	//uncheck "select all", if one of the listed checkbox item is unchecked
+	if(this.checked == false){ //if this item is unchecked
+		$("#select_all")[0].checked = false; //change "select all" checked status to false
+	}
+	
+	//check "select all" if all checkbox items are checked
+	if ($('.select_all:checked').length == $('.select_all').length ){ 
+		$("#select_all")[0].checked = true; //change "select all" checked status to true
+	}
+});
 
-	var simoleans = wNumb({
+var simoleans = wNumb({
 	decimals: 0,
 	thousand: ',',
 	prefix: '§'
 });
+// From https://forum.jquery.com/topic/how-to-set-aria-hidden-attribute-on-jquery-show-hide-functions
+jQuery.fn.extend({
+    myShow: function () {
+        return this.attr('aria-hidden', 'false').show()
+    },
+    myHide:function(){
+        return this.attr('aria-hidden', 'true').hide()
+    }
+})
 </script>
 <check if="{{@hood.gameVersion == 2}}">
 {* Careers *}

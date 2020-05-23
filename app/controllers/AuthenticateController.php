@@ -43,7 +43,7 @@ class AuthenticateController  extends Controller {
 				$this->user->save();
 				$this->f3->set('SESSION.user', array($this->user->name, $this->user->role, $this->user->id, $this->user->email));
 				$this->f3->reroute('/user/profile');
-				if($_POST["remember"]=='1' || $_POST["remember"]=='on' || isset($_POST["remember"]))
+				if($_POST["remember"]==1 || $_POST["remember"]=='on' || isset($_POST["remember"]))
                     {
                     $hour = time() + 3600 * 24 * 30;
                     setcookie('username', $username, $hour);

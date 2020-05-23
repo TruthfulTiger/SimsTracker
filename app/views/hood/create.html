@@ -99,6 +99,7 @@
 
 	<div class="control-group">
 		<div class="">
+		<input type="hidden" name="money" value="" />
 			<input type="text" name="hptrap" class="hptrap" />
 			<input type="hidden" name="create" value="create" />
 			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
@@ -134,26 +135,26 @@
 	});
 	function gameChange(v) {
 		if (v == 2) {
-			$("div#sims2").show();
+			$("div#sims2").attr('aria-hidden', 'false').show();
 			$('select#s2type').attr("name","type");
 		} else  {
-			$("div#sims2").hide();
+			$("div#sims2").attr('aria-hidden', 'true').hide();
 			$('select#s2type').attr("name","s2type");
 			$("#s2type").val('');
 		}
 		if (v == 3) {
-			$("div#sims3").show();
+			$("div#sims3").attr('aria-hidden', 'false').show();
 			$('select#s3type').attr("name","type");
 		} else  {
-			$("div#sims3").hide();
+			$("div#sims3").attr('aria-hidden', 'true').hide();
 			$('select#s3type').attr("name","s3type");
 			$("#s3type").val('');
 		}
 		if (v == 4) {
-			$("div#sims4").show();
+			$("div#sims4").attr('aria-hidden', 'false').show();
 			$('select#s4type').attr("name","type");
 		} else  {
-			$("div#sims4").hide();
+			$("div#sims4").attr('aria-hidden', 'true').hide();
 			$('select#s4type').attr("name","s4type");
 			$("#s4type").val('');
 		}
@@ -161,17 +162,17 @@
 
 	function parentCheck(h) {
 			if (h == "Main hood"  || h == "") {
-				$("#parent").hide();
+				$("#parent").attr('aria-hidden', 'true').hide();
 				$("#parentHood").val('');
 			} 
 			else {
-				$("#parent").show();
+				$("#parent").attr('aria-hidden', 'false').show();
 			}	
 			if (h == "") {
-				$("#premade").hide();
+				$("#premade").attr('aria-hidden', 'true').hide();
 				$("#premade").val('');
 			} else {
-				$("#premade").show();
+				$("#premade").attr('aria-hidden', 'false').show();
 			}
 	}
 
@@ -180,9 +181,9 @@
 				$('select#premade').attr("name","name");
 				$('input#custom').attr("name","custom");
 				$("#custom").val("");
-				$("#custom").hide();
+				$("#custom").attr('aria-hidden', 'true').hide();
 		} else {
-			$("#custom").show();
+			$("#custom").attr('aria-hidden', 'false').show();
 			$('input#custom').attr("name","name");
 			$('select#premade').attr("name","premade");						
 		}

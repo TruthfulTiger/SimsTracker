@@ -5,10 +5,15 @@
 			<tr>
 				<th scope="col">Name</th>
 				<th scope="col">Neighbourhood</th>
-				<th scope="col">Game</th>
+					<th scope="col">
+						<select class="custom-select" id="gameSort">
+						<option value="">Game</option>
+						<repeat group="{{ @games }}" value="{{ @game }}">
+						<option value="{{ @game }}">{{ @game }}</option>
+						</repeat>
+						</select>
+				</th>
 				<th scope="col">Sims</th>
-				<th scope="col">Pets</th>
-				<th scope="col">Businesses</th>
 				<th scope="col">Net worth</th>
 				<th scope="col">Family friends</th>
 				<th scope="col">Action</th>
@@ -26,22 +31,6 @@
 					<check if="{{ @household.sims > 0 }}">
 					<true>
 						<td>{{ trim(@household.sims) }}</td>
-					</true>
-					<false>
-					<td>0</td>
-					</false>
-					</check>
-					<check if="{{ @household.pets > 0 }}">
-					<true>
-						<td>{{ trim(@household.pets) }}</td>
-					</true>
-					<false>
-					<td>0</td>
-					</false>
-					</check>
-					<check if="{{ @household.businesses > 0 }}">
-					<true>
-						<td>{{ trim(@household.businesses) }}</td>
 					</true>
 					<false>
 					<td>0</td>
@@ -66,7 +55,7 @@
 		<p>No households found.</p>
 	</false>
 </check>
-<a href="{{ @BASE.'/household/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/household/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
 
 <script>
 $(document).ready( function () {
@@ -80,10 +69,10 @@ $(document).ready( function () {
         ]
     }
 	});
-	$('#hhSort').change(function() {
+	$('#gameSort').change(function() {
 		let val = $(this).find('option:selected').val();
 		console.log(val);
-		table.columns(0).search(val).draw();
+		table.columns(2).search(val).draw();
 	});
 } );
 </script>
