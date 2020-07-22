@@ -44,9 +44,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="{{@BASE}}/ui/js/jquery-simple-validator.min.js"></script>
-<script src="{{@BASE}}/node_modules/bootstrap-confirmation2/dist/bootstrap-confirmation.js"></script>
 <script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 let json = "";
 $(function () {
@@ -58,10 +58,6 @@ $(function () {
 		$('.toast').toast('show');
 });
 $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-$('[data-toggle=confirmation]').confirmation({
-	rootSelector: '[data-toggle=confirmation]'
-	// other options
-});
 //select all checkboxes - https://www.sanwebe.com/2014/01/how-to-select-all-deselect-checkboxes-jquery
 $("#select_all").change(function(){  //"select all" change 
 	var status = this.checked; // "select all" checked status
@@ -69,6 +65,27 @@ $("#select_all").change(function(){  //"select all" change
 		this.checked = status; //change ".checkbox" checked status
 	});
 });
+
+// Delete confirmation dialog
+function confirm(url) {
+	swal({
+		title: "Are you sure?",
+		text: "You will not be able to recover this data!",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+		})
+		.then((willDelete) => {
+		if (willDelete) {
+			swal("Item has been deleted", {
+			icon: "success",
+            type: "success"
+			}).then(function() {
+				window.location = url;
+			});
+		} 
+	});
+}
 
 
 $('#forgot').on('show.bs.modal', function (e) {

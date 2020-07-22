@@ -68,7 +68,7 @@
 								</check>
 							</td>
 							<td><a href="{{ @BASE.'/relationship/update/'. @ship.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-								<a href="{{ @BASE.'/relationship/delete/'. @ship.id }}" onclick="return confirm('All data will be deleted. Are you sure?');"
+								<a href="#" onclick="confirm('{{ @BASE.'/relationship/delete/'. @ship.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></td>

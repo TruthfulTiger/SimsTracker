@@ -59,7 +59,7 @@
 							</td>
 							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
 								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-								<a href="{{ @BASE.'/sim/delete/'. @sim.id }}" onclick="return confirm('All data will be deleted. Are you sure?');"
+								<a href="#" onclick="confirm('{{ @BASE.'/sim/delete/'. @sim.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></a>

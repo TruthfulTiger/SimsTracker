@@ -26,7 +26,7 @@
 					</false>
 					</check>
 					<td><a href="{{ @BASE.'/hood/update/'. @hood.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-						<a href="{{ @BASE.'/hood/delete/'. @hood.id }}" onclick="return confirm('All data will be deleted. Are you sure?');"
+						<a href="#" onclick="confirm('{{ @BASE.'/hood/delete/'. @hood.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></a></td>

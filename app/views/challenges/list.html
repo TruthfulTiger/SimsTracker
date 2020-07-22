@@ -33,7 +33,7 @@
 										<td>{{ trim(@challenge.challengeName) }}</td>
 										<td>{{ @challenge.type }}</td>
 										<td><a href="{{ @BASE.'/challenge/update/'. @challenge.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-											<a href="{{ @BASE.'/challenge/delete/'. @challenge.id }}"onclick="return confirm('All data will be deleted. Are you sure?');"
+											<a href="#"onclick="confirm('{{ @BASE.'/challenge/delete/'. @challenge.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></a>
