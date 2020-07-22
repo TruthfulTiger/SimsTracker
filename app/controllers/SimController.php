@@ -70,8 +70,8 @@ class SimController extends Controller {
 			$this->f3->config('config/sims2.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('households', $this->household->getByUser($userID));
-			$this->f3->set('hhID', $this->f3->get('PARAMS.id'));
-			$this->f3->set('nhID', $this->household->nhID);
+			$this->household->getById($this->f3->get('PARAMS.id'));
+			$this->f3->set('hh', $this->household);
 			$this->f3->set('title','Create Sim');
 			$this->f3->set('content','sim/create.html');
 		}
@@ -107,15 +107,15 @@ class SimController extends Controller {
             $this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->hood->getById($this->sim->nhID);
 			$userID = $this->f3->get('SESSION.user[2]');
-            $sim = $this->sim;
-			$hood = $this->hood;
 			$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
 			$this->f3->config('config/sims2.cfg');
 			if($this->f3->exists('PARAMS.id')) {
-                $this->f3->set('sim', $sim);
-				$this->f3->set('hood', $hood);
+                $this->f3->set('sim', $this->sim);
+				$this->f3->set('hood', $this->hood);
 				$this->user->getById($this->f3->get('SESSION.user[2]'));
 				$this->f3->set('households', $this->household->getByUser($userID));
+				$this->household->getById($this->sim->hhID);
+				$this->f3->set('hh', $this->household);
 				$this->f3->set('user', $this->user);
 				$this->f3->set('parents', $parents);
 				$this->f3->set('title','Update Sim');

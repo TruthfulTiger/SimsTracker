@@ -78,7 +78,8 @@ class HouseholdController extends Controller {
 			$this->f3->config('config/sims2.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
-			$this->f3->set('nhID', $nhID);
+			$this->hood->getById($nhID);
+			$this->f3->set('hood', $this->hood);
 			$this->f3->set('sims',$this->sim->getBynhID($nhID));
 			$this->f3->set('title','Create Household');
 			$this->f3->set('content','household/create.html');
@@ -102,6 +103,14 @@ class HouseholdController extends Controller {
 			$this->household->getById($this->f3->get('PARAMS.id'));
 			if($this->f3->exists('PARAMS.id')) {
 				$this->f3->set('household',$this->household);
+				$userID = $this->f3->get('SESSION.user[2]');
+				$nhID = $this->household->nhID;
+				$this->f3->config('config/sims2.cfg');
+				$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
+				$this->f3->set('hoods', $this->hood->getByUser($userID));
+				$this->hood->getById($nhID);
+				$this->f3->set('hood', $this->hood);
+				$this->f3->set('sims',$this->sim->getBynhID($nhID));
 				$this->f3->set('title','Update Household');
 				$this->f3->set('content','household/update.html');
 			} else {

@@ -10,12 +10,12 @@
 		</select>
 	</div>
 
-<div class="form-row">
+<div class="form-row"> 
 <div class="col">
 	<div class="form-group" id="sims2" style="display:none">
 		<label for="s2type">Type</label>
 		<select class="custom-select type" required="required" name="s2type" id="s2type">
-			<option value="" selected>-- Hood type --</option>
+			<option selected>-- Hood type --</option>
 			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}">
 				<option value="{{ @s2value }}">{{ @s2value }}</option>
 			</repeat>
@@ -25,7 +25,7 @@
 	<div class="form-group" id="sims3" style="display:none">
 		<label for="s3type">Type</label>
 		<select class="custom-select type" name="s3type" id="s3type">
-			<option value="" selected>-- Hood type --</option>
+			<option selected>-- Hood type --</option>
 			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}">
 				<option value="{{ @s3value }}">{{ @s3value }}</option>
 			</repeat>
@@ -35,7 +35,7 @@
 	<div class="form-group" id="sims4" style="display:none">
 		<label for="s4type">Type</label>
 		<select class="custom-select type" name="s4type" id="s4type">
-			<option value="" selected>-- Hood type --</option>
+			<option selected>-- Hood type --</option>
 			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}">
 				<option value="{{ @s4value }}">{{ @s4value }}</option>
 			</repeat>
@@ -47,7 +47,7 @@
 		<div class="form-group">
 		<label for="parentHood">Parent hood</label>
 		<select class="custom-select" name="parentHood" id="parentHood">
-			<option value="" selected>-- None --</option>
+			<option selected>-- None --</option>
 			<repeat group="{{ @hoods }}" value="{{ @hood }}">
 				<check if="{{ @hood.parentHood == NULL }}">
 					<option value="{{ @hood.id }}">{{ @hood.name }}</option>

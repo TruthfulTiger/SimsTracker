@@ -120,21 +120,17 @@
 			</select>
 		</div>
 	</div>
-	{*Household *}
-	<div class="form-row">
-		<div class="form-group col">
-			<label for="hhID">Household</label>
-				<select class="custom-select" name="hhID" id="hhID">
-					<repeat group="{{ @households }}" value="{{ @household }}">
-					<option value="{{ @household.hhID }}"
-						<check if="{{ @sim.hhID == @household.hhID }}">
-							selected
-						</check>
-					>{{ @household.name }}</option>
-					</repeat>
-				</select>
-		</div>
-	</div>
 <include if="{{@hood.gameVersion == 2}}" href="sim/sims2/update.html" /> 
 <include if="{{@hood.gameVersion == 3}}" href="sim/sims3/update.html" /> 
-<include if="{{@hood.gameVersion == 4}}" href="sim/sims4/update.html" /> 
+<include if="{{@hood.gameVersion == 4}}" href="sim/sims4/update.html" /> 	
+			<!-- Hidden fields and form submission -->
+			<div class="control-group">
+				<div class="">
+					<input type="text" name="hptrap" class="hptrap" />
+					<input type="hidden" name="update" value="update" />
+					<input type="hidden" name="id" value="{{ @sim.id }}" />
+					<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
+					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+				</div>
+			</div>
+</form>

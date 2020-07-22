@@ -8,7 +8,7 @@
 	<div class="form-group" id="hoods">
 		<label for="nhID">Choose Neighbourhood</label>
 		<select class="custom-select" name="nhID" id="nhID">
-		<option value="0">-- None --</option>
+		<option>-- None --</option>
 			<repeat group="{{ @hoods }}" value="{{ @hood }}">
 			<option value="{{ @hood.id }}"
 			<check if="{{ @challenge.nhID == @hood.id}}">
@@ -24,7 +24,7 @@
 	<div class="form-group">
 		<label for="hhID">Choose Household</label>
 		<select class="custom-select" name="hhID" id="hhID">
-		<option value="0">-- None --</option>
+		<option>-- None --</option>
 			<repeat group="{{ @households }}" value="{{ @household }}">
 			<option value="{{ @household.hhID }}"
 			<check if="{{ @challenge.hhID == @household.hhID}}">
@@ -40,7 +40,7 @@
 	<div class="form-group">
 		<label for="simID">Choose Sim</label>
 		<select class="custom-select" name="simID" id="simID">
-		<option value="0">-- None --</option>
+		<option>-- None --</option>
 			<repeat group="{{ @sims }}" value="{{ @sim }}">
 			<option value="{{ @sim.id }}"
 			<check if="{{ @challenge.simID == @sim.id}}">
