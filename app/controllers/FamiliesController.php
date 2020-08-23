@@ -1,5 +1,5 @@
 <?php
-class Families extends Controller {
+class FamiliesController extends Controller {
 	private $user;
 
 	public function __construct() {

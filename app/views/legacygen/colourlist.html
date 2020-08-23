@@ -1,6 +1,6 @@
 <check if="{{ @colours }}">
 	<true>
-		<table class="table table-hover table-sm" id="gens" width="100%">
+		<table class="table table-hover table-responsive-md table-sm" id="gens" width="100%">
 			<thead class="sr-only">
 			<th scope="col">Generation</th>
 			<th scope="col">Founder / heir</th>
@@ -197,9 +197,9 @@
 										   data-log="Need to create sim data"
 										   data-href="0"
 										   href="#"
-										   class="btn btn-primary text-white">
-											<i class="fa fa-save" aria-hidden="true"></i> Save
-										</a>
+						   class="btn btn-primary text-white">
+							<i class="fa fa-save" aria-hidden="true"></i> Save
+						</a>
 									</check>
 								</true>
 								<false>
@@ -208,9 +208,9 @@
 										   data-log="{{@heir.id}}"
 										   data-href="{{@heir.id}}"
 										   href="#"
-										   class="btn btn-primary text-white">
-											<i class="fa fa-save" aria-hidden="true"></i> Save
-										</a>
+						   class="btn btn-primary text-white">
+							<i class="fa fa-save" aria-hidden="true"></i> Save
+						</a>
 									</check>
 								</false>
 							</check>
@@ -754,23 +754,3 @@
 	<include href="/legacygen/bwlist.html" />
 	</false>
 </check>
-
-<script>
-$(document).ready( function () {
-    let table = $('#gens').DataTable({
-		searching: false,
-    	ordering:  false,
-		scrollY: "200px",
-  		scrollCollapse: true,
-		paging: false,
-        responsive: {
-        breakpoints: [
-            { name: 'desktop', width: Infinity },
-            { name: 'tablet',  width: 1024 },
-            { name: 'fablet',  width: 768 },
-            { name: 'phone',   width: 480 }
-        ]
-    }
-	});
-} );
-</script>

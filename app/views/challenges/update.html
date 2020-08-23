@@ -4,117 +4,13 @@
 		<input type="text" required="required" class="form-control" value="{{ @challenge.challengeName }}" name="challengeName" id="challengeName" />
 	</div>
 
-<check if="{{ @challenge.nhID > 0}}">
-	<div class="form-group" id="hoods">
-		<label for="nhID">Choose Neighbourhood</label>
-		<select class="custom-select" name="nhID" id="nhID">
-		<option>-- None --</option>
-			<repeat group="{{ @hoods }}" value="{{ @hood }}">
-			<option value="{{ @hood.id }}"
-			<check if="{{ @challenge.nhID == @hood.id}}">
-						selected
-			</check>
-			>{{ trim(@hood.name) }}</option>
-			</repeat>
-		</select>
-	</div>
-</check>	
-
-<check if="{{ @challenge.hhID > 0}}">
-	<div class="form-group">
-		<label for="hhID">Choose Household</label>
-		<select class="custom-select" name="hhID" id="hhID">
-		<option>-- None --</option>
-			<repeat group="{{ @households }}" value="{{ @household }}">
-			<option value="{{ @household.hhID }}"
-			<check if="{{ @challenge.hhID == @household.hhID}}">
-						selected
-			</check>
-			>{{ trim(@household.name) }}</option>
-			</repeat>
-		</select>
-	</div>
-</check>
-
-<check if="{{ @challenge.simID > 0}}">
-	<div class="form-group">
-		<label for="simID">Choose Sim</label>
-		<select class="custom-select" name="simID" id="simID">
-		<option>-- None --</option>
-			<repeat group="{{ @sims }}" value="{{ @sim }}">
-			<option value="{{ @sim.id }}"
-			<check if="{{ @challenge.simID == @sim.id}}">
-						selected
-			</check>
-			>{{ trim(@sim.firstName) }}</option>
-			</repeat>
-		</select>
-	</div>
-</check>
-
-<check if="{{ @challenge.nhID > 0}}">
-	<div class="form-group">
-		<label for="nhType">Challenge Type</label>
-		<select class="custom-select" name="type" id="nhType">
-			<option value="">-- Choose a type --</option>
-			<repeat group="{{ @s2hoodchallenges }}" value="{{ @value }}">
-				<option value="{{ @value }}"					
-				<check if="{{ @challenge.type == @value}}">
-						selected
-					</check>>{{ @value }}</option>
-			</repeat>
-		</select>
-	</div>
-</check>
-		
-<check if="{{ @challenge.hhID > 0}}">
-	<div class="form-group">
-			<label for="hhType">Challenge Type</label>
-			<select class="custom-select" name="type" id="hhType">
-				<option value="">-- Choose a type --</option>
-				<repeat group="{{ @s2hhchallenges }}" value="{{ @value }}">
-					<option value="{{ @value }}"
-					<check if="{{ @challenge.type == @value}}">
-						selected
-					</check>>{{ @value }}</option>
-				</repeat>
-			</select>
-		</div>
-	</check>
-
-<check if="{{ @challenge.simID > 0}}">
-	<div class="form-group">
-		<label for="simType">Challenge Type</label>
-		<select class="custom-select" name="type" id="simType">
-			<option value="">-- Choose a type --</option>
-			<repeat group="{{ @s2simchallenges }}" value="{{ @value }}">
-				<option value="{{ @value }}"
-				<check if="{{ @challenge.type == @value}}">
-						selected
-					</check>>{{ @value }}</option>
-			</repeat>
-		</select>
-	</div>
-</check>	
-
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
 			<input type="hidden" name="update" value="update" />
-			<input type="hidden" name="hhID" value="{{ @household.hhID }}" />
 			<input type="hidden" name="userID" value="{{ @SESSION.user[2] }}" />
 			<input type="hidden" name="id" value="{{ @challenge.id }}" />
-			<button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
-			<check if="{{ @challenge.type == 'Legacy Challenge' }}">
-				<check if="{{ @s2legacy.cid !== @challenge.id}}">
-					<true>
-						<a href="{{ @BASE.'/s2legacy/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Create scoresheet</a>
-					</true>
-					<false>
-						<a id="url" href="{{ @BASE.'/s2legacy/'. @s2legacy.id }}" class="btn btn-success"><i class="fa fa-dashboard" aria-hidden="true"></i> Go to scoresheet</a>
-					</false>
-				</check>
-			</check>
+			<button type="submit" name="save" class="btn btn-success"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
 			<a href="{{ @BASE.'/challenges' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</div>
 	</div>

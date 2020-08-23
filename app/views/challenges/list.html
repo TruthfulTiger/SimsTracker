@@ -18,7 +18,7 @@
 					</thead>
 					<tbody>
 					<repeat group="{{ @challenges }}" value="{{ @challenge }}">
-									<tr>
+									<tr>									
 										<td>
 										<check if="{{ @challenge.nhID > 0 }}">
 										Neighbourhood
@@ -31,13 +31,26 @@
 										</check>
 										</td>
 										<td>{{ trim(@challenge.challengeName) }}</td>
-										<td>{{ @challenge.type }}</td>
-										<td><a href="{{ @BASE.'/challenge/update/'. @challenge.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-											<a href="#"onclick="confirm('{{ @BASE.'/challenge/delete/'. @challenge.id }}');"
+										<td>{{ @challenge.type }}</td>										
+										<td>				
+										<check if="{{@challenge.type == 'Legacy Challenge'}}">
+										<check if="{{@challenge.hasScores == 1}}" >
+										<true>
+											<a id="url" href="{{ @BASE.'/s2legacy/'. @challenge.id }}" data-toggle="tooltip" title="Go to scoresheet"  class="text-primary"><i class="fas fa-calculator"></i></a>	
+										</true>
+										<false>
+										<a href="{{ @BASE.'/s2legacy/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" 
+			data-toggle="tooltip" title="Create scoresheet" class="text-success" ><i class="fas fa-calculator"></i></a>	
+										</false>
+										</check>						
+										</check>
+
+									&nbsp;&nbsp;
+									<a href="#" onclick="confirm('{{ @BASE.'/challenge/delete/'. @challenge.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></a>
-												</td>
+								   		</td>
 									</tr>
 					</repeat>
 					</tbody>

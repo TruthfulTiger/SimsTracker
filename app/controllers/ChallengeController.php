@@ -4,9 +4,7 @@ class ChallengeController extends Controller {
 	private $household;
 	private $hood;
 	private $sim;
-	private $legacy;
-	private $legacygen;
-	private $usercolour;
+	private $s2legacy;
 
 	public function __construct() {
 		parent::__construct();
@@ -14,7 +12,7 @@ class ChallengeController extends Controller {
 		$this->household = new Household($this->db);
 		$this->hood = new Hood($this->db);
 		$this->sim = new Sim($this->db);
-		$this->legacy = new S2Legacy($this->db);
+		$this->s2legacy = new S2Legacy($this->db);
 		$this->legacygen = new LegacyGen($this->db);
 		$this->usercolour = new UserColour($this->db);
 		$this->f3->clear('SESSION.url');
@@ -28,6 +26,7 @@ class ChallengeController extends Controller {
 		$this->f3->set('hoods',$this->hood->getByUser($userID));
 		$this->f3->set('sims',$this->sim->getByUser($userID));
 		$this->f3->set('challenges',$this->challenge->getByUser($userID));
+		$this->f3->set('s2legacies', $this->s2legacy->getByUser($userID));
 		$this->f3->set('title','Challenges');
 		$this->f3->set('content','challenges/list.html');
 	}
@@ -72,14 +71,20 @@ class ChallengeController extends Controller {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				$this->f3->scrub($_POST,'p; br;');
+				try {
 				$this->challenge->edit($this->f3->get('POST.id'));
 				$this->f3->set('SESSION.success', 'Challenge has been updated.');
+				} 
+				catch(PDOException $e) {
+				$err= $e->errorInfo;
+				$this->f3->set('SESSION.error', $err[2]);
+				}
 				$this->index();
 			}
 		} else
 		{
 			$this->challenge->getById($this->f3->get('PARAMS.id'));
-			$this->legacy->getByCID($this->f3->get('PARAMS.id'));
+			$this->s2legacy->getByCID($this->f3->get('PARAMS.id'));
 			$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.id'));
 			if($this->f3->exists('PARAMS.id')) {
 				$userID = $this->f3->get('SESSION.user[2]');
@@ -88,7 +93,7 @@ class ChallengeController extends Controller {
 				$this->f3->set('sims',$this->sim->getByUser($userID));
 				$this->f3->set('households', $this->household->getByUser($userID));
 				$this->f3->set('challenge',$this->challenge);
-				$this->f3->set('s2legacy', $this->legacy);
+				$this->f3->set('s2legacy', $this->s2legacy);
 				$this->f3->set('title','Update Challenge');
 				$this->f3->set('content','challenges/update.html');
 			} else {
@@ -103,41 +108,12 @@ class ChallengeController extends Controller {
 	{
 		if($this->f3->exists('PARAMS.id'))
 		{
-			if ($this->legacy) {
-				$lastInsertID = $this->legacygen->get('_id');
-				$this->db->exec(
-					array(
-						'DELETE FROM legacygen WHERE challengeID=?',
-						'ALTER TABLE legacygen AUTO_INCREMENT = '.intval($lastInsertID)
-					),
-					array($this->f3->get('SESSION.challenge'))
-				);
-				if ($this->usercolour) {
-					$lastInsertID = $this->usercolour->get('_id');
-					$this->db->exec(
-						array(
-							'DELETE FROM usercolour WHERE challengeID=?',
-							'ALTER TABLE usercolour AUTO_INCREMENT = '.intval($lastInsertID)
-						),
-						array($this->f3->get('SESSION.challenge'))
-					);
-				}
-				$lastInsertID = $this->legacy->get('_id');
-				$this->db->exec(
-					array(
-						'DELETE FROM s2legacy WHERE cid=?',
-						'ALTER TABLE s2legacy AUTO_INCREMENT = '.intval($lastInsertID)
-					),
-					array($this->f3->get('SESSION.challenge'))
-				);
-			}
-
-			$this->challenge->delete($this->f3->get('PARAMS.id'));
-			$this->f3->set('SESSION.success', 'Challenge was deleted');
+			$cid = $this->f3->get('PARAMS.id');
+			$this->challenge->delete($cid);
 		} else {
 			$this->f3->set('SESSION.error', 'Challenge doesn\'t exist');
 		}
 
-		$this->f3->reroute('/challenges');
+		$this->index();
 	}
 }

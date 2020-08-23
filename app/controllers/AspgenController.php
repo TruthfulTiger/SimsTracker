@@ -1,5 +1,5 @@
 <?php
-class Aspgen extends Controller {
+class AspgenController extends Controller {
 	private $user;
 
 	public function __construct() {

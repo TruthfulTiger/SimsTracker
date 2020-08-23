@@ -40,7 +40,7 @@ class Controller {
 		$db=new DB\SQL(
 			$f3->get('db_dns') . $f3->get('db_name'),
 			$f3->get('db_user'),
-			$f3->get('db_pass'), array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING)
+			$f3->get('db_pass'), array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
 		);
 		$mail = new PHPMailer(true);
 

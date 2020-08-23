@@ -3,6 +3,12 @@
 		<table width="100%" cellpadding="5" id="pets" class="table table-hover table-bordered">
 			<thead>
 			<tr>
+			<th scope="col">
+			<div class="custom-control custom-checkbox">
+			<input type="checkbox" class="custom-control-input" aria-label="Select all" id="select_all" value="on" name="select_all">
+			<label class="custom-control-label" for="select_all"></label>
+			</div>
+			</th>
 				<th scope="col">
 						<select class="custom-select" id="hhSort">
 						<option value="">Household</option>
@@ -24,6 +30,12 @@
 				<repeat group="{{ @pets }}" value="{{ @pet }}">
 					<check if="{{ @pet.hhID == @household.hhID }}">
 						<tr>
+							<td>
+							<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input select_all pets" id="{{ @pet.id }}" value="{{ @pet.id }}">
+							<label class="custom-control-label" for="{{ @pet.id }}"></label>
+							</div>
+							</td>
 							<td>{{ trim(@household.name) }}</td>
 							<td>{{ trim(@pet.name) }}</td>
 							<td>
@@ -71,10 +83,44 @@
 		<p>No pets found.</p>
 	</false>
 </check>
+
 <a href="{{ @BASE.'/pet/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="#petMove" data-pets="0" id="move" name="move" class="btn btn-primary mt-3" data-toggle="modal" data-target="#petMove"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Move</a>
+
+<div class="modal fade" id="petMove" tabindex="-1" aria-labelledby="petMoveLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="petMoveLabel">Move pet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p></p>
+      </div>
+      <div class="modal-footer">
+		<!-- Hidden fields and form submission -->
+		<div class="control-group">
+			<div class="">
+				<input type="text" name="hptrap" class="hptrap" />
+				<input type="hidden" name="move" value="move" />{{ @BASE.'/pet/move' }}
+				<input type="hidden" name="id" value="{{ @pet.id }}" />
+				<button type="submit" id="save" name="save" class="btn btn-success"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script>
 $(document).ready( function () {
+var searchIDs;
+var pets;
     let table = $('#pets').DataTable({
         responsive: {
         breakpoints: [
@@ -89,5 +135,23 @@ $(document).ready( function () {
 		let val = $(this).find('option:selected').val();
 		table.columns(0).search(val).draw();
 	});
+
+ 	$('#petMove').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		getIDs();
+		var modal = $(this);
+		modal.find('.modal-body').text(searchIDs);
+	}) 
+
+	function getIDs() {
+    event.preventDefault();
+    searchIDs = $("input:checkbox:checked").map(function(){
+        return $(this).val();
+    }).toArray();
+	var _searchedIndex = $.inArray('on',searchIDs);
+	if(_searchedIndex >= 0){
+		searchIDs.splice(_searchedIndex,1);
+		}
+	}
 } );
 </script>

@@ -50,6 +50,12 @@ class Challenge extends DB\SQL\Mapper{
 		$this->save();
 	}
 
+	public function scores($id, $v) {
+		$this->load(array('id=?',$id));
+		$this->hasScores = $v;
+		$this->update();
+	}
+
 	public function edit($id) {
 		$this->load(array('id=?',$id));
 		$this->copyFrom('POST',function($val) {

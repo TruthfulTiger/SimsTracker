@@ -66,7 +66,13 @@ class RelationshipsController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
 			$this->f3->set('nhID', $this->f3->get('PARAMS.id'));
@@ -101,7 +107,13 @@ class RelationshipsController extends Controller {
 		} else
 		{
 			if($this->f3->exists('PARAMS.id')) {
-				$this->f3->config('config/sims2.cfg');
+				$hood = $this->hood;
+				if ($hood->gameVersion == 2)
+					$this->f3->config('config/sims2.cfg');
+				if ($hood->gameVersion == 3)
+					$this->f3->config('config/sims3.cfg');
+				if ($hood->gameVersion == 4)
+					$this->f3->config('config/sims4.cfg');
 				$this->relationship->getById($this->f3->get('PARAMS.id'));
 				$this->f3->set('relationship',$this->relationship);
 				$this->f3->set('sims', $this->sim->getBynhID($this->relationship->nhID));
@@ -131,7 +143,13 @@ class RelationshipsController extends Controller {
 	{
 		$this->sim->getById($this->f3->get('PARAMS.id'));
 		$name = $this->sim->firstName.' '.$this->sim->lastName;
-		$this->f3->config('config/sims2.cfg');
+		$hood = $this->hood;
+		if ($hood->gameVersion == 2)
+			$this->f3->config('config/sims2.cfg');
+		if ($hood->gameVersion == 3)
+			$this->f3->config('config/sims3.cfg');
+		if ($hood->gameVersion == 4)
+			$this->f3->config('config/sims4.cfg');
 		if($this->f3->exists('PARAMS.id')) {
 			$this->f3->set('sim',$this->sim);
 			$this->f3->set('title',$name);

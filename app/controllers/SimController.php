@@ -67,7 +67,13 @@ class SimController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('households', $this->household->getByUser($userID));
 			$this->household->getById($this->f3->get('PARAMS.id'));
@@ -108,7 +114,13 @@ class SimController extends Controller {
 			$this->hood->getById($this->sim->nhID);
 			$userID = $this->f3->get('SESSION.user[2]');
 			$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('sim', $this->sim);
 				$this->f3->set('hood', $this->hood);
@@ -147,7 +159,13 @@ class SimController extends Controller {
 		$this->hood->getById($this->sim->nhID);
 		$this->business->getByOwner($this->f3->get('PARAMS.id'));
 		$name = $this->sim->firstName.' '.$this->sim->lastName;
-		$this->f3->config('config/sims2.cfg');
+		$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 		if($this->f3->exists('PARAMS.id')) {
 			$this->f3->set('sim',$this->sim);
 			$this->f3->set('hood', $this->hood);

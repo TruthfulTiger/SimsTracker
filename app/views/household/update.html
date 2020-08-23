@@ -20,22 +20,13 @@
 		<input type="number" class="form-control" required="required" name="friends" value="{{ @household.friends }}" id="friends" />
 	</div>
 
-	<div class="form-group">
-		<label for="hhSims">Add sims to this household (hold Ctrl to choose more than 1)</label>
-		<select class="custom-select" multiple name="hhSims[]" id="hhSims">
-			<repeat group="{{ @sims }}" value="{{ @sim }}">
-				<option value="{{ @sim.id }}">{{ @sim.firstName }} {{ @sim.lastName }}</option>
-			</repeat>
-		</select>
-	</div>
-
 	<div class="control-group">
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
 			<input type="hidden" name="id" value="{{ @household.hhID }}" />
 			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
 			<input type="hidden" name="update" value="update" />
-			<button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Update</button>
+			<button type="submit" name="save" class="btn btn-success"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
 			<a href="{{ @BASE.'/sim/create/'. @household.hhID }}" class="btn btn-success"><i class="fa fa-plus"></i> Create Sim</a>
 			<a href="{{ @BASE.'/households' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</div>

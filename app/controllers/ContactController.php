@@ -15,7 +15,7 @@ class ContactController extends Controller {
 		$this->user->getById($this->f3->get('SESSION.user[2]'));
 		$this->f3->set('user', $this->user);
         $this->f3->set('content','contact.html');
-        $this->f3->set('title', 'Contact me');
+        $this->f3->set('title', 'Contact');
 		
 		if (isset($_POST['send'])) {
 			if (!empty($_POST['hptrap'])) {

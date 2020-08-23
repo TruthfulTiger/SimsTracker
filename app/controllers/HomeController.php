@@ -6,7 +6,7 @@
  * Time: 23:21
  */
 
-class Home extends Controller
+class HomeController extends Controller
 {
 	function beforeroute(){
 

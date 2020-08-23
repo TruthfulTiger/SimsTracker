@@ -6,13 +6,13 @@
  * Time: 22:59
  */
 
-class WebPage extends Controller {
+class NamesController extends Controller {
 	function beforeroute(){
 
 	}
 
     function index($f3) {
-        $f3->set('content','about.html');
-        $f3->set('title', 'About');
+        $f3->set('content','names.html');
+        $f3->set('title', 'Name Generator');
     }
 }

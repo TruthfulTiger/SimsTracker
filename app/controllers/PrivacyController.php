@@ -6,13 +6,13 @@
  * Time: 22:59
  */
 
-class Names extends Controller {
+class PrivacyController extends Controller {
 	function beforeroute(){
 
 	}
 
     function index($f3) {
-        $f3->set('content','names.html');
-        $f3->set('title', 'Name Generator');
+        $f3->set('content','privacy.html');
+        $f3->set('title', 'Privacy Policy');
     }
 }

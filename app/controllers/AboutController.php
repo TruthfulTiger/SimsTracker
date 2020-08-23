@@ -6,13 +6,13 @@
  * Time: 22:59
  */
 
-class CreditsController extends Controller {
+class AboutController extends Controller {
 	function beforeroute(){
 
 	}
 
     function index($f3) {
-        $f3->set('content','credits.html');
-        $f3->set('title', 'Credits');
+        $f3->set('content','about.html');
+        $f3->set('title', 'About');
     }
 }

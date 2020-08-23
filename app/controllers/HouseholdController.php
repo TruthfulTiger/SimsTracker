@@ -75,7 +75,13 @@ class HouseholdController extends Controller {
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
 			$nhID = $this->f3->get('PARAMS.id');
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
 			$this->hood->getById($nhID);
@@ -105,7 +111,13 @@ class HouseholdController extends Controller {
 				$this->f3->set('household',$this->household);
 				$userID = $this->f3->get('SESSION.user[2]');
 				$nhID = $this->household->nhID;
-				$this->f3->config('config/sims2.cfg');
+				$hood = $this->hood;
+				if ($hood->gameVersion == 2)
+					$this->f3->config('config/sims2.cfg');
+				if ($hood->gameVersion == 3)
+					$this->f3->config('config/sims3.cfg');
+				if ($hood->gameVersion == 4)
+					$this->f3->config('config/sims4.cfg');
 				$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 				$this->f3->set('hoods', $this->hood->getByUser($userID));
 				$this->hood->getById($nhID);

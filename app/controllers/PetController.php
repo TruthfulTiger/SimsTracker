@@ -61,11 +61,17 @@ class PetController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('households', $this->household->getByUser($userID));
-			$this->f3->set('hhID', $this->f3->get('PARAMS.id'));
-			$this->f3->set('nhID', $this->household->nhID);
+			$this->household->getById($this->f3->get('PARAMS.id'));
+			$this->f3->set('hh', $this->household);
 			$this->f3->set('title','Create Pet');
 			$this->f3->set('content','pet/create.html');
 		}
@@ -93,7 +99,12 @@ class PetController extends Controller {
 			$pet = $this->pet;
 			$hood = $this->hood;
 			$parents = $this->db->exec('SELECT * FROM pets WHERE nhID = ?', $this->pet->nhID);
-			$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('pet',$pet);
 				$this->f3->set('parents', $parents);
@@ -121,11 +132,33 @@ class PetController extends Controller {
 		$this->f3->reroute('/pets');
 	}
 
+	public function move() {
+		if ($this->f3->exists('POST.move')) {
+			if ($this->f3->exists('POST.hhPets')) {
+				$pets[] = $this->f3->get('POST.hhPets');
+				$hhID = 0;
+				foreach ($pets[0] as $pet){ 
+					$this->db->exec('UPDATE pets SET hhID = ? WHERE id = ?', 
+					array(
+						$hhID,
+						$pet
+					));
+				}
+			}
+		}
+	}
+
 	public function view()
 	{
 		$this->pet->getById($this->f3->get('PARAMS.id'));
 		$name = $this->pet->name;
-		$this->f3->config('config/sims2.cfg');
+		$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 		if($this->f3->exists('PARAMS.id')) {
 			$this->f3->set('pet',$this->pet);
 			$this->f3->set('title',$name);

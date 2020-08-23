@@ -63,7 +63,13 @@ class BusinessController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('households', $this->household->getByUser($userID));
 			$this->f3->set('hhID', $this->f3->get('PARAMS.id'));
@@ -93,7 +99,13 @@ class BusinessController extends Controller {
             $this->biz->getById($this->f3->get('PARAMS.id'));
 			$biz = $this->biz;
 			$owner = $this->db->exec('SELECT * FROM sims WHERE hhID = ?', $this->biz->hhID);
-			$this->f3->config('config/sims2.cfg');
+			$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('biz',$biz);
 				$this->f3->set('sims', $owner);
@@ -124,7 +136,13 @@ class BusinessController extends Controller {
 	{
 		$this->biz->getById($this->f3->get('PARAMS.id'));
 		$name = $this->biz->name;
-		$this->f3->config('config/sims2.cfg');
+		$hood = $this->hood;
+			if ($hood->gameVersion == 2)
+				$this->f3->config('config/sims2.cfg');
+			if ($hood->gameVersion == 3)
+				$this->f3->config('config/sims3.cfg');
+			if ($hood->gameVersion == 4)
+				$this->f3->config('config/sims4.cfg');
 		if($this->f3->exists('PARAMS.id')) {
 			$this->f3->set('biz',$this->biz);
 			$this->f3->set('title',$name);
