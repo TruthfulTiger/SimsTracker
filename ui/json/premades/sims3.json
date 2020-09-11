@@ -1,0 +1,8 @@
+{
+    "gameVersion": 3, 
+    "main": [
+        {
+            "name" : "Test"
+        }
+    ]
+}

@@ -1,7 +1,6 @@
 <?php
 class HoodController extends Controller {
 	private $hood;
-
 	public function __construct() {
 		parent::__construct();
 		$this->hood = new Hood($this->db);
@@ -11,7 +10,7 @@ class HoodController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
-		$this->hood->households='SELECT COUNT(*) as hhcount FROM household where id = nhID GROUP BY id ';
+		$this->hood->households='SELECT COUNT(*) as hhcount FROM household where id = nhID and `name` != "Adoption pool" GROUP BY id ';
 		if($this->f3->exists('PARAMS.id')){
 			$game= $this->f3->get('PARAMS.id');
 			$this->f3->set('hoods',$this->hood->getByGame($game));
@@ -42,6 +41,20 @@ class HoodController extends Controller {
 				$this->hood->add();
 				$lastID = $this->hood->get('_id'); // Store last ID after adding hood
 				if ($lastID !== $lastAdded) { // If the two are different, that means a hood has been added
+				// Check that new hood is a main hood before creating an adoption pool
+				if ($this->f3->get('POST.type') == 'Main hood') {
+				$adoption = $this->db->exec('SELECT hhID FROM household WHERE hhID = 0'); // Make sure an adoption pool hasn't already been created
+				// Create default / adoption pool so sims / pets can be flagged as up for adoption
+				if (!$adoption) {
+					$this->db->exec('INSERT INTO household (hhID, userID, `name`)
+					VALUES (?, ?, ?)', 
+					array(
+						0,
+						$this->f3->get('SESSION.user[2]'),
+						"Adoption pool"						
+					));
+					}
+				}
 					$this->f3->set('SESSION.success', 'Neighbourhood has been added.');
 				} else {
 					$this->f3->set('SESSION.error', 'Couldn\'t create neighbourhood.');
@@ -92,7 +105,6 @@ class HoodController extends Controller {
 		if($this->f3->exists('PARAMS.id'))
 		{
 			$this->hood->delete($this->f3->get('PARAMS.id'));
-			$this->f3->set('SESSION.success', 'Neighbourhood was deleted');
 		} else {
 			$this->f3->set('SESSION.error', 'Neighbourhood doesn\'t exist');
 		}

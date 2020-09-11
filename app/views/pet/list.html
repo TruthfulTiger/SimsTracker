@@ -3,12 +3,6 @@
 		<table width="100%" cellpadding="5" id="pets" class="table table-hover table-bordered">
 			<thead>
 			<tr>
-			<th scope="col">
-			<div class="custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" aria-label="Select all" id="select_all" value="on" name="select_all">
-			<label class="custom-control-label" for="select_all"></label>
-			</div>
-			</th>
 				<th scope="col">
 						<select class="custom-select" id="hhSort">
 						<option value="">Household</option>
@@ -31,12 +25,8 @@
 					<check if="{{ @pet.hhID == @household.hhID }}">
 						<tr>
 							<td>
-							<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input select_all pets" id="{{ @pet.id }}" value="{{ @pet.id }}">
-							<label class="custom-control-label" for="{{ @pet.id }}"></label>
-							</div>
+							{{ trim(@household.name) }}
 							</td>
-							<td>{{ trim(@household.name) }}</td>
 							<td>{{ trim(@pet.name) }}</td>
 							<td>
 								<check if="{{ @pet.age == 'Baby' }}">
@@ -85,7 +75,7 @@
 </check>
 
 <a href="{{ @BASE.'/pet/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
-<a href="#petMove" data-pets="0" id="move" name="move" class="btn btn-primary mt-3" data-toggle="modal" data-target="#petMove"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Move</a>
+<a href="#petMove" id="move" name="move" class="btn btn-primary mt-3" data-toggle="modal" data-target="#petMove"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Move</a>
 
 <div class="modal fade" id="petMove" tabindex="-1" aria-labelledby="petMoveLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -97,17 +87,32 @@
         </button>
       </div>
       <div class="modal-body">
-	  <p></p>
+	  <form action="{{ @BASE.'/pet/move' }}" validate="true" method="post" class="form-horizontal">
+		<div class="form-group">
+			<label for="hhPets">Choose pets to move (hold Ctrl to choose more than 1)</label>
+			<select class="custom-select" multiple name="hhPets[]" id="hhPets">
+				<repeat group="{{ @pets }}" value="{{ @pet }}">
+					<option value="{{ @pet.id }}">{{ @pet.name }}</option>
+				</repeat>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="hhID">Where are you moving these pets?</label>
+				<select class="custom-select" name="hhID" id="hhID">
+					<repeat group="{{ @households }}" value="{{ @hh }}">
+						<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
+					</repeat>
+				</select>
+		</div>		
       </div>
       <div class="modal-footer">
 		<!-- Hidden fields and form submission -->
 		<div class="control-group">
 			<div class="">
-				<input type="text" name="hptrap" class="hptrap" />
-				<input type="hidden" name="move" value="move" />{{ @BASE.'/pet/move' }}
-				<input type="hidden" name="id" value="{{ @pet.id }}" />
-				<button type="submit" id="save" name="save" class="btn btn-success"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+			<input type="text" class="hptrap" name="hptrap" />
+				<button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button></a>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</form>
 			</div>
 		</div>
       </div>
@@ -119,8 +124,7 @@
 
 <script>
 $(document).ready( function () {
-var searchIDs;
-var pets;
+let searchIDs;
     let table = $('#pets').DataTable({
         responsive: {
         breakpoints: [
@@ -135,23 +139,5 @@ var pets;
 		let val = $(this).find('option:selected').val();
 		table.columns(0).search(val).draw();
 	});
-
- 	$('#petMove').on('show.bs.modal', function (event) {
-		var button = $(event.relatedTarget); // Button that triggered the modal
-		getIDs();
-		var modal = $(this);
-		modal.find('.modal-body').text(searchIDs);
-	}) 
-
-	function getIDs() {
-    event.preventDefault();
-    searchIDs = $("input:checkbox:checked").map(function(){
-        return $(this).val();
-    }).toArray();
-	var _searchedIndex = $.inArray('on',searchIDs);
-	if(_searchedIndex >= 0){
-		searchIDs.splice(_searchedIndex,1);
-		}
-	}
 } );
 </script>

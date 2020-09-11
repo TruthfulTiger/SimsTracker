@@ -1,18 +1,6 @@
-<h3 class="text-primary">Summary</h3>
-<div class="form-row">
-    <div class="col">
-        <div class="form-group mb-2">
-            <label for="challengeName">Challenge name</label>
-            <input type="text" id="challengeName" value="{{ trim(@challenge.challengeName) }}" name="challengeName" class="form-control"/>
-        </div>
-    </div>
-	<div class="col">
-		<div class="form-group mb-2">
-			<label for="name">Household name</label>
-			<input type="text" readonly id="name" value="{{ trim(@household.name) }}" name="name" class="form-control"/>
-		</div>
-	</div>
-</div>
+<h3 class="text-primary">{{ trim(@challenge.challengeName) }}</h3>
+<dt>Household name:</dt>
+<dd>{{ trim(@household.name) }}</dd>
 <div class="form-group mb-2">
 	<p>Is this also a <a href="https://web.archive.org/web/20110112123130/http://community.livejournal.com/rainbowlegacy/tag/rules" target="_blank">Rainbow Challenge?</a></p>
 	<div class="custom-control custom-radio">

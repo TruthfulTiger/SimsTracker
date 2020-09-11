@@ -15,9 +15,8 @@ class HouseholdController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
-		$this->household->sims='SELECT COUNT(*) as simscount FROM sims where sims.hhID = household.hhID GROUP BY hhID ';
-		$this->household->pets='SELECT COUNT(*) as petscount FROM pets where pets.hhID = household.hhID GROUP BY hhID ';
-		$this->household->businesses='SELECT COUNT(*) as bizcount FROM businesses where businesses.hhID = household.hhID GROUP BY hhID ';
+		$this->household->sims='SELECT COUNT(*) as simscount FROM sims where sims.hhID = household.hhID and sims.lifeState = "Alive" GROUP BY hhID ';
+		$this->household->pets='SELECT COUNT(*) as petscount FROM pets where pets.hhID = household.hhID and pets.lifeState = "Alive" GROUP BY hhID ';
 
 		if($this->f3->exists('PARAMS.id')){
 			$nhID = $this->f3->get('PARAMS.id');

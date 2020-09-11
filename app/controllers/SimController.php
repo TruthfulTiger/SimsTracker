@@ -83,6 +83,29 @@ class SimController extends Controller {
 		}
 	}
 
+	public function move() {
+		if (!empty($_POST['hptrap'])) {
+			die('Nice try, Spam-A-Lot');
+		} else {
+			$this->f3->scrub($_POST,'p; br;');
+			$hhID = $_POST['hhID'];
+				if ($this->f3->exists('POST.hhSims')) {
+					$sims[] = $this->f3->get('POST.hhSims');
+					foreach ($sims[0] as $sim){ 
+						$this->db->exec('UPDATE sims SET hhID = ? WHERE id = ?', 
+						array(
+							$hhID,
+							$sim
+						));
+					} 
+					$this->f3->set('SESSION.success', 'Sim has been moved.'); 
+				} else {
+			$this->f3->set('SESSION.error', 'Please choose at least one sim.');
+			} 
+			$this->index();
+		}
+	}
+
 	public function update()
 	{
 		if($this->f3->exists('POST.update'))

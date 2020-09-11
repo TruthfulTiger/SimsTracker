@@ -118,6 +118,26 @@ jQuery.fn.extend({
     }
 })
 </script>
+{* Hoods list *}
+<script>
+function premadesList(g) {
+	switch(g) {
+		case 2: 
+		json = "{{@BASE}}/ui/json/premades/sims2.json";   
+		break;
+		case 3: 
+		json = "{{@BASE}}/ui/json/premades/sims3.json";    
+		break;
+		case 4: 
+		json = "{{@BASE}}/ui/json/premades/sims4.json";  
+		break;
+		default:
+		json = "{{@BASE}}/ui/json/premades/sims2.json";  
+		break;
+	}
+}
+</script>
+
 <check if="{{@hood.gameVersion == 2}}">
 {* Careers *}
 <script>
@@ -221,6 +241,7 @@ function careerPet(c) {
 	}
 }
 </script>
+
 {* Sims 2 sliders *}
 	<check if="{{ @title == 'Update Sim' }}">
 	{* Update-related sliders *}

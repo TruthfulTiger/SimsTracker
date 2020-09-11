@@ -13,7 +13,7 @@
 						</repeat>
 						</select>
 				</th>
-				<th scope="col">Sims</th>
+				<th scope="col">Sims / Pets</th>
 				<th scope="col">Net worth</th>
 				<th scope="col">Family friends</th>
 				<th scope="col">Action</th>
@@ -23,19 +23,28 @@
 			<tbody>
 			<repeat group="{{ @hoods }}" value="{{ @hood }}">
 				<repeat group="{{ @households }}" value="{{ @household }}">
-					<check if="{{ @household.nhID == @hood.id }}">
+				<check if="{{ @household.nhID == @hood.id }}">
+					<check if="{{ @household.name != 'Adoption pool' }}">
 				<tr>
 					<td>{{ trim(@household.name) }}</td>
 					<td>{{ trim(@hood.name) }}</td>
 					<td>Sims {{ trim(@hood.gameVersion) }}</td>
 					<check if="{{ @household.sims > 0 }}">
 					<true>
-						<td>{{ trim(@household.sims) }}</td>
+						<td>{{ trim(@household.sims) }} /
 					</true>
 					<false>
-					<td>0</td>
+					<td>0 /
 					</false>
 					</check>
+					<check if="{{ @household.pets > 0 }}">
+					<true>
+						{{ trim(@household.pets) }}</td>
+					</true>
+					<false>
+					0</td>
+					</false>
+					</check>					
 					<td>{{ trim(@household.money) | simoleons }}</td>
 					<td>{{ trim(@household.friends) }}</td>
 					<td><a href="{{ @BASE.'/household/update/'. @household.hhID }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
@@ -44,6 +53,7 @@
 								   title="Delete"
 								   class="text-danger delete"><i class="fa fa-trash"></i></a></td>
 				</tr>
+					</check>
 					</check>
 				</repeat>
 			</repeat>

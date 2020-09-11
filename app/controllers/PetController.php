@@ -133,18 +133,25 @@ class PetController extends Controller {
 	}
 
 	public function move() {
-		if ($this->f3->exists('POST.move')) {
-			if ($this->f3->exists('POST.hhPets')) {
-				$pets[] = $this->f3->get('POST.hhPets');
-				$hhID = 0;
-				foreach ($pets[0] as $pet){ 
-					$this->db->exec('UPDATE pets SET hhID = ? WHERE id = ?', 
-					array(
-						$hhID,
-						$pet
-					));
-				}
-			}
+		if (!empty($_POST['hptrap'])) {
+			die('Nice try, Spam-A-Lot');
+		} else {
+			$this->f3->scrub($_POST,'p; br;');
+			$hhID = $_POST['hhID'];
+				if ($this->f3->exists('POST.hhPets')) {
+					$sims[] = $this->f3->get('POST.hhPets');
+					foreach ($sims[0] as $sim){ 
+						$this->db->exec('UPDATE pets SET hhID = ? WHERE id = ?', 
+						array(
+							$hhID,
+							$sim
+						));
+					}
+					$this->f3->set('SESSION.success', 'Pet has been moved.'); 
+				} else {
+			$this->f3->set('SESSION.error', 'Please choose at least one pet.');
+			} 
+			$this->index();
 		}
 	}
 

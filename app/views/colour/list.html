@@ -15,11 +15,11 @@
 				<tr class="{{ @colour.colour }}">
 					<td>{{ trim(@colour.colour) }}</td>
 					<td>{{ trim(@colour.generation) }}</td>
-					<td><a href="{{ @BASE.'/colour/update/'. @colour.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+					<td><a href="{{ @BASE.'/colour/update/'. @colour.id }}" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 						<a href="#" onclick="confirm('{{ @BASE.'/colour/delete/'. @colour.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
-								   class="text-danger delete"><i class="fa fa-trash"></i></a></td>
+								   class="btn btn-danger delete"><i class="fa fa-trash"></i></a></td>
 				</tr>
 			</repeat>
 			</tbody>

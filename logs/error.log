@@ -1,0 +1,29 @@
+Thu, 03 Sep 2020 18:35:35 +0100 [::1] Not Found HTTP 404 (GET /ho)
+Mon, 07 Sep 2020 19:25:44 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Mon, 07 Sep 2020 19:25:44 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Mon, 07 Sep 2020 19:25:44 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Mon, 07 Sep 2020 19:25:45 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Fri, 11 Sep 2020 11:24:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Fri, 11 Sep 2020 11:24:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Fri, 11 Sep 2020 11:24:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Fri, 11 Sep 2020 11:24:47 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Fri, 11 Sep 2020 14:40:47 +0100 [::1] Internal Server Error Undefined field id
+Fri, 11 Sep 2020 15:44:51 +0100 [::1] Internal Server Error Unable to open
+Fri, 11 Sep 2020 18:31:47 +0100 [::1] Internal Server Error Fatal error: Cannot use [] for reading
+Fri, 11 Sep 2020 19:23:06 +0100 [::1] Internal Server Error Invalid argument supplied for foreach()
+Fri, 11 Sep 2020 19:37:16 +0100 [::1] Internal Server Error SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`playwithdolls`.`pets`, CONSTRAINT `FK_pethh` FOREIGN KEY (`hhID`) REFERENCES `household` (`hhID`) ON DELETE SET NULL ON UPDATE SET NULL) [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:226]
+Fri, 11 Sep 2020 19:38:42 +0100 [::1] Internal Server Error SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`playwithdolls`.`pets`, CONSTRAINT `FK_pethh` FOREIGN KEY (`hhID`) REFERENCES `household` (`hhID`) ON DELETE CASCADE ON UPDATE CASCADE) [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:226]
+Fri, 11 Sep 2020 19:58:47 +0100 [::1] Not Found HTTP 404 (POST /sim/move)
+Fri, 11 Sep 2020 21:05:55 +0100 [::1] Internal Server Error Undefined field id
+Fri, 11 Sep 2020 21:42:09 +0100 [::1] Internal Server Error SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:226]
+Fri, 11 Sep 2020 21:42:40 +0100 [::1] Internal Server Error SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IF NOT EXISTS INTO household (hhID, userID, `name`)
+Fri, 11 Sep 2020 21:42:40 +0100 [::1] VALUES (0, 1, 'Adop...' at line 1 [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:226]
+Fri, 11 Sep 2020 21:51:14 +0100 [::1] Internal Server Error SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 0' at line 1 [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:226]
+Fri, 11 Sep 2020 23:37:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Fri, 11 Sep 2020 23:37:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Fri, 11 Sep 2020 23:37:46 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Fri, 11 Sep 2020 23:37:47 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Sat, 12 Sep 2020 00:25:27 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)
+Sat, 12 Sep 2020 00:25:27 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Sat, 12 Sep 2020 00:25:28 +0100 [::1] Not Found HTTP 404 (GET /user/styles/shards-dashboards.1.1.0.min.css)
+Sat, 12 Sep 2020 00:25:28 +0100 [::1] Not Found HTTP 404 (GET /user/styles/extras.1.1.0.min.css)

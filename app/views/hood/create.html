@@ -63,28 +63,8 @@
 		<div class="form-group">
 		<label for="premade">Neighbourhood</label>
 		<select class="custom-select" name="premade" required="required" id="premade">
-			<option data-value="none" value="">-- Premade hoods --</option>
+			<option data-value="none" value="">-- Choose custom or a pre-made hood --</option>
 			<option data-value="custom" value="custom">Custom</option>
-			<optgroup label="Base hoods">
-			<repeat group="{{ @s2hoodNames }}" value="{{ @s2hood }}">
-				<option data-value="{{ @s2hood }}" value="{{ @s2hood }}">{{ @s2hood }}</option>
-			</repeat>
-			</optgroup>
-			<optgroup label="Universities">
-			<repeat group="{{ @s2uniNames }}" value="{{ @s2uni }}">
-				<option data-value="{{ @s2uni }}" value="{{ @s2uni }}">{{ @s2uni }}</option>
-			</repeat>
-			</optgroup>
-			<optgroup label="Downtown shopping">
-			<repeat group="{{ @s2DTNames }}" value="{{ @s2misc }}">
-				<option data-value="{{ @s2misc }}" value="{{ @s2misc }}">{{ @s2misc }}</option>
-			</repeat>
-			</optgroup>
-			<optgroup label="Vacation hoods">
-			<repeat group="{{ @s2BVNames }}" value="{{ @s2BV }}">
-			<option data-value="{{ @s2BV }}" value="{{ @s2BV }}">{{ @s2BV }}</option>
-			</repeat>
-			</optgroup>
 		</select>
 	</div>
 	</div>
@@ -114,9 +94,7 @@
 		let v = $("#gameVersion").find('option:selected').val();
 		let h = $(".type").find('option:selected').val();
 		let p = $("#premade").find('option:selected').val();
-		gameChange(v);
-		parentCheck(h);
-		customCheck(p);
+		let premade;
 	
 		$("#gameVersion").change(function(){
 			v = $(this).find('option:selected').val();
@@ -126,6 +104,7 @@
 		$(".type").change(function(){
 			h = $(this).find('option:selected').val();
 			parentCheck(h);
+			premades();
 		});
 
 		$("#premade").change(function(){
@@ -135,43 +114,61 @@
 	});
 	function gameChange(v) {
 		if (v == 2) {
+			// If this is Sims 2, show Sims 2 options
 			$("div#sims2").attr('aria-hidden', 'false').show();
 			$('select#s2type').attr("name","type");
 		} else  {
+			// If this isn't Sims 2, hide Sims 2 options
 			$("div#sims2").attr('aria-hidden', 'true').hide();
 			$('select#s2type').attr("name","s2type");
 			$("#s2type").val('');
 		}
 		if (v == 3) {
+			// If this is Sims 3, show Sims 3 options
 			$("div#sims3").attr('aria-hidden', 'false').show();
 			$('select#s3type').attr("name","type");
 		} else  {
+			// If this isn't Sims 3, hide Sims 3 options
 			$("div#sims3").attr('aria-hidden', 'true').hide();
 			$('select#s3type').attr("name","s3type");
 			$("#s3type").val('');
 		}
 		if (v == 4) {
+			// If this is Sims 4, show Sims 4 options
 			$("div#sims4").attr('aria-hidden', 'false').show();
 			$('select#s4type').attr("name","type");
 		} else  {
+			// If this isn't Sims 4, hide Sims 4 options
 			$("div#sims4").attr('aria-hidden', 'true').hide();
 			$('select#s4type').attr("name","s4type");
 			$("#s4type").val('');
 		}
+		if (v == 0) {
+				$("#premade").attr('aria-hidden', 'true').hide();
+				$("#premade").val('');
+				$("#parent").attr('aria-hidden', 'true').hide();
+				$("#parentHood").val('');
+				$('select#premade').attr("name","name");
+				$('input#custom').attr("name","custom");
+				$("#custom").val("");
+				$("#custom").attr('aria-hidden', 'true').hide();
+		}
 	}
 
 	function parentCheck(h) {
-			if (h == "Main hood"  || h == "") {
-				$("#parent").attr('aria-hidden', 'true').hide();
-				$("#parentHood").val('');
-			} 
-			else {
-				$("#parent").attr('aria-hidden', 'false').show();
-			}	
+		// Check if option cleared; if so, hide everything
 			if (h == "") {
 				$("#premade").attr('aria-hidden', 'true').hide();
 				$("#premade").val('');
+				$("#parent").attr('aria-hidden', 'true').hide();
+				$("#parentHood").val('');
+			} 
+			else if (h == "Main hood") {
+				$("#premade").attr('aria-hidden', 'false').show();
+				$("#parent").attr('aria-hidden', 'true').hide();
+				$("#parentHood").val('');
 			} else {
+				$("#parent").attr('aria-hidden', 'false').show();
 				$("#premade").attr('aria-hidden', 'false').show();
 			}
 	}
@@ -187,6 +184,45 @@
 			$('input#custom').attr("name","name");
 			$('select#premade').attr("name","premade");						
 		}
+	}
+
+	function premades() {
+		v = $("#gameVersion").find('option:selected').val();
+		premadesList(v);
+		h = $(".type").find('option:selected').val();
+			$.ajax({ 
+				type: 'POST', 
+				url: json, 
+				data: { get_param: 'value' }, 
+				dataType: 'json',
+				success: function (data) {
+					console.log(data.gameVersion);
+					if (h == "Main hood") {
+						premade = data.main;
+					}
+					if (h == "University") {
+						premade = data.uni;
+					}
+					if (h == "Downtown") {
+						premade = data.downtown;
+					}
+					if (h == "Shopping District") {
+						premade = data.shopping;
+					}
+					if (h == "Vacation hood") {
+						premade = data.vacation;
+					}
+					$('select#premade').empty();
+					$('select#premade').append("<option value=''>-- Choose custom or a pre-made hood --</option>");
+					$('select#premade').append("<option value='custom'>Custom</option>");
+				for(i=0; i<premade.length; i++) {
+					$('select#premade').append("<option value='"+ premade[i].name +"'>" + premade[i].name + "</option>");                      
+					}
+				},
+				error: function (result) {
+					console.log("File not found");
+				}
+			}); 
 	}
 
 </script>

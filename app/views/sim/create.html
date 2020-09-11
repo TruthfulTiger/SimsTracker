@@ -73,10 +73,12 @@
 			<div class="form-group">
 				<label for="hh">Which household is this Sim part of?</label>
 				<select class="custom-select" name="hh" id="hh">
-					<option value="">-- Create new household --</option>
+					<option value="">-- Create new household --</option>					
 					<repeat group="{{ @households }}" value="{{ @household }}">
+					<check if="{{ @household.name != 'Adoption pool' }}">
 					<option value="{{ @household.hhID }}">{{ @household.name }}</option>
-					</repeat>
+					</check>
+					</repeat>					
 				</select>
 			</div>
 			<a href="" id="url" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
