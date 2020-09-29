@@ -3,7 +3,8 @@
 class Hood extends DB\SQL\Mapper{
 
 	public function __construct(DB\SQL $db) {
-		parent::__construct($db,'hood');
+		$this->table = 'hood';
+		parent::__construct($db,$this->table);
 	}
 
 	public function all() {
@@ -48,7 +49,7 @@ class Hood extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(
-			'ALTER TABLE hood AUTO_INCREMENT = '.intval($lastInsertID)
+			'ALTER TABLE '.$this->table.' AUTO_INCREMENT = '.intval($lastInsertID)
 		);
 	}
 }

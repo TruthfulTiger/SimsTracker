@@ -1,5 +1,5 @@
 <form action="{{ @BASE.'/hood/create' }}" autocomplete="off" validate="true" method="post" class="form-horizontal">
-
+<p>All you can change later is the name, so choose wisely!</p>
 	<div class="form-group">
 		<label for="gameVersion">Game version</label>
 		<select class="custom-select" name="gameVersion" required="required" id="gameVersion">
@@ -14,7 +14,7 @@
 <div class="col">
 	<div class="form-group" id="sims2" style="display:none">
 		<label for="s2type">Type</label>
-		<select class="custom-select type" required="required" name="s2type" id="s2type">
+		<select class="custom-select type" name="s2type" id="s2type">
 			<option selected>-- Hood type --</option>
 			<repeat group="{{ @s2hoodTypes }}" value="{{ @s2value }}">
 				<option value="{{ @s2value }}">{{ @s2value }}</option>
@@ -25,7 +25,7 @@
 	<div class="form-group" id="sims3" style="display:none">
 		<label for="s3type">Type</label>
 		<select class="custom-select type" name="s3type" id="s3type">
-			<option selected>-- Hood type --</option>
+			<option selected>-- World type --</option>
 			<repeat group="{{ @s3hoodTypes }}" value="{{ @s3value }}">
 				<option value="{{ @s3value }}">{{ @s3value }}</option>
 			</repeat>
@@ -33,9 +33,9 @@
 	</div>
 
 	<div class="form-group" id="sims4" style="display:none">
-		<label for="s4type">Type</label>
+		<label for="s4type">World</label>
 		<select class="custom-select type" name="s4type" id="s4type">
-			<option selected>-- Hood type --</option>
+			<option selected>-- Choose a world --</option>
 			<repeat group="{{ @s4hoodTypes }}" value="{{ @s4value }}">
 				<option value="{{ @s4value }}">{{ @s4value }}</option>
 			</repeat>
@@ -62,15 +62,13 @@
 	<div class="col" id="premade" style="display:none">
 		<div class="form-group">
 		<label for="premade">Neighbourhood</label>
-		<select class="custom-select" name="premade" required="required" id="premade">
-			<option data-value="none" value="">-- Choose custom or a pre-made hood --</option>
-			<option data-value="custom" value="custom">Custom</option>
+		<select class="custom-select" name="premade" id="premade">
 		</select>
 	</div>
 	</div>
 	<div class="col" id="custom" style="display:none">
 		<div class="form-group">
-		<label for="name">Custom hood</label>
+		<label for="name">Hood name</label>
 		<input type="text" class="form-control" name="custom" id="custom" />
 		<input type="hidden" id="hidden-field">
 	</div>
@@ -113,6 +111,14 @@
 		});
 	});
 	function gameChange(v) {
+			$("#premade").attr('aria-hidden', 'true').hide();
+			$("#premade").val('');
+			$("#parent").attr('aria-hidden', 'true').hide();
+			$("#parentHood").val('');
+			$('select#premade').attr("name","name");
+			$('input#custom').attr("name","custom");
+			$("#custom").val("");
+			$("#custom").attr('aria-hidden', 'true').hide();
 		if (v == 2) {
 			// If this is Sims 2, show Sims 2 options
 			$("div#sims2").attr('aria-hidden', 'false').show();
@@ -144,18 +150,21 @@
 			$("#s4type").val('');
 		}
 		if (v == 0) {
-				$("#premade").attr('aria-hidden', 'true').hide();
-				$("#premade").val('');
-				$("#parent").attr('aria-hidden', 'true').hide();
-				$("#parentHood").val('');
-				$('select#premade').attr("name","name");
-				$('input#custom').attr("name","custom");
-				$("#custom").val("");
-				$("#custom").attr('aria-hidden', 'true').hide();
+			$("div#sims2").attr('aria-hidden', 'true').hide();
+			$('select#s2type').attr("name","s2type");
+			$("#s2type").val('');
+			$("div#sims3").attr('aria-hidden', 'true').hide();
+			$('select#s3type').attr("name","s3type");
+			$("#s3type").val('');
+			$("div#sims4").attr('aria-hidden', 'true').hide();
+			$('select#s4type').attr("name","s4type");
+			$("#s4type").val('');
 		}
 	}
 
 	function parentCheck(h) {
+		v = $("#gameVersion").find('option:selected').val();
+		if (v != 4) {
 		// Check if option cleared; if so, hide everything
 			if (h == "") {
 				$("#premade").attr('aria-hidden', 'true').hide();
@@ -163,7 +172,7 @@
 				$("#parent").attr('aria-hidden', 'true').hide();
 				$("#parentHood").val('');
 			} 
-			else if (h == "Main hood") {
+			else if (h == "Main hood" || h == "Main world") {
 				$("#premade").attr('aria-hidden', 'false').show();
 				$("#parent").attr('aria-hidden', 'true').hide();
 				$("#parentHood").val('');
@@ -171,6 +180,12 @@
 				$("#parent").attr('aria-hidden', 'false').show();
 				$("#premade").attr('aria-hidden', 'false').show();
 			}
+		}
+		if (v == 4) {
+			$("#premade").attr('aria-hidden', 'false').show();
+			$("#parent4").attr('aria-hidden', 'true').hide();
+			$("#parentHood").val('');
+		}
 	}
 
 	function customCheck(c) {
@@ -186,18 +201,34 @@
 		}
 	}
 
+	function worldCheck(c) {
+		if (c != "s4hood") {
+				$('select#premade').attr("name","name");
+				$('input#s4hood').attr("name","s4hood");
+				$("#s4hood").val("");
+				$("#s4hood").attr('aria-hidden', 'true').hide();
+		} else {
+			$("#s4hood").attr('aria-hidden', 'false').show();
+			$('input#s4world').attr("name","name");
+			$('select#premade').attr("name","premade");						
+		}
+	}
+
 	function premades() {
 		v = $("#gameVersion").find('option:selected').val();
 		premadesList(v);
 		h = $(".type").find('option:selected').val();
 			$.ajax({ 
-				type: 'POST', 
+				method: 'POST', 
 				url: json, 
 				data: { get_param: 'value' }, 
+				contentType: "application/json; charset=utf-8",
 				dataType: 'json',
+/* 			    beforeSend:function(){ // Show loading gif
+				$(".post_submitting").show().html("<center><img src='images/loading.gif'/></center>"); 
+				}, */
 				success: function (data) {
-					console.log(data.gameVersion);
-					if (h == "Main hood") {
+					if (h == "Main hood" || h == "Main world") {
 						premade = data.main;
 					}
 					if (h == "University") {
@@ -212,9 +243,68 @@
 					if (h == "Vacation hood") {
 						premade = data.vacation;
 					}
+					if (h == "Sub-world") {
+						premade = data.sub;
+					}
+					if (h == "Willow Creek") {
+						premade = data.wc;
+					}
+					if (h == "Oasis Springs") {
+						premade = data.os;
+					}
+					if (h == "Newcrest") {
+						premade = data.nc;
+					}						
+					if (h == "Granite Falls") {
+						premade = data.gf;
+					}
+					if (h == "Windenburg") {
+						premade = data.wd;
+					}
+					if (h == "San Myshuno") {
+						premade = data.sm;
+					}
+					if (h == "Brindleton Bay") {
+						premade = data.bb;
+					}
+					if (h == "Selvadorada") {
+						premade = data.sl;
+					}
+					if (h == "Del Sol Valley") {
+						premade = data.dsv;
+					}
+					if (h == "StrangerVille") {
+						premade = data.sv;
+					}
+					if (h == "Sulani") {
+						premade = data.su;
+					}
+					if (h == "Britechester") {
+						premade = data.bc;
+					}
+					if (h == "Evergreen Harbor") {
+						premade = data.eh;
+					}
+					if (h == "Independent") {
+						premade = data.id;
+					}																														
+					
 					$('select#premade').empty();
-					$('select#premade').append("<option value=''>-- Choose custom or a pre-made hood --</option>");
-					$('select#premade').append("<option value='custom'>Custom</option>");
+
+					if (v == 2) {
+						$('select#premade').append("<option value=''>-- Choose a custom or pre-made hood --</option>");
+						$('select#premade').append("<option value='custom'>Custom</option>");
+					}				
+
+					if (v == 3) {
+						$('select#premade').append("<option value=''>-- Choose a custom or pre-made hood --</option>");
+						$('select#premade').append("<option value='custom'>Custom</option>");
+					}		
+
+					if (v == 4) {					
+						$('select#premade').append("<option value=''>-- Choose a hood --</option>");
+					}	
+
 				for(i=0; i<premade.length; i++) {
 					$('select#premade').append("<option value='"+ premade[i].name +"'>" + premade[i].name + "</option>");                      
 					}
@@ -224,5 +314,15 @@
 				}
 			}); 
 	}
+
+	function premadesList(g) {
+		let url = "{{@BASE}}";
+	if (g == 2)
+		json = url + "/ui/json/premades/sims2.json"; 
+	if (g == 3)
+		json = url + "/ui/json/premades/sims3.json"; 
+	if (g == 4)
+		json = url + "/ui/json/premades/sims4.json"; 
+}
 
 </script>

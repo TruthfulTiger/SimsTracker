@@ -98,7 +98,7 @@ class PetController extends Controller {
 			$this->hood->getById($this->pet->nhID);
 			$pet = $this->pet;
 			$hood = $this->hood;
-			$parents = $this->db->exec('SELECT * FROM pets WHERE nhID = ?', $this->pet->nhID);
+			$parents = $this->db->exec('SELECT * FROM pet WHERE nhID = ?', $this->pet->nhID);
 			if ($hood->gameVersion == 2)
 				$this->f3->config('config/sims2.cfg');
 			if ($hood->gameVersion == 3)
@@ -109,6 +109,7 @@ class PetController extends Controller {
                 $this->f3->set('pet',$pet);
 				$this->f3->set('parents', $parents);
 				$this->f3->set('hood', $hood);
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('title','Update Pet');
 				$this->f3->set('content','pet/update.html');
             } else {
@@ -141,7 +142,7 @@ class PetController extends Controller {
 				if ($this->f3->exists('POST.hhPets')) {
 					$sims[] = $this->f3->get('POST.hhPets');
 					foreach ($sims[0] as $sim){ 
-						$this->db->exec('UPDATE pets SET hhID = ? WHERE id = ?', 
+						$this->db->exec('UPDATE pet SET hhID = ? WHERE id = ?', 
 						array(
 							$hhID,
 							$sim

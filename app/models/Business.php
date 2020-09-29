@@ -3,7 +3,7 @@
 class Business extends DB\SQL\Mapper{
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'businesses';
+		$this->table = 'business';
 		parent::__construct($db,$this->table);
 	}
 

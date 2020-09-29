@@ -14,7 +14,13 @@
 				<th scope="col">Name</th>
 				<th scope="col">Age</th>
 				<th scope="col">Species</th>
-				<th scope="col">Gender</th>
+				<th scope="col">
+					<select class="custom-select" id="lifeSort">
+						<option value="">Life State</option>
+						<option value="Alive">Alive</option>
+						<option value="Deceased">Deceased</option>
+					</select>
+				</th>
 				<th scope="col">Action</th>
 			</tr>
 			</thead>
@@ -46,16 +52,7 @@
 								</check>
 							</td>
 							<td>{{ trim(@pet.species) }}</td>
-							<td>
-							<check if="{{ @pet.gender == 'M' }}">
-								<true>
-								Male
-								</true>
-								<false>
-								Female
-								</false>
-							</check>
-							</td>
+							<td>{{ trim(@pet.lifeState)}}							</td>
 							<td><a href="{{ @BASE.'/pet/view/'. @pet.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
 								<a href="{{ @BASE.'/pet/update/'. @pet.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 								<a href="#" onclick="confirm('{{ @BASE.'/pet/delete/'. @pet.id }}');"
@@ -126,6 +123,7 @@
 $(document).ready( function () {
 let searchIDs;
     let table = $('#pets').DataTable({
+		ordering: false,
         responsive: {
         breakpoints: [
             { name: 'desktop', width: Infinity },
@@ -138,6 +136,10 @@ let searchIDs;
 	$('#hhSort').change(function() {
 		let val = $(this).find('option:selected').val();
 		table.columns(0).search(val).draw();
+	});
+	$('#lifeSort').change(function() {
+		let val = $(this).find('option:selected').val();
+		table.columns(4).search(val).draw();
 	});
 } );
 </script>

@@ -51,8 +51,8 @@
             "friends" : 0,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 0,
-            "body" : 0,
+            "charisma" : 1,
+            "body" : 1,
             "logic" : 0,
             "creativity" : 0,
             "cleaning" : null
@@ -64,8 +64,8 @@
             "friends" : 0,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 1,
-            "body" : 1,
+            "charisma" : 2,
+            "body" : 2,
             "logic" : 0,
             "creativity" : 0,
             "cleaning" : null
@@ -74,19 +74,6 @@
             "name" : "Bit Player",
             "pay" : 714, 
             "bonus" : 1428,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 2,
-            "body" : 2,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Commercial Actress",
-            "pay" : 861, 
-            "bonus" : 1722,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Cartoon Voice",
-            "pay" : 1008, 
-            "bonus" : 2016,
+            "name" : "Commercial Actress",
+            "pay" : 861, 
+            "bonus" : 1722,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Supporting Player",
-            "pay" : 1155, 
-            "bonus" : 2310,
+            "name" : "Cartoon Voice",
+            "pay" : 1008, 
+            "bonus" : 2016,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Broadway Star",
-            "pay" : 1312, 
-            "bonus" : 2624,
+            "name" : "Supporting Player",
+            "pay" : 1155, 
+            "bonus" : 2310,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Leading Lady",
-            "pay" : 2205, 
-            "bonus" : 4410,
+            "name" : "Broadway Star",
+            "pay" : 1312, 
+            "bonus" : 2624,
             "friends" : 9,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Blockbuster Director",
-            "pay" : 3051, 
-            "bonus" : 6102,
+            "name" : "Leading Lady",
+            "pay" : 2205, 
+            "bonus" : 4410,
             "friends" : 11,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Icon",
-            "pay" : 5022, 
-            "bonus" : 10044,
+            "name" : "Blockbuster Director",
+            "pay" : 3051, 
+            "bonus" : 6102,
             "friends" : 14,
             "cooking" : null,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : 10,
             "logic" : 6,
             "creativity" : 9,
+            "cleaning" : null
+        },
+        {
+            "name" : "Icon",
+            "pay" : 5022, 
+            "bonus" : 10044,
+            "friends" : -14,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -10,
+            "body" : -10,
+            "logic" : -6,
+            "creativity" : -9,
             "cleaning" : null
         }
     ]

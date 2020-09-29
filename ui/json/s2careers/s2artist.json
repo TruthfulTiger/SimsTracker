@@ -54,26 +54,13 @@
             "charisma" : 0,
             "body" : null,
             "logic" : null,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Street Caricaturist",
             "pay" : 357, 
             "bonus" : 714,
-            "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Souvenir Whittler",
-            "pay" : 483, 
-            "bonus" : 966,
             "friends" : 1,
             "cooking" : 0,
             "mechanical" : 2,
@@ -84,9 +71,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Comic Book Penciller",
-            "pay" : 630, 
-            "bonus" : 1260,
+            "name" : "Souvenir Whittler",
+            "pay" : 483, 
+            "bonus" : 966,
             "friends" : 2,
             "cooking" : 1,
             "mechanical" : 3,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Wedding Photographer",
-            "pay" : 808, 
-            "bonus" : 1616,
+            "name" : "Comic Book Penciller",
+            "pay" : 630, 
+            "bonus" : 1260,
             "friends" : 4,
             "cooking" : 2,
             "mechanical" : 4,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Art Forger",
-            "pay" : 1339, 
-            "bonus" : 2678,
+            "name" : "Wedding Photographer",
+            "pay" : 808, 
+            "bonus" : 1616,
             "friends" : 5,
             "cooking" : 3,
             "mechanical" : 5,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Fashion Photographer",
-            "pay" : 1785, 
-            "bonus" : 3570,
+            "name" : "Art Forger",
+            "pay" : 1339, 
+            "bonus" : 2678,
             "friends" : 8,
             "cooking" : 3,
             "mechanical" : 6,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Acclaimed Muralist",
-            "pay" : 2232, 
-            "bonus" : 4464,
+            "name" : "Fashion Photographer",
+            "pay" : 1785, 
+            "bonus" : 3570,
             "friends" : 9,
             "cooking" : 4,
             "mechanical" : 7,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Conceptual Artist",
-            "pay" : 2625, 
-            "bonus" : 5250,
+            "name" : "Acclaimed Muralist",
+            "pay" : 2232, 
+            "bonus" : 4464,
             "friends" : 10,
             "cooking" : 5,
             "mechanical" : 8,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Visionary",
-            "pay" : 4549, 
-            "bonus" : 9098,
+            "name" : "Conceptual Artist",
+            "pay" : 2625, 
+            "bonus" : 5250,
             "friends" : 13,
             "cooking" : 6,
             "mechanical" : 8,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : null,
             "creativity" : 10,
+            "cleaning" : null
+        },
+        {
+            "name" : "Visionary",
+            "pay" : 4549, 
+            "bonus" : 9098,
+            "friends" : -13,
+            "cooking" : -6,
+            "mechanical" : -8,
+            "charisma" : -7,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -10,
             "cleaning" : null
         }
     ]

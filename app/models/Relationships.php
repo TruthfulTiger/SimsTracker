@@ -3,7 +3,8 @@
 class Relationships extends DB\SQL\Mapper{
 
 	public function __construct(DB\SQL $db) {
-		parent::__construct($db,'relationships');
+		$this->table = 'relationship';
+		parent::__construct($db,$this->table);
 	}
 
 	public function all() {
@@ -47,44 +48,22 @@ class Relationships extends DB\SQL\Mapper{
 		$this->save();
 	}
 
-// TODO: Get this working without creating relationships every time sim's updated
-	public function relCreate($userID, $hood, $parent, $sim){
-		if ($this->getBySim1($sim)) {
-			$sim1 = $this->getBySim1($sim);
-		} else if ($this->getBySim1($parent)){
-			$sim1 = $this->getBySim1($parent);
-		} else {
-			$sim1 = 0;
-		}
+	public function relCreate($userID, $hood, $sim1, $sim2, $ship){
+			$this->reset();
+			$this->userID = $userID;
+			$this->nhID = $hood;
+			$this->sim1 = $sim1;
+			$this->sim2 = $sim2;
+			$this->isFamily = 1;
+			$this->relName = $ship;
+			$this->save();
+	} 
 
-		if ($this->getBySim2($sim)) {
-			$sim2 = $this->getBySim2($sim);
-		} else if ($this->getBySim2($parent)){
-			$sim2 = $this->getBySim2($parent);
-		} else {
-			$sim2 = 0;
-		}
-		
-		if ($sim1 > 0) {
-			$this->reset();
-			$this->userID = $userID;
-			$this->nhID = $hood;
-			$this->sim1 = $sim;
-			$this->sim2 = $parent;
-			$this->isFamily = 1;
-			$this->relName = 'Child';
-			$this->save();
-		}
-		if ($sim2 > 0) {
-			$this->reset();
-			$this->userID = $userID;
-			$this->nhID = $hood;
-			$this->sim1 = $parent;
-			$this->sim2 = $sim;
-			$this->isFamily = 1;
-			$this->relName = 'Parent';
-			$this->save();
-		}
+	public function relEdit($id, $sim1, $sim2) {
+		$this->load(array('id=?',$id));
+		$this->sim1 = $sim1;
+		$this->sim2 = $sim2;
+		$this->update();
 	}
 
 	public function edit($id) {
@@ -98,7 +77,7 @@ class Relationships extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(
-			'ALTER TABLE relationships AUTO_INCREMENT = '.intval($lastInsertID)
+			'ALTER TABLE '.$this->table.' AUTO_INCREMENT = '.intval($lastInsertID)
 		);
 	}
 }

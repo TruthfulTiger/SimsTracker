@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<!-- Dropdown - Uni -->
-		<check if="{{ @user.uni == 1 }}">
+		<check if="{{ @users2.uni == 1 }}">
 			<div class="btn-group" role="group">
 				<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="uniLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					University
@@ -48,7 +48,7 @@
 		</check>
 
 		<!-- Dropdown - OFB -->
-		<check if="{{ @user.ofb == 1 }}">
+		<check if="{{ @users2.ofb == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="businessLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Business
@@ -60,7 +60,7 @@
 		</div>
 		</check>
 		<!-- Dropdown - Seasons -->
-		<check if="{{ @user.sns == 1 }}">
+		<check if="{{ @users2.sns == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler child" href="#" role="button" id="seasonsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Seasons
@@ -71,7 +71,7 @@
 		</div>
 		</check>
 		<!-- Dropdown - BV -->
-		<check if="{{ @user.bv == 1 }}">
+		<check if="{{ @users2.bv == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="bvLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Bon Voyage
@@ -82,7 +82,7 @@
 		</div>
 		</check>
 		<!-- Dropdown - FT -->
-		<check if="{{ @user.ft == 1 }}">
+		<check if="{{ @users2.ft == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant" href="#" role="button" id="ftLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Free Time
@@ -95,7 +95,7 @@
 		</div>
 		</check>
 		<!-- Dropdown - AL -->
-		<check if="{{ @user.al == 1 }}">
+		<check if="{{ @users2.al == 1 }}">
 		<div class="btn-group" role="group">
 			<a class="btn btn-primary dropdown-toggle infant toddler" href="#" role="button" id="alLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Apartment Life
@@ -206,57 +206,57 @@
 
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isAlien" name="isAlien" value="1" class="custom-control-input"
-					<check if="{{ @sim.isAlien == 1}}">
+					<check if="{{ @s2sim.isAlien == 1}}">
 						checked
 					</check>
 					>
 					<label class="custom-control-label" for="isAlien"><img src="{{@BASE}}{{@s2path}}ufo.png" data-toggle="tooltip" height="64" title="Alien" alt="Alien"></label>
 				</div>
 
-			<check if="{{ @user.uni == 1 }}">
+			<check if="{{ @users2.uni == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isZombie" name="isZombie" value="1" class="custom-control-input"
-					<check if="{{ @sim.isZombie == 1}}">
+					<check if="{{ @s2sim.isZombie == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isZombie"><img src="{{@BASE}}{{@s2path}}turnon29.png" data-toggle="tooltip" title="Zombie" alt="Zombie"></label>
 				</div>
 			</check>
 
-			<check if="{{ @user.nl == 1 }}">
+			<check if="{{ @users2.nl == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isVampire" name="isVampire" value="1" class="custom-control-input"
-					<check if="{{ @sim.isVampire == 1}}">
+					<check if="{{ @s2sim.isVampire == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isVampire"><img src="{{@BASE}}{{@s2path}}turnon9.png" data-toggle="tooltip" title="Vampire" alt="Vampire"></label>
 				</div>
 			</check>
 
-			<check if="{{ @user.ofb == 1 }}">
+			<check if="{{ @users2.ofb == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isServo" name="isServo" value="1" class="custom-control-input"
-					<check if="{{ @sim.isServo == 1}}">
+					<check if="{{ @s2sim.isServo == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isServo"><img src="{{@BASE}}{{@s2path}}turnon31.png" data-toggle="tooltip" title="Servo" alt="Servo"></label>
 				</div>
 			</check>
 
-			<check if="{{ @user.pets == 1 }}">	
+			<check if="{{ @users2.pets == 1 }}">	
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isWerewolf" name="isWerewolf" value="1" class="custom-control-input"
-					<check if="{{ @sim.isWerewolf == 1}}">
+					<check if="{{ @s2sim.isWerewolf == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isWerewolf"><img src="{{@BASE}}{{@s2path}}turnon33.png" data-toggle="tooltip" title="Werewolf" alt="Werewolf"></label>
 				</div>
 			</check>
 
-			<check if="{{ @user.sns == 1 }}">	
+			<check if="{{ @users2.sns == 1 }}">	
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isPlantSim" name="isPlantSim" value="1" class="custom-control-input"
-					<check if="{{ @sim.isPlantSim == 1}}">
+					<check if="{{ @s2sim.isPlantSim == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isPlantSim"><img src="{{@BASE}}{{@s2path}}turnon32.png" data-toggle="tooltip" title="PlantSim" alt="PlantSim"></label>
@@ -264,10 +264,10 @@
 			</check>
 
 
-			<check if="{{ @user.al == 1 }}">
+			<check if="{{ @users2.al == 1 }}">
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input type="checkbox" id="isWitch" name="isWitch" value="1" class="custom-control-input"
-					<check if="{{ @sim.isWitch == 1}}">
+					<check if="{{ @s2sim.isWitch == 1}}">
 						checked
 					</check>>
 					<label class="custom-control-label" for="isWitch"><img src="{{@BASE}}{{@s2path}}turnon34.png" data-toggle="tooltip" title="Witch" alt="Witch"></label>
@@ -451,14 +451,14 @@
 								<select class="custom-select" name="aspiration" id="aspiration">
 									<repeat group="{{ @aspirations }}" value="{{ @aspiration }}">
 										<option value="{{ @aspiration }}"
-										<check if="{{ @sim.aspiration == @aspiration}}">
+										<check if="{{ @s2sim.aspiration == @aspiration}}">
 											selected
 										</check>
 										>{{ trim(@aspiration) }}</option>
 									</repeat>
 								</select>
 							</div>
-                            <check if="{{ @user.ft == 1}}">
+                            <check if="{{ @users2.ft == 1}}">
 							<div class="form-group col" id="sA">
 								<label for="secondAsp">Secondary Aspiration</label>
 								<select class="custom-select" name="secondAsp" id="secondAsp">
@@ -466,7 +466,7 @@
 									<repeat group="{{ @aspirations }}" value="{{ @secondAsp }}">
 										<check if="{{ @secondAsp != 'Grow Up' }}">
 											<option value="{{ @secondAsp }}"
-											<check if="{{ @sim.secondAsp == @secondAsp}}">
+											<check if="{{ @s2sim.secondAsp == @secondAsp}}">
 												selected
 											</check>
 											>{{ @secondAsp }}</option>
@@ -555,10 +555,10 @@
 						>
 						<label class="custom-control-label" for="housebroken"><img src="{{@BASE}}{{@s2path}}housebroken.png" data-toggle="tooltip" title="Housebroken" alt="Housebroken"></label>
 					</div>
-					<check if="{{ @user.ft == 1}}">
+					<check if="{{ @users2.ft == 1}}">
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="rhyme" name="rhyme" value="1" class="custom-control-input"
-							<check if="{{ @sim.rhyme == 1}}">
+							<check if="{{ @s2sim.rhyme == 1}}">
 								checked
 							</check>
 							>
@@ -816,7 +816,7 @@
 										>{{ @unicareer }}</option>
 									</repeat>
 								</check>
-								<check if="{{ @user.sns == 1}}">
+								<check if="{{ @users2.sns == 1}}">
 								<repeat group="{{ @snscareers }}" key="{{@skey}}" value="{{ @snscareer }}">
 									<option value="{{ @skey }}"
 									<check if="{{ @sim.careerTrack == @skey}}">
@@ -825,7 +825,7 @@
 									>{{ @snscareer }}</option>
 								</repeat>
 								</check>
-								<check if="{{ @user.ft == 1}}">
+								<check if="{{ @users2.ft == 1}}">
 								<repeat group="{{ @ftcareers }}" key="{{@fkey}}" value="{{ @ftcareer }}">
 									<option value="{{ @fkey }}"
 									<check if="{{ @sim.careerTrack == @fkey}}">
@@ -846,7 +846,6 @@
 				</div>
 			</div>
 		</div>
-		{* LTWs - TODO: only show if uni+ is ticked *}
 		<div class="collapse mb-3" id="s2ltws" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -894,98 +893,98 @@
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedAthletics" name="earnedAthletics"
-								<check if="{{ @sim.earnedAthletics == 1}}">
+								<check if="{{ @s2sim.earnedAthletics == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedAthletics">Hogan Award for Athletics</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedCharisma" name="earnedCharisma"
-								<check if="{{ @sim.earnedCharisma == 1}}">
+								<check if="{{ @s2sim.earnedCharisma == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedCharisma">Bain-Gordon Communication Fellowship</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedHygienics" name="earnedHygienics"
-								<check if="{{ @sim.earnedHygienics == 1}}">
+								<check if="{{ @s2sim.earnedHygienics == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedHygienics">Kim Metro Prize for Hygienics</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedCulinary" name="earnedCulinary"
-								<check if="{{ @sim.earnedCulinary == 1}}">
+								<check if="{{ @s2sim.earnedCulinary == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedCulinary">London Culinary Arts Scholarship</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedGenius" name="earnedGenius"
-								<check if="{{ @sim.earnedGenius == 1}}">
+								<check if="{{ @s2sim.earnedGenius == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedGenius">Will Wright Genius Grant</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedEngineering" name="earnedEngineering"
-								<check if="{{ @sim.earnedEngineering == 1}}">
+								<check if="{{ @s2sim.earnedEngineering == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedEngineering">Bui Engineering Award</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedArts" name="earnedArts"
-								<check if="{{ @sim.earnedArts == 1}}">
+								<check if="{{ @s2sim.earnedArts == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedArts">Quigley Visual Arts Grant</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedYEA" name="earnedYEA"
-								<check if="{{ @sim.earnedYEA == 1}}">
+								<check if="{{ @s2sim.earnedYEA == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedYEA">Young Entrepreneurs Award</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedScholar" name="earnedScholar"
-								<check if="{{ @sim.earnedScholar == 1}}">
+								<check if="{{ @s2sim.earnedScholar == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedScholar">SimCity Scholar's Grant</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedBilliards" name="earnedBilliards"
-								<check if="{{ @sim.earnedBilliards == 1}}">
+								<check if="{{ @s2sim.earnedBilliards == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedBilliards">Phelps-Wilsonoff Billiards Prize</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1000" id="earnedFootwork" name="earnedFootwork"
-								<check if="{{ @sim.earnedFootwork == 1}}">
+								<check if="{{ @s2sim.earnedFootwork == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedFootwork">Tsang Footwork Award</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedUndead" name="earnedUndead"
-								<check if="{{ @sim.earnedUndead == 1}}">
+								<check if="{{ @s2sim.earnedUndead == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedUndead">Undead Educational Scholarship</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedOrphan" name="earnedOrphan"
-								<check if="{{ @sim.earnedOrphan == 1}}">
+								<check if="{{ @s2sim.earnedOrphan == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedOrphan">Orphaned Sims Assistance Fund</label>
 							</div>
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input scholars" value="1500" id="earnedET" name="earnedET"
-								<check if="{{ @sim.earnedET == 1}}">
+								<check if="{{ @s2sim.earnedET == 1}}">
 									checked
 								</check>>
 								<label class="custom-control-label" for="earnedET">Extraterrestrial Reparation Grant</label>
@@ -1076,7 +1075,7 @@
 								<option value="">-- None --</option>
 								<repeat group="{{ @turnons }}" value="{{ @to }}">
 									<option value="{{ @to }}"
-									<check if="{{ @sim.turnon1 == @to}}">
+									<check if="{{ @s2sim.turnon1 == @to}}">
 										selected
 									</check>
 									>{{ @to }}</option>
@@ -1089,7 +1088,7 @@
 								<option value="">-- None --</option>
 								<repeat group="{{ @turnons }}" value="{{ @to }}">
 									<option value="{{ @to }}"
-									<check if="{{ @sim.turnon2 == @to}}">
+									<check if="{{ @s2sim.turnon2 == @to}}">
 										selected
 									</check>
 									>{{ @to }}</option>
@@ -1102,7 +1101,7 @@
 								<option value="">-- None --</option>
 								<repeat group="{{ @turnons }}" value="{{ @to }}">
 									<option value="{{ @to }}"
-									<check if="{{ @sim.turnoff == @to}}">
+									<check if="{{ @s2sim.turnoff == @to}}">
 										selected
 									</check>
 									>{{ @to }}</option>
@@ -1127,7 +1126,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.makeup == @level}}">
+											<check if="{{ @s2sim.makeup == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1140,7 +1139,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.flowers == @level}}">
+											<check if="{{ @s2sim.flowers == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1153,7 +1152,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.cashier == @level}}">
+											<check if="{{ @s2sim.cashier == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1166,7 +1165,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.restocking == @level}}">
+											<check if="{{ @s2sim.restocking == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1181,7 +1180,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.robotics == @level}}">
+											<check if="{{ @s2sim.robotics == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1194,7 +1193,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.toysbadge == @level}}">
+											<check if="{{ @s2sim.toysbadge == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1207,7 +1206,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.sales == @level}}">
+											<check if="{{ @s2sim.sales == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1230,35 +1229,35 @@
 						<h6 class="mb-3 text-primary text-center">Cash</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cash1" name="cash1"
-							<check if="{{ @sim.cash1 == 1}}">
+							<check if="{{ @s2sim.cash1 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cash1">LeTourneau Prize</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cash2" name="cash2"
-							<check if="{{ @sim.cash2 == 1}}">
+							<check if="{{ @s2sim.cash2 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cash2">Valued Client Rebate</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cash3" name="cash3"
-							<check if="{{ @sim.cash3 == 1}}">
+							<check if="{{ @s2sim.cash3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cash3">Chamber of Commerce Prize</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cash4" name="cash4"
-							<check if="{{ @sim.cash4 == 1}}">
+							<check if="{{ @s2sim.cash4 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cash4">Owners Association Award</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cash5" name="cash5"
-							<check if="{{ @sim.cash5 == 1}}">
+							<check if="{{ @s2sim.cash5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cash5">Will Wright Grant</label>
@@ -1268,35 +1267,35 @@
 						<h6 class="mb-3 text-primary text-center">Wholesale</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="wholesale1" name="wholesale1"
-							<check if="{{ @sim.wholesale1 == 1}}">
+							<check if="{{ @s2sim.wholesale1 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="wholesale1">Wholesale Discount</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="wholesale2" name="wholesale2"
-							<check if="{{ @sim.wholesale2 == 1}}">
+							<check if="{{ @s2sim.wholesale2 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="wholesale2">Supplier Partnership</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="wholesale3" name="wholesale3"
-							<check if="{{ @sim.wholesale3 == 1}}">
+							<check if="{{ @s2sim.wholesale3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="wholesale3">Bargain Hunter</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="wholesale4" name="wholesale4"
-							<check if="{{ @sim.wholesale4 == 1}}">
+							<check if="{{ @s2sim.wholesale4 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="wholesale4">Serious Negotiator</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="wholesale5" name="wholesale5"
-							<check if="{{ @sim.wholesale5 == 1}}">
+							<check if="{{ @s2sim.wholesale5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="wholesale5">Shark of Sharks</label>
@@ -1306,35 +1305,35 @@
 						<h6 class="mb-3 text-primary text-center">Perception</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="perception1" name="perception1"
-							<check if="{{ @sim.perception1 == 1}}">
+							<check if="{{ @s2sim.perception1 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="perception1">Assess Mood</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="perception2" name="perception2"
-							<check if="{{ @sim.perception2 == 1}}">
+							<check if="{{ @s2sim.perception2 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="perception2">Assess Desire</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="perception3" name="perception3"
-							<check if="{{ @sim.perception3 == 1}}">
+							<check if="{{ @s2sim.perception3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="perception3">Look for Mark</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="perception4" name="perception4"
-							<check if="{{ @sim.perception4 == 1}}">
+							<check if="{{ @s2sim.perception4 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="perception4">Convincing Personality</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="perception5" name="perception5"
-							<check if="{{ @sim.perception5 == 1}}">
+							<check if="{{ @s2sim.perception5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="perception5">Manipulation</label>
@@ -1344,35 +1343,35 @@
 						<h6 class="mb-3 text-primary text-center">Motivation</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="motivation1" name="motivation1"
-							<check if="{{ @sim.motivation1 == 1}}">
+							<check if="{{ @s2sim.motivation1 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="motivation1">Simply Influential</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="motivation2" name="motivation2"
-							<check if="{{ @sim.motivation2 == 1}}">
+							<check if="{{ @s2sim.motivation2 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="motivation2">Perk Up</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="motivation3" name="motivation3"
-							<check if="{{ @sim.motivation3 == 1}}">
+							<check if="{{ @s2sim.motivation3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="motivation3">Motivational Speech</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="motivation4" name="motivation4"
-							<check if="{{ @sim.motivation4 == 1}}">
+							<check if="{{ @s2sim.motivation4 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="motivation4">Boundless Influence</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="motivation5" name="motivation5"
-							<check if="{{ @sim.motivation5 == 1}}">
+							<check if="{{ @s2sim.motivation5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="motivation5">Rally Forth</label>
@@ -1382,35 +1381,35 @@
 						<h6 class="mb-3 text-primary text-center">Connections</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="connections1" name="connections1"
-							<check if="{{ @sim.connections1 == 1}}">
+							<check if="{{ @s2sim.connections1 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="connections1">Notable Reputation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="connections2" name="connections2"
-							<check if="{{ @sim.connections2 == 1}}">
+							<check if="{{ @s2sim.connections2 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="connections2">Sterling Reputation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="connections3" name="connections3"
-							<check if="{{ @sim.connections3 == 1}}">
+							<check if="{{ @s2sim.connections3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="connections3">Network</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="connections4" name="connections4"
-							<check if="{{ @sim.connections4 == 1}}">
+							<check if="{{ @s2sim.connections4 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="connections4">Head for Numbers</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="connections5" name="connections5"
-							<check if="{{ @sim.connections5 == 1}}">
+							<check if="{{ @s2sim.connections5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="connections5">Power Network</label>
@@ -1433,7 +1432,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.gardening == @level}}">
+											<check if="{{ @s2sim.gardening == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1446,7 +1445,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.fishing == @level}}">
+											<check if="{{ @s2sim.fishing == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1468,84 +1467,84 @@
 						<h6 class="mb-3 text-primary text-center">General</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="goodHols" name="goodHols"
-							<check if="{{ @sim.goodHols == 1}}">
+							<check if="{{ @s2sim.goodHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols">Had a good vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="goodHols3" name="goodHols3"
-							<check if="{{ @sim.goodHols3 == 1}}">
+							<check if="{{ @s2sim.goodHols3 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols3">Had three good vacations</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="goodHols5" name="goodHols5"
-							<check if="{{ @sim.goodHols5 == 1}}">
+							<check if="{{ @s2sim.goodHols5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="goodHols5">Had five good vacations</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="tour" name="tour"
-							<check if="{{ @sim.tour == 1}}">
+							<check if="{{ @s2sim.tour == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tour">Went on a tour</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="tours5" name="tours5"
-							<check if="{{ @sim.tours5 == 1}}">
+							<check if="{{ @s2sim.tours5 == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tours5">Went on five tours</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="allTours" name="allTours"
-							<check if="{{ @sim.allTours == 1}}">
+							<check if="{{ @s2sim.allTours == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="allTours">Went on all of the tours</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="allGestures" name="allGestures"
-							<check if="{{ @sim.allGestures == 1}}">
+							<check if="{{ @s2sim.allGestures == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="allGestures">Learned all of the gestures</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="roomService" name="roomService"
-							<check if="{{ @sim.roomService == 1}}">
+							<check if="{{ @s2sim.roomService == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="roomService">Ordered room service</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="photoAlbum" name="photoAlbum"
-							<check if="{{ @sim.photoAlbum == 1}}">
+							<check if="{{ @s2sim.photoAlbum == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="photoAlbum">Ordered a photo album</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="secretMap" name="secretMap"
-							<check if="{{ @sim.secretMap == 1}}">
+							<check if="{{ @s2sim.secretMap == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="secretMap">Found a secret map</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="secretLot" name="secretLot"
-							<check if="{{ @sim.secretLot == 1}}">
+							<check if="{{ @s2sim.secretLot == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="secretLot">Discovered a secret lot</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="secretLotAll" name="secretLotAll"
-							<check if="{{ @sim.secretLotAll == 1}}">
+							<check if="{{ @s2sim.secretLotAll == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="secretLotAll">Discovered all of the secret lots</label>
@@ -1555,70 +1554,70 @@
 						<h6 class="mb-3 text-primary text-center">Mountains</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="mountainHols" name="mountainHols"
-							<check if="{{ @sim.mountainHols == 1}}">
+							<check if="{{ @s2sim.mountainHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mountainHols">Went on a mountain vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="flapjacks" name="flapjacks"
-							<check if="{{ @sim.flapjacks == 1}}">
+							<check if="{{ @s2sim.flapjacks == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="flapjacks">Ate flapjacks</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="chestPound" name="chestPound"
-							<check if="{{ @sim.chestPound == 1}}">
+							<check if="{{ @s2sim.chestPound == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="chestPound">Learned to chest pound</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="slapDance" name="slapDance"
-							<check if="{{ @sim.slapDance == 1}}">
+							<check if="{{ @s2sim.slapDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="slapDance">Learned to slap dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="dtMassage" name="dtMassage"
-							<check if="{{ @sim.dtMassage == 1}}">
+							<check if="{{ @s2sim.dtMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="dtMassage">Learned deep tissue massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="tent" name="tent"
-							<check if="{{ @sim.tent == 1}}">
+							<check if="{{ @s2sim.tent == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tent">Slept in a tent</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="logRoll" name="logRoll"
-							<check if="{{ @sim.logRoll == 1}}">
+							<check if="{{ @s2sim.logRoll == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="logRoll">Won at log rolling</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="axes" name="axes"
-							<check if="{{ @sim.axes == 1}}">
+							<check if="{{ @s2sim.axes == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="axes">Got a bull's-eye at axe throwing</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="treeRing" name="treeRing"
-							<check if="{{ @sim.treeRing == 1}}">
+							<check if="{{ @s2sim.treeRing == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="treeRing">Examined the tree ring display</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="bigfoot" name="bigfoot"
-							<check if="{{ @sim.bigfoot == 1}}">
+							<check if="{{ @s2sim.bigfoot == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="bigfoot">Befriended Bigfoot</label>
@@ -1628,84 +1627,84 @@
 						<h6 class="mb-3 text-primary text-center">Tropics</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="islandHols" name="islandHols"
-							<check if="{{ @sim.islandHols == 1}}">
+							<check if="{{ @s2sim.islandHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="islandHols">Went on an island vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="pineapple" name="pineapple"
-							<check if="{{ @sim.pineapple == 1}}">
+							<check if="{{ @s2sim.pineapple == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pineapple">Ate pineapple surprise</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="hangLoose" name="hangLoose"
-							<check if="{{ @sim.hangLoose == 1}}">
+							<check if="{{ @s2sim.hangLoose == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hangLoose">Learned to hang loose</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="hulaDance" name="hulaDance"
-							<check if="{{ @sim.hulaDance == 1}}">
+							<check if="{{ @s2sim.hulaDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hulaDance">Learned to hula dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="fireDance" name="fireDance"
-							<check if="{{ @sim.fireDance == 1}}">
+							<check if="{{ @s2sim.fireDance == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="fireDance">Learned to fire dance</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="hsMassage" name="hsMassage"
-							<check if="{{ @sim.hsMassage == 1}}">
+							<check if="{{ @s2sim.hsMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hsMassage">Learned hot stone massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="monkeyOffering" name="monkeyOffering"
-							<check if="{{ @sim.monkeyOffering == 1}}">
+							<check if="{{ @s2sim.monkeyOffering == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="monkeyOffering">Made an offering at the monkey ruins</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="playPirate" name="playPirate"
-							<check if="{{ @sim.playPirate == 1}}">
+							<check if="{{ @s2sim.playPirate == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="playPirate">Played on the pirate ship</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="seaChantey" name="seaChantey"
-							<check if="{{ @sim.seaChantey == 1}}">
+							<check if="{{ @s2sim.seaChantey == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="seaChantey">Learned a sea chantey</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="beachTreasure" name="beachTreasure"
-							<check if="{{ @sim.beachTreasure == 1}}">
+							<check if="{{ @s2sim.beachTreasure == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="beachTreasure">Found a beach treasure</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="treasureChest" name="treasureChest"
-							<check if="{{ @sim.treasureChest == 1}}">
+							<check if="{{ @s2sim.treasureChest == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="treasureChest">Dug up a treasure chest</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="mrMickles" name="mrMickles"
-							<check if="{{ @sim.mrMickles == 1}}">
+							<check if="{{ @s2sim.mrMickles == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mrMickles">Got a voodoo doll</label>
@@ -1715,77 +1714,77 @@
 						<h6 class="mb-3 text-primary text-center">Far East</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="easternHols" name="easternHols"
-							<check if="{{ @sim.easternHols == 1}}">
+							<check if="{{ @s2sim.easternHols == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="easternHols">Went on a Far East vacation</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="chirashi" name="chirashi"
-							<check if="{{ @sim.chirashi == 1}}">
+							<check if="{{ @s2sim.chirashi == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="chirashi">Ate chirashi</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="bow" name="bow"
-							<check if="{{ @sim.bow == 1}}">
+							<check if="{{ @s2sim.bow == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="bow">Learned to bow</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="taiChi" name="taiChi"
-							<check if="{{ @sim.taiChi == 1}}">
+							<check if="{{ @s2sim.taiChi == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="taiChi">Learned Tai Chi</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="apMassage" name="apMassage"
-							<check if="{{ @sim.apMassage == 1}}">
+							<check if="{{ @s2sim.apMassage == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="apMassage">Learned acupressure massage</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="drankTea" name="drankTea"
-							<check if="{{ @sim.drankTea == 1}}">
+							<check if="{{ @s2sim.drankTea == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="drankTea">Drank tea</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="zen" name="zen"
-							<check if="{{ @sim.zen == 1}}">
+							<check if="{{ @s2sim.zen == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="zen">Raked a Zen garden</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="mahjong" name="mahjong"
-							<check if="{{ @sim.mahjong == 1}}">
+							<check if="{{ @s2sim.mahjong == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mahjong">Won at mahjong</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="shrine" name="shrine"
-							<check if="{{ @sim.shrine == 1}}">
+							<check if="{{ @s2sim.shrine == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="shrine">Wished at the lucky shrine</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="teleport" name="teleport"
-							<check if="{{ @sim.teleport == 1}}">
+							<check if="{{ @s2sim.teleport == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="teleport">Learned to teleport</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input counter" id="dragon" name="dragon"
-							<check if="{{ @sim.dragon == 1}}">
+							<check if="{{ @s2sim.dragon == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="dragon">Learned the dragon legend</label>
@@ -1872,7 +1871,7 @@
 					<option selected value="">-- None --</option>
 					<repeat group="{{ @hobbies }}" key="{{@key}}" value="{{ @hobby }}">
 						<option value="{{ @key }}"
-						<check if="{{ @sim.pdHobby == @key}}">
+						<check if="{{ @s2sim.pdHobby == @key}}">
 							selected
 						</check>
 						>{{ trim(@hobby) }}</option>
@@ -1883,70 +1882,70 @@
 						<h6 class="mt-3">Hobby award achieved</h6>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="cusplaq" name="cusplaq" value="1" class="custom-control-input"
-							<check if="{{ @sim.cusplaq == 1}}">
+							<check if="{{ @s2sim.cusplaq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cusplaq"><img src="{{@BASE}}{{@s2path}}hobby4.png" data-toggle="tooltip" title="Cuisine" alt="Cuisine"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="filmplq" name="filmplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.filmplq == 1}}">
+							<check if="{{ @s2sim.filmplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="filmplq"><img src="{{@BASE}}{{@s2path}}hobby2.png" data-toggle="tooltip" title="Film and Lit" alt="Film and Lit"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="gamesplq" name="gamesplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.gamesplq == 1}}">
+							<check if="{{ @s2sim.gamesplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="gamesplq"><img src="{{@BASE}}{{@s2path}}hobby5.png" data-toggle="tooltip" title="Games" alt="Games"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="tinkplq" name="tinkplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.tinkplq == 1}}">
+							<check if="{{ @s2sim.tinkplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tinkplq"><img src="{{@BASE}}{{@s2path}}hobby10.png" data-toggle="tooltip" title="Tinkering" alt="Tinkering"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sciplq" name="sciplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.sciplq == 1}}">
+							<check if="{{ @s2sim.sciplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="sciplq"><img src="{{@BASE}}{{@s2path}}hobby8.png" data-toggle="tooltip" title="Science" alt="Science"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="artsplq" name="artsplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.artsplq == 1}}">
+							<check if="{{ @s2sim.artsplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="artsplq"><img src="{{@BASE}}{{@s2path}}hobby1.png" data-toggle="tooltip" title="Arts and Crafts" alt="Arts and Crafts"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="sportplq" name="sportplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.sportplq == 1}}">
+							<check if="{{ @s2sim.sportplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="sportplq"><img src="{{@BASE}}{{@s2path}}hobby9.png" data-toggle="tooltip" title="Sports" alt="Sports"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="natplq" name="natplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.natplq == 1}}">
+							<check if="{{ @s2sim.natplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="natplq"><img src="{{@BASE}}{{@s2path}}hobby7.png" data-toggle="tooltip" title="Nature" alt="Nature"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="fitplq" name="fitplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.fitplq == 1}}">
+							<check if="{{ @s2sim.fitplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="fitplq"><img src="{{@BASE}}{{@s2path}}hobby3.png" data-toggle="tooltip" title="Fitness" alt="Fitness"></label>
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="musicplq" name="musicplq" value="1" class="custom-control-input"
-							<check if="{{ @sim.musicplq == 1}}">
+							<check if="{{ @s2sim.musicplq == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="musicplq"><img src="{{@BASE}}{{@s2path}}hobby6.png" data-toggle="tooltip" title="Music and Dance" alt="Music and Dance"></label>
@@ -1970,7 +1969,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.sewing == @level}}">
+											<check if="{{ @s2sim.sewing == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1985,7 +1984,7 @@
 										<option value="">Not earned</option>
 										<repeat group="{{ @badgelevels }}" key="{{@level}}" value="{{ @levelName }}">
 											<option value="{{@level}}"
-											<check if="{{ @sim.pottery == @level}}">
+											<check if="{{ @s2sim.pottery == @level}}">
 												selected
 											</check>
 											>{{trim(@levelName)}}</option>
@@ -1996,7 +1995,7 @@
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 							<input type="checkbox" id="learnedParenting" name="learnedParenting" value="1" class="custom-control-input"
-							<check if="{{ @sim.learnedParenting == 1}}">
+							<check if="{{ @s2sim.learnedParenting == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="learnedParenting">Learned Parenting</label>
@@ -2014,70 +2013,70 @@
 						<h6 class="mb-3 text-primary text-center">Beetles</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="dpBeetle" name="dpBeetle"
-							<check if="{{ @sim.dpBeetle == 1}}">
+							<check if="{{ @s2sim.dpBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="dpBeetle">Dapper Pinstripe Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="pBeetle" name="pBeetle"
-							<check if="{{ @sim.pBeetle == 1}}">
+							<check if="{{ @s2sim.pBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pBeetle">Polka Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cpBeetle" name="cpBeetle"
-							<check if="{{ @sim.cpBeetle == 1}}">
+							<check if="{{ @s2sim.cpBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cpBeetle">Couch Potato Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="gmBeetle" name="gmBeetle"
-							<check if="{{ @sim.gmBeetle == 1}}">
+							<check if="{{ @s2sim.gmBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="gmBeetle">Gentleman Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="jBeetle" name="jBeetle"
-							<check if="{{ @sim.jBeetle == 1}}">
+							<check if="{{ @s2sim.jBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="jBeetle">Jack Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="prBeetle" name="prBeetle"
-							<check if="{{ @sim.prBeetle == 1}}">
+							<check if="{{ @s2sim.prBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="prBeetle">Prancer Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="thgBeetle" name="thgBeetle"
-							<check if="{{ @sim.thgBeetle == 1}}">
+							<check if="{{ @s2sim.thgBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="thgBeetle">Tri-Horn Greeves Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="rBeetle" name="rBeetle"
-							<check if="{{ @sim.rBeetle == 1}}">
+							<check if="{{ @s2sim.rBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="rBeetle">Ringo Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="mlBeetle" name="mlBeetle"
-							<check if="{{ @sim.mlBeetle == 1}}">
+							<check if="{{ @s2sim.mlBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mlBeetle">Mock Ladybug Beetle</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="gbBeetle" name="gbBeetle"
-							<check if="{{ @sim.gbBeetle == 1}}">
+							<check if="{{ @s2sim.gbBeetle == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="gbBeetle">Green Bottle Beetle</label>
@@ -2087,70 +2086,70 @@
 						<h6 class="mb-3 text-primary text-center">Butterflies</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="jButterfly" name="jButterfly"
-							<check if="{{ @sim.jButterfly == 1}}">
+							<check if="{{ @s2sim.jButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="jButterfly">Jelly Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="pbButterfly" name="pbButterfly"
-							<check if="{{ @sim.pbButterfly == 1}}">
+							<check if="{{ @s2sim.pbButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pbButterfly">Peanut Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="eButterfly" name="eButterfly"
-							<check if="{{ @sim.eButterfly == 1}}">
+							<check if="{{ @s2sim.eButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="eButterfly">Empress Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="bfwButterfly" name="bfwButterfly"
-							<check if="{{ @sim.bfwButterfly == 1}}">
+							<check if="{{ @s2sim.bfwButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="bfwButterfly">Blue Featherwing Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="mgButterfly" name="mgButterfly"
-							<check if="{{ @sim.mgButterfly == 1}}">
+							<check if="{{ @s2sim.mgButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mgButterfly">Margarina Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="mButterfly" name="mButterfly"
-							<check if="{{ @sim.mButterfly == 1}}">
+							<check if="{{ @s2sim.mButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mButterfly">Madame Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="vButterfly" name="vButterfly"
-							<check if="{{ @sim.vButterfly == 1}}">
+							<check if="{{ @s2sim.vButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="vButterfly">Vampire Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="pButterfly" name="pButterfly"
-							<check if="{{ @sim.pButterfly == 1}}">
+							<check if="{{ @s2sim.pButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pButterfly">Pygmalion Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="cpButterfly" name="cpButterfly"
-							<check if="{{ @sim.cpButterfly == 1}}">
+							<check if="{{ @s2sim.cpButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="cpButterfly">Copper Pot Butterfly</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="sButterfly" name="sButterfly"
-							<check if="{{ @sim.sButterfly == 1}}">
+							<check if="{{ @s2sim.sButterfly == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="sButterfly">Socialus Butterfly</label>
@@ -2160,70 +2159,70 @@
 						<h6 class="mb-3 text-primary text-center">Spiders</h6>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="ssSpider" name="ssSpider"
-							<check if="{{ @sim.ssSpider == 1}}">
+							<check if="{{ @s2sim.ssSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="ssSpider">Striped Spindler Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="gwSpider" name="gwSpider"
-							<check if="{{ @sim.gwSpider == 1}}">
+							<check if="{{ @s2sim.gwSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="gwSpider">Grey Widow Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="pSpider" name="pSpider"
-							<check if="{{ @sim.pSpider == 1}}">
+							<check if="{{ @s2sim.pSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="pSpider">Paratrooper Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="mSpider" name="mSpider"
-							<check if="{{ @sim.mSpider == 1}}">
+							<check if="{{ @s2sim.mSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="mSpider">Mock Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="ibSpider" name="ibSpider"
-							<check if="{{ @sim.ibSpider == 1}}">
+							<check if="{{ @s2sim.ibSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="ibSpider">Itsius Bitsius Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="hdSpider" name="hdSpider"
-							<check if="{{ @sim.hdSpider == 1}}">
+							<check if="{{ @s2sim.hdSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hdSpider">Hot Dog Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="qcSpider" name="qcSpider"
-							<check if="{{ @sim.qcSpider == 1}}">
+							<check if="{{ @s2sim.qcSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="qcSpider">Queen Charlotte Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="hpSpider" name="hpSpider"
-							<check if="{{ @sim.hpSpider == 1}}">
+							<check if="{{ @s2sim.hpSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="hpSpider">Huntsperson Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="sfbSpider" name="sfbSpider"
-							<check if="{{ @sim.sfbSpider == 1}}">
+							<check if="{{ @s2sim.sfbSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="sfbSpider">Single-Fanged Betsy Spider</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="tbSpider" name="tbSpider"
-							<check if="{{ @sim.tbSpider == 1}}">
+							<check if="{{ @s2sim.tbSpider == 1}}">
 								checked
 							</check>>
 							<label class="custom-control-label" for="tbSpider">Teddy Bear Spider</label>
@@ -2255,35 +2254,35 @@
 				<div class="form-group">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="learnedFire" name="learnedFire"
-						<check if="{{ @sim.learnedFire == 1}}">
+						<check if="{{ @s2sim.learnedFire == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="learnedFire">Fire Prevention</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="learnedAnger" name="learnedAnger"
-						<check if="{{ @sim.learnedAnger == 1}}">
+						<check if="{{ @s2sim.learnedAnger == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="learnedAnger">Anger Management</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="learnedHappiness" name="learnedHappiness"
-						<check if="{{ @sim.learnedHappiness == 1}}">
+						<check if="{{ @s2sim.learnedHappiness == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="learnedHappiness">Lifelong Happiness</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="learnedPhysio" name="learnedPhysio"
-						<check if="{{ @sim.learnedPhysio == 1}}">
+						<check if="{{ @s2sim.learnedPhysio == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="learnedPhysio">Physiology</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="learnedCounseling" name="learnedCounseling"
-						<check if="{{ @sim.learnedCounseling == 1}}">
+						<check if="{{ @s2sim.learnedCounseling == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="learnedCounseling">Couple Counseling</label>

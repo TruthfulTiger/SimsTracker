@@ -109,6 +109,7 @@ class BusinessController extends Controller {
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('biz',$biz);
 				$this->f3->set('sims', $owner);
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('title','Update Business');
 				$this->f3->set('content','businesses/update.html');
             } else {

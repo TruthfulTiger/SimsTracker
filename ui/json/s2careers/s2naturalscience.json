@@ -50,19 +50,6 @@
             "bonus" : 0,
             "friends" : 0,
             "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Algae Hunter",
-            "pay" : 483, 
-            "bonus" : 966,
-            "friends" : 0,
-            "cooking" : null,
             "mechanical" : 1,
             "charisma" : null,
             "body" : 1,
@@ -71,9 +58,9 @@
             "cleaning" : 1
         },
         {
-            "name" : "Clam Wrangler",
-            "pay" : 672, 
-            "bonus" : 1344,
+            "name" : "Algae Hunter",
+            "pay" : 483, 
+            "bonus" : 966,
             "friends" : 0,
             "cooking" : null,
             "mechanical" : 2,
@@ -84,9 +71,9 @@
             "cleaning" : 1
         },
         {
-            "name" : "Scatmaster",
-            "pay" : 787, 
-            "bonus" : 1574,
+            "name" : "Clam Wrangler",
+            "pay" : 672, 
+            "bonus" : 1344,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 3,
@@ -97,9 +84,9 @@
             "cleaning" : 3
         },
         {
-            "name" : "Soil Identifier",
-            "pay" : 945, 
-            "bonus" : 1890,
+            "name" : "Scatmaster",
+            "pay" : 787, 
+            "bonus" : 1574,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 4,
@@ -110,9 +97,9 @@
             "cleaning" : 5
         },
         {
-            "name" : "Rogue Botanist",
-            "pay" : 1134, 
-            "bonus" : 2268,
+            "name" : "Soil Identifier",
+            "pay" : 945, 
+            "bonus" : 1890,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 6,
@@ -123,9 +110,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Animal Linguist",
-            "pay" : 1344, 
-            "bonus" : 2688,
+            "name" : "Rogue Botanist",
+            "pay" : 1134, 
+            "bonus" : 2268,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : 6,
@@ -136,9 +123,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Unnatural Crossbreeder",
-            "pay" : 1554, 
-            "bonus" : 3108,
+            "name" : "Animal Linguist",
+            "pay" : 1344, 
+            "bonus" : 2688,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : 7,
@@ -149,9 +136,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Dinosaur Cloner",
-            "pay" : 2283, 
-            "bonus" : 45566,
+            "name" : "Unnatural Crossbreeder",
+            "pay" : 1554, 
+            "bonus" : 3108,
             "friends" : 10,
             "cooking" : null,
             "mechanical" : 9,
@@ -162,9 +149,9 @@
             "cleaning" : 8
         },
         {
-            "name" : "Ecological Guru",
-            "pay" : 10497, 
-            "bonus" : 20994,
+            "name" : "Dinosaur Cloner",
+            "pay" : 2283, 
+            "bonus" : 45566,
             "friends" : 12,
             "cooking" : null,
             "mechanical" : 10,
@@ -173,6 +160,19 @@
             "logic" : 10,
             "creativity" : null,
             "cleaning" : 8
+        },
+        {
+            "name" : "Ecological Guru",
+            "pay" : 10497, 
+            "bonus" : 20994,
+            "friends" : -12,
+            "cooking" : null,
+            "mechanical" : -10,
+            "charisma" : null,
+            "body" : -8,
+            "logic" : -10,
+            "creativity" : null,
+            "cleaning" : -8
         }
     ]
 }

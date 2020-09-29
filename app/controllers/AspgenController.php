@@ -14,6 +14,7 @@ class AspgenController extends Controller {
     function index() {
 		$this->user->getById($this->f3->get('SESSION.user[2]'));
 		$this->f3->set('user', $this->user);
+		$this->f3->set('users2',$this->users2data);
         $this->f3->set('content','aspgen.html');
         $this->f3->set('title', 'Aspiration Randomiser');
     }

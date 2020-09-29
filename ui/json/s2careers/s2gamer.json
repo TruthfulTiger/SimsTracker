@@ -13,26 +13,13 @@
             "charisma" : null,
             "body" : null,
             "logic" : 0,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Button Masher",
             "pay" : 74, 
             "bonus" : 148,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Trash Talker",
-            "pay" : 107, 
-            "bonus" : 214,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 0,
@@ -40,6 +27,19 @@
             "body" : null,
             "logic" : 0,
             "creativity" : 2,
+            "cleaning" : null
+        },
+        {
+            "name" : "Trash Talker",
+            "pay" : 107, 
+            "bonus" : 214,
+            "friends" : -1,
+            "cooking" : null,
+            "mechanical" : -1,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -1,
+            "creativity" : -2,
             "cleaning" : null
         }
     ],
@@ -67,26 +67,13 @@
             "charisma" : null,
             "body" : null,
             "logic" : 0,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Trash Talker",
             "pay" : 225, 
             "bonus" : 550,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Gold Farmer",
-            "pay" : 296, 
-            "bonus" : 592,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 1,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Flag Capturer",
-            "pay" : 325, 
-            "bonus" : 650,
+            "name" : "Gold Farmer",
+            "pay" : 296, 
+            "bonus" : 592,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 2,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Platform Jumper",
-            "pay" : 453, 
-            "bonus" : 906,
+            "name" : "Flag Capturer",
+            "pay" : 325, 
+            "bonus" : 650,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 4,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Power Leveler",
-            "pay" : 763, 
-            "bonus" : 1526,
+            "name" : "Platform Jumper",
+            "pay" : 453, 
+            "bonus" : 906,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 5,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Real Time Strategizer",
-            "pay" : 950, 
-            "bonus" : 1900,
+            "name" : "Power Leveler",
+            "pay" : 763, 
+            "bonus" : 1526,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : 6,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Guild Leader",
-            "pay" : 1250, 
-            "bonus" : 2500,
+            "name" : "Real Time Strategizer",
+            "pay" : 950, 
+            "bonus" : 1900,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : 7,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Game Designer",
-            "pay" : 1950, 
-            "bonus" : 3900,
+            "name" : "Guild Leader",
+            "pay" : 1250, 
+            "bonus" : 2500,
             "friends" : 9,
             "cooking" : null,
             "mechanical" : 8,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : 10,
             "creativity" : 7,
+            "cleaning" : null
+        },
+        {
+            "name" : "Game Designer",
+            "pay" : 1950, 
+            "bonus" : 3900,
+            "friends" : -9,
+            "cooking" : null,
+            "mechanical" : -8,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -10,
+            "creativity" : -7,
             "cleaning" : null
         }
     ]

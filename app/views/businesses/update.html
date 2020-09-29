@@ -81,6 +81,7 @@
 			<input type="text" name="hptrap" class="hptrap" />
 			<input type="hidden" name="update" value="update" />
 			<input type="hidden" name="id" value="{{ @biz.id }}" />
+			<input type="hidden" name="modified" value="{{ @modified }}" />
 			<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
 			<a href="{{ @BASE.'/biz' }}" class="btn btn-secondary mb-3"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</div>

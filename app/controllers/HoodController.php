@@ -43,16 +43,19 @@ class HoodController extends Controller {
 				if ($lastID !== $lastAdded) { // If the two are different, that means a hood has been added
 				// Check that new hood is a main hood before creating an adoption pool
 				if ($this->f3->get('POST.type') == 'Main hood') {
-				$adoption = $this->db->exec('SELECT hhID FROM household WHERE hhID = 0'); // Make sure an adoption pool hasn't already been created
+				$adoption = $this->db->exec('SELECT hhID FROM household WHERE `name` = "Adoption pool" '); // Make sure an adoption pool hasn't already been created
 				// Create default / adoption pool so sims / pets can be flagged as up for adoption
 				if (!$adoption) {
-					$this->db->exec('INSERT INTO household (hhID, userID, `name`)
-					VALUES (?, ?, ?)', 
+					$this->db->exec('INSERT INTO household (hhID, userID, `name`, nhID, gameVersion, `money`)
+					VALUES (?, ?, ?, ?, ?)', 
 					array(
 						0,
 						$this->f3->get('SESSION.user[2]'),
-						"Adoption pool"						
-					));
+						"Adoption pool",
+						0,
+						0,
+						0						
+					));					
 					}
 				}
 					$this->f3->set('SESSION.success', 'Neighbourhood has been added.');
@@ -92,6 +95,7 @@ class HoodController extends Controller {
 				$this->f3->set('parents', $parent);
 				$this->f3->set('title','Update Neighbourhood');
 				$this->f3->set('content','hood/update.html');
+				$this->f3->set('modified', $this->date);
 			} else {
 				$this->f3->set('SESSION.error', 'Neighbourhood doesn\'t exist');
 				$this->index();

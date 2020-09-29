@@ -7,19 +7,6 @@
             "name" : "Gofer",
             "pay" : 52, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Mailroom Technician",
-            "pay" : 76, 
-            "bonus" : 152,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -30,9 +17,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Executive Assistant",
-            "pay" : 98, 
-            "bonus" : 196,
+            "name" : "Mailroom Technician",
+            "pay" : 76, 
+            "bonus" : 152,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -40,6 +27,19 @@
             "body" : null,
             "logic" : 1,
             "creativity" : 1,
+            "cleaning" : null
+        },
+        {
+            "name" : "Executive Assistant",
+            "pay" : 98, 
+            "bonus" : 196,
+            "friends" : -6,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -1,
+            "body" : null,
+            "logic" : -1,
+            "creativity" : -1,
             "cleaning" : null
         }
     ],
@@ -51,7 +51,7 @@
             "friends" : 0,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 0,
+            "charisma" : 1,
             "body" : null,
             "logic" : 0,
             "creativity" : 0,
@@ -64,7 +64,7 @@
             "friends" : 0,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 1,
+            "charisma" : 2,
             "body" : null,
             "logic" : 0,
             "creativity" : 0,
@@ -74,19 +74,6 @@
             "name" : "Field Sales Representative",
             "pay" : 350, 
             "bonus" : 700,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 2,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Junior Executive",
-            "pay" : 448, 
-            "bonus" : 896,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Executive",
-            "pay" : 560, 
-            "bonus" : 1120,
+            "name" : "Junior Executive",
+            "pay" : 448, 
+            "bonus" : 896,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Senior Manager",
-            "pay" : 728, 
-            "bonus" : 1456,
+            "name" : "Executive",
+            "pay" : 560, 
+            "bonus" : 1120,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Vice President",
-            "pay" : 924, 
-            "bonus" : 1848,
+            "name" : "Senior Manager",
+            "pay" : 728, 
+            "bonus" : 1456,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "President",
-            "pay" : 1400, 
-            "bonus" : 2800,
+            "name" : "Vice President",
+            "pay" : 924, 
+            "bonus" : 1848,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "CEO",
-            "pay" : 1665, 
-            "bonus" : 3330,
+            "name" : "President",
+            "pay" : 1400, 
+            "bonus" : 2800,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Business Tycoon",
-            "pay" : 2100, 
-            "bonus" : 4200,
+            "name" : "CEO",
+            "pay" : 1665, 
+            "bonus" : 3330,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : 9,
             "creativity" : 7,
+            "cleaning" : null
+        },
+        {
+            "name" : "Business Tycoon",
+            "pay" : 2100, 
+            "bonus" : 4200,
+            "friends" : -8,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -8,
+            "body" : null,
+            "logic" : -9,
+            "creativity" : -7,
             "cleaning" : null
         }
     ]

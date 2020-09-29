@@ -7,19 +7,6 @@
             "name" : "School Crossing Guard",
             "pay" : 45, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : 0,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Parking Lot Attendant",
-            "pay" : 75, 
-            "bonus" : 150,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -30,9 +17,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Security Guard",
-            "pay" : 125, 
-            "bonus" : 250,
+            "name" : "Parking Lot Attendant",
+            "pay" : 75, 
+            "bonus" : 150,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -41,6 +28,19 @@
             "logic" : 1,
             "creativity" : null,
             "cleaning" : 0
+        },
+        {
+            "name" : "Security Guard",
+            "pay" : 125, 
+            "bonus" : 250,
+            "friends" : -3,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : -2,
+            "logic" : -1,
+            "creativity" : null,
+            "cleaning" : -1
         }
     ],
     "adult" : [
@@ -52,7 +52,7 @@
             "cooking" : null,
             "mechanical" : null,
             "charisma" : null,
-            "body" : 0,
+            "body" : 1,
             "logic" : 0,
             "creativity" : null,
             "cleaning" : 0
@@ -65,7 +65,7 @@
             "cooking" : null,
             "mechanical" : null,
             "charisma" : null,
-            "body" : 1,
+            "body" : 2,
             "logic" : 0,
             "creativity" : null,
             "cleaning" : 0
@@ -74,19 +74,6 @@
             "name" : "Patrol Officer",
             "pay" : 552, 
             "bonus" : 1104,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : 2,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Desk Sergeant",
-            "pay" : 616, 
-            "bonus" : 1232,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Vice Squad",
-            "pay" : 686, 
-            "bonus" : 1372,
+            "name" : "Desk Sergeant",
+            "pay" : 616, 
+            "bonus" : 1232,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Detective",
-            "pay" : 756, 
-            "bonus" : 1512,
+            "name" : "Vice Squad",
+            "pay" : 686, 
+            "bonus" : 1372,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : 2
         },
         {
-            "name" : "Lieutenant",
-            "pay" : 826, 
-            "bonus" : 1652,
+            "name" : "Detective",
+            "pay" : 756, 
+            "bonus" : 1512,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : 4
         },
         {
-            "name" : "SWAT Team Leader",
-            "pay" : 875, 
-            "bonus" : 1750,
+            "name" : "Lieutenant",
+            "pay" : 826, 
+            "bonus" : 1652,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Police Chief",
-            "pay" : 910, 
-            "bonus" : 1820,
+            "name" : "SWAT Team Leader",
+            "pay" : 875, 
+            "bonus" : 1750,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Captain Hero",
-            "pay" : 1225, 
-            "bonus" : 2450,
+            "name" : "Police Chief",
+            "pay" : 910, 
+            "bonus" : 1820,
             "friends" : 10,
             "cooking" : null,
             "mechanical" : null,
@@ -173,6 +160,19 @@
             "logic" : 9,
             "creativity" : null,
             "cleaning" : 8
+        },
+        {
+            "name" : "Captain Hero",
+            "pay" : 1225, 
+            "bonus" : 2450,
+            "friends" : -10,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : -10,
+            "logic" : -9,
+            "creativity" : null,
+            "cleaning" : -8
         }
     ]
 }

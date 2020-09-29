@@ -7,10 +7,10 @@
             "name" : "Stand Up Comedian",
             "pay" : 51, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 0,
+            "charisma" : 1,
             "body" : 0,
             "logic" : null,
             "creativity" : 0,
@@ -20,19 +20,6 @@
             "name" : "Birthday Party Mascot",
             "pay" : 82, 
             "bonus" : 164,
-            "friends" : 1,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 1,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Mime",
-            "pay" : 105, 
-            "bonus" : 210,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -41,6 +28,19 @@
             "logic" : null,
             "creativity" : 1,
             "cleaning" : null
+        },
+        {
+            "name" : "Mime",
+            "pay" : 105, 
+            "bonus" : 210,
+            "friends" : -2,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -1,
+            "body" : -1,
+            "logic" : null,
+            "creativity" : -1,
+            "cleaning" : null
         }
     ],
     "adult" : [
@@ -48,10 +48,10 @@
             "name" : "Stand Up Comedian",
             "pay" : 240, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 0,
+            "charisma" : 1,
             "body" : 0,
             "logic" : null,
             "creativity" : 0,
@@ -61,19 +61,6 @@
             "name" : "Birthday Party Mascot",
             "pay" : 265, 
             "bonus" : 530,
-            "friends" : 1,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 1,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Mime",
-            "pay" : 305, 
-            "bonus" : 610,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -84,9 +71,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Lounge Singer",
-            "pay" : 420, 
-            "bonus" : 840,
+            "name" : "Mime",
+            "pay" : 305, 
+            "bonus" : 610,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Ventriloquist",
-            "pay" : 505, 
-            "bonus" : 1010,
+            "name" : "Lounge Singer",
+            "pay" : 420, 
+            "bonus" : 840,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Round Table Knight",
-            "pay" : 690, 
-            "bonus" : 1380,
+            "name" : "Ventriloquist",
+            "pay" : 505, 
+            "bonus" : 1010,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Juggler",
-            "pay" : 820, 
-            "bonus" : 1640,
+            "name" : "Round Table Knight",
+            "pay" : 690, 
+            "bonus" : 1380,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Master of Ceremonies",
-            "pay" : 1120, 
-            "bonus" : 2240,
+            "name" : "Juggler",
+            "pay" : 820, 
+            "bonus" : 1640,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Headliner",
-            "pay" : 2540, 
-            "bonus" : 5080,
+            "name" : "Master of Ceremonies",
+            "pay" : 1120, 
+            "bonus" : 2240,
             "friends" : 10,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Prestidigitator",
-            "pay" : 3105, 
-            "bonus" : 6210,
+            "name" : "Headliner",
+            "pay" : 2540, 
+            "bonus" : 5080,
             "friends" : 12,
             "cooking" : null,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : 6,
             "logic" : null,
             "creativity" : 8,
+            "cleaning" : null
+        },
+        {
+            "name" : "Prestidigitator",
+            "pay" : 3105, 
+            "bonus" : 6210,
+            "friends" : -12,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -10,
+            "body" : -6,
+            "logic" : null,
+            "creativity" : -8,
             "cleaning" : null
         }
     ]

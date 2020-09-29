@@ -7,19 +7,6 @@
             "name" : "Nursing Home Attendant",
             "pay" : 65, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Orderly",
-            "pay" : 87, 
-            "bonus" : 174,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 0,
@@ -30,9 +17,9 @@
             "cleaning" : 1
         },
         {
-            "name" : "Emergency Medical Technician",
-            "pay" : 125, 
-            "bonus" : 250,
+            "name" : "Orderly",
+            "pay" : 87, 
+            "bonus" : 174,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 2,
@@ -41,6 +28,19 @@
             "logic" : 0,
             "creativity" : null,
             "cleaning" : 2
+        },
+        {
+            "name" : "Emergency Medical Technician",
+            "pay" : 125, 
+            "bonus" : 250,
+            "friends" : -3,
+            "cooking" : null,
+            "mechanical" : -2,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -1,
+            "creativity" : null,
+            "cleaning" : -2
         }
     ],
     "adult" : [
@@ -55,7 +55,7 @@
             "body" : null,
             "logic" : 0,
             "creativity" : null,
-            "cleaning" : 0
+            "cleaning" : 1
         },
         {
             "name" : "Paramedic",
@@ -66,27 +66,14 @@
             "mechanical" : 0,
             "charisma" : null,
             "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 1
-        },
-        {
-            "name" : "Nurse",
-            "pay" : 476, 
-            "bonus" : 952,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : null,
             "logic" : 1,
             "creativity" : null,
             "cleaning" : 2
         },
         {
-            "name" : "Intern",
-            "pay" : 574, 
-            "bonus" : 1148,
+            "name" : "Nurse",
+            "pay" : 476, 
+            "bonus" : 952,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 2,
@@ -97,9 +84,9 @@
             "cleaning" : 4
         },
         {
-            "name" : "Resident",
-            "pay" : 672, 
-            "bonus" : 1344,
+            "name" : "Intern",
+            "pay" : 574, 
+            "bonus" : 1148,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 3,
@@ -110,9 +97,9 @@
             "cleaning" : 5
         },
         {
-            "name" : "General Practitioner",
-            "pay" : 770, 
-            "bonus" : 1540,
+            "name" : "Resident",
+            "pay" : 672, 
+            "bonus" : 1344,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 4,
@@ -123,9 +110,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Specialist",
-            "pay" : 875, 
-            "bonus" : 1750,
+            "name" : "General Practitioner",
+            "pay" : 770, 
+            "bonus" : 1540,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 7,
@@ -136,9 +123,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Surgeon",
-            "pay" : 980, 
-            "bonus" : 1960,
+            "name" : "Specialist",
+            "pay" : 875, 
+            "bonus" : 1750,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : 9,
@@ -149,9 +136,9 @@
             "cleaning" : 8
         },
         {
-            "name" : "Medical Researcher",
-            "pay" : 1356, 
-            "bonus" : 2712,
+            "name" : "Surgeon",
+            "pay" : 980, 
+            "bonus" : 1960,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : 9,
@@ -162,9 +149,9 @@
             "cleaning" : 9
         },
         {
-            "name" : "Chief of Staff",
-            "pay" : 1488, 
-            "bonus" : 2976,
+            "name" : "Medical Researcher",
+            "pay" : 1356, 
+            "bonus" : 2712,
             "friends" : 9,
             "cooking" : null,
             "mechanical" : 9,
@@ -173,6 +160,19 @@
             "logic" : 10,
             "creativity" : null,
             "cleaning" : 10
+        },
+        {
+            "name" : "Chief of Staff",
+            "pay" : 1488, 
+            "bonus" : 2976,
+            "friends" : -9,
+            "cooking" : null,
+            "mechanical" : -9,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -10,
+            "creativity" : null,
+            "cleaning" : -10
         }
     ]
 }

@@ -10,7 +10,7 @@
             "come" : null,
             "rollover" : null,
             "speak" : null,
-            "shake" : null,
+            "shake" : true,
             "playdead" : null
         },
         {
@@ -19,7 +19,7 @@
             "bonus" : 380,
             "sit" : null,
             "stay" : null,
-            "come" : null,
+            "come" : true,
             "rollover" : null,
             "speak" : null,
             "shake" : true,
@@ -32,7 +32,7 @@
             "sit" : null,
             "stay" : null,
             "come" : true,
-            "rollover" : null,
+            "rollover" : true,
             "speak" : null,
             "shake" : true,
             "playdead" : null
@@ -43,10 +43,10 @@
             "bonus" : 1272,
             "sit" : null,
             "stay" : null,
-            "come" : true,
-            "rollover" : true,
+            "come" : null,
+            "rollover" : null,
             "speak" : null,
-            "shake" : true,
+            "shake" : null,
             "playdead" : null
         }
     ],
@@ -60,7 +60,7 @@
             "come" : null,
             "rollover" : null,
             "speak" : null,
-            "shake" : null,
+            "shake" : true,
             "playdead" : null
         },
         {
@@ -69,7 +69,7 @@
             "bonus" : 436,
             "sit" : null,
             "stay" : null,
-            "come" : null,
+            "come" : true,
             "rollover" : null,
             "speak" : null,
             "shake" : true,
@@ -82,7 +82,7 @@
             "sit" : null,
             "stay" : null,
             "come" : true,
-            "rollover" : null,
+            "rollover" : true,
             "speak" : null,
             "shake" : true,
             "playdead" : null
@@ -93,10 +93,10 @@
             "bonus" : 1462,
             "sit" : null,
             "stay" : null,
-            "come" : true,
-            "rollover" : true,
+            "come" : null,
+            "rollover" : null,
             "speak" : null,
-            "shake" : true,
+            "shake" : null,
             "playdead" : null
         }
     ]

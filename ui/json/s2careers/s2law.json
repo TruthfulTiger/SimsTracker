@@ -7,19 +7,6 @@
             "name" : "File Clerk",
             "pay" : 74, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Law Firm Receptionist",
-            "pay" : 98, 
-            "bonus" : 196,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -30,9 +17,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Legal Secretary",
-            "pay" : 145, 
-            "bonus" : 290,
+            "name" : "Law Firm Receptionist",
+            "pay" : 98, 
+            "bonus" : 196,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -41,6 +28,19 @@
             "logic" : 2,
             "creativity" : null,
             "cleaning" : 1
+        },
+        {
+            "name" : "Legal Secretary",
+            "pay" : 145, 
+            "bonus" : 290,
+            "friends" : -2,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -1,
+            "body" : null,
+            "logic" : -2,
+            "creativity" : null,
+            "cleaning" : -1
         }
     ],
     "adult" : [
@@ -48,7 +48,7 @@
             "name" : "File Clerk",
             "pay" : 148, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
             "charisma" : 0,
@@ -61,19 +61,6 @@
             "name" : "Law Firm Receptionist",
             "pay" : 215, 
             "bonus" : 430,
-            "friends" : 1,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Legal Secretary",
-            "pay" : 365, 
-            "bonus" : 730,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -84,9 +71,9 @@
             "cleaning" : 1
         },
         {
-            "name" : "Legal Biller",
-            "pay" : 422, 
-            "bonus" : 844,
+            "name" : "Legal Secretary",
+            "pay" : 365, 
+            "bonus" : 730,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : 2
         },
         {
-            "name" : "Paralegal",
-            "pay" : 488, 
-            "bonus" : 976,
+            "name" : "Legal Biller",
+            "pay" : 422, 
+            "bonus" : 844,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : 3
         },
         {
-            "name" : "Personal Injury Attorney",
-            "pay" : 725, 
-            "bonus" : 1450,
+            "name" : "Paralegal",
+            "pay" : 488, 
+            "bonus" : 976,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : 4
         },
         {
-            "name" : "Family Law Attorney",
-            "pay" : 865, 
-            "bonus" : 1730,
+            "name" : "Personal Injury Attorney",
+            "pay" : 725, 
+            "bonus" : 1450,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : 5
         },
         {
-            "name" : "International Corporate Lawyer",
-            "pay" : 1175, 
-            "bonus" : 2350,
+            "name" : "Family Law Attorney",
+            "pay" : 865, 
+            "bonus" : 1730,
             "friends" : 9,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Entertainment Attorney",
-            "pay" : 1572, 
-            "bonus" : 3144,
+            "name" : "International Corporate Lawyer",
+            "pay" : 1175, 
+            "bonus" : 2350,
             "friends" : 11,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "The Law",
-            "pay" : 1912, 
-            "bonus" : 3824,
+            "name" : "Entertainment Attorney",
+            "pay" : 1572, 
+            "bonus" : 3144,
             "friends" : 13,
             "cooking" : null,
             "mechanical" : null,
@@ -173,6 +160,19 @@
             "logic" : 7,
             "creativity" : null,
             "cleaning" : 8
+        },
+        {
+            "name" : "The Law",
+            "pay" : 1912, 
+            "bonus" : 3824,
+            "friends" : -13,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -10,
+            "body" : null,
+            "logic" : -7,
+            "creativity" : null,
+            "cleaning" : -8
         }
     ]
 }

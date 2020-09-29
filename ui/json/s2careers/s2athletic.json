@@ -7,19 +7,6 @@
             "name" : "Waterperson",
             "pay" : 97, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : null,
-            "cleaning" : null
-        },
-        {
-            "name" : "Locker Room Attendant",
-            "pay" : 110, 
-            "bonus" : 220,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 1,
@@ -30,14 +17,27 @@
             "cleaning" : null
         },
         {
-            "name" : "Team Mascot",
-            "pay" : 125, 
-            "bonus" : 250,
+            "name" : "Locker Room Attendant",
+            "pay" : 110, 
+            "bonus" : 220,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 1,
             "charisma" : 1,
             "body" : 1,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
+        },
+        {
+            "name" : "Team Mascot",
+            "pay" : 125, 
+            "bonus" : 250,
+            "friends" : -4,
+            "cooking" : null,
+            "mechanical" : -1,
+            "charisma" : -1,
+            "body" : -1,
             "logic" : null,
             "creativity" : null,
             "cleaning" : null
@@ -52,7 +52,7 @@
             "cooking" : null,
             "mechanical" : 0,
             "charisma" : 0,
-            "body" : 0,
+            "body" : 1,
             "logic" : null,
             "creativity" : null,
             "cleaning" : null
@@ -65,7 +65,7 @@
             "cooking" : null,
             "mechanical" : 0,
             "charisma" : 0,
-            "body" : 1,
+            "body" : 2,
             "logic" : null,
             "creativity" : null,
             "cleaning" : null
@@ -74,19 +74,6 @@
             "name" : "Rookie",
             "pay" : 322, 
             "bonus" : 644,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : 2,
-            "logic" : null,
-            "creativity" : null,
-            "cleaning" : null
-        },
-        {
-            "name" : "Starter",
-            "pay" : 420, 
-            "bonus" : 840,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 0,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "All Star",
-            "pay" : 539, 
-            "bonus" : 1078,
+            "name" : "Starter",
+            "pay" : 420, 
+            "bonus" : 840,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 0,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "MVP",
-            "pay" : 893, 
-            "bonus" : 1786,
+            "name" : "All Star",
+            "pay" : 539, 
+            "bonus" : 1078,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 1,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Superstar",
-            "pay" : 1190, 
-            "bonus" : 2380,
+            "name" : "MVP",
+            "pay" : 893, 
+            "bonus" : 1786,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 2,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Assistant Coach",
-            "pay" : 1488, 
-            "bonus" : 2976,
+            "name" : "Superstar",
+            "pay" : 1190, 
+            "bonus" : 2380,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : 4,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Coach",
-            "pay" : 1750, 
-            "bonus" : 3500,
+            "name" : "Assistant Coach",
+            "pay" : 1488, 
+            "bonus" : 2976,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : 7,
@@ -162,14 +149,27 @@
             "cleaning" : null
         },
         {
-            "name" : "Hall of Famer",
-            "pay" : 3033, 
-            "bonus" : 6066,
+            "name" : "Coach",
+            "pay" : 1750, 
+            "bonus" : 3500,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : 7,
             "charisma" : 10,
             "body" : 10,
+            "logic" : null,
+            "creativity" : null,
+            "cleaning" : null
+        },
+        {
+            "name" : "Hall of Famer",
+            "pay" : 3033, 
+            "bonus" : 6066,
+            "friends" : -8,
+            "cooking" : null,
+            "mechanical" : -7,
+            "charisma" : -10,
+            "body" : -10,
             "logic" : null,
             "creativity" : null,
             "cleaning" : null

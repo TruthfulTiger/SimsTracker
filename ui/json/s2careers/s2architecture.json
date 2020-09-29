@@ -9,7 +9,7 @@
             "bonus" : 0,
             "friends" : 0,
             "cooking" : null,
-            "mechanical" : 0,
+            "mechanical" : 1,
             "charisma" : null,
             "body" : null,
             "logic" : 0,
@@ -25,21 +25,21 @@
             "mechanical" : 1,
             "charisma" : null,
             "body" : null,
-            "logic" : 0,
-            "creativity" : 0,
+            "logic" : 1,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Foreman",
             "pay" : 102, 
             "bonus" : 204,
-            "friends" : 0,
+            "friends" : -1,
             "cooking" : null,
-            "mechanical" : 1,
+            "mechanical" : -1,
             "charisma" : null,
             "body" : null,
-            "logic" : 1,
-            "creativity" : 1,
+            "logic" : -1,
+            "creativity" : -1,
             "cleaning" : null
         }
     ],
@@ -63,7 +63,7 @@
             "bonus" : 352,
             "friends" : 0,
             "cooking" : null,
-            "mechanical" : 0,
+            "mechanical" : 1,
             "charisma" : null,
             "body" : null,
             "logic" : 0,
@@ -74,19 +74,6 @@
             "name" : "Foreman",
             "pay" : 248, 
             "bonus" : 568,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 1,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Head of Construction Company",
-            "pay" : 415, 
-            "bonus" : 830,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 2,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Architect's Apprentice",
-            "pay" : 525, 
-            "bonus" : 1020,
+            "name" : "Head of Construction Company",
+            "pay" : 415, 
+            "bonus" : 830,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 2,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Draftsman",
-            "pay" : 615, 
-            "bonus" : 1230,
+            "name" : "Architect's Apprentice",
+            "pay" : 525, 
+            "bonus" : 1020,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 3,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Architect",
-            "pay" : 985, 
-            "bonus" : 1970,
+            "name" : "Draftsman",
+            "pay" : 615, 
+            "bonus" : 1230,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : 4,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Architectural Partner",
-            "pay" : 1123, 
-            "bonus" : 2246,
+            "name" : "Architect",
+            "pay" : 985, 
+            "bonus" : 1970,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : 5,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Master Architect",
-            "pay" : 1970, 
-            "bonus" : 3940,
+            "name" : "Architectural Partner",
+            "pay" : 1123, 
+            "bonus" : 2246,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : 5,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "City Planner",
-            "pay" : 2300, 
-            "bonus" : 4600,
+            "name" : "Master Architect",
+            "pay" : 1970, 
+            "bonus" : 3940,
             "friends" : 11,
             "cooking" : null,
             "mechanical" : 6,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : 10,
             "creativity" : 9,
+            "cleaning" : null
+        },
+        {
+            "name" : "City Planner",
+            "pay" : 2300, 
+            "bonus" : 4600,
+            "friends" : -11,
+            "cooking" : null,
+            "mechanical" : -6,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -10,
+            "creativity" : -9,
             "cleaning" : null
         }
     ]

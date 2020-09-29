@@ -13,6 +13,7 @@ class Controller {
 	protected $page;
 	protected $web;
 	protected $mail;
+	protected $date;
 
 	function beforeroute() {
 		if($this->f3->get('SESSION.user') === null ) {
@@ -36,6 +37,7 @@ class Controller {
 		$f3 = Base::instance();
 		$web = \Web::instance();
 		$tpl = \Template::instance();
+		$date = date('Y-m-d H:i:s');
 		$page = $tpl->extend('pagebrowser','\Pagination::renderTag');
 		$db=new DB\SQL(
 			$f3->get('db_dns') . $f3->get('db_name'),
@@ -104,6 +106,7 @@ class Controller {
 		$this->f3=$f3;
 		$this->mail=$mail;
 		$this->db=$db;
+		$this->date=$date;
 		$this->web=$web;
 		$this->page=$page;
 	}

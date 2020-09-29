@@ -2,7 +2,8 @@
 
 class S2Legacy extends DB\SQL\Mapper{
 	public function __construct(DB\SQL $db) {
-		parent::__construct($db,'s2legacy');
+		$this->table = 's2legacy';
+		parent::__construct($db,$this->table);
 	}
 
 	public function all() {
@@ -50,7 +51,7 @@ class S2Legacy extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(
-			'ALTER TABLE s2legacy AUTO_INCREMENT = '.intval($lastInsertID)
+			'ALTER TABLE '.$this->table.' AUTO_INCREMENT = '.intval($lastInsertID)
 		);
 	}
 }

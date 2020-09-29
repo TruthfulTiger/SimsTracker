@@ -13,26 +13,13 @@
             "charisma" : 0,
             "body" : null,
             "logic" : null,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Piano Tuner",
             "pay" : 75, 
             "bonus" : 150,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Coffee Shop Sound Engineer",
-            "pay" : 98, 
-            "bonus" : 196,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 1,
@@ -40,6 +27,19 @@
             "body" : null,
             "logic" : null,
             "creativity" : 2,
+            "cleaning" : null
+        },
+        {
+            "name" : "Coffee Shop Sound Engineer",
+            "pay" : 98, 
+            "bonus" : 196,
+            "friends" : -1,
+            "cooking" : null,
+            "mechanical" : -1,
+            "charisma" : -1,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -2,
             "cleaning" : null
         }
     ],
@@ -61,19 +61,6 @@
             "name" : "Piano Tuner",
             "pay" : 186, 
             "bonus" : 372,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Coffee Shop Sound Engineer",
-            "pay" : 223, 
-            "bonus" : 446,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 1,
@@ -84,9 +71,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Summer Camp Music Teacher",
-            "pay" : 335, 
-            "bonus" : 670,
+            "name" : "Coffee Shop Sound Engineer",
+            "pay" : 223, 
+            "bonus" : 446,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 2,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Battle of the Bands Judge",
-            "pay" : 452, 
-            "bonus" : 904,
+            "name" : "Summer Camp Music Teacher",
+            "pay" : 335, 
+            "bonus" : 670,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 3,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Roadie",
-            "pay" : 535, 
-            "bonus" : 1070,
+            "name" : "Battle of the Bands Judge",
+            "pay" : 452, 
+            "bonus" : 904,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : 5,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Studio Musician",
-            "pay" : 1030, 
-            "bonus" : 2060,
+            "name" : "Roadie",
+            "pay" : 535, 
+            "bonus" : 1070,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : 6,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Concert Pianist",
-            "pay" : 1950, 
-            "bonus" : 3900,
+            "name" : "Studio Musician",
+            "pay" : 1030, 
+            "bonus" : 2060,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : 7,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Symphony Conductor",
-            "pay" : 2100, 
-            "bonus" : 4200,
+            "name" : "Concert Pianist",
+            "pay" : 1950, 
+            "bonus" : 3900,
             "friends" : 9,
             "cooking" : null,
             "mechanical" : 7,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Rock God",
-            "pay" : 2830, 
-            "bonus" : 5660,
+            "name" : "Symphony Conductor",
+            "pay" : 2100, 
+            "bonus" : 4200,
             "friends" : 11,
             "cooking" : null,
             "mechanical" : 7,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : null,
             "creativity" : 9,
+            "cleaning" : null
+        },
+        {
+            "name" : "Rock God",
+            "pay" : 2830, 
+            "bonus" : 5660,
+            "friends" : -11,
+            "cooking" : null,
+            "mechanical" : -7,
+            "charisma" : -8,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -9,
             "cleaning" : null
         }
     ]

@@ -118,6 +118,7 @@ class RelationshipsController extends Controller {
 				$this->f3->set('relationship',$this->relationship);
 				$this->f3->set('sims', $this->sim->getBynhID($this->relationship->nhID));
 				$this->f3->set('title','Update Relationship');
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('content','relationships/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'Relationship doesn\'t exist');

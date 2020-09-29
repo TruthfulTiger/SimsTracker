@@ -9,7 +9,7 @@
             "stay" : null,
             "come" : null,
             "rollover" : null,
-            "speak" : null,
+            "speak" : true,
             "shake" : null,
             "playdead" : null
         },
@@ -20,7 +20,7 @@
             "sit" : null,
             "stay" : null,
             "come" : null,
-            "rollover" : null,
+            "rollover" : true,
             "speak" : true,
             "shake" : null,
             "playdead" : null
@@ -35,7 +35,7 @@
             "rollover" : true,
             "speak" : true,
             "shake" : null,
-            "playdead" : null
+            "playdead" : true
         },
         {
             "name" : "Star",
@@ -44,10 +44,10 @@
             "sit" : null,
             "stay" : null,
             "come" : null,
-            "rollover" : true,
-            "speak" : true,
+            "rollover" : null,
+            "speak" : null,
             "shake" : null,
-            "playdead" : true
+            "playdead" : null
         }
     ],
     "cat" : [
@@ -59,7 +59,7 @@
             "stay" : null,
             "come" : null,
             "rollover" : null,
-            "speak" : null,
+            "speak" : true,
             "shake" : null,
             "playdead" : null
         },
@@ -70,7 +70,7 @@
             "sit" : null,
             "stay" : null,
             "come" : null,
-            "rollover" : null,
+            "rollover" : true,
             "speak" : true,
             "shake" : null,
             "playdead" : null
@@ -85,7 +85,7 @@
             "rollover" : true,
             "speak" : true,
             "shake" : null,
-            "playdead" : null
+            "playdead" : true
         },
         {
             "name" : "Star",
@@ -94,10 +94,10 @@
             "sit" : null,
             "stay" : null,
             "come" : null,
-            "rollover" : true,
-            "speak" : true,
+            "rollover" : null,
+            "speak" : null,
             "shake" : null,
-            "playdead" : true
+            "playdead" : null
         }
     ]
 }

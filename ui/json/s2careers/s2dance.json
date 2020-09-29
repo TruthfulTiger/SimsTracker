@@ -7,11 +7,11 @@
             "name" : "Aerobics Instructor",
             "pay" : 62, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
             "charisma" : 0,
-            "body" : 0,
+            "body" : 1,
             "logic" : null,
             "creativity" : 0,
             "cleaning" : null
@@ -20,11 +20,11 @@
             "name" : "Backup Dancer",
             "pay" : 85, 
             "bonus" : 425,
-            "friends" : 1,
+            "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 0,
-            "body" : 1,
+            "charisma" : 1,
+            "body" : 2,
             "logic" : null,
             "creativity" : 0,
             "cleaning" : null
@@ -33,13 +33,13 @@
             "name" : "Jazzercise Instructor",
             "pay" : 112, 
             "bonus" : 560,
-            "friends" : 2,
+            "friends" : -2,
             "cooking" : null,
             "mechanical" : null,
-            "charisma" : 1,
-            "body" : 2,
+            "charisma" : -1,
+            "body" : -2,
             "logic" : null,
-            "creativity" : 0,
+            "creativity" : -1,
             "cleaning" : null
         }
     ],
@@ -48,19 +48,6 @@
             "name" : "Aerobics Instructor",
             "pay" : 215, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Backup Dancer",
-            "pay" : 275, 
-            "bonus" : 550,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : null,
@@ -71,9 +58,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Jazzercise Instructor",
-            "pay" : 375, 
-            "bonus" : 750,
+            "name" : "Backup Dancer",
+            "pay" : 275, 
+            "bonus" : 550,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : null,
@@ -84,9 +71,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Pop 'n Lock Performer",
-            "pay" : 450, 
-            "bonus" : 900,
+            "name" : "Jazzercise Instructor",
+            "pay" : 375, 
+            "bonus" : 750,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Dance Video Star",
-            "pay" : 520, 
-            "bonus" : 1040,
+            "name" : "Pop 'n Lock Performer",
+            "pay" : 450, 
+            "bonus" : 900,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Interpretive Dancer",
-            "pay" : 680, 
-            "bonus" : 1360,
+            "name" : "Dance Video Star",
+            "pay" : 520, 
+            "bonus" : 1040,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Tap Dancer",
-            "pay" : 815, 
-            "bonus" : 1630,
+            "name" : "Interpretive Dancer",
+            "pay" : 680, 
+            "bonus" : 1360,
             "friends" : 6,
             "cooking" : null,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Ballroom Dancer",
-            "pay" : 1380, 
-            "bonus" : 2760,
+            "name" : "Tap Dancer",
+            "pay" : 815, 
+            "bonus" : 1630,
             "friends" : 8,
             "cooking" : null,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Flamenco Master",
-            "pay" : 2025, 
-            "bonus" : 4050,
+            "name" : "Ballroom Dancer",
+            "pay" : 1380, 
+            "bonus" : 2760,
             "friends" : 10,
             "cooking" : null,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "World Class Ballet Dancer",
-            "pay" : 2950, 
-            "bonus" : 5900,
+            "name" : "Flamenco Master",
+            "pay" : 2025, 
+            "bonus" : 4050,
             "friends" : 12,
             "cooking" : null,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : 9,
             "logic" : null,
             "creativity" : 9,
+            "cleaning" : null
+        },
+        {
+            "name" : "World Class Ballet Dancer",
+            "pay" : 2950, 
+            "bonus" : 5900,
+            "friends" : -12,
+            "cooking" : null,
+            "mechanical" : null,
+            "charisma" : -9,
+            "body" : -9,
+            "logic" : null,
+            "creativity" : -9,
             "cleaning" : null
         }
     ]

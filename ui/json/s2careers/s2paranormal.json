@@ -51,19 +51,6 @@
             "friends" : 0,
             "cooking" : 0,
             "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Conspiracy Theorist",
-            "pay" : 375, 
-            "bonus" : 750,
-            "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : null,
             "charisma" : 1,
             "body" : null,
             "logic" : null,
@@ -71,9 +58,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Tarot Card Reader",
-            "pay" : 525, 
-            "bonus" : 1050,
+            "name" : "Conspiracy Theorist",
+            "pay" : 375, 
+            "bonus" : 750,
             "friends" : 1,
             "cooking" : 0,
             "mechanical" : null,
@@ -84,9 +71,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Hypnotist",
-            "pay" : 672, 
-            "bonus" : 1344,
+            "name" : "Tarot Card Reader",
+            "pay" : 525, 
+            "bonus" : 1050,
             "friends" : 2,
             "cooking" : 0,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Medium",
-            "pay" : 840, 
-            "bonus" : 1680,
+            "name" : "Hypnotist",
+            "pay" : 672, 
+            "bonus" : 1344,
             "friends" : 4,
             "cooking" : 1,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : 1
         },
         {
-            "name" : "Douser",
-            "pay" : 1092, 
-            "bonus" : 2184,
+            "name" : "Medium",
+            "pay" : 840, 
+            "bonus" : 1680,
             "friends" : 6,
             "cooking" : 3,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : 3
         },
         {
-            "name" : "Police Psychic",
-            "pay" : 1386, 
-            "bonus" : 2772,
+            "name" : "Douser",
+            "pay" : 1092, 
+            "bonus" : 2184,
             "friends" : 8,
             "cooking" : 4,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "UFO Investigator",
-            "pay" : 2100, 
-            "bonus" : 4200,
+            "name" : "Police Psychic",
+            "pay" : 1386, 
+            "bonus" : 2772,
             "friends" : 9,
             "cooking" : 4,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Exorcist",
-            "pay" : 2494, 
-            "bonus" : 4988,
+            "name" : "UFO Investigator",
+            "pay" : 2100, 
+            "bonus" : 4200,
             "friends" : 10,
             "cooking" : 5,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : 8
         },
         {
-            "name" : "Cult Leader",
-            "pay" : 4725, 
-            "bonus" : 9450,
+            "name" : "Exorcist",
+            "pay" : 2494, 
+            "bonus" : 4988,
             "friends" : 13,
             "cooking" : 7,
             "mechanical" : null,
@@ -173,6 +160,19 @@
             "logic" : null,
             "creativity" : 10,
             "cleaning" : 9
+        },
+        {
+            "name" : "Cult Leader",
+            "pay" : 4725, 
+            "bonus" : 9450,
+            "friends" : -1,
+            "cooking" : -1,
+            "mechanical" : null,
+            "charisma" : -1,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -1,
+            "cleaning" : -1
         }
     ]
 }

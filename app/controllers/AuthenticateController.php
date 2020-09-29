@@ -29,7 +29,7 @@ class AuthenticateController  extends Controller {
 		} else {
 			$username = $this->f3->get('POST.email');
 			$password = $this->f3->get('POST.password');
-			$login = date('Y-m-d H:i:s');
+			$login = $this->date;
 
 			$this->user->getByName($username);
 
@@ -70,6 +70,7 @@ class AuthenticateController  extends Controller {
 
 				if($this->user->dry()) {
 					$this->user->add();
+				$this->users2data->getById($this->users2data->get('_id'));
 					$this->f3->set('SESSION.success', 'Registration successful. You may now log in.');
 				} else {
 					$this->f3->set('SESSION.error', 'User already exists');

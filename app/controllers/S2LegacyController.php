@@ -61,6 +61,7 @@ class S2LegacyController extends Controller {
 			$this->id = $this->f3->get('PARAMS.cid');
 		}
 		$this->f3->set('SESSION.challenge', $this->f3->get('PARAMS.cid'));
+		$this->f3->set('modified', $this->date);
 		$this->load($this->id);
 	}
 

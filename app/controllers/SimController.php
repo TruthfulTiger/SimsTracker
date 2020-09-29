@@ -3,18 +3,28 @@ class SimController extends Controller {
 	private $sim;
 	private $household;
     private $hood;
-    private $relationship;
     private $user;
 	private $business;
+	private $s2sim;
+	private $s3sim;
+	private $s4sim;
+	private $users2data;
+	private $users3data;
+	private $users4data;
 
 	public function __construct() {
 		parent::__construct();
 		$this->sim = new Sim($this->db);
+		$this->s2sim = new S2Sim($this->db);
+		$this->s3sim = new S3Sim($this->db);
+		$this->s4sim = new S4Sim($this->db);
 		$this->household = new Household($this->db);
         $this->hood = new Hood($this->db);
 		$this->business = new Business($this->db);
         $this->user = new User($this->db);
-        $this->relationship = new Relationships($this->db);
+		$this->users2data = new UserS2Data($this->db);
+		$this->users3data = new UserS3Data($this->db);
+		$this->users4data = new UserS4Data($this->db);
 	}
 
 	public function index()
@@ -67,17 +77,13 @@ class SimController extends Controller {
 		else
 		{
 			$userID = $this->f3->get('SESSION.user[2]');
-			$hood = $this->hood;
-			if ($hood->gameVersion == 2)
-				$this->f3->config('config/sims2.cfg');
-			if ($hood->gameVersion == 3)
-				$this->f3->config('config/sims3.cfg');
-			if ($hood->gameVersion == 4)
-				$this->f3->config('config/sims4.cfg');
 			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 			$this->f3->set('households', $this->household->getByUser($userID));
 			$this->household->getById($this->f3->get('PARAMS.id'));
 			$this->f3->set('hh', $this->household);
+			$this->hood->getById($this->household->nhID);
+			$this->f3->set('hood', $this->hood);
+				
 			$this->f3->set('title','Create Sim');
 			$this->f3->set('content','sim/create.html');
 		}
@@ -92,7 +98,7 @@ class SimController extends Controller {
 				if ($this->f3->exists('POST.hhSims')) {
 					$sims[] = $this->f3->get('POST.hhSims');
 					foreach ($sims[0] as $sim){ 
-						$this->db->exec('UPDATE sims SET hhID = ? WHERE id = ?', 
+						$this->db->exec('UPDATE sim SET hhID = ? WHERE id = ?', 
 						array(
 							$hhID,
 							$sim
@@ -113,19 +119,35 @@ class SimController extends Controller {
 			if (!empty($_POST['hptrap'])) {
 				die('Nice try, Spam-A-Lot');
 			} else {
-				$this->save();
 				$this->f3->scrub($_POST,'p; br;');
-				$this->sim->edit($this->f3->get('POST.id'));
-				$parent1 = $this->sim->parent1;
-				$parent2 = $this->sim->parent2;
+				$sim = $this->f3->get('POST.id');		
+				$userID = $this->f3->get('SESSION.user[2]');				
+				$this->sim->getById($sim);
+				$this->save();
+				if ($this->sim->gameVersion == 2) {
+					$this->s2save();
+					$this->s2sim->getBySimId($sim);
+				}				
 
-				// TODO: Get this working without creating relationships every time sim's updated
-/* 				if ($parent1 > 0) { 
-					$this->relationship->relCreate($this->sim->userID, $this->sim->nhID, $parent1, $this->sim->id);
-				}
-				if ($parent2 > 0 && $parent2 < 9998) {
-					$this->relationship->relCreate($this->sim->userID, $this->sim->nhID, $parent2, $this->sim->id);
-				} */
+				if ($this->sim->gameVersion == 3) {
+				//	$this->s3save();
+					$this->s3sim->getBySimId($sim);
+				}		
+
+				if ($this->sim->gameVersion == 4) {
+				//	$this->s4save();
+					$this->s4sim->getBySimId($sim);
+				}						
+					
+
+				$this->sim->edit($sim);
+				if ($this->sim->gameVersion == 2) 
+					$this->s2sim->edit($this->s2sim->id);
+				if ($this->sim->gameVersion == 3) 
+					$this->s3sim->edit($this->s3sim->id);
+				if ($this->sim->gameVersion == 4) 
+					$this->s4sim->edit($this->s4sim->id);				
+				
 				$this->f3->set('SESSION.success', 'Sim has been updated.');
 				$this->f3->reroute($this->f3->get('SESSION.url'));
 			}
@@ -136,23 +158,41 @@ class SimController extends Controller {
             $this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->hood->getById($this->sim->nhID);
 			$userID = $this->f3->get('SESSION.user[2]');
-			$parents = $this->db->exec('SELECT * FROM sims WHERE nhID = ?', $this->sim->nhID);
-			$hood = $this->hood;
-			if ($hood->gameVersion == 2)
-				$this->f3->config('config/sims2.cfg');
-			if ($hood->gameVersion == 3)
+			$parents = $this->db->exec('SELECT id, firstName, lastName FROM sim WHERE nhID = ?', $this->sim->nhID);
+
+			if ($this->sim->gameVersion == 2) 
+				$this->f3->config('config/sims2.cfg');				
+			if ($this->sim->gameVersion == 3)
 				$this->f3->config('config/sims3.cfg');
-			if ($hood->gameVersion == 4)
+			if ($this->sim->gameVersion == 4)
 				$this->f3->config('config/sims4.cfg');
+
 			if($this->f3->exists('PARAMS.id')) {
                 $this->f3->set('sim', $this->sim);
+				if ($this->sim->gameVersion == 2) {
+					$this->s2sim->getBySimId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s2sim', $this->s2sim);
+				}
+
+				if ($this->sim->gameVersion == 3) {
+					$this->s3sim->getBySimId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s3sim', $this->s3sim);
+				}
+
+				if ($this->sim->gameVersion == 4) {
+					$this->s4sim->getBySimId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s4sim', $this->s4sim);
+				}
+				$this->users2data->getByUserId($userID);
 				$this->f3->set('hood', $this->hood);
-				$this->user->getById($this->f3->get('SESSION.user[2]'));
+				$this->user->getById($userID);
 				$this->f3->set('households', $this->household->getByUser($userID));
 				$this->household->getById($this->sim->hhID);
 				$this->f3->set('hh', $this->household);
 				$this->f3->set('user', $this->user);
+				$this->f3->set('users2', $this->users2data);
 				$this->f3->set('parents', $parents);
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('title','Update Sim');
 				$this->f3->set('content','sim/update.html');
             } else {
@@ -178,19 +218,41 @@ class SimController extends Controller {
 
 	public function view()
 	{
-		$this->sim->getById($this->f3->get('PARAMS.id'));
-		$this->hood->getById($this->sim->nhID);
-		$this->business->getByOwner($this->f3->get('PARAMS.id'));
-		$name = $this->sim->firstName.' '.$this->sim->lastName;
-		$hood = $this->hood;
-			if ($hood->gameVersion == 2)
-				$this->f3->config('config/sims2.cfg');
-			if ($hood->gameVersion == 3)
-				$this->f3->config('config/sims3.cfg');
-			if ($hood->gameVersion == 4)
-				$this->f3->config('config/sims4.cfg');
 		if($this->f3->exists('PARAMS.id')) {
+			$this->sim->getById($this->f3->get('PARAMS.id'));
+			$this->hood->getById($this->sim->nhID);
+			$this->business->getByOwner($this->f3->get('PARAMS.id'));
+			$name = $this->sim->firstName.' '.$this->sim->lastName;
+			if ($this->hood->gameVersion == 2) {
+				$this->f3->config('config/sims2.cfg');
+				$this->s2sim->getBySimId($this->sim->id);
+			}
+
+			if ($this->hood->gameVersion == 3) {
+				$this->s3sim->getBySimId($this->sim->id);
+				$this->f3->config('config/sims3.cfg');
+			}
+
+			if ($this->hood->gameVersion == 4) {
+				$this->s4sim->getBySimId($this->sim->id);
+				$this->f3->config('config/sims4.cfg');
+			}
+
 			$this->f3->set('sim',$this->sim);
+			if ($this->sim->gameVersion == 2) {
+				$this->s2sim->getBySimId($this->f3->get('PARAMS.id'));
+				$this->f3->set('s2sim', $this->s2sim);
+			}
+
+			if ($this->sim->gameVersion == 3) {
+				$this->s3sim->getBySimId($this->f3->get('PARAMS.id'));
+				$this->f3->set('s3sim', $this->s3sim);
+			}
+
+			if ($this->sim->gameVersion == 4) {
+				$this->s4sim->getBySimId($this->f3->get('PARAMS.id'));
+				$this->f3->set('s4sim', $this->s4sim);
+			}
 			$this->f3->set('hood', $this->hood);
 			$this->f3->set('business', $this->business);
 			$this->f3->set('title',$name);
@@ -203,6 +265,15 @@ class SimController extends Controller {
 
 	function save() {
 		if (isset($_POST['save'])) {
+			$this->f3->set('POST.walking',isset($_POST["walking"])?1:0);
+			$this->f3->set('POST.talking',isset($_POST["talking"])?1:0);
+			$this->f3->set('POST.housebroken',isset($_POST["housebroken"])?1:0);
+			$this->f3->set('POST.ltwDone',isset($_POST["ltwDone"])?1:0);
+		}
+	}
+
+	function s2save() {
+		if (isset($_POST['save'])) {
 			$this->f3->set('POST.isAlien', isset($_POST["isAlien"])?1:0);
 			$this->f3->set('POST.isZombie',isset($_POST["isZombie"])?1:0);
 			$this->f3->set('POST.isVampire',isset($_POST["isVampire"])?1:0);
@@ -210,11 +281,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.isWerewolf',isset($_POST["isWerewolf"])?1:0);
 			$this->f3->set('POST.isPlantSim',isset($_POST["isPlantSim"])?1:0);
 			$this->f3->set('POST.isWitch',isset($_POST["isWitch"])?1:0);
-			$this->f3->set('POST.walking',isset($_POST["walking"])?1:0);
-			$this->f3->set('POST.talking',isset($_POST["talking"])?1:0);
-			$this->f3->set('POST.housebroken',isset($_POST["housebroken"])?1:0);
 			$this->f3->set('POST.rhyme',isset($_POST["rhyme"])?1:0);
-			$this->f3->set('POST.ltwDone',isset($_POST["ltwDone"])?1:0);
 
 			$this->f3->set('POST.earnedAthletics', isset($_POST["earnedAthletics"])?1:0);
 			$this->f3->set('POST.earnedCharisma',isset($_POST["earnedCharisma"])?1:0);
@@ -352,5 +419,5 @@ class SimController extends Controller {
 			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
 			$this->f3->set('POST.learnedParenting',isset($_POST["learnedParenting"])?1:0);
 		}
-	}
+	} 
 }

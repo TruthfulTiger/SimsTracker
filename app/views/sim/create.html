@@ -39,20 +39,12 @@
 				</select>
 			</div>
 
-		<div class="form-group">
-			<label for="aspiration">Aspiration</label>
-			<select class="custom-select" name="aspiration" id="aspiration">
-				<repeat group="{{ @aspirations }}" value="{{ @aspiration }}">
-					<option value="{{ @aspiration }}">{{ @aspiration }}</option>
-				</repeat>
-			</select>
-		</div>
-
 			<div class="control-group">
 				<div class="">
 					<input type="text" name="hptrap" class="hptrap" />
 					<input type="hidden" name="generation" id="generation" value="" />
 					<input type="hidden" name="hhID" value="{{ @hh.hhID }}" />
+					<input type="hidden" name="gameVersion" value="{{ @hood.gameVersion }}" />
 					<check if="{{ @hh.phID == NULL}}" >
 					<true>
 					<input type="hidden" name="nhID" value="{{ @hh.nhID }}" />
@@ -73,7 +65,7 @@
 			<div class="form-group">
 				<label for="hh">Which household is this Sim part of?</label>
 				<select class="custom-select" name="hh" id="hh">
-					<option value="">-- Create new household --</option>					
+					<option value=0>-- Create new household --</option>					
 					<repeat group="{{ @households }}" value="{{ @household }}">
 					<check if="{{ @household.name != 'Adoption pool' }}">
 					<option value="{{ @household.hhID }}">{{ @household.name }}</option>
@@ -87,21 +79,20 @@
 </check>
 <script>
 	$(function () {
+		let v = 0;
 		$('#url').attr("href","{{ @BASE.'/household/create/' }}");
-		aspCheck();
 
 		$("#hh").change(function(){
-			let v = $("#hh").children("option:selected").val();
-			if (v !== "") {
+			v = $("#hh").children("option:selected").val();
+
+			if (v > 0) {
 				$('#url').attr("href","{{ @BASE.'/sim/create/' }}"+v);
 			} else {
 				$('#url').attr("href","{{ @BASE.'/household/create/' }}");
 			}
 		});
 		genshow();
-		$('#age').change(function () {
-			aspCheck();
-		});
+
 		$("#origin").change(function () {
 			genshow();
 		});
@@ -114,51 +105,6 @@
 			$("#generation").val(1);
 		if ($("#origin").val() === "townie" || $("#origin").val() === "npc")
 			$("#generation").val(0);
-	}
-
-	function aspCheck() {
-		switch ($( "#age" ).val()) {
-			case 'Infant':
-				$("#aspiration").val("Grow Up");
-				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
-				break;
-			case 'Toddler':
-				$("#aspiration").val("Grow Up");
-				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
-				break;
-			case 'Child':
-				$("#aspiration").val("Grow Up");
-				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
-				break;
-			case 'Teen':
-				//$("#aspiration").val("Family");
-				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
-				break;
-			case 'Young Adult':
-				//$("#aspiration").val("Family");
-				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
-				break;
-			case 'Adult':
-				//$("#aspiration").val("Family");
-				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
-				break;
-			case 'Elder':
-				//$("#aspiration").val("Family");
-				$('#aspiration').removeAttr("disabled");
-				$('select').children('option[value="Grow Up"]').attr('disabled', true)
-					.siblings().removeAttr('disabled');
-				break;
-			default:
-				$("#aspiration").val("Grow Up");
-				$('#aspiration').attr("disabled",'disabled').siblings().removeAttr('disabled');
-				break;
-		}
 	}
 
 </script>

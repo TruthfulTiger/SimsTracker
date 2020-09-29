@@ -7,7 +7,7 @@
             "name" : "Yearbook Club Supervisor",
             "pay" : 57, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : 0,
             "mechanical" : null,
             "charisma" : 0,
@@ -20,19 +20,6 @@
             "name" : "Blog Writer",
             "pay" : 84, 
             "bonus" : 168,
-            "friends" : 1,
-            "cooking" : 0,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Internet Movie Critic",
-            "pay" : 115, 
-            "bonus" : 230,
             "friends" : 2,
             "cooking" : 0,
             "mechanical" : null,
@@ -41,6 +28,19 @@
             "logic" : null,
             "creativity" : 1,
             "cleaning" : null
+        },
+        {
+            "name" : "Internet Movie Critic",
+            "pay" : 115, 
+            "bonus" : 230,
+            "friends" : -2,
+            "cooking" : -1,
+            "mechanical" : null,
+            "charisma" : -1,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -1,
+            "cleaning" : null
         }
     ],
     "adult" : [
@@ -48,7 +48,7 @@
             "name" : "Yearbook Club Supervisor",
             "pay" : 115, 
             "bonus" : 0,
-            "friends" : 0,
+            "friends" : 1,
             "cooking" : 0,
             "mechanical" : null,
             "charisma" : 0,
@@ -61,19 +61,6 @@
             "name" : "Blog Writer",
             "pay" : 228, 
             "bonus" : 456,
-            "friends" : 1,
-            "cooking" : 0,
-            "mechanical" : null,
-            "charisma" : 0,
-            "body" : null,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Internet Movie Critic",
-            "pay" : 287, 
-            "bonus" : 574,
             "friends" : 2,
             "cooking" : 0,
             "mechanical" : null,
@@ -84,9 +71,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Fact Checker",
-            "pay" : 385, 
-            "bonus" : 770,
+            "name" : "Internet Movie Critic",
+            "pay" : 287, 
+            "bonus" : 574,
             "friends" : 3,
             "cooking" : 2,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Obituary Writer",
-            "pay" : 457, 
-            "bonus" : 914,
+            "name" : "Fact Checker",
+            "pay" : 385, 
+            "bonus" : 770,
             "friends" : 4,
             "cooking" : 3,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Horoscope Writer",
-            "pay" : 668, 
-            "bonus" : 1336,
+            "name" : "Obituary Writer",
+            "pay" : 457, 
+            "bonus" : 914,
             "friends" : 5,
             "cooking" : 4,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Sports Columnist",
-            "pay" : 874, 
-            "bonus" : 1748,
+            "name" : "Horoscope Writer",
+            "pay" : 668, 
+            "bonus" : 1336,
             "friends" : 7,
             "cooking" : 4,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Investigatory Journalist",
-            "pay" : 1168, 
-            "bonus" : 2336,
+            "name" : "Sports Columnist",
+            "pay" : 874, 
+            "bonus" : 1748,
             "friends" : 9,
             "cooking" : 5,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Magazine Editor",
-            "pay" : 1460, 
-            "bonus" : 2920,
+            "name" : "Investigatory Journalist",
+            "pay" : 1168, 
+            "bonus" : 2336,
             "friends" : 11,
             "cooking" : 5,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Media Magnate",
-            "pay" : 2350, 
-            "bonus" : 4700,
+            "name" : "Magazine Editor",
+            "pay" : 1460, 
+            "bonus" : 2920,
             "friends" : 13,
             "cooking" : 6,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : null,
             "creativity" : 9,
+            "cleaning" : null
+        },
+        {
+            "name" : "Media Magnate",
+            "pay" : 2350, 
+            "bonus" : 4700,
+            "friends" : -13,
+            "cooking" : -6,
+            "mechanical" : null,
+            "charisma" : -10,
+            "body" : null,
+            "logic" : null,
+            "creativity" : -9,
             "cleaning" : null
         }
     ]

@@ -15,8 +15,8 @@ class HouseholdController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
-		$this->household->sims='SELECT COUNT(*) as simscount FROM sims where sims.hhID = household.hhID and sims.lifeState = "Alive" GROUP BY hhID ';
-		$this->household->pets='SELECT COUNT(*) as petscount FROM pets where pets.hhID = household.hhID and pets.lifeState = "Alive" GROUP BY hhID ';
+		$this->household->sims='SELECT COUNT(*) as simscount FROM sim where sim.hhID = household.hhID and sim.lifeState = "Alive" GROUP BY hhID ';
+		$this->household->pets='SELECT COUNT(*) as petscount FROM pet where pet.hhID = household.hhID and pet.lifeState = "Alive" GROUP BY hhID ';
 
 		if($this->f3->exists('PARAMS.id')){
 			$nhID = $this->f3->get('PARAMS.id');
@@ -91,6 +91,29 @@ class HouseholdController extends Controller {
 		}
 	}
 
+	public function move() {
+		if (!empty($_POST['hptrap'])) {
+			die('Nice try, Spam-A-Lot');
+		} else {
+			$this->f3->scrub($_POST,'p; br;');
+			$nhID = $_POST['nhID'];
+				if ($this->f3->exists('POST.nhHousehold')) {
+					$households[] = $this->f3->get('POST.nhHousehold');
+					foreach ($households[0] as $hh){ 
+						$this->db->exec('UPDATE household SET nhID = ? WHERE hhID = ?', 
+						array(
+							$nhID,
+							$hh
+						));
+					} 
+					$this->f3->set('SESSION.success', 'Household has been moved.'); 
+				} else {
+			$this->f3->set('SESSION.error', 'Please choose at least one household.');
+			} 
+			$this->index();
+		}
+	}
+
 	public function update()
 	{
 		if($this->f3->exists('POST.update'))
@@ -123,6 +146,7 @@ class HouseholdController extends Controller {
 				$this->f3->set('hood', $this->hood);
 				$this->f3->set('sims',$this->sim->getBynhID($nhID));
 				$this->f3->set('title','Update Household');
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('content','household/update.html');
 			} else {
 				$this->f3->set('SESSION.error', 'Household doesn\'t exist');

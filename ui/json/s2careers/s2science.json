@@ -7,19 +7,6 @@
             "name" : "Lab Glass Scrubber",
             "pay" : 64, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 0
-        },
-        {
-            "name" : "Test Subject",
-            "pay" : 105, 
-            "bonus" : 210,
             "friends" : 1,
             "cooking" : 0,
             "mechanical" : null,
@@ -30,9 +17,9 @@
             "cleaning" : 0
         },
         {
-            "name" : "Lab Assistant",
-            "pay" : 115, 
-            "bonus" : 230,
+            "name" : "Test Subject",
+            "pay" : 105, 
+            "bonus" : 210,
             "friends" : 2,
             "cooking" : 1,
             "mechanical" : null,
@@ -41,6 +28,19 @@
             "logic" : 1,
             "creativity" : null,
             "cleaning" : 1
+        },
+        {
+            "name" : "Lab Assistant",
+            "pay" : 115, 
+            "bonus" : 230,
+            "friends" : -2,
+            "cooking" : -1,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -1,
+            "creativity" : null,
+            "cleaning" : -1
         }
     ],
     "adult" : [
@@ -49,13 +49,13 @@
             "pay" : 217, 
             "bonus" : 0,
             "friends" : 0,
-            "cooking" : 0,
+            "cooking" : 1,
             "mechanical" : null,
             "charisma" : null,
             "body" : null,
             "logic" : 0,
             "creativity" : null,
-            "cleaning" : 0
+            "cleaning" : 1
         },
         {
             "name" : "Lab Assistant",
@@ -66,27 +66,14 @@
             "mechanical" : null,
             "charisma" : null,
             "body" : null,
-            "logic" : 0,
-            "creativity" : null,
-            "cleaning" : 1
-        },
-        {
-            "name" : "Field Researcher",
-            "pay" : 448, 
-            "bonus" : 896,
-            "friends" : 0,
-            "cooking" : 1,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : null,
             "logic" : 1,
             "creativity" : null,
             "cleaning" : 3
         },
         {
-            "name" : "Science Teacher",
-            "pay" : 525, 
-            "bonus" : 1050,
+            "name" : "Field Researcher",
+            "pay" : 448, 
+            "bonus" : 896,
             "friends" : 1,
             "cooking" : 2,
             "mechanical" : null,
@@ -97,9 +84,9 @@
             "cleaning" : 5
         },
         {
-            "name" : "Project Leader",
-            "pay" : 630, 
-            "bonus" : 1260,
+            "name" : "Science Teacher",
+            "pay" : 525, 
+            "bonus" : 1050,
             "friends" : 2,
             "cooking" : 3,
             "mechanical" : null,
@@ -110,9 +97,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Inventor",
-            "pay" : 756, 
-            "bonus" : 1512,
+            "name" : "Project Leader",
+            "pay" : 630, 
+            "bonus" : 1260,
             "friends" : 3,
             "cooking" : 4,
             "mechanical" : null,
@@ -123,9 +110,9 @@
             "cleaning" : 6
         },
         {
-            "name" : "Scholar",
-            "pay" : 896, 
-            "bonus" : 1792,
+            "name" : "Inventor",
+            "pay" : 756, 
+            "bonus" : 1512,
             "friends" : 3,
             "cooking" : 5,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Top Secret Researcher",
-            "pay" : 1036, 
-            "bonus" : 2072,
+            "name" : "Scholar",
+            "pay" : 896, 
+            "bonus" : 1792,
             "friends" : 3,
             "cooking" : 6,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : 7
         },
         {
-            "name" : "Theorist",
-            "pay" : 1522, 
-            "bonus" : 3044,
+            "name" : "Top Secret Researcher",
+            "pay" : 1036, 
+            "bonus" : 2072,
             "friends" : 5,
             "cooking" : 7,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : 9
         },
         {
-            "name" : "Mad Scientist",
-            "pay" : 2333, 
-            "bonus" : 4666,
+            "name" : "Theorist",
+            "pay" : 1522, 
+            "bonus" : 3044,
             "friends" : 8,
             "cooking" : 9,
             "mechanical" : null,
@@ -173,6 +160,19 @@
             "logic" : 10,
             "creativity" : null,
             "cleaning" : 10
+        },
+        {
+            "name" : "Mad Scientist",
+            "pay" : 2333, 
+            "bonus" : 4666,
+            "friends" : -8,
+            "cooking" : -9,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -10,
+            "creativity" : null,
+            "cleaning" : -10
         }
     ]
 }

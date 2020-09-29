@@ -41,11 +41,10 @@
 <include href="login.html" />
 <include href="forgot.html" />
 {* Scripts *}
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{@BASE}}/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{@BASE}}/ui/js/jquery-simple-validator.min.js"></script>
 <script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
+<script src='{{@BASE}}/ui/js/wNumb.min.js'></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 let json = "";
@@ -117,25 +116,6 @@ jQuery.fn.extend({
         return this.attr('aria-hidden', 'true').hide()
     }
 })
-</script>
-{* Hoods list *}
-<script>
-function premadesList(g) {
-	switch(g) {
-		case 2: 
-		json = "{{@BASE}}/ui/json/premades/sims2.json";   
-		break;
-		case 3: 
-		json = "{{@BASE}}/ui/json/premades/sims3.json";    
-		break;
-		case 4: 
-		json = "{{@BASE}}/ui/json/premades/sims4.json";  
-		break;
-		default:
-		json = "{{@BASE}}/ui/json/premades/sims2.json";  
-		break;
-	}
-}
 </script>
 
 <check if="{{@hood.gameVersion == 2}}">
@@ -247,11 +227,11 @@ function careerPet(c) {
 	{* Update-related sliders *}
 		<script>
 		// initiate s2personality
-		let neatVal = {{trim(@sim.neatPoints)}};
-		let outgoingVal = {{trim(@sim.outgoingPoints)}};
-		let activeVal = {{trim(@sim.activePoints)}};
-		let playfulVal = {{trim(@sim.playfulPoints)}};
-		let niceVal = {{trim(@sim.nicePoints)}};
+		let neatVal = {{trim(@s2sim.neatPoints)}};
+		let outgoingVal = {{trim(@s2sim.outgoingPoints)}};
+		let activeVal = {{trim(@s2sim.activePoints)}};
+		let playfulVal = {{trim(@s2sim.playfulPoints)}};
+		let niceVal = {{trim(@s2sim.nicePoints)}};
 
 		// initiate s2skills
 		let cookVal = {{trim(@sim.cooking)}};
@@ -259,52 +239,57 @@ function careerPet(c) {
 		let charVal = {{trim(@sim.charisma)}};
 		let bodyVal = {{trim(@sim.body)}};
 		let logicVal = {{trim(@sim.logic)}};
-		let createVal = {{trim(@sim.creativity)}};
-		let cleanVal = {{trim(@sim.cleaning)}}; 
+		let createVal = {{trim(@s2sim.creativity)}};
+		let cleanVal = {{trim(@s2sim.cleaning)}}; 
 
 		// initialise s2interests
-		let envVal = {{trim(@sim.environment)}};
-		let weatherVal = {{trim(@sim.weather)}};
-		let moneyVal = {{trim(@sim.money)}};
-		let paraVal = {{trim(@sim.paranormal)}};
-		let fashionVal = {{trim(@sim.fashion)}};
-		let crimeVal = {{trim(@sim.crime)}};
-		let entVal = {{trim(@sim.entertainment)}};
-		let workVal = {{trim(@sim.work)}};
-		let toysVal = {{trim(@sim.toys)}};
-		let foodVal = {{trim(@sim.food)}};
-		let cultureVal = {{trim(@sim.culture)}};
-		let politicsVal = {{trim(@sim.politics)}};
-		let healthVal = {{trim(@sim.health)}};
-		let travelVal = {{trim(@sim.travel)}};
-		let sportsVal = {{trim(@sim.sports)}};
-		let animalsVal = {{trim(@sim.animals)}};
-		let schoolVal = {{trim(@sim.school)}};
-		let scifiVal = {{trim(@sim.scifi)}};
+		let envVal = {{trim(@s2sim.environment)}};
+		let weatherVal = {{trim(@s2sim.weather)}};
+		let moneyVal = {{trim(@s2sim.money)}};
+		let paraVal = {{trim(@s2sim.paranormal)}};
+		let fashionVal = {{trim(@s2sim.fashion)}};
+		let crimeVal = {{trim(@s2sim.crime)}};
+		let entVal = {{trim(@s2sim.entertainment)}};
+		let workVal = {{trim(@s2sim.work)}};
+		let toysVal = {{trim(@s2sim.toys)}};
+		let foodVal = {{trim(@s2sim.food)}};
+		let cultureVal = {{trim(@s2sim.culture)}};
+		let politicsVal = {{trim(@s2sim.politics)}};
+		let healthVal = {{trim(@s2sim.health)}};
+		let travelVal = {{trim(@s2sim.travel)}};
+		let sportsVal = {{trim(@s2sim.sports)}};
+		let animalsVal = {{trim(@s2sim.animals)}};
+		let schoolVal = {{trim(@s2sim.school)}};
+		let scifiVal = {{trim(@s2sim.scifi)}};
 
 		// initialise s2hobbies
-		let cuisineVal = {{trim(@sim.cuisine)}};
-		let filmVal = {{trim(@sim.film)}};
-		let tinkeringVal = {{trim(@sim.tinkering)}};
-		let sportVal = {{trim(@sim.sport)}};
-		let musicVal = {{trim(@sim.music)}};
-		let fitnessVal = {{trim(@sim.fitness)}};
-		let artsVal = {{trim(@sim.arts)}};
-		let scienceVal = {{trim(@sim.science)}};
-		let gamesVal = {{trim(@sim.games)}};
-		let natureVal = {{trim(@sim.nature)}};
+		let cuisineVal = {{trim(@s2sim.cuisine)}};
+		let filmVal = {{trim(@s2sim.film)}};
+		let tinkeringVal = {{trim(@s2sim.tinkering)}};
+		let sportVal = {{trim(@s2sim.sport)}};
+		let musicVal = {{trim(@s2sim.music)}};
+		let fitnessVal = {{trim(@s2sim.fitness)}};
+		let artsVal = {{trim(@s2sim.arts)}};
+		let scienceVal = {{trim(@s2sim.science)}};
+		let gamesVal = {{trim(@s2sim.games)}};
+		let natureVal = {{trim(@s2sim.nature)}};
 
 		// initiate s2al
 		let repVal = {{ trim(@sim.reputation) }};
-		let alignVal = {{ trim(@sim.alignment) }};
-		let magicVal = {{ trim(@sim.magicLevel) }};
+		let alignVal = {{ trim(@s2sim.alignment) }};
+		let magicVal = {{ trim(@s2sim.magicLevel) }};
 		</script>
 		<script src="{{@BASE}}/ui/js/s2sliders.min.js"></script>
 	</check>
 </check>
+{* Sims 3 specific *}
+<check if="{{@hood.gameVersion == 3}}">
 
-<check if="{{@hood.gameVersion == 3}}"></check>
-<check if="{{@hood.gameVersion == 4}}"></check>
+</check>
+{* Sims 4 specific *}
+<check if="{{@hood.gameVersion == 4}}">
+
+</check>
 
 {* Universal scripts *}
 <script>

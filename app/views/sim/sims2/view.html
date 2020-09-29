@@ -95,7 +95,7 @@
 						</div>
 						<div class="col">
 						<h6>Needed to advance</h6>
-						<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
+						<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" class="friends" data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
 						<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking" data-toggle="tooltip" title="Cooking"> <span id="cook"></span></p>
 						<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical" data-toggle="tooltip" title="Mechanical"> <span id="mech"></span></p>
 						<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma" data-toggle="tooltip" title="Charisma"> <span id="char"></span></p>
@@ -114,7 +114,7 @@
 		</false>
 	</check>
 </check>
-<check if="{{ @sim.isWitch == 1}}">
+<check if="{{ @s2sim.isWitch == 1}}">
 <p><span id="alignLevel">Alignment level</span></p>
 				<div class="card mb-3" >
 					<div class="card-header">
@@ -322,8 +322,8 @@ $(function () {
     let create = $('#create');
     let clean = $('#clean');
     let jobLevel = 0;
-    let align = {{trim(@sim.alignment)}};
-    let magic = {{trim(@sim.magicLevel)}};
+    let align = {{trim(@s2sim.alignment)}};
+    let magic = {{trim(@s2sim.magicLevel)}};
     alignUpdate(align);
     magicUpdate(magic);
     careerLoad();    
@@ -424,7 +424,7 @@ $(function () {
 			alignLevel.text("Neutral");
 			vGood.attr('aria-hidden', 'true').hide();
 			good.attr('aria-hidden', 'true').hide();
-			nice.attr('aria-hidden', 'false').show();
+			nice.attr('aria-hidden', 'true').hide();
 			mean.attr('aria-hidden', 'true').hide();
 			evil.attr('aria-hidden', 'true').hide();
 			vEvil.attr('aria-hidden', 'true').hide();
@@ -697,45 +697,50 @@ $(function () {
 			job.append(careerAge[jobLevel].name); 
 			pay.append(simoleans.to(careerAge[jobLevel].pay)); 
 			careerAge[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append(simoleans.to(careerAge[jobLevel].bonus));
-			friends.append(careerAge[jobLevel].friends);
-			if ($.isNumeric(careerAge[jobLevel].cooking)) {                        
-				cook.append(careerAge[jobLevel].cooking);
+			if ($.isNumeric(careerAge[jobLevel].friends)) {       
+				careerAge[jobLevel].friends < 0 ? friends.append("-") : friends.append(careerAge[jobLevel].friends);                 
+				$(".friends").attr('aria-hidden', 'false').show();  				            
+			} else {
+				$(".friends").attr('aria-hidden', 'true').hide();                          
+			}  
+			if ($.isNumeric(careerAge[jobLevel].cooking)) { 
+				careerAge[jobLevel].cooking < 0 ? cook.append("-") : cook.append(careerAge[jobLevel].cooking);                        
 				$(".cook").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".cook").attr('aria-hidden', 'true').hide();                          
 			}       
-			if ($.isNumeric(careerAge[jobLevel].mechanical)) {                        
-				mech.append(careerAge[jobLevel].mechanical);
+			if ($.isNumeric(careerAge[jobLevel].mechanical)) {  
+				careerAge[jobLevel].mechanical < 0 ? mech.append("-") : mech.append(careerAge[jobLevel].mechanical);                       
 				$(".mech").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".mech").attr('aria-hidden', 'true').hide();                          
 			}      
-			if ($.isNumeric(careerAge[jobLevel].charisma)) {                        
-				char.append(careerAge[jobLevel].charisma);
+			if ($.isNumeric(careerAge[jobLevel].charisma)) {    
+				careerAge[jobLevel].charisma < 0 ? char.append("-") : char.append(careerAge[jobLevel].charisma);                     
 				$(".char").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".char").attr('aria-hidden', 'true').hide();                          
 			}                                
-			if ($.isNumeric(careerAge[jobLevel].body)) {                        
-				body.append(careerAge[jobLevel].body);
+			if ($.isNumeric(careerAge[jobLevel].body)) {       
+				careerAge[jobLevel].body < 0 ? body.append("-") : body.append(careerAge[jobLevel].body);                  
 				$(".body").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".body").attr('aria-hidden', 'true').hide();                          
 			}                          
-			if ($.isNumeric(careerAge[jobLevel].logic)) {                        
-				logic.append(careerAge[jobLevel].logic);
+			if ($.isNumeric(careerAge[jobLevel].logic)) {      
+				careerAge[jobLevel].logic < 0 ? logic.append("-") : logic.append(careerAge[jobLevel].logic);                   
 				$(".logic").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".logic").attr('aria-hidden', 'true').hide();                          
 			}                          
-			if ($.isNumeric(careerAge[jobLevel].creativity)) {                        
-				create.append(careerAge[jobLevel].creativity);
+			if ($.isNumeric(careerAge[jobLevel].creativity)) { 
+				careerAge[jobLevel].creativity < 0 ? create.append("-") : create.append(careerAge[jobLevel].creativity);                        
 				$(".create").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".create").attr('aria-hidden', 'true').hide();                          
 			}                         
-			if ($.isNumeric(careerAge[jobLevel].cleaning)) {                        
-				clean.append(careerAge[jobLevel].cleaning);
+			if ($.isNumeric(careerAge[jobLevel].cleaning)) {  
+				careerAge[jobLevel].cleaning < 0 ? clean.append("-") : clean.append(careerAge[jobLevel].cleaning);                       
 				$(".clean").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".clean").attr('aria-hidden', 'true').hide();                          

@@ -7,19 +7,6 @@
             "name" : "Street Hawker",
             "pay" : 50, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Numbers Runner",
-            "pay" : 62, 
-            "bonus" : 124,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 0,
@@ -30,9 +17,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Pickpocket",
-            "pay" : 105, 
-            "bonus" : 210,
+            "name" : "Numbers Runner",
+            "pay" : 62, 
+            "bonus" : 124,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 1,
@@ -40,6 +27,19 @@
             "body" : 1,
             "logic" : null,
             "creativity" : 2,
+            "cleaning" : null
+        },
+        {
+            "name" : "Pickpocket",
+            "pay" : 105, 
+            "bonus" : 210,
+            "friends" : -1,
+            "cooking" : null,
+            "mechanical" : -1,
+            "charisma" : null,
+            "body" : -1,
+            "logic" : null,
+            "creativity" : -2,
             "cleaning" : null
         }
     ],
@@ -67,26 +67,13 @@
             "charisma" : null,
             "body" : 0,
             "logic" : null,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Bookie",
             "pay" : 385, 
             "bonus" : 770,
-            "friends" : 0,
-            "cooking" : null,
-            "mechanical" : 0,
-            "charisma" : null,
-            "body" : 0,
-            "logic" : null,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Con Artist",
-            "pay" : 490, 
-            "bonus" : 980,
             "friends" : 1,
             "cooking" : null,
             "mechanical" : 0,
@@ -97,9 +84,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Getaway Driver",
-            "pay" : 595, 
-            "bonus" : 1190,
+            "name" : "Con Artist",
+            "pay" : 490, 
+            "bonus" : 980,
             "friends" : 2,
             "cooking" : null,
             "mechanical" : 2,
@@ -110,9 +97,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Bank Robber",
-            "pay" : 742, 
-            "bonus" : 1792,
+            "name" : "Getaway Driver",
+            "pay" : 595, 
+            "bonus" : 1190,
             "friends" : 3,
             "cooking" : null,
             "mechanical" : 4,
@@ -123,8 +110,8 @@
             "cleaning" : null
         },
         {
-            "name" : "Cat Burglar",
-            "pay" : 896, 
+            "name" : "Bank Robber",
+            "pay" : 742, 
             "bonus" : 1792,
             "friends" : 3,
             "cooking" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Counterfeiter",
-            "pay" : 1064, 
-            "bonus" : 2128,
+            "name" : "Cat Burglar",
+            "pay" : 896, 
+            "bonus" : 1792,
             "friends" : 4,
             "cooking" : null,
             "mechanical" : 7,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Smuggler",
-            "pay" : 1575, 
-            "bonus" : 3150,
+            "name" : "Counterfeiter",
+            "pay" : 1064, 
+            "bonus" : 2128,
             "friends" : 5,
             "cooking" : null,
             "mechanical" : 7,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Criminal Mastermind",
-            "pay" : 1925, 
-            "bonus" : 3850,
+            "name" : "Smuggler",
+            "pay" : 1575, 
+            "bonus" : 3150,
             "friends" : 7,
             "cooking" : null,
             "mechanical" : 10,
@@ -172,6 +159,19 @@
             "body" : 8,
             "logic" : null,
             "creativity" : 10,
+            "cleaning" : null
+        },
+        {
+            "name" : "Criminal Mastermind",
+            "pay" : 1925, 
+            "bonus" : 3850,
+            "friends" : -7,
+            "cooking" : null,
+            "mechanical" : -10,
+            "charisma" : null,
+            "body" : -8,
+            "logic" : null,
+            "creativity" : -10,
             "cleaning" : null
         }
     ]

@@ -94,6 +94,7 @@ class ChallengeController extends Controller {
 				$this->f3->set('households', $this->household->getByUser($userID));
 				$this->f3->set('challenge',$this->challenge);
 				$this->f3->set('s2legacy', $this->s2legacy);
+				$this->f3->set('modified', $this->date);
 				$this->f3->set('title','Update Challenge');
 				$this->f3->set('content','challenges/update.html');
 			} else {

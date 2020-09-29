@@ -6,7 +6,7 @@
             "pay" : 113, 
             "bonus" : 0,
             "sit" : null,
-            "stay" : null,
+            "stay" : true,
             "come" : null,
             "rollover" : null,
             "speak" : null,
@@ -21,7 +21,7 @@
             "stay" : true,
             "come" : null,
             "rollover" : null,
-            "speak" : null,
+            "speak" : true,
             "shake" : null,
             "playdead" : null
         },
@@ -35,19 +35,19 @@
             "rollover" : null,
             "speak" : true,
             "shake" : null,
-            "playdead" : null
+            "playdead" : true
         },
         {
             "name" : "Pet Corps",
             "pay" : 670, 
             "bonus" : 1340,
             "sit" : null,
-            "stay" : true,
+            "stay" : null,
             "come" : null,
             "rollover" : null,
-            "speak" : true,
+            "speak" : null,
             "shake" : null,
-            "playdead" : true
+            "playdead" : null
         }
     ],
     "cat" : [
@@ -56,7 +56,7 @@
             "pay" : 130, 
             "bonus" : 0,
             "sit" : null,
-            "stay" : null,
+            "stay" : true,
             "come" : null,
             "rollover" : null,
             "speak" : null,
@@ -71,7 +71,7 @@
             "stay" : true,
             "come" : null,
             "rollover" : null,
-            "speak" : null,
+            "speak" : true,
             "shake" : null,
             "playdead" : null
         },
@@ -85,19 +85,19 @@
             "rollover" : null,
             "speak" : true,
             "shake" : null,
-            "playdead" : null
+            "playdead" : true
         },
         {
             "name" : "Pet Corps",
             "pay" : 770, 
             "bonus" : 1540,
             "sit" : null,
-            "stay" : true,
+            "stay" : null,
             "come" : null,
             "rollover" : null,
-            "speak" : true,
+            "speak" : null,
             "shake" : null,
-            "playdead" : true
+            "playdead" : null
         }
     ]
 }

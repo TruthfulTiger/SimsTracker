@@ -7,8 +7,8 @@
             "name" : "Dishwasher",
             "pay" : 63, 
             "bonus" : 0,
-            "friends" : 0,
-            "cooking" : 0,
+            "friends" : 1,
+            "cooking" : 1,
             "mechanical" : null,
             "charisma" : null,
             "body" : null,
@@ -20,19 +20,6 @@
             "name" : "Drive Through Clerk",
             "pay" : 84, 
             "bonus" : 168,
-            "friends" : 1,
-            "cooking" : 1,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 0,
-            "cleaning" : null
-        },
-        {
-            "name" : "Fast Food Shift Manager",
-            "pay" : 91, 
-            "bonus" : 182,
             "friends" : 4,
             "cooking" : 1,
             "mechanical" : null,
@@ -40,6 +27,19 @@
             "body" : null,
             "logic" : 1,
             "creativity" : 1,
+            "cleaning" : null
+        },
+        {
+            "name" : "Fast Food Shift Manager",
+            "pay" : 91, 
+            "bonus" : 182,
+            "friends" : -4,
+            "cooking" : -1,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -1,
+            "creativity" : -1,
             "cleaning" : null
         }
     ],
@@ -67,26 +67,13 @@
             "charisma" : null,
             "body" : null,
             "logic" : 0,
-            "creativity" : 0,
+            "creativity" : 1,
             "cleaning" : null
         },
         {
             "name" : "Fast Food Shift Manager",
             "pay" : 182, 
             "bonus" : 364,
-            "friends" : 0,
-            "cooking" : 0,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 0,
-            "creativity" : 1,
-            "cleaning" : null
-        },
-        {
-            "name" : "Hostess",
-            "pay" : 242, 
-            "bonus" : 484,
             "friends" : 1,
             "cooking" : 0,
             "mechanical" : null,
@@ -97,11 +84,24 @@
             "cleaning" : null
         },
         {
+            "name" : "Hostess",
+            "pay" : 242, 
+            "bonus" : 484,
+            "friends" : 2,
+            "cooking" : 0,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : 3,
+            "creativity" : 2,
+            "cleaning" : null
+        },
+        {
             "name" : "Waitress",
             "pay" : 308, 
             "bonus" : 616,
             "friends" : 2,
-            "cooking" : 0,
+            "cooking" : 3,
             "mechanical" : null,
             "charisma" : null,
             "body" : null,
@@ -113,19 +113,6 @@
             "name" : "Prep Cook",
             "pay" : 469, 
             "bonus" : 938,
-            "friends" : 2,
-            "cooking" : 3,
-            "mechanical" : null,
-            "charisma" : null,
-            "body" : null,
-            "logic" : 3,
-            "creativity" : 2,
-            "cleaning" : null
-        },
-        {
-            "name" : "Sous Chef",
-            "pay" : 812, 
-            "bonus" : 1624,
             "friends" : 3,
             "cooking" : 4,
             "mechanical" : null,
@@ -136,9 +123,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Executive Chef",
-            "pay" : 1208, 
-            "bonus" : 2416,
+            "name" : "Sous Chef",
+            "pay" : 812, 
+            "bonus" : 1624,
             "friends" : 4,
             "cooking" : 5,
             "mechanical" : null,
@@ -149,9 +136,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Restauranteur",
-            "pay" : 1330, 
-            "bonus" : 2660,
+            "name" : "Executive Chef",
+            "pay" : 1208, 
+            "bonus" : 2416,
             "friends" : 6,
             "cooking" : 8,
             "mechanical" : null,
@@ -162,9 +149,9 @@
             "cleaning" : null
         },
         {
-            "name" : "Celebrity Chef",
-            "pay" : 2170, 
-            "bonus" : 4340,
+            "name" : "Restauranteur",
+            "pay" : 1330, 
+            "bonus" : 2660,
             "friends" : 7,
             "cooking" : 10,
             "mechanical" : null,
@@ -172,6 +159,19 @@
             "body" : null,
             "logic" : 8,
             "creativity" : 10,
+            "cleaning" : null
+        },
+        {
+            "name" : "Celebrity Chef",
+            "pay" : 2170, 
+            "bonus" : 4340,
+            "friends" : -7,
+            "cooking" : -10,
+            "mechanical" : null,
+            "charisma" : null,
+            "body" : null,
+            "logic" : -8,
+            "creativity" : -10,
             "cleaning" : null
         }
     ]
