@@ -2,3 +2,4 @@ tmp/*.*
 tmp/cache/*.*
 .vscode/sftp.json
 node_modules
+config/globals.cfg
