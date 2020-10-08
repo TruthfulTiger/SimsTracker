@@ -57,14 +57,12 @@ class Controller {
 
 					//Server settings
 					$mail->isSMTP();                                            // Send using SMTP
-					$mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+					$mail->Host       = $f3->get('email_host');                    // Set the SMTP server to send through
 					$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-					$mail->Username   = 'sammyphoenix79@gmail.com';                     // SMTP username
-					$mail->Password   = 'GingerB33r';                               // SMTP password
-					$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-					$mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-					//Recipients
-					$mail->setFrom('sammyphoenix79@gmail.com', 'Sims Tracker');
+					$mail->Username   = $f3->get('email_user');                     // SMTP username
+					$mail->Password   = $f3->get('email_pass');                     // SMTP password
+					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+					$mail->Port       = $f3->get('email_port');  // TCP port to connect to, use 465 for PHPMailer::ENCRYPTION_SMTPS` above
 		}
 
 

@@ -1,10 +1,12 @@
 <?php
 class ContactController extends Controller {
 	private $user;
+	private $audit;
 
 	public function __construct() {
 		parent::__construct();
 		$this->user = new User($this->db);
+		$this->audit = \Audit::instance();
 	}
 
 	function beforeroute(){
@@ -23,8 +25,10 @@ class ContactController extends Controller {
 			} else {
 				try {
 					$this->f3->scrub($_POST,'p; b; i; br;');
+					if ($this->audit->email($this->f3->get('POST.email'), TRUE)) {
 					$this->mail->addAddress('sammyphoenix79@gmail.com', 'Admin');     // Add a recipient
 					$this->mail->addReplyTo($this->f3->get('POST.email'), $this->f3->get('POST.name'));
+					$this->mail->setFrom($this->f3->get('email_user'), $this->f3->get('site'));
 
 					// Content
 					$this->mail->isHTML(true); 
@@ -44,6 +48,9 @@ EOT;
 
 					$this->mail->send();
 					$this->f3->set('SESSION.success', 'Thank you, your message has been sent.');
+					} else {
+						$this->f3->set('SESSION.error', 'Email address is invalid.');
+					}	
 				} catch (Exception $e) {
 					$this->f3->set('SESSION.error', 'Your message could not be sent at this time.'); 
 				}
