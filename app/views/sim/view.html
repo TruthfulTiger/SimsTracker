@@ -1,6 +1,6 @@
-<include if="{{@hood.gameVersion == 2}}" href="sim/sims2/view.html" /> 
-<include if="{{@hood.gameVersion == 3}}" href="sim/sims3/view.html" /> 
-<include if="{{@hood.gameVersion == 4}}" href="sim/sims4/view.html" /> 
+<include if="{{@sim.gameVersion == 2}}" href="sim/sims2/view.html" /> 
+<include if="{{@sim.gameVersion == 3}}" href="sim/sims3/view.html" /> 
+<include if="{{@sim.gameVersion == 4}}" href="sim/sims4/view.html" /> 
 
- <a href="{{ @BASE.'/sims' }}" class="btn btn-secondary" onclick="window.close();"><i class="fa fa-times" aria-hidden="true"></i> Close</a>
+ <a href="{{ @BASE.'/sims' }}" class="btn btn-secondary" onclick="window.close();"><i class="fa fa-times mr-2" aria-hidden="true"></i>Close</a>
 

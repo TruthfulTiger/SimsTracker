@@ -31,23 +31,10 @@ class SimController extends Controller {
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->f3->clear('SESSION.url');
-		if($this->f3->exists('PARAMS.id')){
-			$hhID = $this->f3->get('PARAMS.id');
-			$this->f3->set('households',$this->household->getById($hhID));
-			if ($this->household->userID != $userID) {
-				$this->f3->set('SESSION.error', 'No such household associated with this user.');
-				$this->f3->reroute('/sims');
-			} else {
-				$this->f3->set('sims',$this->sim->getByhhID($hhID));
-				$this->f3->set('title','Sims in '.$this->household->name.' Household');
-				$this->f3->set('content','sim/list.html');
-			}
-		} else {
-			$this->f3->set('households',$this->household->getByUser($userID));
-			$this->f3->set('sims',$this->sim->getByUser($userID));
-			$this->f3->set('title','Sims');
-			$this->f3->set('content','sim/list.html');
-		}
+		$this->f3->set('households',$this->household->getByUser($userID));
+		$this->f3->set('sims',$this->sim->getByUser($userID));
+		$this->f3->set('title','Sims');
+		$this->f3->set('content','sim/list.html');
 	}
 
 	public function create()
@@ -120,8 +107,11 @@ class SimController extends Controller {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				$this->f3->scrub($_POST,'p; br;');
-				$sim = $this->f3->get('POST.id');		
-				$userID = $this->f3->get('SESSION.user[2]');				
+				$sim = $this->f3->get('POST.id');
+				$image = $this->f3->get('POST.image');
+				$userID = $this->f3->get('SESSION.user[2]');	
+				$maxsize = $this->f3->get('POST.MAX_FILE_SIZE');
+				$file = $_FILES["image-raw"];		
 				$this->sim->getById($sim);
 				$this->save();
 				if ($this->sim->gameVersion == 2) {
@@ -137,9 +127,7 @@ class SimController extends Controller {
 				if ($this->sim->gameVersion == 4) {
 				//	$this->s4save();
 					$this->s4sim->getBySimId($sim);
-				}						
-					
-
+				}					
 				$this->sim->edit($sim);
 				if ($this->sim->gameVersion == 2) 
 					$this->s2sim->edit($this->s2sim->id);
@@ -148,10 +136,14 @@ class SimController extends Controller {
 				if ($this->sim->gameVersion == 4) 
 					$this->s4sim->edit($this->s4sim->id);				
 				
+				if (!empty($file)) {
+				$is = new UploadController;
+				$is->imageUpload($file, $maxsize);
+				} 
 				$this->f3->set('SESSION.success', 'Sim has been updated.');
 				$this->f3->reroute($this->f3->get('SESSION.url'));
-			}
-		} else
+				}
+			} else
 		{
 			if(!$this->f3->exists('SESSION.url'))
 				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
@@ -418,6 +410,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.learnedPhysio',isset($_POST["learnedPhysio"])?1:0);
 			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
 			$this->f3->set('POST.learnedParenting',isset($_POST["learnedParenting"])?1:0);
+			$this->f3->set('POST.friendsBenefit',isset($_POST["friendsBenefit"])?1:0);
 		}
 	} 
 }

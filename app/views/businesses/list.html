@@ -27,8 +27,10 @@
 							<td>{{ trim(@b.busName) }}</td>
 							<td>{{ trim(@b.type) }}</td>
 							<td>{{ trim(@b.rank) }}</td>
-							<td><a href="{{ @BASE.'/biz/view/'. @b.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-								<a href="{{ @BASE.'/biz/update/'. @b.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+							
+							<td><exclude>
+							<a href="{{ @BASE.'/biz/view/'. @b.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye mr-2"></i></a></exclude>
+								<a href="{{ @BASE.'/biz/update/'. @b.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit mr-2"></i></a>
 								<a href="#" onclick="confirm('{{ @BASE.'/biz/delete/'. @b.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
@@ -44,7 +46,7 @@
 		<p>No businesses found.</p>
 	</false>
 </check>
-<a href="{{ @BASE.'/biz/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/biz/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i> Create</a>
 
 <script>
 $(document).ready( function () {

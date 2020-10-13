@@ -121,8 +121,8 @@ $(function () {
 					break;
 			}
 			$('#age'+i).attr("src", s2path + ageimg);
-			$('#age'+i).attr("alt", agealt);
-			$('#age'+i).attr("title", agealt);
+			$('#age'+i).attr("alt", "Age: " + agealt);
+			$('#age'+i).attr("title", "Age: " + agealt);
 		}
 	}
 
@@ -152,8 +152,8 @@ $(function () {
 					break;
 			}
 			$('#gender'+i).attr("src", s2path + genderimg);
-			$('#gender'+i).attr("alt", genderalt);
-			$('#gender'+i).attr("title", genderalt);
+			$('#gender'+i).attr("alt", "Gender: " + genderalt);
+			$('#gender'+i).attr("title", "Gender: " + genderalt);
 		}
 	}
 
@@ -191,8 +191,8 @@ $(function () {
 					break;
 			}
 			$('#skintone'+i).attr("src", s2path + skinimg);
-			$('#skintone'+i).attr("alt", skinalt);
-			$('#skintone'+i).attr("title", skinalt);
+			$('#skintone'+i).attr("alt", skinalt + " skintone");
+			$('#skintone'+i).attr("title", skinalt + " skintone");
 		}
 	}
 
@@ -249,23 +249,23 @@ $(function () {
 			switch (eyesRnd) {
 				case 1:
 					eyesimg = "brown_eyes.png";
-					eyesalt = "Brown eyes";
+					eyesalt = "Brown";
 					break;
 				case 2:
 					eyesimg = "dark_blue_eyes.png";
-					eyesalt = "Dark blue eyes";
+					eyesalt = "Dark blue";
 					break;
 				case 3:
 					eyesimg = "green_eyes.png";
-					eyesalt = "Green eyes";
+					eyesalt = "Green";
 					break;
 				case 4:
 					eyesimg = "light_blue_eyes.png";
-					eyesalt = "Light blue eyes";
+					eyesalt = "Light blue";
 					break;
 				case 5:
 					eyesimg = "grey_eyes.png";
-					eyesalt = "Grey eyes";
+					eyesalt = "Grey";
 					break;
 				default:
 					eyesimg = "Null.png";
@@ -273,8 +273,8 @@ $(function () {
 					break;
 			}
 			$('#eyes'+i).attr("src", s2path + eyesimg);
-			$('#eyes'+i).attr("alt", eyesalt);
-			$('#eyes'+i).attr("title", eyesalt);
+			$('#eyes'+i).attr("alt", "Eye colour: " + eyesalt);
+			$('#eyes'+i).attr("title", "Eye colour: " + eyesalt);
 		}
 	}
 
@@ -344,8 +344,8 @@ $(function () {
 					break;
 			}
 			$('#zodiac'+i).attr("src", s2path + zodiacimg);
-			$('#zodiac'+i).attr("alt", zodiacalt);
-			$('#zodiac'+i).attr("title", zodiacalt);			
+			$('#zodiac'+i).attr("alt", "Zodiac sign: " + zodiacalt);
+			$('#zodiac'+i).attr("title", "Zodiac sign: " + zodiacalt);			
 		}
 	}
 
@@ -434,8 +434,8 @@ $(function () {
 				fitnessalt = "Fat";
 			}
 			$('#body'+i).attr("src", s2path + fitnessimg);
-			$('#body'+i).attr("alt", fitnessalt);
-			$('#body'+i).attr("title", fitnessalt);
+			$('#body'+i).attr("alt", "Body type: " + fitnessalt);
+			$('#body'+i).attr("title", "Body type: " + fitnessalt);
 		}
 	}
 
@@ -455,7 +455,7 @@ $(function () {
 
 			if (random_fhair === 'nohair') {
 				fhimg = "turnoff10.png";
-				fhalt = "No facial hair";
+				fhalt = "Has no facial hair";
 			}
 
 			if (random_fhair === 'hair') {
@@ -485,7 +485,7 @@ $(function () {
 
 			if (random_glasses === 'noglasses') {
 				glassesimg = "turnoff11.png";
-				glassesalt = "No glasses";
+				glassesalt = "Has no glasses";
 			}
 
 			if (random_glasses === 'glasses') {
@@ -515,7 +515,7 @@ $(function () {
 
 			if (random_hats === 'nohats') {
 				hatimg = "turnoff14.png";
-				hatalt = "No hat";
+				hatalt = "Has no hat";
 			}
 
 			if (random_hats === 'hats') {
@@ -545,7 +545,7 @@ $(function () {
 
 			if (random_makeup === 'nomakeUp') {
 				makeUpimg = "turnoff12.png";
-				makeUpalt = "No make-up";
+				makeUpalt = "Has no make-up";
 			}
 
 			if (random_makeup === 'makeUp') {
@@ -622,8 +622,8 @@ $(function () {
 			}
 
 			$('#lifeState'+i).attr("src", s2path + lifeStateimg);
-			$('#lifeState'+i).attr("alt", lifeStatealt);
-			$('#lifeState'+i).attr("title", lifeStatealt);
+			$('#lifeState'+i).attr("alt", "Is " + lifeStatealt);
+			$('#lifeState'+i).attr("title", "Is " + lifeStatealt);
 		}
 	}
 
@@ -770,8 +770,8 @@ $(function () {
 					break;
 			}
 			$('#career'+i).attr("src", s2path + careerimg);
-			$('#career'+i).attr("alt", careeralt);
-			$('#career'+i).attr("title", careeralt);
+			$('#career'+i).attr("alt", "Career: " + careeralt);
+			$('#career'+i).attr("title", "Career: " + careeralt);
 		}
 	}
 
@@ -877,11 +877,11 @@ $(function () {
 			}
 		
 		$('#aspiration'+i).attr("src", s2path + aspimg);
-		$('#aspiration'+i).attr("alt", aspalt);
-		$('#aspiration'+i).attr("title", aspalt);	
+		$('#aspiration'+i).attr("alt", "Aspiration: " + aspalt);
+		$('#aspiration'+i).attr("title", "Aspiration: " + aspalt);	
 		$('#secondAsp'+i).attr("src", s2path + asp2img);
-		$('#secondAsp'+i).attr("alt", asp2alt);
-		$('#secondAsp'+i).attr("title", asp2alt);	
+		$('#secondAsp'+i).attr("alt", "Secondary Aspiration: " + asp2alt);
+		$('#secondAsp'+i).attr("title", "Secondary Aspiration: " + asp2alt);	
 		}
 	}
 
@@ -939,8 +939,8 @@ $(function () {
 					break;
 			}
 			$('#hobby'+i).attr("src", s2path + hobbyimg);
-			$('#hobby'+i).attr("alt", hobbyalt);
-			$('#hobby'+i).attr("title", hobbyalt);
+			$('#hobby'+i).attr("alt", "Predestined hobby: " + hobbyalt);
+			$('#hobby'+i).attr("title", "Predestined hobby: " + hobbyalt);
 		}
 	}
 
@@ -960,19 +960,19 @@ $(function () {
 
 			let random_pref = getWeightedRandom(list, weight);
 
-			if ($('#gender'+i).attr("alt") === "Female" && random_pref === "straight") {
+			if ($('#gender'+i).attr("alt") === "Gender: Female" && random_pref === "straight") {
 				prefimg = "pref_male.png";
 				prefalt = "Prefers males";
 			}
-			if ($('#gender'+i).attr("alt")  === "Male" && random_pref === "straight") {
+			if ($('#gender'+i).attr("alt")  === "Gender: Male" && random_pref === "straight") {
 				prefimg = "pref_female.png";
 				prefalt = "Prefers females";
 			}
-			if ($('#gender'+i).attr("alt")  === "Female" && random_pref === "gay") {
+			if ($('#gender'+i).attr("alt")  === "Gender: Female" && random_pref === "gay") {
 				prefimg = "pref_female.png";
 				prefalt = "Prefers females";
 			}
-			if ($('#gender'+i).attr("alt") === "Male" && random_pref === "gay") {
+			if ($('#gender'+i).attr("alt") === "Gender: Male" && random_pref === "gay") {
 				prefimg = "pref_male.png";
 				prefalt = "Prefers males";
 			}
@@ -981,8 +981,8 @@ $(function () {
 				prefalt = "Likes both";
 			}
 		} else {
-			let random_pref = getRandomInt(1, 3);
-
+			let random_pref = getRandomInt(1, 4);
+			
 			switch (random_pref) {
 				case 1:
 					prefimg = "pref_male.png";
@@ -996,9 +996,13 @@ $(function () {
 					prefimg = "pref_both.png";
 					prefalt = "Likes both";
 					break;
+				case 4:
+					prefimg = "pref_neither.png";
+					prefalt = "No preference";
+					break;
 				default:
-					prefimg = "Null.png";
-					prefalt = "";
+					prefimg = "pref_neither.png";
+					prefalt = "No preference";
 					break;
 			}
 		}
@@ -1420,14 +1424,14 @@ $(function () {
 			toffalt = "Witch";
 		}
 		$('#ton1'+i).attr("src", s2path + to1img);
-		$('#ton1'+i).attr("alt", to1alt);
-		$('#ton1'+i).attr("title", to1alt);
+		$('#ton1'+i).attr("alt", "Likes " + to1alt);
+		$('#ton1'+i).attr("title", "Likes " + to1alt);
 		$('#ton2'+i).attr("src", s2path + to2img);
-		$('#ton2'+i).attr("alt", to2alt);
-		$('#ton2'+i).attr("title", to2alt);
+		$('#ton2'+i).attr("alt", "Likes " + to2alt);
+		$('#ton2'+i).attr("title", "Likes " + to2alt);
 		$('#toff'+i).attr("src", s2path + toffimg);
-		$('#toff'+i).attr("alt", toffalt);
-		$('#toff'+i).attr("title", toffalt);
+		$('#toff'+i).attr("alt", "Doesn't like " + toffalt);
+		$('#toff'+i).attr("title", "Doesn't like " + toffalt);
 		}
 	}
 
@@ -1437,6 +1441,12 @@ $(function () {
 		minAge = $("input[name='minAge']:checked").val();
 		if (age.prop("checked")) {
 			ageRand(minAge);
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#age'+i).attr("src", s2path + "AgeNull.png");
+			$('#age'+i).attr("alt", "");
+			$('#age'+i).attr("title", "");
+			}
 		}	
 		// Randomise gender
 		genderRand();
@@ -1453,45 +1463,111 @@ $(function () {
 		// Randomise fitness
 		if (fitness.prop("checked")) {
 			fitnessRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#body'+i).attr("src", s2path + "Null.png");
+			$('#body'+i).attr("alt", "");
+			$('#body'+i).attr("title", "");
+			}
 		}
 		
 		// Randomise facial hair
 		if (facialHair.prop("checked")) {
 			facialHairRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#facialHair'+i).attr("src", s2path + "Null.png");
+			$('#facialHair'+i).attr("alt", "");
+			$('#facialHair'+i).attr("title", "");
+			}
 		}
 		// Randomise glasses
 		if (glasses.prop("checked")) {
 			glassesRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#glasses'+i).attr("src", s2path + "Null.png");
+			$('#glasses'+i).attr("alt", "");
+			$('#glasses'+i).attr("title", "");
+			}
 		}
 		// Randomise hats
 		if (hats.prop("checked")) {
 			hatsRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#hat'+i).attr("src", s2path + "Null.png");
+			$('#hat'+i).attr("alt", "");
+			$('#hat'+i).attr("title", "");
+			}
 		}
 		// Randomise make-up
 		if (makeUp.prop("checked")) {
 			makeUpRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#makeUp'+i).attr("src", s2path + "Null.png");
+			$('#makeUp'+i).attr("alt", "");
+			$('#makeUp'+i).attr("title", "");
+			}
 		}
 		// Randomise supernatural
 		if (supernatural.prop("checked")) {
 			supernaturalRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#lifeState'+i).attr("src", s2path + "Null.png");
+			$('#lifeState'+i).attr("alt", "");
+			$('#lifeState'+i).attr("title", "");
+			}
 		}
 		// Randomise aspirations
 		aspirationRand();
 		// Randomise career
 		if (career.prop("checked")) {
 			careerRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#career'+i).attr("src", s2path + "Null.png");
+			$('#career'+i).attr("alt", "");
+			$('#career'+i).attr("title", "");
+			}
 		}
 		// Randomise hobby
 		if (hobby.prop("checked")) {
 			hobbyRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#hobby'+i).attr("src", s2path + "Null.png");
+			$('#hobby'+i).attr("alt", "");
+			$('#hobby'+i).attr("title", "");
+			}
 		}
 		// Randomise preference
 		if ((preference.prop('checked'))) {
 			prefRand();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+			$('#preference'+i).attr("src", s2path + "pref_null.png");
+			$('#preference'+i).attr("alt", "");
+			$('#preference'+i).attr("title", "");
+			}
 		}
 		// If TO checked, randomise turn-ons
 		if (tocheck.prop("checked")) {
 			tofrandom();
+		} else {
+			for (let i = 1; i <= numsims; i++) {
+				$('#ton1'+i).attr("src", s2path + "Null.png");
+				$('#ton1'+i).attr("alt", "");
+				$('#ton1'+i).attr("title", "");
+				$('#ton2'+i).attr("src", s2path + "Null.png");
+				$('#ton2'+i).attr("alt", "");
+				$('#ton2'+i).attr("title", "");
+				$('#toff'+i).attr("src", s2path + "Null.png");
+				$('#toff'+i).attr("alt", "");
+				$('#toff'+i).attr("title", "");
+			}
 		}
 	}
 

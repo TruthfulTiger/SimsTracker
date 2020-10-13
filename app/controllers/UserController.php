@@ -77,7 +77,6 @@ class UserController extends Controller {
 		if($this->f3->exists('PARAMS.id'))
 		{
 			$this->user->delete($this->f3->get('PARAMS.id'));
-			$this->f3->set('SESSION.success', 'User was deleted');
 		} else {
 			$this->f3->set('SESSION.error', 'User doesn\'t exist');
 		}

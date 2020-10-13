@@ -1134,3 +1134,12 @@
         magicLevel.noUiSlider.on('update', function (values, handle) {
 			magicValueElement.innerHTML = values[handle];
 		});
+
+		// Pet sliders
+		  $('#shards-custom-slider').customSlider({
+			start: [1],
+			range: {
+			'min': 1,
+			'max': 3
+			}
+		});

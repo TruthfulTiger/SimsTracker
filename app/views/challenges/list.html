@@ -36,16 +36,14 @@
 										<check if="{{@challenge.type == 'Legacy Challenge'}}">
 										<check if="{{@challenge.hasScores == 1}}" >
 										<true>
-											<a id="url" href="{{ @BASE.'/s2legacy/'. @challenge.id }}" data-toggle="tooltip" title="Go to scoresheet"  class="text-primary"><i class="fas fa-calculator"></i></a>	
+											<a id="url" href="{{ @BASE.'/s2legacy/'. @challenge.id }}" data-toggle="tooltip" title="Go to scoresheet"  class="text-primary"><i class="fas fa-calculator mr-2"></i></a>	
 										</true>
 										<false>
 										<a href="{{ @BASE.'/s2legacy/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" 
-			data-toggle="tooltip" title="Create scoresheet" class="text-success" ><i class="fas fa-calculator"></i></a>	
+			data-toggle="tooltip" title="Create scoresheet" class="text-success" ><i class="fas fa-calculator mr-2"></i></a>	
 										</false>
 										</check>						
 										</check>
-
-									&nbsp;&nbsp;
 									<a href="#" onclick="confirm('{{ @BASE.'/challenge/delete/'. @challenge.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
@@ -60,7 +58,7 @@
 				<p>No challenges found.</p>
 			</false>
 		</check>
-<a href="{{ @BASE.'/challenge/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/challenge/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Create</a>
 <script>
 $(document).ready( function () {
     let table = $('.challenges').DataTable({

@@ -14,6 +14,7 @@
 				<th scope="col">Sim 1</th>
 				<th scope="col">Sim 2</th>
 				<th scope="col">Relationship</th>
+				<th scope="col">STR / LTR</th>
 				<th scope="col">Relationship flags</th>
 				<th scope="col">Action</th>
 			</tr>
@@ -36,38 +37,39 @@
 							</check>
 						</repeat>
 							<td>{{ trim(@ship.relName) }}</td>
+							<td>{{ trim(@ship.str) }} / {{ trim(@ship.ltr) }}</td>
 							<td>
 								<check if="{{ @ship.isFamily }}">
-									<img src="{{@BASE}}{{@s2path}}family.png" height="24" alt="Family">
+									<img src="{{@BASE}}{{@s2path}}family.png" height="24" alt="Family" data-toggle="tooltip" title="Family" />
 								</check>
 
 								<check if="{{ @ship.isSteady }}">
-									<img src="{{@BASE}}{{@s2path}}steady.png" height="24" alt="Going Steady">
+									<img src="{{@BASE}}{{@s2path}}steady.png" height="24" alt="Going Steady" data-toggle="tooltip" title="Going Steady"/>
 								</check>
 								<check if="{{ @ship.isEngaged }}">
-									<img src="{{@BASE}}{{@s2path}}engaged.png" height="24" alt="Engaged">
+									<img src="{{@BASE}}{{@s2path}}engaged.png" height="24" alt="Engaged" data-toggle="tooltip" title="Engaged" />
 								</check>
 								<check if="{{ @ship.isMarried }}">
-									<img src="{{@BASE}}{{@s2path}}married.png" height="24" alt="Married / Joined">
+									<img src="{{@BASE}}{{@s2path}}married.png" height="24" alt="Married" data-toggle="tooltip" title="Married" />
 								</check>
 								<br/>
 								<check if="{{ @ship.isEnemy }}">
-									<img src="{{@BASE}}{{@s2path}}enemy.png" height="24" alt="Enemy">
+									<img src="{{@BASE}}{{@s2path}}enemy.png" height="24" alt="Enemy" data-toggle="tooltip" title="Enemy" />
 								</check>
 								<check if="{{ @ship.isFriend }}">
-									<img src="{{@BASE}}{{@s2path}}friend.png" height="24" alt="Friend">
+									<img src="{{@BASE}}{{@s2path}}friend.png" height="24" alt="Friend" data-toggle="tooltip" title="Friend" />
 								</check>
 								<check if="{{ @ship.isBF }}">
-									<img src="{{@BASE}}{{@s2path}}bf.png" height="24" alt="Best Friend">
+									<img src="{{@BASE}}{{@s2path}}bf.png" height="24" alt="Best Friend" data-toggle="tooltip" title="Best Friend" />
 								</check>
 								<check if="{{ @ship.isCrush }}">
-									<img src="{{@BASE}}{{@s2path}}crush.png" height="24" alt="Crush">
+									<img src="{{@BASE}}{{@s2path}}crush.png" height="24" alt="Crush" data-toggle="tooltip" title="Crush" />
 								</check>
 								<check if="{{ @ship.isLove }}">
-									<img src="{{@BASE}}{{@s2path}}love.png" height="24" alt="Love">
+									<img src="{{@BASE}}{{@s2path}}love.png" height="24" alt="Love" data-toggle="tooltip" title="Love" />
 								</check>
 							</td>
-							<td><a href="{{ @BASE.'/relationship/update/'. @ship.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+							<td><a href="{{ @BASE.'/relationship/update/'. @ship.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit mr-2"></i></a>
 								<a href="#" onclick="confirm('{{ @BASE.'/relationship/delete/'. @ship.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
@@ -83,7 +85,7 @@
 		<p>No relationships found.</p>
 	</false>
 </check>
-<a href="{{ @BASE.'/relationship/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/relationship/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Create</a>
 
 <script>
 $(document).ready( function () {

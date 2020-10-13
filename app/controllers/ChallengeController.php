@@ -58,6 +58,8 @@ class ChallengeController extends Controller {
 			$this->f3->set('hoods', $this->hood->getByUser($userID));
 			$this->f3->set('sims',$this->sim->getByUser($userID));
 			$this->f3->set('households', $this->household->getByUser($userID));
+			$this->hood->getById($this->household->nhID);
+			$this->f3->set('hood', $this->hood);
 			$this->f3->set('title','Create Challenge');
 			$this->f3->set('content','challenges/create.html');
 		}

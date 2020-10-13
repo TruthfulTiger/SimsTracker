@@ -1,35 +1,114 @@
+<img src="{{@BASE}}/{{@sim.image}}" width="150" class="img-thumbnail float-right" alt="Image of Sim"/>
+<h3>Basic information</h3>
 <div class="row">
+	{* Gender *}
 	<div class="col">
 		<check if="{{ @sim.gender == 'F'}}">
-			<img src="{{@BASE}}{{@s2path}}Female.png" alt="Female" data-toggle="tooltip" title="Female">
+			<img src="{{@BASE}}{{@s2path}}Female.png" alt="Female" data-toggle="tooltip" title="Female"/>
 		</check>
 		<check if="{{ @sim.gender == 'M'}}">
-			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male">
+			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male"/>
 		</check>
 		<input hidden id="gender" value="{{trim(@sim.gender)}}" />
 	</div>
+	{* Age *}
 	<div class="col">
-    <input hidden id = "age" value="{{trim(@sim.age)}}" />
+    	<input hidden id = "age" value="{{trim(@sim.age)}}" />
 		<check if="{{ @sim.age == 'Infant'}}">
-        	<img src="{{@BASE}}{{@s2path}}Female.png" alt="Infant" data-toggle="tooltip" title="Infant">
+        	<img src="{{@BASE}}{{@s2path}}Age0.png" alt="Infant" data-toggle="tooltip" title="Infant"/>
 		</check>
 		<check if="{{ @sim.age == 'Toddler'}}">
-			<img src="{{@BASE}}{{@s2path}}Age1.png" alt="Toddler" data-toggle="tooltip" title="Toddler">
+			<img src="{{@BASE}}{{@s2path}}Age1.png" alt="Toddler" data-toggle="tooltip" title="Toddler"/>
 		</check>
 		<check if="{{ @sim.age == 'Child'}}">
-			<img src="{{@BASE}}{{@s2path}}Age2.png" alt="Child" data-toggle="tooltip" title="Child">
+			<img src="{{@BASE}}{{@s2path}}Age2.png" alt="Child" data-toggle="tooltip" title="Child"/>
 		</check>
 		<check if="{{ @sim.age == 'Teen'}}">
-			<img src="{{@BASE}}{{@s2path}}Age3.png" alt="Teen" data-toggle="tooltip" title="Teen">
+			<img src="{{@BASE}}{{@s2path}}Age3.png" alt="Teen" data-toggle="tooltip" title="Teen"/>
 		</check>
         <check if="{{ @sim.age == 'Young Adult'}}">
-			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Young Adult" data-toggle="tooltip" title="Young Adult">
+			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Young Adult" data-toggle="tooltip" title="Young Adult"/>
 		</check>
 		<check if="{{ @sim.age == 'Adult'}}">
-			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Adult" data-toggle="tooltip" title="Adult">
+			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Adult" data-toggle="tooltip" title="Adult"/>
 		</check>
 		<check if="{{ @sim.age == 'Elder'}}">
-			<img src="{{@BASE}}{{@s2path}}Age5.png" alt="Elder" data-toggle="tooltip" title="Elder">
+			<img src="{{@BASE}}{{@s2path}}Age5.png" alt="Elder" data-toggle="tooltip" title="Elder"/>
+		</check>
+	</div>
+	{* Skin *}
+	<div class="col">
+		<check if="{{ @sim.skintone == 'Light'}}">
+        	<img src="{{@BASE}}{{@s2path}}S1.png" alt="Light skintone" data-toggle="tooltip" title="Light skintone"/>
+		</check>
+		<check if="{{ @sim.skintone == 'Tan'}}">
+			<img src="{{@BASE}}{{@s2path}}S2.png" alt="Tan skintone" data-toggle="tooltip" title="Tan skintone"/>
+		</check>
+		<check if="{{ @sim.skintone == 'Mid'}}">
+			<img src="{{@BASE}}{{@s2path}}S3.png" alt="Mid skintone" data-toggle="tooltip" title="Mid skintone"/>
+		</check>
+		<check if="{{ @sim.skintone == 'Dark'}}">
+			<img src="{{@BASE}}{{@s2path}}S4.png" alt="Dark skintone" data-toggle="tooltip" title="Dark skintone"/>
+		</check>
+        <check if="{{ @sim.skintone == 'Alien'}}">
+			<img src="{{@BASE}}{{@s2path}}S5.png" alt="Alien skintone" data-toggle="tooltip" title="Alien skintone"/>
+		</check>
+		<check if="{{ @sim.skintone == 'Custom'}}">
+			<img src="{{@BASE}}{{@s2path}}S0.png" alt="Custom skintone" data-toggle="tooltip" title="Custom skintone"/>
+		</check>
+		<check if="{{ @sim.skintone == null}}">
+			<img src="{{@BASE}}{{@s2path}}Null.png" />
+		</check>
+	</div>
+	{* Hair *}
+	<div class="col">
+		<check if="{{ @sim.hair == 'Blond'}}">
+        	<img src="{{@BASE}}{{@s2path}}turnon15.png" alt="Blond hair" data-toggle="tooltip" title="Blond hair"/>
+		</check>
+		<check if="{{ @sim.hair == 'Brown'}}">
+			<img src="{{@BASE}}{{@s2path}}turnon17.png" alt="Brown hair" data-toggle="tooltip" title="Brown hair"/>
+		</check>
+		<check if="{{ @sim.hair == 'Red'}}">
+			<img src="{{@BASE}}{{@s2path}}turnon16.png" alt="Red hair" data-toggle="tooltip" title="Red hair"/>
+		</check>
+		<check if="{{ @sim.hair == 'Black'}}">
+			<img src="{{@BASE}}{{@s2path}}turnon18.png" alt="Black hair" data-toggle="tooltip" title="Black hair"/>
+		</check>
+        <check if="{{ @sim.hair == 'Grey'}}">
+			<img src="{{@BASE}}{{@s2path}}turnon5.png" alt="Grey hair" data-toggle="tooltip" title="Grey hair"/>
+		</check>
+		<check if="{{ @sim.hair == 'Custom'}}">
+			<img src="{{@BASE}}{{@s2path}}turnon19.png" alt="Custom hair" data-toggle="tooltip" title="Custom hair"/>
+		</check>
+		<check if="{{ @sim.hair == null}}">
+			<img src="{{@BASE}}{{@s2path}}Null.png" />
+		</check>
+	</div>
+	{* Eyes *}
+	<div class="col">
+		<check if="{{ @sim.eyes == 'Dark Blue'}}">
+        	<img src="{{@BASE}}{{@s2path}}dark_blue_eyes.png" alt="Dark Blue eyes" data-toggle="tooltip" title="Dark Blue eyes"/>
+		</check>
+		<check if="{{ @sim.eyes == 'Brown'}}">
+			<img src="{{@BASE}}{{@s2path}}brown_eyes.png" alt="Brown eyes" data-toggle="tooltip" title="Brown eyes"/>
+		</check>
+		<check if="{{ @sim.eyes == 'Green'}}">
+			<img src="{{@BASE}}{{@s2path}}green_eyes.png" alt="Green eyes" data-toggle="tooltip" title="Green eyes"/>
+		</check>
+		<check if="{{ @sim.eyes == 'Light Blue'}}">
+			<img src="{{@BASE}}{{@s2path}}light_blue_eyes.png" alt="Light Blue eyes" data-toggle="tooltip" title="Light Blue eyes"/>
+		</check>
+        <check if="{{ @sim.eyes == 'Grey'}}">
+			<img src="{{@BASE}}{{@s2path}}grey_eyes.png" alt="Grey eyes" data-toggle="tooltip" title="Grey eyes"/>
+		</check>
+	    <check if="{{ @sim.eyes == 'Alien'}}">
+			<img src="{{@BASE}}{{@s2path}}black_eyes.png" alt="Alien eyes" data-toggle="tooltip" title="Alien eyes"/>
+		</check>
+		<check if="{{ @sim.eyes == 'Custom'}}">
+			<img src="{{@BASE}}{{@s2path}}custom_eyes.png" alt="Custom eyes" data-toggle="tooltip" title="Custom eyes"/>
+		</check>
+		<check if="{{ @sim.eyes == null}}">
+			<img src="{{@BASE}}{{@s2path}}Null.png" />
 		</check>
 	</div>
 </div>
@@ -262,7 +341,7 @@
 								<th scope="row">2</th>
 								<td>Object</td>
 								<td><span class="mean">Hand of Darkness Floor Lamp</span></td>
-								<td>Little Miss Wendolyn Sculture</td>
+								<td>Little Miss Wendolyn Sculpture</td>
 								<td><span class="nice">Faerie Fire Floor Lamp</span></td>
 							</tr>
 							<tr class="level4">
@@ -697,8 +776,14 @@ $(function () {
 			job.append(careerAge[jobLevel].name); 
 			pay.append(simoleans.to(careerAge[jobLevel].pay)); 
 			careerAge[jobLevel].bonus == 0 ? bonus.append("None") : bonus.append(simoleans.to(careerAge[jobLevel].bonus));
-			if ($.isNumeric(careerAge[jobLevel].friends)) {       
-				careerAge[jobLevel].friends < 0 ? friends.append("-") : friends.append(careerAge[jobLevel].friends);                 
+			if ($.isNumeric(careerAge[jobLevel].friends)) { 
+				if  (careerAge[jobLevel].friends < 0) {
+					friends.append("-");
+				} else if ({{trim(@s2sim.friendsBenefit)}} == 1) {
+					friends.append(careerAge[jobLevel].friends - 1);
+				} else {
+					friends.append(careerAge[jobLevel].friends);
+				}                
 				$(".friends").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".friends").attr('aria-hidden', 'true').hide();                          

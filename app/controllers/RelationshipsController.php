@@ -18,25 +18,11 @@ class RelationshipsController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
-		$nhID = $this->f3->get('PARAMS.id');
-		if($this->f3->exists('PARAMS.id')){
-			$this->f3->set('hoods',$this->hood->getById($nhID));
-			if ($this->hood->userID != $userID) {
-				$this->f3->set('SESSION.error', 'No such neighbourhood associated with this user.');
-				$this->f3->reroute('/relationships');
-			} else {
-				$this->f3->set('sims',$this->sim->getBynhID($nhID));
-				$this->f3->set('relationships',$this->relationship->getBynhID($nhID));
-				$this->f3->set('title','Relationships in '.$this->hood->name);
-				$this->f3->set('content','relationships/list.html');
-			}
-		} else {
-			$this->f3->set('hoods',$this->hood->getByUser($userID));
-			$this->f3->set('sims',$this->sim->getByUser($userID));
-			$this->f3->set('relationships',$this->relationship->getByUser($userID));
-			$this->f3->set('title','Relationships');
-			$this->f3->set('content','relationships/list.html');
-		}
+		$this->f3->set('hoods',$this->hood->getByUser($userID));
+		$this->f3->set('sims',$this->sim->getByUser($userID));
+		$this->f3->set('relationships',$this->relationship->getByUser($userID));
+		$this->f3->set('title','Relationships');
+		$this->f3->set('content','relationships/list.html');
 	}
 
 	public function create()

@@ -45,6 +45,9 @@
 <script src="{{@BASE}}/node_modules/shards-ui/dist/js/shards.min.js"></script>
 <script src='{{@BASE}}/ui/js/wNumb.min.js'></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
 <script>
 let json = "";
 $(function () {
@@ -121,101 +124,103 @@ jQuery.fn.extend({
 {* Careers *}
 <script>
 function careerPath(c) {
+	let path = "{{@BASE}}/ui/json/sims2/careers/";
 	switch(c) {
 		case 1: 
-		json = "{{@BASE}}/ui/json/s2careers/s2athletic.json";   
+		json = path + "s2athletic.json";   
 		break;
 		case 2: 
-		json = "{{@BASE}}/ui/json/s2careers/s2business.json";   
+		json = path + "s2business.json";   
 		break;
 		case 3: 
-		json = "{{@BASE}}/ui/json/s2careers/s2criminal.json";   
+		json = path + "s2criminal.json";   
 		break;
 		case 4: 
-		json = ($('#gender').val() == "F") ? "{{@BASE}}/ui/json/s2careers/s2culinaryF.json" : "{{@BASE}}/ui/json/s2careers/s2culinary.json";
+		json = ($('#gender').val() == "F") ? path + "s2culinaryF.json" : path + "s2culinary.json";
 		break;
 		case 5: 
-		json = "{{@BASE}}/ui/json/s2careers/s2lawenforcement.json";   
+		json = path + "s2lawenforcement.json";   
 		break;
 		case 6: 
-		json = "{{@BASE}}/ui/json/s2careers/s2medicine.json";   
+		json = path + "s2medicine.json";   
 		break;
 		case 7: 
-		json = "{{@BASE}}/ui/json/s2careers/s2military.json";   
+		json = path + "s2military.json";   
 		break;
 		case 8: 
-		json = "{{@BASE}}/ui/json/s2careers/s2politics.json";   
+		json = path + "s2politics.json";   
 		break;
 		case 9: 
-		json = "{{@BASE}}/ui/json/s2careers/s2science.json";   
+		json = path + "s2science.json";   
 		break;
 		case 10: 
-		json = "{{@BASE}}/ui/json/s2careers/s2slacker.json";   
+		json = path + "s2slacker.json";   
 		break;
 		case 11: 
-		json = "{{@BASE}}/ui/json/s2careers/s2artist.json";   
+		json = path + "s2artist.json";   
 		break;
 		case 12: 
-		json = "{{@BASE}}/ui/json/s2careers/s2naturalscience.json";   
+		json = path + "s2naturalscience.json";   
 		break;
 		case 13: 
-		json = "{{@BASE}}/ui/json/s2careers/s2paranormal.json";   
+		json = path + "s2paranormal.json";   
 		break;
 		case 14: 
-		json = ($('#gender').val() == "F") ? "{{@BASE}}/ui/json/s2careers/s2showbusinessF.json" : "{{@BASE}}/ui/json/s2careers/s2showbusiness.json";
+		json = ($('#gender').val() == "F") ? path + "s2showbusinessF.json" : path + "s2showbusiness.json";
 		break;
 		case 15: 
-		json = "{{@BASE}}/ui/json/s2careers/s2law.json";   
+		json = path + "s2law.json";   
 		break;
 		case 16: 
-		json = "{{@BASE}}/ui/json/s2careers/s2gamer.json";   
+		json = path + "s2gamer.json";   
 		break;
 		case 17: 
-		json = "{{@BASE}}/ui/json/s2careers/s2adventurer.json";   
+		json = path + "s2adventurer.json";   
 		break;
 		case 18: 
-		json = "{{@BASE}}/ui/json/s2careers/s2music.json";   
+		json = path + "s2music.json";   
 		break;
 		case 19: 
-		json = "{{@BASE}}/ui/json/s2careers/s2jouralism.json";   
+		json = path + "s2jouralism.json";   
 		break;
 		case 20: 
-		json = "{{@BASE}}/ui/json/s2careers/s2education.json";   
+		json = path + "s2education.json";   
 		break;
 		case 21: 
-		json = "{{@BASE}}/ui/json/s2careers/s2entertainment.json";   
+		json = path + "s2entertainment.json";   
 		break;
 		case 22: 
-		json = "{{@BASE}}/ui/json/s2careers/s2dance.json";   
+		json = path + "s2dance.json";   
 		break;
 		case 23: 
-		json = "{{@BASE}}/ui/json/s2careers/s2architecture.json";   
+		json = path + "s2architecture.json";   
 		break;
 		case 24: 
-		json = "{{@BASE}}/ui/json/s2careers/s2intelligence.json";   
+		json = path + "s2intelligence.json";   
 		break;
 		case 25: 
-		json = "{{@BASE}}/ui/json/s2careers/s2oceanography.json";   
+		json = path + "s2oceanography.json";   
 		break;
 		default:
-		json = "{{@BASE}}/ui/json/s2careers/s2career.json";  
+		json = path + "s2career.json";  
 		break;
 	}
 }
 
 function careerPet(c) {
+	let path = "{{@BASE}}/ui/json/sims2/careers/";
 	switch(c) {
 		case 1: 
-		json = "{{@BASE}}/ui/json/s2careers/s2security.json";   
+		json = path + "s2security.json";   
 		break;
 		case 2: 
-		json = "{{@BASE}}/ui/json/s2careers/s2service.json";   
+		json = path + "s2service.json";   
 		break;
 		case 3: 
-		json = "{{@BASE}}/ui/json/s2careers/s2showbiz.json";   
+		json = path + "s2showbiz.json";   
 		break;
 		default:
-		json = "{{@BASE}}/ui/json/s2careers/s2careerpets.json";  
+		json = path + "s2careerpets.json";  
 		break;
 	}
 }

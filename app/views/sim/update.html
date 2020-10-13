@@ -1,4 +1,4 @@
-<form action="{{ @BASE.'/sim/update' }}" validate="true" method="post" class="form-horizontal">
+<form action="{{ @BASE.'/sim/update' }}" validate="true" method="post" enctype="multipart/form-data" class="form-horizontal">
 	{* Sim's name *}
 	<div class="form-row">
 		<div class="form-group col">
@@ -82,7 +82,7 @@
 		<div class="form-group col">
 			<label for="parent1">Parent 1</label>
 			<select class="custom-select" name="parent1" id="parent1">
-				<option value="0">-- N/A --</option>
+				<option value="0">Unknown</option>
 				<repeat group="{{ @parents }}" value="{{ @parent }}">
 					<check if="{{ @parent.id !=  @sim.id}}">
 						<option value="{{@parent.id}}"
@@ -97,14 +97,14 @@
 		<div class="form-group col">
 			<label for="parent2">Parent 2</label>
 			<select class="custom-select" name="parent2" id="parent2">
-				<option value="0">-- N/A --</option>
-				<option value="9998"
-				<check if="{{ @sim.parent2 == 9998}}">
+				<option value="0">Unknown</option>
+				<option value="-1"
+				<check if="{{ @sim.parent2 == -1}}">
 					selected
 				</check>
 				>Pollination Technician</option>
-				<option value="9999"
-				<check if="{{ @sim.parent2 == 9999}}">
+				<option value="-2"
+				<check if="{{ @sim.parent2 == -2}}">
 					selected
 				</check>
 				>Plantsim</option>
@@ -120,9 +120,46 @@
 			</select>
 		</div>
 	</div>
-<include if="{{@hood.gameVersion == 2}}" href="sim/sims2/update.html" /> 
-<include if="{{@hood.gameVersion == 3}}" href="sim/sims3/update.html" /> 
-<include if="{{@hood.gameVersion == 4}}" href="sim/sims4/update.html" /> 	
+	{* Bio and image upload*}
+	<div class="form-row">
+	  <div class="form-group col">
+		<label for="bio">Bio</label>
+		<textarea class="form-control" id="bio" name="bio" cols="50" rows="7" >{{trim(@sim.bio)}}</textarea>
+	</div>
+	<div class="form-group col">
+	        <div class="custom-file-container w-auto" data-upload-id="image">
+            <label
+                >Upload File
+                <a
+                    href="javascript:void(0)"
+                    class="custom-file-container__image-clear"
+                    title="Clear Image" data-toggle="tooltip"
+					onclick="$('#image').val('/ui/images/BlankSim.png');"
+                    >&times;</a
+                ></label
+            >
+
+            <label class="custom-file-container__custom-file">
+				<input
+					type="file"
+					class="custom-file-container__custom-file__custom-file-input"
+					accept="image/*"
+					aria-label="Choose File"
+					id="image-raw" name="image-raw"
+				/>
+				<input type="hidden" name="MAX_FILE_SIZE" value="5242880" />
+				<input type="hidden" name="image" id="image" />
+                <span
+                    class="custom-file-container__custom-file__custom-file-control"
+                ></span>
+            </label>
+            <div class="custom-file-container__image-preview w-50" scroll="no" style="overflow: hidden"></div>
+        </div>
+	</div>
+	</div>
+<include if="{{@sim.gameVersion == 2}}" href="sim/sims2/update.html" /> 
+<include if="{{@sim.gameVersion == 3}}" href="sim/sims3/update.html" /> 
+<include if="{{@sim.gameVersion == 4}}" href="sim/sims4/update.html" /> 	
 			<!-- Hidden fields and form submission -->
 			<div class="control-group">
 				<div class="">
@@ -130,8 +167,37 @@
 					<input type="hidden" name="update" value="update" />
 					<input type="hidden" name="id" value="{{ @sim.id }}" />
 					<input type="hidden" name="modified" value="{{ @modified }}" />
-					<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
-					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+					<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-save mr-2" aria-hidden="true"></i>Save</button>
+ 					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3" onclick="window.close();"><i class="fa fa-times mr-2" aria-hidden="true"></i>Close</a>
 				</div>
 			</div>
 </form>
+        <script>
+		$(function () {
+			var user = "{{@SESSION.user[2]}}";
+			var simImage = "{{@sim.image}}";
+            var upload = new FileUploadWithPreview("image", {
+                showDeleteButtonOnImages: true,
+                presetFiles: [
+                    "{{@BASE}}/{{@sim.image}}"
+                ]
+            });
+			
+			window.addEventListener("fileUploadWithPreview:imagesAdded", function (e) {
+				 e.detail.uploadId
+				 e.detail.cachedFileArray
+				 e.detail.addedFilesCount
+				// Use e.detail.uploadId to match up to your specific input
+				if (e.detail.uploadId === "image") {
+					var file = e.detail.cachedFileArray[0];
+					var image = $('#image-raw').val();
+					if (!image) {
+						$('#image').val(simImage);				
+					} 
+					if (image) {
+						$('#image').val('uploads/'+user+'/'+image.slice(12));
+					}		
+				}
+			});
+		});
+        </script>

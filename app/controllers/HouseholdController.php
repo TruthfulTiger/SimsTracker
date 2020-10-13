@@ -18,23 +18,10 @@ class HouseholdController extends Controller {
 		$this->household->sims='SELECT COUNT(*) as simscount FROM sim where sim.hhID = household.hhID and sim.lifeState = "Alive" GROUP BY hhID ';
 		$this->household->pets='SELECT COUNT(*) as petscount FROM pet where pet.hhID = household.hhID and pet.lifeState = "Alive" GROUP BY hhID ';
 
-		if($this->f3->exists('PARAMS.id')){
-			$nhID = $this->f3->get('PARAMS.id');
-			$this->f3->set('hoods',$this->hood->getById($nhID));
-			if ($this->hood->userID != $userID) {
-				$this->f3->set('SESSION.error', 'No such neighbourhood associated with this user.');
-				$this->f3->reroute('/hoods');
-			} else {
-				$this->f3->set('households',$this->household->getBynhID($nhID));
-				$this->f3->set('title','Households in '.$this->hood->name);
-				$this->f3->set('content','household/list.html');
-			}
-		} else {
-			$this->f3->set('hoods',$this->hood->getByUser($userID));
-			$this->f3->set('households',$this->household->getByUser($userID));
-			$this->f3->set('title','Households');
-			$this->f3->set('content','household/list.html');
-		}
+		$this->f3->set('hoods',$this->hood->getByUser($userID));
+		$this->f3->set('households',$this->household->getByUser($userID));
+		$this->f3->set('title','Households');
+		$this->f3->set('content','household/list.html');
 	}
 
 	public function create()

@@ -10,23 +10,11 @@ class HoodController extends Controller {
 	public function index()
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
-		$this->hood->households='SELECT COUNT(*) as hhcount FROM household where id = nhID and `name` != "Adoption pool" GROUP BY id ';
-		if($this->f3->exists('PARAMS.id')){
-			$game= $this->f3->get('PARAMS.id');
-			$this->f3->set('hoods',$this->hood->getByGame($game));
-			if ($this->hood->userID != $userID) {
-				$this->f3->set('SESSION.error', 'No such hood associated with this user.');
-				$this->f3->reroute('/hoods');
-			} else {
-				$this->f3->set('title','Hoods in Sims '.$this->hood->gameVersion);
-				$this->f3->set('content','hood/list.html');
-			}
-		} else {
-			$this->f3->set('versions',$this->hood->getByGame($this->hood->gameVersion));
-			$this->f3->set('hoods',$this->hood->getByUser($userID));
-			$this->f3->set('title','Neighbourhoods');
-			$this->f3->set('content','hood/list.html');
-		}
+		$this->hood->households='SELECT COUNT(*) as hhcount FROM household where id = nhID and gameVersion > 0 GROUP BY id ';
+		$this->f3->set('versions',$this->hood->getByGame($this->hood->gameVersion));
+		$this->f3->set('hoods',$this->hood->getByUser($userID));
+		$this->f3->set('title','Neighbourhoods');
+		$this->f3->set('content','hood/list.html');
 	}
 
 	public function create()
@@ -36,6 +24,7 @@ class HoodController extends Controller {
 			if (!empty($_POST['hptrap'])) {
 				die('Nice try, Spam-A-Lot');
 			} else {
+				$userID = $this->f3->get('SESSION.user[2]');
 				$this->f3->scrub($_POST,'p; br;');
 				$lastAdded = $this->hood->get('_id'); // Store last ID before adding hood
 				$this->hood->add();
@@ -43,19 +32,29 @@ class HoodController extends Controller {
 				if ($lastID !== $lastAdded) { // If the two are different, that means a hood has been added
 				// Check that new hood is a main hood before creating an adoption pool
 				if ($this->f3->get('POST.type') == 'Main hood') {
-				$adoption = $this->db->exec('SELECT hhID FROM household WHERE `name` = "Adoption pool" '); // Make sure an adoption pool hasn't already been created
+				$adoption = $this->db->exec('SELECT hhID FROM household WHERE gameVersion = 0 AND userID = '.$userID); // Make sure an adoption pool hasn't already been created
 				// Create default / adoption pool so sims / pets can be flagged as up for adoption
 				if (!$adoption) {
-					$this->db->exec('INSERT INTO household (hhID, userID, `name`, nhID, gameVersion, `money`)
+					$this->db->begin();
+					$this->db->exec('INSERT INTO household (userID, `name`, nhID, gameVersion, `money`)
 					VALUES (?, ?, ?, ?, ?)', 
 					array(
-						0,
-						$this->f3->get('SESSION.user[2]'),
+						$userID,
 						"Adoption pool",
 						0,
 						0,
 						0						
-					));					
+					));			
+					$this->db->exec('INSERT INTO household (userID, `name`, nhID, gameVersion, `money`)
+					VALUES (?, ?, ?, ?, ?)', 
+					array(
+						$userID,
+						"Townie pool",
+						0,
+						0,
+						0						
+					));	
+					$this->db->commit();
 					}
 				}
 					$this->f3->set('SESSION.success', 'Neighbourhood has been added.');

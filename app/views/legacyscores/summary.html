@@ -21,7 +21,7 @@
 	</div>
 </div>
 <check if="{{ @s2legacy.isRainbow == 1}}">
-	<a href="{{ @BASE.'/colours/'. @s2legacy.cid }}" target="_blank" class="btn btn-success mb-3"><i class="fa fa-plus" aria-hidden="true"></i> Set up colours</a>
+	<a href="{{ @BASE.'/colours/'. @s2legacy.cid }}" target="_blank" class="btn btn-success mb-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i> Set up colours</a>
 </check>
 <include if="{{ @s2legacy.isRainbow == 0 }}" href="/legacygen/bwlist.html" />
 <include if="{{ @s2legacy.isRainbow == 1 }}" href="/legacygen/colourlist.html" />

@@ -49,8 +49,8 @@
 							<td>{{ trim(@sim.age) }}</td>
 							<td>{{ trim(@sim.lifeState) }}</td>
 							<td>Sims {{ trim(@sim.gameVersion) }}</td>
-							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye mr-2"></i></a>
+								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" data-toggle="tooltip" title="Edit" class="text-primary" target="_blank"><i class="fa fa-edit mr-2"></i></a>
 								<a href="#" onclick="confirm('{{ @BASE.'/sim/delete/'. @sim.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
@@ -67,9 +67,9 @@
 		<p>No sims found.</p>
 	</false>
 </check>
-<a href="{{ @BASE.'/sim/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/sim/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Create</a>
   <a class="btn btn-primary mt-3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-exchange-alt" aria-hidden="true"></i> Move
+    <i class="fas fa-exchange-alt mr-2" aria-hidden="true"></i>Move
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -103,8 +103,10 @@
 		<div class="form-group">
 			<label for="hhID">Where are you moving these sims?</label>
 				<select class="custom-select" name="hhID" id="hhID">
-				<option value="0">Adoption pool</option>
 					<repeat group="{{ @households }}" value="{{ @hh }}">
+					<check if="{{ @hh.gameVersion == 0}}">					
+					<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
+					</check>
 					<check if="{{ @hh.gameVersion == 2}}">
 						<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
 					</check>
@@ -117,8 +119,8 @@
 		<div class="control-group">
 			<div class="">
 			<input type="text" class="hptrap" name="hptrap" />
-				<button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button></a>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-primary"><i class="fa fa-save mr-2" aria-hidden="true"></i>Save</button></a>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-2" aria-hidden="true"></i>Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -151,8 +153,10 @@
 		<div class="form-group">
 			<label for="hhID">Where are you moving these sims?</label>
 				<select class="custom-select" name="hhID" id="hhID">
-				<option value="0">Adoption pool</option>
 					<repeat group="{{ @households }}" value="{{ @hh }}">
+					<check if="{{ @hh.gameVersion == 0}}">					
+					<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
+					</check>
 					<check if="{{ @hh.gameVersion == 3}}">
 						<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
 					</check>
@@ -165,8 +169,8 @@
 		<div class="control-group">
 			<div class="">
 			<input type="text" class="hptrap" name="hptrap" />
-				<button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button></a>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-primary"><i class="fa fa-save mr-2" aria-hidden="true"></i>Save</button></a>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-2" aria-hidden="true"></i>Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -199,8 +203,10 @@
 		<div class="form-group">
 			<label for="hhID">Where are you moving these sims?</label>
 				<select class="custom-select" name="hhID" id="hhID">
-				<option value="0">Adoption pool</option>
 					<repeat group="{{ @households }}" value="{{ @hh }}">
+					<check if="{{ @hh.gameVersion == 0}}">					
+					<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
+					</check>
 					<check if="{{ @hh.gameVersion == 4}}">
 						<option value="{{ @hh.hhID }}">{{ @hh.name }}</option>
 					</check>
@@ -213,8 +219,8 @@
 		<div class="control-group">
 			<div class="">
 			<input type="text" class="hptrap" name="hptrap" />
-				<button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button></a>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-primary"><i class="fa fa-save mr-2" aria-hidden="true"></i>Save</button></a>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-2" aria-hidden="true"></i>Cancel</button>
 				</form>
 			</div>
 		</div>

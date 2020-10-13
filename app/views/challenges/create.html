@@ -79,9 +79,10 @@
 		<div class="">
 			<input type="text" name="hptrap" class="hptrap" />
 			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
+			<input type="hidden" name="gameVersion" value="{{@hood.gameVersion}}" />
 			<input type="hidden" name="create" value="create" />
-			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Challenge</button>
-			<a href="{{ @BASE.'/challenges' }}" class="btn btn-secondary"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Challenge</button>
+			<a href="{{ @BASE.'/challenges' }}" class="btn btn-secondary"><i class="fa fa-times mr-2" aria-hidden="true"></i>Cancel</a>
 		</div>
 	</div>
 </form>

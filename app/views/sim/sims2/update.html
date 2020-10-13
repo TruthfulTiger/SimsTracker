@@ -119,7 +119,7 @@
 					<div class="form-group">
 						<label for="skintone">Skintone</label>
 						<select class="custom-select" name="skintone" id="skintone">
-							<option value="">-- Unknown --</option>
+							<option value="">Unknown</option>
 							<repeat group="{{ @skintones }}" value="{{ @skin }}">
 								<option value="{{ @skin }}"
 								<check if="{{ @sim.skintone == @skin}}">
@@ -132,20 +132,28 @@
 					<div class="form-group">
 					<label for="hair">Hair colour</label>
 					<select class="custom-select" name="hair" id="hair">
-						<option value="">-- Unknown --</option>
+						<check if="{{ @sim.age == 'Elder'}}">
+						<true>
+						<option value="Grey">Grey</option>
+						</true>
+						<false>
+						<option value="">Unknown</option>
 						<repeat group="{{ @haircolours }}" value="{{ @hair }}">
 							<option value="{{ @hair }}"
 							<check if="{{ @sim.hair == @hair}}">
 								selected
 							</check>
 							>{{ @hair }}</option>
-						</repeat>
+						</repeat>						
+						</false>
+						</check>
+
 					</select>
 				</div>
 					<div class="form-group">
 						<label for="eyes">Eye colour</label>
 						<select class="custom-select" name="eyes" id="eyes">
-							<option value="">-- Unknown --</option>
+							<option value="">Unknown</option>
 							<repeat group="{{ @eyecolours }}" value="{{ @eyes }}">
 								<option value="{{ @eyes }}"
 								<check if="{{ @sim.eyes == @eyes}}">
@@ -182,7 +190,7 @@
 			<div class="form-group" id="deathshow" style="display: none;">
 				<label for="death">Cause of death</label>
 				<select class="custom-select" name="death" id="death">
-					<option value="">-- None --</option>
+					<option value="">None</option>
 					<repeat group="{{ @ghosts }}" value="{{ @death }}">
 						<option value="{{ @death }}"
 						<check if="{{ @sim.death == @death}}">
@@ -283,7 +291,7 @@
 				<div class="form-group">
 					<label for="preference">Gender Preference</label>
 					<select class="custom-select" name="preference" id="preference">
-						<option value="">-- None --</option>
+						<option value="Neither">Neither</option>
 						<option value="Males"
 						<check if="{{ @sim.preference == 'Males'}}">
 							selected
@@ -844,8 +852,18 @@
 						</select>
 					</div>
 				</div>
+				<check if="{{ @users2.ft == 1}}">
+					<div class="custom-control custom-toggle my-2">
+					<input type="checkbox" id="friendsBenefit" name="friendsBenefit" value="1" class="custom-control-input"
+						<check if="{{ @s2sim.friendsBenefit == 1}}">
+							checked
+						</check>/>
+					<label class="custom-control-label" for="friendsBenefit">Has Friends in High Places</label>
+					</div>
+				</check>
 			</div>
 		</div>
+		{* LTWs *}
 		<div class="collapse mb-3" id="s2ltws" data-parent="#simstats">
 			<div class="card card-body">
 				<div class="form-row">
@@ -1993,12 +2011,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" id="learnedParenting" name="learnedParenting" value="1" class="custom-control-input"
+						<!-- Normal Custom Toggle -->
+						<div class="custom-control custom-toggle my-2">
+						<input type="checkbox" id="learnedParenting" name="learnedParenting" value="1" class="custom-control-input"
 							<check if="{{ @s2sim.learnedParenting == 1}}">
 								checked
-							</check>>
-							<label class="custom-control-label" for="learnedParenting">Learned Parenting</label>
+							</check>/>
+						<label class="custom-control-label" for="learnedParenting">Learned Parenting</label>
 						</div>
 					</div>
 				</div>

@@ -4,6 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^4.5.2",
+    "file-upload-with-preview": "^4.1.0",
     "jquery": "^3.5.1",
     "shards-ui": "^3.0.0",
     "yuicompressor": "^2.4.8"

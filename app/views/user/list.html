@@ -20,7 +20,7 @@
 			<td>{{ trim(@user.role) }}</td>
 			<td>{{ trim(@user.created) }}</td>
 			<td>{{ trim(@user.lastLogin) }}</td>
-			<td><a href="{{ @BASE.'/user/update/'. @user.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+			<td><a href="{{ @BASE.'/user/update/'. @user.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit mr-2"></i></a>
 				<a href="#" onclick="confirm('{{ @BASE.'/user/delete/'. @user.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"
@@ -29,7 +29,7 @@
 	</repeat>
 	</tbody>
 </table>
-<a href="{{ @BASE.'/user/create' }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+<a href="{{ @BASE.'/user/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Create</a>
 <script>
 $(document).ready( function () {
     $('#users').DataTable({

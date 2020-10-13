@@ -89,6 +89,7 @@ class AuthenticateController  extends Controller {
 			die('Nice try, Spam-A-Lot');
 		} else {
 			if ($this->audit->email($this->f3->get('POST.email'), TRUE)) {
+				$this->f3->scrub($_POST,'p; b; i; br;');
 				$username = $this->f3->get('POST.email');
 				$password = password_hash($this->f3->get('POST.password'), PASSWORD_DEFAULT);
 				$this->f3->set('POST.password', $password);
@@ -97,7 +98,6 @@ class AuthenticateController  extends Controller {
 
 				if($this->user->dry()) {
 					$this->user->add();
-				$this->users2data->getById($this->users2data->get('_id'));
 					$this->f3->set('SESSION.success', 'Registration successful. You may now log in.');
 				} else {
 					$this->f3->set('SESSION.error', 'User already exists');

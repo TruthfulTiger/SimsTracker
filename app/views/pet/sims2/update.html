@@ -18,7 +18,7 @@
 					<div class="form-group">
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="aries" value="Aries" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Aries'}}">
+							<check if="{{ @s2pet.starSign == 'Aries'}}">
 								checked
 							</check>
 							>
@@ -26,7 +26,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="taurus" value="Taurus" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Taurus'}}">
+							<check if="{{ @s2pet.starSign == 'Taurus'}}">
 								checked
 							</check>
 							>
@@ -34,7 +34,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="gemini" value="Gemini" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Gemini'}}">
+							<check if="{{ @s2pet.starSign == 'Gemini'}}">
 								checked
 							</check>
 							>
@@ -42,7 +42,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="cancer" value="Cancer" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Cancer'}}">
+							<check if="{{ @s2pet.starSign == 'Cancer'}}">
 								checked
 							</check>
 							>
@@ -50,7 +50,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="leo" value="Leo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Leo'}}">
+							<check if="{{ @s2pet.starSign == 'Leo'}}">
 								checked
 							</check>
 							>
@@ -58,7 +58,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="virgo" value="Virgo" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Virgo'}}">
+							<check if="{{ @s2pet.starSign == 'Virgo'}}">
 								checked
 							</check>
 							>
@@ -66,7 +66,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="libra" value="Libra" onchange="zodiacPoints(value)" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Libra'}}">
+							<check if="{{ @s2pet.starSign == 'Libra'}}">
 								checked
 							</check>
 							>
@@ -74,7 +74,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="scorpio" onchange="zodiacPoints(value)" value="Scorpio" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Scorpio'}}">
+							<check if="{{ @s2pet.starSign == 'Scorpio'}}">
 								checked
 							</check>
 							>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="sag" onchange="zodiacPoints(value)" value="Sagittarius" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Sagittarius'}}">
+							<check if="{{ @s2pet.starSign == 'Sagittarius'}}">
 								checked
 							</check>
 							>
@@ -90,7 +90,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="capricorn" onchange="zodiacPoints(value)" value="Capricorn" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Capricorn'}}">
+							<check if="{{ @s2pet.starSign == 'Capricorn'}}">
 								checked
 							</check>
 							>
@@ -98,7 +98,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="aquarius" onchange="zodiacPoints(value)" value="Aquarius" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Aquarius'}}">
+							<check if="{{ @s2pet.starSign == 'Aquarius'}}">
 								checked
 							</check>
 							>
@@ -106,7 +106,7 @@
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" id="pisces" onchange="zodiacPoints(value)" value="Pisces" name="starSign" class="custom-control-input"
-							<check if="{{ @pet.starSign == 'Pisces'}}">
+							<check if="{{ @s2pet.starSign == 'Pisces'}}">
 								checked
 							</check>
 							>
@@ -118,23 +118,23 @@
 					<h5 class="text-center text-primary mb-3">Personality</h5>
 					<div class="form-group">
 						<label for="playfulPoints">Intelligence:  <output for="playfulPoints" id="pP">1</output></label>
-						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@pet.intelligence) }}" class="form-control-range" name="intelligence" id="playfulPoints" oninput="playfulUpdate(value)">
+						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@s2pet.intelligence) }}" class="form-control-range" name="intelligence" id="playfulPoints" oninput="playfulUpdate(value)">
 					</div>
 					<div class="form-group">
 						<label for="activePoints">Activeness:  <output for="activePoints" id="aP">1</output></label>
-						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@pet.activeness) }}" class="form-control-range" name="activeness" id="activePoints" oninput="activeUpdate(value)">
+						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@s2pet.activeness) }}" class="form-control-range" name="activeness" id="activePoints" oninput="activeUpdate(value)">
 					</div>
 					<div class="form-group">
 						<label for="outgoingPoints">Friendliness:  <output for="outgoingPoints" id="oP">1</output></label>
-						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@pet.friendliness) }}" class="form-control-range" name="friendliness" id="outgoingPoints" oninput="outgoingUpdate(value)">
+						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@s2pet.friendliness) }}" class="form-control-range" name="friendliness" id="outgoingPoints" oninput="outgoingUpdate(value)">
 					</div>
 					<div class="form-group">
 						<label for="nicePoints">Aggression:  <output for="nicePoints" id="ncP">1</output></label>
-						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@pet.aggression) }}" class="form-control-range" name="aggression" id="nicePoints" oninput="niceUpdate(value)">
+						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@s2pet.aggression) }}" class="form-control-range" name="aggression" id="nicePoints" oninput="niceUpdate(value)">
 					</div>
 					<div class="form-group">
 						<label for="neatPoints">Cleanliness:  <output for="neatPoints" id="nP">1</output></label>
-						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@pet.cleanliness) }}" class="form-control-range" name="cleanliness" id="neatPoints" oninput="neatUpdate(value)">
+						<input type="range" class="custom-range" min="1" max="3" value="{{ trim(@s2pet.cleanliness) }}" class="form-control-range" name="cleanliness" id="neatPoints" oninput="neatUpdate(value)">
 					</div>
 				</div>
 			</div>
@@ -144,28 +144,28 @@
 				<div class="col">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="sit" name="learnedSit"
-						<check if="{{ @pet.learnedSit == 1}}">
+						<check if="{{ @s2pet.learnedSit == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="sit">Sit</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="stay" name="learnedStay"
-						<check if="{{ @pet.learnedStay == 1}}">
+						<check if="{{ @s2pet.learnedStay == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="stay">Stay</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="come" name="learnedCome"
-						<check if="{{ @pet.learnedCome == 1}}">
+						<check if="{{ @s2pet.learnedCome == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="come">Come Here</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="roll" name="learnedRoll"
-						<check if="{{ @pet.learnedRoll == 1}}">
+						<check if="{{ @s2pet.learnedRoll == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="roll">Roll Over</label>
@@ -174,28 +174,28 @@
 				<div class="col">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="speak" name="learnedSpeak"
-						<check if="{{ @pet.learnedSpeak == 1}}">
+						<check if="{{ @s2pet.learnedSpeak == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="speak">Speak</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="shake" name="learnedShake"
-						<check if="{{ @pet.learnedShake == 1}}">
+						<check if="{{ @s2pet.learnedShake == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="shake">Shake</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="dead" name="learnedDead"
-						<check if="{{ @pet.learnedDead == 1}}">
+						<check if="{{ @s2pet.learnedDead == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="dead">Play Dead</label>
 					</div>
 					<div class="custom-control custom-checkbox" id="toiletShow">
 						<input type="checkbox" class="custom-control-input" id="toilet" name="toiletTrained"
-						<check if="{{ @pet.toiletTrained == 1}}">
+						<check if="{{ @s2pet.toiletTrained == 1}}">
 							checked
 						</check>>
 						<label class="custom-control-label" for="toilet">Use Toilet</label>
@@ -212,7 +212,7 @@
 							<option value="">Unemployed</option>
 							<repeat group="{{ @petcareers }}" key="{{@pkey}}" value="{{ @petcareer }}">
 								<option value="{{ @pkey }}"
-								<check if="{{ @pet.careerTrack == @pkey}}">
+								<check if="{{ @s2pet.careerTrack == @pkey}}">
 									selected
 								</check>
 								>{{ @petcareer }}</option>
@@ -236,11 +236,11 @@
 
 	$(function () {
 		// initiate s2personality
-		neatUpdate({{trim(@pet.cleanliness)}});
-		outgoingUpdate({{trim(@pet.friendliness)}});
-		activeUpdate({{trim(@pet.activeness)}});
-		playfulUpdate({{trim(@pet.intelligence)}});
-		niceUpdate({{trim(@pet.aggression)}});
+		neatUpdate({{trim(@s2pet.cleanliness)}});
+		outgoingUpdate({{trim(@s2pet.friendliness)}});
+		activeUpdate({{trim(@s2pet.activeness)}});
+		playfulUpdate({{trim(@s2pet.intelligence)}});
+		niceUpdate({{trim(@s2pet.aggression)}});
 
         genshow();
 		toiletCheck();
@@ -451,7 +451,7 @@
 
 	function careerLoad() {
 		career = parseInt($( "#careerTrack" ).val());
-		jobLevel = {{ @pet.jobLevel}};
+		jobLevel = {{ @s2pet.jobLevel}};
 
 		if (career > 0) {
 			careerPet(career);

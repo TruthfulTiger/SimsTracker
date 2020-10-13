@@ -51,20 +51,16 @@ $(function () {
 		}
 		$("#aspiration").attr("src",s2path+aspimg);
 		$("#aspiration").attr("alt",aspalt);
-		$("#aspiration").attr("title",aspalt);
 
 		if (!$("#tocheck").prop("disabled") && $("#tocheck").prop("checked")) {
 			tofrandom();
 		} else {
 			$("#ton1").attr("src",s2path+'Null.png');
 			$("#ton1").attr("alt",'');
-			$("#ton1").attr("title",'');
 			$("#ton2").attr("src",s2path+'Null.png');
 			$("#ton2").attr("alt",'');
-			$("#ton2").attr("title",'');
 			$("#toff").attr("src",s2path+'Null.png');
 			$("#toff").attr("alt",'');
-			$("#toff").attr("title",'');
 		}
 	});
 
@@ -481,13 +477,10 @@ $(function () {
 		// Once all checks are done, set the appropriate image and alt text
 		$("#ton1").attr("src",s2path+to1img);
 		$("#ton1").attr("alt",to1alt);
-		$("#ton1").attr("title",to1alt);
 		$("#ton2").attr("src",s2path+to2img);
 		$("#ton2").attr("alt",to2alt);
-		$("#ton2").attr("title",to2alt);
 		$("#toff").attr("src",s2path+toffimg);
 		$("#toff").attr("alt",toffalt);
-		$("#toff").attr("title",toffalt);
 	}
 
 	function checkEPs() {
@@ -495,13 +488,10 @@ $(function () {
 				if (!$('#nl').prop('checked') && !$('#ofb').prop('checked') && !$('#pets').prop('checked') && !$('#sns').prop('checked') && !$('#bv').prop('checked') && !$('#ft').prop('checked') && !$('#al').prop('checked')) {
 					$("#ton1").attr("src",s2path+'Null.png');
 					$("#ton1").attr("alt",'');
-					$("#ton1").attr("title",'');
 					$("#ton2").attr("src",s2path+'Null.png');
 					$("#ton2").attr("alt",'');
-					$("#ton2").attr("title",'');
 					$("#toff").attr("src",s2path+'Null.png');
 					$("#toff").attr("alt",'');
-					$("#toff").attr("title",'');
 					// If turn-ons not applicable, disable TO and cheese options
 					$("#tocheck").prop("checked", false);
 					$("#tocheck").prop("disabled", true);

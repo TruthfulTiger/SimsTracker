@@ -17,23 +17,10 @@ class BusinessController extends Controller {
 	{
 		$userID = $this->f3->get('SESSION.user[2]');
 		$this->f3->clear('SESSION.url');
-		if($this->f3->exists('PARAMS.id')){
-			$hhID = $this->f3->get('PARAMS.id');
-			$this->f3->set('households',$this->household->getById($hhID));
-			if ($this->household->userID != $userID) {
-				$this->f3->set('SESSION.error', 'No such household associated with this user.');
-				$this->f3->reroute('/biz');
-			} else {
-				$this->f3->set('biz',$this->biz->getByhhID($hhID));
-				$this->f3->set('title','Businesses in '.$this->household->name.' Household');
-				$this->f3->set('content','businesses/list.html');
-			}
-		} else {
-			$this->f3->set('households',$this->household->getByUser($userID));
-			$this->f3->set('biz',$this->biz->getByUser($userID));
-			$this->f3->set('title','Businesses');
-			$this->f3->set('content','businesses/list.html');
-		}
+		$this->f3->set('households',$this->household->getByUser($userID));
+		$this->f3->set('biz',$this->biz->getByUser($userID));
+		$this->f3->set('title','Businesses');
+		$this->f3->set('content','businesses/list.html');
 	}
 
 	public function create()
