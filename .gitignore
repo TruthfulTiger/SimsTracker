@@ -4,3 +4,5 @@ tmp/cache/*.*
 node_modules
 config/globals.cfg
 logs/*.*
+uploads/*.*
+uploads/1/Blank.jpg
