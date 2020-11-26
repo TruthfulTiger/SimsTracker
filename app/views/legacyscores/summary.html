@@ -2,7 +2,7 @@
 <dt>Household name:</dt>
 <dd>{{ trim(@household.name) }}</dd>
 <div class="form-group mb-2">
-	<p>Is this also a <a href="https://web.archive.org/web/20110112123130/http://community.livejournal.com/rainbowlegacy/tag/rules" target="_blank">Rainbow Challenge?</a></p>
+	Is this also a <a href="https://web.archive.org/web/20110112123130/http://community.livejournal.com/rainbowlegacy/tag/rules" target="_blank">Rainbow Challenge?</a>
 	<div class="custom-control custom-radio">
 		<input type="radio" id="no" value="0" name="isRainbow" class="custom-control-input"
 		<check if="{{ @s2legacy.isRainbow == 0}}">
@@ -36,70 +36,6 @@
 
 <script>
 	let text = null;
-
-	$(function () {
-
-		getGen(1);
-		getGen(2);
-		getGen(3);
-		getGen(4);
-		getGen(5);
-		getGen(6);
-		getGen(7);
-		getGen(8);
-		getGen(9);
-		getGen(10);
-
-		$("#gen1").change(function(){
-			getGen(1);
-		});
-		$("#gen2").change(function(){
-			getGen(2);
-		});
-		$("#gen3").change(function(){
-			getGen(3);
-		});
-		$("#gen4").change(function(){
-			getGen(4);
-		});
-		$("#gen5").change(function(){
-			getGen(5);
-		});
-		$("#gen6").change(function(){
-			getGen(6);
-		});
-		$("#gen7").change(function(){
-			getGen(7);
-		});
-		$("#gen8").change(function(){
-			getGen(8);
-		});
-		$("#gen9").change(function(){
-			getGen(9);
-		});
-		$("#gen10").change(function(){
-			getGen(10);
-		});
-	});
-
-	function getGen(v) {
-		let url = $("a#url"+v);
-		let data = url.attr("data-href");
-		let log = url.attr("data-log");
-		let s = $("#gen"+v).find(":selected").val();
-
-		if (data == 0) {
-			url.removeAttr("href");
-			text = "{{ @BASE }}/legacygen/create/{{@SESSION.user[2]}}/"+v+"/{{@SESSION.challenge }}/" + s;
-			url.attr("href", text);
-		} else {
-			url.removeAttr("href");
-			text = "{{ @BASE }}/legacygen/update/" + data + "/" + s;
-			url.attr("href", text);
-		}
-		console.log(log);
-	}
-
 
 	function gtChange() {
 		let lt = $("#lt").val();

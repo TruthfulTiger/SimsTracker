@@ -3,12 +3,24 @@ class HouseholdController extends Controller {
 	private $household;
 	private $hood;
 	private $sim;
+	private $s2hh;
+	private $s3hh;
+	private $s4hh;
+	private $users2data;
+	private $users3data;
+	private $users4data;
 
 	public function __construct() {
 		parent::__construct();
 		$this->household = new Household($this->db);
 		$this->hood = new Hood($this->db);
 		$this->sim = new Sim($this->db);
+		$this->s2hh = new S2HH($this->db);
+		$this->s3hh = new S3HH($this->db);
+		$this->s4hh = new S4HH($this->db);
+		$this->users2data = new UserS2Data($this->db);
+		$this->users3data = new UserS3Data($this->db);
+		$this->users4data = new UserS4Data($this->db);
 	}
 
 
@@ -109,7 +121,23 @@ class HouseholdController extends Controller {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				$this->f3->scrub($_POST,'p; br;');
-				$this->household->edit($this->f3->get('POST.id'));
+				$hh = $this->f3->get('POST.id');
+				$this->household->edit($hh);
+				if ($this->household->gameVersion == 2) {
+					$this->s2hh->getByHHId($hh);
+					$this->s2hh->edit($this->s2hh->id);
+				}
+
+				if ($this->household->gameVersion == 3) {
+					$this->s3hh->getByHHId($hh);
+					$this->s3hh->edit($this->s3hh->id);
+				}
+
+				if ($this->household->gameVersion == 4) {
+					$this->s4hh->getByHHId($hh);
+					$this->s4hh->edit($this->s4hh->id);
+				}
+
 				$this->f3->set('SESSION.success', 'Household has been updated.');
 				$this->index();
 			}
@@ -120,17 +148,35 @@ class HouseholdController extends Controller {
 				$this->f3->set('household',$this->household);
 				$userID = $this->f3->get('SESSION.user[2]');
 				$nhID = $this->household->nhID;
-				$hood = $this->hood;
-				if ($hood->gameVersion == 2)
+				$this->users2data->getByUserId($userID);
+
+				$this->user->getById($userID);
+				if ($this->household->gameVersion == 2) {
 					$this->f3->config('config/sims2.cfg');
-				if ($hood->gameVersion == 3)
+					$this->s2hh->getByHHId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s2hh', $this->s2hh);
+					$this->users2data->getByUserId($userID);
+					$this->f3->set('users2', $this->users2data);
+				}
+				if ($this->household->gameVersion == 3) {
 					$this->f3->config('config/sims3.cfg');
-				if ($hood->gameVersion == 4)
+					$this->s3hh->getByHHId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s3hh', $this->s3hh);
+					$this->users3data->getByUserId($userID);
+					$this->f3->set('users3', $this->users3data);
+				}
+				if ($this->household->gameVersion == 4) {
 					$this->f3->config('config/sims4.cfg');
+					$this->s4hh->getByHHId($this->f3->get('PARAMS.id'));
+					$this->f3->set('s4hh', $this->s4hh);
+					$this->users4data->getByUserId($userID);
+					$this->f3->set('users4', $this->users4data);
+				}
 				$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
 				$this->f3->set('hoods', $this->hood->getByUser($userID));
 				$this->hood->getById($nhID);
 				$this->f3->set('hood', $this->hood);
+				$this->f3->set('user', $this->user);
 				$this->f3->set('sims',$this->sim->getBynhID($nhID));
 				$this->f3->set('title','Update Household');
 				$this->f3->set('modified', $this->date);

@@ -50,7 +50,7 @@
 							<td>{{ trim(@sim.lifeState) }}</td>
 							<td>Sims {{ trim(@sim.gameVersion) }}</td>
 							<td><a href="{{ @BASE.'/sim/view/'. @sim.id }}" data-toggle="tooltip" title="View" class="text-info" target="_blank"><i class="fa fa-eye mr-2"></i></a>
-								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" data-toggle="tooltip" title="Edit" class="text-primary" target="_blank"><i class="fa fa-edit mr-2"></i></a>
+								<a href="{{ @BASE.'/sim/update/'. @sim.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit mr-2"></i></a>
 								<a href="#" onclick="confirm('{{ @BASE.'/sim/delete/'. @sim.id }}');"
 								   data-toggle="tooltip"
 								   title="Delete"

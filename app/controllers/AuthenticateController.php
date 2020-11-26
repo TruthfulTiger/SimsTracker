@@ -1,11 +1,9 @@
 <?php
 class AuthenticateController  extends Controller {
-	private $user;
 	private $audit;
 
 	public function __construct() {
 		parent::__construct();
-		$this->user = new User($this->db);
 		$this->audit = \Audit::instance();
 	}
 
@@ -24,19 +22,29 @@ class AuthenticateController  extends Controller {
 	}
 
 	public function resetPass() {
-		if (isset($_POST['reset'])) {
+		if (isset($_POST['reset']) && empty($_POST['hptrap'])) {
 				$username = $this->f3->get('POST.email');
+				$memword = $this->f3->get('POST.memorableWord');
+				$word = $this->f3->get('POST.memword');
 				$password = password_hash($this->f3->get('POST.password'), PASSWORD_DEFAULT);
 				$this->f3->set('POST.password', $password);
 
 				$this->user->getByName($username);
+				$url = 'http://localhost/simstracker/user/reset/'.$this->user->id;
+				//$url = 'https://simstracker.pdasites.uk/user/reset'.$this->user->id;
 
 				if(!$this->user->dry()) {
+					if ($word == $memword) {
 					$this->user->edit($this->user->id);
 					$this->f3->set('SESSION.success', 'Password changed. You may now log in with your new password.');
 					$this->f3->reroute('/');
+					} else {
+						$this->f3->set('SESSION.error', 'Memorable word doesn\'t match. Please try again.');
+						$this->f3->reroute($url);
+					}
 				} else {
 					$this->f3->set('SESSION.error', 'Sorry, there was a problem resetting your password.');
+					$this->f3->reroute($url);
 				}
 		} else {
 			$userID = $this->f3->get('PARAMS.id');

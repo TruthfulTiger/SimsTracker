@@ -7,6 +7,31 @@
 			</div>
 
 			<div class="form-group">
+				<label for="money">Starting funds</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">§</span>
+					</div>
+					<input type="number" required="required" class="form-control" min=0 name="money" id="money" 
+					<check if="{{ @hood.gameVersion == 2 }}">
+					<check if="{{ @hood.type == 'Main hood' }}">
+					value="20000"
+					</check>
+					<check if="{{ @hood.type == 'University' }}">
+					value="500"
+					</check>
+					</check>
+					<check if="{{ @hood.gameVersion == 3 }}">
+					value="16500"
+					</check>
+					<check if="{{ @hood.gameVersion == 4 }}">
+					value="20000"
+					</check>				
+				/>
+				</div>
+			</div>
+
+			<div class="form-group">
 					<label for="hhSims">Any Sims that will form this household (hold Ctrl to choose more than 1)</label>
 					<select class="custom-select" multiple name="hhSims[]" id="hhSims">
 						<repeat group="{{ @sims }}" value="{{ @sim }}">
@@ -19,12 +44,6 @@
 				<div class="">
 					<input type="text" name="hptrap" class="hptrap" />
 					<input type="hidden" name="nhID" value="{{ @hood.id }}" />
-					<check if="{{ @hood.type == 'Main hood' }}">
-					<input type="hidden" name="money" value="20000" />
-					</check>
-					<check if="{{ @hood.type == 'University' }}">
-					<input type="hidden" name="money" value="500" />
-					</check>
 					<input type="hidden" name="phID" value="{{ @hood.parentHood }}" />
 					<input type="hidden" name="gameVersion" value="{{ @hood.gameVersion }}" />
 					<input type="hidden" name="create" value="create" />
@@ -41,7 +60,7 @@
 		<select class="custom-select" name="nh" id="nh">
 			<option value="">-- Create new hood --</option>
 			<repeat group="{{ @hoods }}" value="{{ @hood }}">
-				<option value="{{ @hood.id }}">{{ @hood.name }}</option>
+				<option value="{{ @hood.id }}">{{ @hood.name }} (Sims {{ @hood.gameVersion }})</option>
 			</repeat>
 		</select>
 	</div>

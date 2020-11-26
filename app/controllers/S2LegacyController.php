@@ -8,7 +8,6 @@ class S2LegacyController extends Controller {
 	private $colour;
 	private $legacygen;
 	private $id;
-	private $user;
 
 	public function __construct() {
 		parent::__construct();
@@ -17,7 +16,6 @@ class S2LegacyController extends Controller {
 		$this->challenge = new Challenge($this->db);
 		$this->sim = new Sim($this->db);
 		$this->colour = new UserColour($this->db);
-		$this->user = new User($this->db);
 		$this->legacygen = new LegacyGen($this->db);
 		$this->id = 0;
 		if (!$this->f3->exists('SESSION.url')) {

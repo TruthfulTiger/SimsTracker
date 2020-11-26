@@ -220,6 +220,7 @@ class PetController extends Controller {
 			$this->f3->set('POST.learnedShake',isset($_POST["learnedShake"])?1:0);
 			$this->f3->set('POST.learnedDead',isset($_POST["learnedDead"])?1:0);
 			$this->f3->set('POST.toiletTrained',isset($_POST["toiletTrained"])?1:0);
+			$this->f3->set('POST.retired',isset($_POST["retired"])?1:0);
 
 		}
 	}

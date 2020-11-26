@@ -14,6 +14,7 @@ class Controller {
 	protected $web;
 	protected $mail;
 	protected $date;
+	protected $user;
 
 	function beforeroute() {
 		if($this->f3->get('SESSION.user') === null ) {
@@ -37,6 +38,7 @@ class Controller {
 		$f3 = Base::instance();
 		$web = \Web::instance();
 		$tpl = \Template::instance();
+		$ast = \Assets::instance();
 		$date = date('Y-m-d H:i:s');
 		$page = $tpl->extend('pagebrowser','\Pagination::renderTag');
 		$db=new DB\SQL(
@@ -45,6 +47,7 @@ class Controller {
 			$f3->get('db_pass'), array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
 		);
 		$mail = new PHPMailer(true);
+		$this->user = new User($db);
 
 		if (!function_exists('debug_to_console')) {
 			function debug_to_console($data) {
@@ -96,6 +99,20 @@ class Controller {
             }
         }
 
+		$mainmenu = $db->exec('SELECT * FROM mainmenu',NULL,86400); // Main menu-builder
+		$toolsmenu = $db->exec('SELECT * FROM toolsmenu',NULL,86400); // Tools menu-builder
+		$usermenu = $db->exec('SELECT * FROM usermenu',NULL,86400); // User menu-builder
+		$adminmenu = $db->exec('SELECT * FROM adminmenu',NULL,86400); // Admin menu-builder
+		$userID = $f3->get('SESSION.user[2]');
+		$this->user->getById($userID);				
+		$f3->set('user', $this->user);
+		$f3->set('toolsmenu', $toolsmenu);
+		$f3->set('mainmenu', $mainmenu);
+		if ($userID) {
+			$f3->set('usermenu', $usermenu);
+			$f3->set('adminmenu', $adminmenu);
+		}			
+
 		// declare a new filter named 'price'
 		$tpl->filter('simoleons',function($price){
 		return '§'.number_format($price);
@@ -107,5 +124,16 @@ class Controller {
 		$this->date=$date;
 		$this->web=$web;
 		$this->page=$page;
+	}
+
+	    public static function appendDateTimeToFileName($fileName) {
+		$appended = date('_Y_m_d_H_i_s');
+		$dotCount = substr_count($fileName, '.');
+		if (!$dotCount) {
+			return $fileName . $appended;
+		}
+		$extension = pathinfo($fileName, PATHINFO_EXTENSION);
+		$fileName = pathinfo($fileName, PATHINFO_FILENAME);
+		return $fileName . $appended . '.' . $extension;
 	}
 }

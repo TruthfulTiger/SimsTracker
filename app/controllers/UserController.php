@@ -1,13 +1,11 @@
 <?php
 class UserController extends Controller {
-	private $user;
 	private $users2data;
 	private $users3data;
 	private $users4data;
 
 	public function __construct() {
 		parent::__construct();
-		$this->user = new User($this->db);
 		$this->users2data = new UserS2Data($this->db);
 		$this->users3data = new UserS3Data($this->db);
 		$this->users4data = new UserS4Data($this->db);
@@ -84,8 +82,7 @@ class UserController extends Controller {
 		$this->f3->reroute('/users');
 	}
 
-	public function profile()
-	{
+	public function profile()	{
         if(isset($_POST['update']))
         {
             if (!empty($_POST['hptrap'])) {
@@ -96,6 +93,12 @@ class UserController extends Controller {
 					$this->f3->set('POST.password', $password);
 				} else {
             		unset($_POST['password']);
+				}
+				if (!empty($_POST['memorableWord'])) {
+					$memWord = $this->f3->get('POST.memorableWord');
+					$this->f3->set('POST.memorableWord', $memWord);
+				} else {
+            		unset($_POST['memorableWord']);
 				}
 				$userID = $this->f3->get('SESSION.user[2]');
                 $this->f3->set('POST.sims2', isset($_POST["sims2"])?1:0);
@@ -131,7 +134,7 @@ class UserController extends Controller {
                 $this->f3->set('POST.gf', isset($_POST["gf"])?1:0);
                 $this->f3->set('POST.il', isset($_POST["il"])?1:0);
 				$this->f3->set('POST.eco', isset($_POST["eco"])?1:0);
-				$this->f3->set('POST.or', isset($_POST["or"])?1:0);
+				$this->f3->set('POST.otrt', isset($_POST["otrt"])?1:0);
 				$this->f3->set('POST.spa', isset($_POST["spa"])?1:0);
 				$this->f3->set('POST.do', isset($_POST["do"])?1:0);
 				$this->f3->set('POST.vamps', isset($_POST["vamps"])?1:0);
@@ -196,8 +199,7 @@ class UserController extends Controller {
         }
 	}
 
-		public function careers()
-	{
+		public function careers() {
         if(isset($_POST['update']))
         {
             if (!empty($_POST['hptrap'])) {

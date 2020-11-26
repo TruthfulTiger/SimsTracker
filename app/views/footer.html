@@ -50,6 +50,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
 <script>
 let json = "";
+let user = '{{@SESSION.user[2]}}';
+let challenge = '{{@SESSION.challenge }}';
+let base = '{{ @BASE }}';
 $(function () {
 	'use strict';
 	$('[data-toggle="offcanvas"]').on('click', function () {
@@ -63,6 +66,20 @@ $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 $("#select_all").change(function(){  //"select all" change 
 	var status = this.checked; // "select all" checked status
 	$('.select_all').each(function(){ //iterate all listed checkbox items
+		this.checked = status; //change ".checkbox" checked status
+	});
+});
+
+$("#select_all3").change(function(){  //"select all" change 
+	var status = this.checked; // "select all" checked status
+	$('.select_all3').each(function(){ //iterate all listed checkbox items
+		this.checked = status; //change ".checkbox" checked status
+	});
+});
+
+$("#select_all4").change(function(){  //"select all" change 
+	var status = this.checked; // "select all" checked status
+	$('.select_all4').each(function(){ //iterate all listed checkbox items
 		this.checked = status; //change ".checkbox" checked status
 	});
 });
@@ -104,6 +121,30 @@ $('.select_all').change(function(){ //".checkbox" change
 	}
 });
 
+$('.select_all3').change(function(){ //".checkbox" change 
+	//uncheck "select all", if one of the listed checkbox item is unchecked
+	if(this.checked == false){ //if this item is unchecked
+		$("#select_all3")[0].checked = false; //change "select all" checked status to false
+	}
+	
+	//check "select all" if all checkbox items are checked
+	if ($('.select_all3:checked').length == $('.select_all3').length ){ 
+		$("#select_all3")[0].checked = true; //change "select all" checked status to true
+	}
+});
+
+$('.select_all4').change(function(){ //".checkbox" change 
+	//uncheck "select all", if one of the listed checkbox item is unchecked
+	if(this.checked == false){ //if this item is unchecked
+		$("#select_all4")[0].checked = false; //change "select all" checked status to false
+	}
+	
+	//check "select all" if all checkbox items are checked
+	if ($('.select_all4:checked').length == $('.select_all4').length ){ 
+		$("#select_all4")[0].checked = true; //change "select all" checked status to true
+	}
+});
+
 var simoleans = wNumb({
 	decimals: 0,
 	thousand: ',',
@@ -117,14 +158,16 @@ jQuery.fn.extend({
     myHide:function(){
         return this.attr('aria-hidden', 'true').hide()
     }
-})
+});
+
 </script>
 
 <check if="{{@hood.gameVersion == 2}}">
 {* Careers *}
 <script>
 function careerPath(c) {
-	let path = "{{@BASE}}/ui/json/sims2/careers/";
+	let path = "{{ @BASE.'/ui/json/sims2/careers/' }}";
+	
 	switch(c) {
 		case 1: 
 		json = path + "s2athletic.json";   
@@ -181,7 +224,7 @@ function careerPath(c) {
 		json = path + "s2music.json";   
 		break;
 		case 19: 
-		json = path + "s2jouralism.json";   
+		json = path + "s2journalism.json";   
 		break;
 		case 20: 
 		json = path + "s2education.json";   
@@ -208,7 +251,7 @@ function careerPath(c) {
 }
 
 function careerPet(c) {
-	let path = "{{@BASE}}/ui/json/sims2/careers/";
+	let path = "{{ @BASE.'/ui/json/sims2/careers/' }}";
 	switch(c) {
 		case 1: 
 		json = path + "s2security.json";   

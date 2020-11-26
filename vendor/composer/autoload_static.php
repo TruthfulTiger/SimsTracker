@@ -73,6 +73,7 @@ class ComposerStaticInit180b3275034f4552b5a7099f9f94b96a
     );
 
     public static $classMap = array (
+        'Assets' => __DIR__ . '/..' . '/ikkez/f3-assets/lib/assets.php',
         'Audit' => __DIR__ . '/..' . '/bcosca/fatfree-core/audit.php',
         'Auth' => __DIR__ . '/..' . '/bcosca/fatfree-core/auth.php',
         'Base' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',

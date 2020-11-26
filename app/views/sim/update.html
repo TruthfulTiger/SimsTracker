@@ -134,7 +134,7 @@
                     href="javascript:void(0)"
                     class="custom-file-container__image-clear"
                     title="Clear Image" data-toggle="tooltip"
-					onclick="$('#image').val('ui/images/BlankSim.png');"
+					onclick="$('#image').val('ui/images/sims4/Silhouette2.png');"
                     >&times;</a
                 ></label
             >
@@ -168,7 +168,7 @@
 					<input type="hidden" name="id" value="{{ @sim.id }}" />
 					<input type="hidden" name="modified" value="{{ @modified }}" />
 					<button type="submit" name="save" class="btn btn-success mb-3"><i class="fa fa-save mr-2" aria-hidden="true"></i>Save</button>
- 					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3" onclick="window.close();"><i class="fa fa-times mr-2" aria-hidden="true"></i>Close</a>
+ 					<a href="{{ @BASE.'/sims' }}" class="btn btn-secondary mb-3"><i class="fa fa-times mr-2" aria-hidden="true"></i>Cancel</a>
 				</div>
 			</div>
 </form>
@@ -189,8 +189,12 @@
 				 e.detail.addedFilesCount
 				// Use e.detail.uploadId to match up to your specific input
 				if (e.detail.uploadId === "image") {
-					var file = e.detail.cachedFileArray[0];
+					var file = e.detail.cachedFileArray[0]; 
 					var image = $('#image-raw').val();
+/* 					var filename = imagename.split('.').shift();
+					var ext = imagename.split('.').pop();
+					var image = filename+$.now()+'.'+ext; */
+					
 					if (!image) {
 						$('#image').val(simImage);				
 					} 

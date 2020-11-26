@@ -1,11 +1,9 @@
 <?php
 class AspgenController extends Controller {
-	private $user;
 	private $users2data;
 
 	public function __construct() {
 		parent::__construct();
-		$this->user = new User($this->db);
 		$this->users2data = new UserS2Data($this->db);
 	}
 

@@ -3,16 +3,17 @@ body {
 }
 
 html,
-body,
-.main-container{
+body{
 	overflow-x: hidden; /* Prevent scroll on narrow devices */
 	position: relative;
-	min-height: 79.5vh;
+	margin: 0;
+	height: 100%;
 }
 
 .main-container {
 	padding-top: 0;
 	margin-top: 1rem;
+	min-height: calc(100vh - 12.5rem); /* Sticky footer */
 }
 
 @media (max-width: 991.98px) {

@@ -32,7 +32,9 @@
 										</td>
 										<td>{{ trim(@challenge.challengeName) }}</td>
 										<td>{{ @challenge.type }}</td>										
-										<td>				
+										<td>	
+										{* Sims 2 legacy challenge *}	
+										<check if="{{@challenge.gameVersion == 2}}">	
 										<check if="{{@challenge.type == 'Legacy Challenge'}}">
 										<check if="{{@challenge.hasScores == 1}}" >
 										<true>
@@ -43,6 +45,19 @@
 			data-toggle="tooltip" title="Create scoresheet" class="text-success" ><i class="fas fa-calculator mr-2"></i></a>	
 										</false>
 										</check>						
+										</check>
+										{* Sims 2 ISBI challenge *}
+										<check if="{{@challenge.type == 'I\'m Surrounded By Idiots'}}">
+										<check if="{{@challenge.hasScores == 1}}" >
+										<true>
+											<a id="url" href="{{ @BASE.'/s2isbi/'. @challenge.id }}" data-toggle="tooltip" title="Go to scoresheet"  class="text-primary"><i class="fas fa-calculator mr-2"></i></a>	
+										</true>
+										<false>
+										<a href="{{ @BASE.'/s2isbi/'. @challenge.id }}/{{ @SESSION.user[2] }}/{{ @challenge.hhID }}" 
+			data-toggle="tooltip" title="Create scoresheet" class="text-success" ><i class="fas fa-calculator mr-2"></i></a>	
+										</false>
+										</check>						
+										</check>
 										</check>
 									<a href="#" onclick="confirm('{{ @BASE.'/challenge/delete/'. @challenge.id }}');"
 								   data-toggle="tooltip"

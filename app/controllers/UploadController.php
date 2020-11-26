@@ -7,7 +7,7 @@
  */
 
 class UploadController extends Controller {
-    protected $msgicon;
+    protected $msgicon = "error";
     protected $uploadResult = "Upload failed! (unknown reason)";
 
 
@@ -45,12 +45,12 @@ class UploadController extends Controller {
                 $uploadOk = 0;
             }
 
-    /*         // Check if file already exists
-            if (file_exists($targetFile)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-            } */
-
+            // Check if file already exists
+             if (file_exists($targetFile)) {
+                unlink($targetFile);
+                $uploadOk = 1;
+            }    
+ 
             // Check file size
             if ($file["size"] > $maxsize) {
             $this->msgicon = 'error';
@@ -77,7 +77,6 @@ class UploadController extends Controller {
                 }
             } else {
             $this->msgicon = 'error';
-            $this->uploadResult = 'No file to be uploaded.';
         }
         $this->f3->set('SESSION.'.$this->msgicon,$this->uploadResult);                
             }

@@ -36,23 +36,17 @@ class HoodController extends Controller {
 				// Create default / adoption pool so sims / pets can be flagged as up for adoption
 				if (!$adoption) {
 					$this->db->begin();
-					$this->db->exec('INSERT INTO household (userID, `name`, nhID, gameVersion, `money`)
-					VALUES (?, ?, ?, ?, ?)', 
+					$this->db->exec('INSERT INTO household (userID, `name`)
+					VALUES (?, ?)', 
 					array(
 						$userID,
-						"Adoption pool",
-						0,
-						0,
-						0						
+						"Adoption pool"			
 					));			
-					$this->db->exec('INSERT INTO household (userID, `name`, nhID, gameVersion, `money`)
-					VALUES (?, ?, ?, ?, ?)', 
+					$this->db->exec('INSERT INTO household (userID, `name`)
+					VALUES (?, ?)', 
 					array(
 						$userID,
-						"Townie pool",
-						0,
-						0,
-						0						
+						"Townie pool"				
 					));	
 					$this->db->commit();
 					}

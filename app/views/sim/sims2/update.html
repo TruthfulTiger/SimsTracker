@@ -861,6 +861,15 @@
 					<label class="custom-control-label" for="friendsBenefit">Has Friends in High Places</label>
 					</div>
 				</check>
+				<check if="{{ @sim.age == 'Elder'}}">
+				<div class="custom-control custom-toggle my-2">
+					<input type="checkbox" id="retired" name="retired" value="1" class="custom-control-input"
+						<check if="{{ @sim.retired == 1}}">
+							checked
+						</check>/>
+					<label class="custom-control-label" for="retired">Retired</label>
+				</div>
+				</check>
 			</div>
 		</div>
 		{* LTWs *}
@@ -2877,4 +2886,5 @@ function mementoCount() {
     var len = $(".counter:checked").length;
     if(len>0){$("#mementoCount").text(len);}else{$("#mementoCount").text('0');}
 }
+
 </script>

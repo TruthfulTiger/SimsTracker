@@ -62,65 +62,7 @@
 
     function legacySub(g, p) {
         let n = p * 0.5;
-		if (g >= 1) {
-			$("tr#founder").show();
-		} else  {
-			$("tr#founder").hide();
-		}
-
-		if (g >= 2) {
-			$("tr#gen2heir").show();
-		} else  {
-			$("tr#gen2heir").hide();
-		}
-
-		if (g >= 3) {
-			$("tr#gen3heir").show();
-		} else  {
-			$("tr#gen3heir").hide();
-		}
-
-		if (g >= 4) {
-			$("tr#gen4heir").show();
-		} else  {
-			$("tr#gen4heir").hide();
-		}
-
-		if (g >= 5) {
-			$("tr#gen5heir").show();
-		} else  {
-			$("tr#gen5heir").hide();
-		}
-
-		if (g >= 6) {
-			$("tr#gen6heir").show();
-		} else  {
-			$("tr#gen6heir").hide();
-		}
-
-		if (g >= 7) {
-			$("tr#gen7heir").show();
-		} else  {
-			$("tr#gen7heir").hide();
-		}
-
-		if (g >= 8) {
-			$("tr#gen8heir").show();
-		} else  {
-			$("tr#gen8heir").hide();
-		}
-
-		if (g >= 9) {
-			$("tr#gen9heir").show();
-		} else  {
-			$("tr#gen9heir").hide();
-		}
-
-		if (g == 10) {
-			$("tr#gen10heir").show();
-		} else  {
-			$("tr#gen10heir").hide();
-		}
+        showGen(g);
 
         if (g < 10) {
             $("#legacytotal").val((g * 0.5) + n);

@@ -26,17 +26,18 @@
 }
 
 html,
-body,
-.main-container{
+body {
 	overflow-x: hidden; /* Prevent scroll on narrow devices */
 	position: relative;
-	min-height: 86.35vh;
+	margin: 0;
+	height: 100%;
 }
 
 .main-container {
-	padding: 20px 20px;
+	padding: 20px;
 	margin-top: 1rem;
 	background-color: white;
+	min-height: calc(100vh - 8.5rem); /* Sticky footer */
 }
 
 body {
@@ -59,7 +60,7 @@ body {
 .footer {
 	background-color: #005cbf;
 	padding: 1rem;
-  height: 7rem;
+  height: 7.5rem;
 }
 
 .footer .nav a {
@@ -89,6 +90,16 @@ code {
 	z-index: -50000000000000;
 	bottom: -500000000000000000px;
   display: none;
+}
+
+.s3eps {
+	width: 24px;
+	image-rendering: crisp-edges;
+}
+
+.s4eps {
+	width: 28px;
+	image-rendering: crisp-edges;
 }
 
 /*!
