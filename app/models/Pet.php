@@ -1,9 +1,9 @@
 <?php
 
-class Pet extends DB\SQL\Mapper{
+class Pet extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'pet';
+		$this->table='pet';
 		parent::__construct($db,$this->table);
 	}
 
@@ -45,7 +45,7 @@ class Pet extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

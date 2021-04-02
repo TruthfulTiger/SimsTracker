@@ -26,17 +26,16 @@ namespace Web;
 class Geo extends \Prefab {
 
 	/**
-	*	Return information about specified Unix time zone
-	*	@return array
-	*	@param $zone string
-	**/
+	 *    Return information about specified Unix time zone
+	 * @param $zone string
+	 **@return array
+	 */
 	function tzinfo($zone) {
 		$ref=new \DateTimeZone($zone);
 		$loc=$ref->getLocation();
 		$trn=$ref->getTransitions($now=time(),$now);
 		$out=[
-			'offset'=>$ref->
-				getOffset(new \DateTime('now',new \DateTimeZone('UTC')))/3600,
+			'offset'=>$ref->getOffset(new \DateTime('now',new \DateTimeZone('UTC')))/3600,
 			'country'=>$loc['country_code'],
 			'latitude'=>$loc['latitude'],
 			'longitude'=>$loc['longitude'],
@@ -47,10 +46,10 @@ class Geo extends \Prefab {
 	}
 
 	/**
-	*	Return geolocation data based on specified/auto-detected IP address
-	*	@return array|FALSE
-	*	@param $ip string
-	**/
+	 *    Return geolocation data based on specified/auto-detected IP address
+	 * @param $ip string
+	 **@return array|FALSE
+	 */
 	function location($ip=NULL) {
 		$fw=\Base::instance();
 		$web=\Web::instance();
@@ -73,25 +72,25 @@ class Geo extends \Prefab {
 			return $out;
 		}
 		if (($req=$web->request('http://www.geoplugin.net/json.gp'.
-			($public?('?ip='.$ip):''))) &&
+				($public?('?ip='.$ip):''))) &&
 			$data=json_decode($req['body'],TRUE)) {
 			$out=[];
 			foreach ($data as $key=>$val)
 				if (!strpos($key,'currency') && $key!=='geoplugin_status'
 					&& $key!=='geoplugin_region')
-					$out[$fw->snakecase(substr($key, 10))]=$val;
+					$out[$fw->snakecase(substr($key,10))]=$val;
 			return $out;
 		}
 		return FALSE;
 	}
 
 	/**
-	*	Return weather data based on specified latitude/longitude
-	*	@return array|FALSE
-	*	@param $latitude float
-	*	@param $longitude float
-	*	@param $key string
-	**/
+	 *    Return weather data based on specified latitude/longitude
+	 * @param $latitude float
+	 * @param $longitude float
+	 * @param $key string
+	 **@return array|FALSE
+	 */
 	function weather($latitude,$longitude,$key) {
 		$fw=\Base::instance();
 		$web=\Web::instance();
@@ -103,7 +102,7 @@ class Geo extends \Prefab {
 		];
 		return ($req=$web->request(
 			'http://api.openweathermap.org/data/2.5/weather?'.
-				http_build_query($query)))?
+			http_build_query($query)))?
 			json_decode($req['body'],TRUE):
 			FALSE;
 	}

@@ -30,10 +30,10 @@ class Recaptcha {
 		URL_Recaptcha='https://www.google.com/recaptcha/api/siteverify';
 
 	/**
-	 *	Verify reCAPTCHA response
-	 *	@param string $secret
-	 *	@param string $response
-	 *	@return bool
+	 *    Verify reCAPTCHA response
+	 * @param string $secret
+	 * @param string $response
+	 * @return bool
 	 **/
 	static function verify($secret,$response=NULL) {
 		$fw=\Base::instance();

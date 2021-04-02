@@ -30,10 +30,10 @@ class Pingback extends \Prefab {
 		$log;
 
 	/**
-	*	Return TRUE if URL points to a pingback-enabled resource
-	*	@return bool
-	*	@param $url
-	**/
+	 *    Return TRUE if URL points to a pingback-enabled resource
+	 * @param $url
+	 **@return bool
+	 */
 	protected function enabled($url) {
 		$web=\Web::instance();
 		$req=$web->request($url);
@@ -56,11 +56,11 @@ class Pingback extends \Prefab {
 	}
 
 	/**
-	*	Load local page contents, parse HTML anchor tags, find permalinks,
-	*	and send XML-RPC calls to corresponding pingback servers
-	*	@return NULL
-	*	@param $source string
-	**/
+	 *    Load local page contents, parse HTML anchor tags, find permalinks,
+	 *    and send XML-RPC calls to corresponding pingback servers
+	 * @param $source string
+	 **@return NULL
+	 */
 	function inspect($source) {
 		$fw=\Base::instance();
 		$web=\Web::instance();
@@ -101,12 +101,12 @@ class Pingback extends \Prefab {
 	}
 
 	/**
-	*	Receive ping, check if local page is pingback-enabled, verify
-	*	source contents, and return XML-RPC response
-	*	@return string
-	*	@param $func callback
-	*	@param $path string
-	**/
+	 *    Receive ping, check if local page is pingback-enabled, verify
+	 *    source contents, and return XML-RPC response
+	 * @param $func callback
+	 * @param $path string
+	 **@return string
+	 */
 	function listen($func,$path=NULL) {
 		$fw=\Base::instance();
 		if (PHP_SAPI!='cli') {
@@ -125,14 +125,14 @@ class Pingback extends \Prefab {
 			// Check local page if pingback-enabled
 			$parts=parse_url($permalink);
 			if ((empty($parts['scheme']) ||
-				$parts['host']==$fw->HOST) &&
+					$parts['host']==$fw->HOST) &&
 				preg_match('/^'.preg_quote($path,'/').'/'.
 					($fw->CASELESS?'i':''),$parts['path']) &&
 				$this->enabled($permalink)) {
 				// Check source
 				$parts=parse_url($source);
 				if ((empty($parts['scheme']) ||
-					$parts['host']==$fw->HOST) &&
+						$parts['host']==$fw->HOST) &&
 					($req=$web->request($source)) &&
 					$doc->loadhtml($req['body'])) {
 					$links=$doc->getelementsbytagname('a');
@@ -157,17 +157,17 @@ class Pingback extends \Prefab {
 	}
 
 	/**
-	*	Return transaction history
-	*	@return string
-	**/
+	 *    Return transaction history
+	 * @return string
+	 **/
 	function log() {
 		return $this->log;
 	}
 
 	/**
-	*	Instantiate class
-	*	@return object
-	**/
+	 *    Instantiate class
+	 * @return object
+	 **/
 	function __construct() {
 		// Suppress errors caused by invalid HTML structures
 		libxml_use_internal_errors(TRUE);

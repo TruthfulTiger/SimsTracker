@@ -1,11 +1,11 @@
 <?php
 
-class Challenge extends DB\SQL\Mapper{
+class Challenge extends DB\SQL\Mapper {
 
 	protected $table;
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'challenge';
+		$this->table='challenge';
 		parent::__construct($db,$this->table);
 	}
 
@@ -50,9 +50,9 @@ class Challenge extends DB\SQL\Mapper{
 		$this->save();
 	}
 
-	public function scores($id, $v) {
+	public function scores($id,$v) {
 		$this->load(array('id=?',$id));
-		$this->hasScores = $v;
+		$this->hasScores=$v;
 		$this->update();
 	}
 
@@ -60,13 +60,13 @@ class Challenge extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->copyFrom('POST',function($val) {
 			// the 'POST' array is passed to our callback function
-			return array_intersect_key($val, array_flip(array('challengeName','type')));
+			return array_intersect_key($val,array_flip(array('challengeName','type')));
 		});
 		$this->update();
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

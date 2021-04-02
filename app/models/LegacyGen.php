@@ -1,9 +1,9 @@
 <?php
 
-class LegacyGen extends DB\SQL\Mapper{
+class LegacyGen extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'legacygen';
+		$this->table='legacygen';
 		parent::__construct($db,$this->table);
 	}
 
@@ -26,7 +26,9 @@ class LegacyGen extends DB\SQL\Mapper{
 		$this->reset();
 		$this->copyFrom('GET',function($val) {
 			// the 'GET' array is passed to our callback function
-			return array_intersect_key($val, array_flip(array('PARAMS.userID', 'PARAMS.generation', 'PARAMS.challengeID','PARAMS.simID')));
+			return array_intersect_key($val,
+				array_flip(array('PARAMS.userID','PARAMS.generation','PARAMS.challengeID',
+					'PARAMS.simID')));
 		});
 		$this->save();
 	}
@@ -35,13 +37,13 @@ class LegacyGen extends DB\SQL\Mapper{
 		$this->load(array('id=?',$id));
 		$this->copyFrom('GET',function($val) {
 			// the 'GET' array is passed to our callback function
-			return array_intersect_key($val, array_flip(array('PARAMS.simID')));
+			return array_intersect_key($val,array_flip(array('PARAMS.simID')));
 		});
 		$this->update();
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

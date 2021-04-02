@@ -6,14 +6,13 @@
  * Time: 23:21
  */
 
-class HomeController extends Controller
-{
-	function beforeroute(){
+class HomeController extends Controller {
+	function beforeroute() {
 
 	}
 
-    function index() {
-        $this->f3->set('content','home.html');
-        $this->f3->set('title', 'Home');
-    }
+	function index() {
+		$this->f3->set('content','home.html');
+		$this->f3->set('title','Home');
+	}
 }

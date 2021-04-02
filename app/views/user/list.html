@@ -20,27 +20,28 @@
 			<td>{{ trim(@user.role) }}</td>
 			<td>{{ trim(@user.created) }}</td>
 			<td>{{ trim(@user.lastLogin) }}</td>
-			<td><a href="{{ @BASE.'/user/update/'. @user.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i class="fa fa-edit mr-2"></i></a>
+			<td><a href="{{ @BASE.'/user/update/'. @user.id }}" data-toggle="tooltip" title="Edit" class="text-primary"><i
+					class="fa fa-edit mr-2"></i></a>
 				<a href="#" onclick="confirm('{{ @BASE.'/user/delete/'. @user.id }}');"
-								   data-toggle="tooltip"
-								   title="Delete"
-								   class="text-danger delete"><i class="fa fa-trash"></i></a></td>
+				   data-toggle="tooltip"
+				   title="Delete"
+				   class="text-danger delete"><i class="fa fa-trash"></i></a></td>
 		</tr>
 	</repeat>
 	</tbody>
 </table>
 <a href="{{ @BASE.'/user/create' }}" class="btn btn-success mt-3"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Create</a>
 <script>
-$(document).ready( function () {
-    $('#users').DataTable({
-        responsive: {
-        breakpoints: [
-            { name: 'desktop', width: Infinity },
-            { name: 'tablet',  width: 1024 },
-            { name: 'fablet',  width: 768 },
-            { name: 'phone',   width: 480 }
-        ]
-    }
+	$(document).ready(function () {
+		$('#users').DataTable({
+			responsive: {
+				breakpoints: [
+					{name: 'desktop', width: Infinity},
+					{name: 'tablet', width: 1024},
+					{name: 'fablet', width: 768},
+					{name: 'phone', width: 480}
+				]
+			}
+		});
 	});
-} );
 </script>

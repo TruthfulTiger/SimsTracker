@@ -1,9 +1,9 @@
 <?php
 
-class UserS3Data extends DB\SQL\Mapper{
+class UserS3Data extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'users3data';
+		$this->table='users3data';
 		parent::__construct($db,$this->table);
 	}
 
@@ -35,7 +35,7 @@ class UserS3Data extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

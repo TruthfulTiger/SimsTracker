@@ -24,44 +24,44 @@
 class UTF extends Prefab {
 
 	/**
-	*	Get string length
-	*	@return int
-	*	@param $str string
-	**/
+	 *    Get string length
+	 * @param $str string
+	 **@return int
+	 */
 	function strlen($str) {
 		preg_match_all('/./us',$str,$parts);
 		return count($parts[0]);
 	}
 
 	/**
-	*	Reverse a string
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Reverse a string
+	 * @param $str string
+	 **@return string
+	 */
 	function strrev($str) {
 		preg_match_all('/./us',$str,$parts);
 		return implode('',array_reverse($parts[0]));
 	}
 
 	/**
-	*	Find position of first occurrence of a string (case-insensitive)
-	*	@return int|FALSE
-	*	@param $stack string
-	*	@param $needle string
-	*	@param $ofs int
-	**/
+	 *    Find position of first occurrence of a string (case-insensitive)
+	 * @param $stack string
+	 * @param $needle string
+	 * @param $ofs int
+	 **@return int|FALSE
+	 */
 	function stripos($stack,$needle,$ofs=0) {
 		return $this->strpos($stack,$needle,$ofs,TRUE);
 	}
 
 	/**
-	*	Find position of first occurrence of a string
-	*	@return int|FALSE
-	*	@param $stack string
-	*	@param $needle string
-	*	@param $ofs int
-	*	@param $case bool
-	**/
+	 *    Find position of first occurrence of a string
+	 * @param $stack string
+	 * @param $needle string
+	 * @param $ofs int
+	 * @param $case bool
+	 **@return int|FALSE
+	 */
 	function strpos($stack,$needle,$ofs=0,$case=FALSE) {
 		return preg_match('/^(.{'.$ofs.'}.*?)'.
 			preg_quote($needle,'/').'/us'.($case?'i':''),$stack,$match)?
@@ -69,26 +69,26 @@ class UTF extends Prefab {
 	}
 
 	/**
-	*	Returns part of haystack string from the first occurrence of
-	*	needle to the end of haystack (case-insensitive)
-	*	@return string|FALSE
-	*	@param $stack string
-	*	@param $needle string
-	*	@param $before bool
-	**/
+	 *    Returns part of haystack string from the first occurrence of
+	 *    needle to the end of haystack (case-insensitive)
+	 * @param $stack string
+	 * @param $needle string
+	 * @param $before bool
+	 **@return string|FALSE
+	 */
 	function stristr($stack,$needle,$before=FALSE) {
 		return $this->strstr($stack,$needle,$before,TRUE);
 	}
 
 	/**
-	*	Returns part of haystack string from the first occurrence of
-	*	needle to the end of haystack
-	*	@return string|FALSE
-	*	@param $stack string
-	*	@param $needle string
-	*	@param $before bool
-	*	@param $case bool
-	**/
+	 *    Returns part of haystack string from the first occurrence of
+	 *    needle to the end of haystack
+	 * @param $stack string
+	 * @param $needle string
+	 * @param $before bool
+	 * @param $case bool
+	 **@return string|FALSE
+	 */
 	function strstr($stack,$needle,$before=FALSE,$case=FALSE) {
 		if (!$needle)
 			return FALSE;
@@ -102,12 +102,12 @@ class UTF extends Prefab {
 	}
 
 	/**
-	*	Return part of a string
-	*	@return string|FALSE
-	*	@param $str string
-	*	@param $start int
-	*	@param $len int
-	**/
+	 *    Return part of a string
+	 * @param $str string
+	 * @param $start int
+	 * @param $len int
+	 **@return string|FALSE
+	 */
 	function substr($str,$start,$len=0) {
 		if ($start<0)
 			$start=$this->strlen($str)+$start;
@@ -118,11 +118,11 @@ class UTF extends Prefab {
 	}
 
 	/**
-	*	Count the number of substring occurrences
-	*	@return int
-	*	@param $stack string
-	*	@param $needle string
-	**/
+	 *    Count the number of substring occurrences
+	 * @param $stack string
+	 * @param $needle string
+	 **@return int
+	 */
 	function substr_count($stack,$needle) {
 		preg_match_all('/'.preg_quote($needle,'/').'/us',$stack,
 			$matches,PREG_SET_ORDER);
@@ -130,68 +130,68 @@ class UTF extends Prefab {
 	}
 
 	/**
-	*	Strip whitespaces from the beginning of a string
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Strip whitespaces from the beginning of a string
+	 * @param $str string
+	 **@return string
+	 */
 	function ltrim($str) {
 		return preg_replace('/^[\pZ\pC]+/u','',$str);
 	}
 
 	/**
-	*	Strip whitespaces from the end of a string
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Strip whitespaces from the end of a string
+	 * @param $str string
+	 **@return string
+	 */
 	function rtrim($str) {
 		return preg_replace('/[\pZ\pC]+$/u','',$str);
 	}
 
 	/**
-	*	Strip whitespaces from the beginning and end of a string
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Strip whitespaces from the beginning and end of a string
+	 * @param $str string
+	 **@return string
+	 */
 	function trim($str) {
 		return preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u','',$str);
 	}
 
 	/**
-	*	Return UTF-8 byte order mark
-	*	@return string
-	**/
+	 *    Return UTF-8 byte order mark
+	 * @return string
+	 **/
 	function bom() {
 		return chr(0xef).chr(0xbb).chr(0xbf);
 	}
 
 	/**
-	*	Convert code points to Unicode symbols
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Convert code points to Unicode symbols
+	 * @param $str string
+	 **@return string
+	 */
 	function translate($str) {
 		return html_entity_decode(
 			preg_replace('/\\\\u([[:xdigit:]]+)/i','&#x\1;',$str));
 	}
 
 	/**
-	*	Translate emoji tokens to Unicode font-supported symbols
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Translate emoji tokens to Unicode font-supported symbols
+	 * @param $str string
+	 **@return string
+	 */
 	function emojify($str) {
 		$map=[
-			':('=>'\u2639', // frown
-			':)'=>'\u263a', // smile
-			'<3'=>'\u2665', // heart
-			':D'=>'\u1f603', // grin
-			'XD'=>'\u1f606', // laugh
-			';)'=>'\u1f609', // wink
-			':P'=>'\u1f60b', // tongue
-			':,'=>'\u1f60f', // think
-			':/'=>'\u1f623', // skeptic
-			'8O'=>'\u1f632', // oops
-		]+Base::instance()->EMOJI;
+				':('=>'\u2639', // frown
+				':)'=>'\u263a', // smile
+				'<3'=>'\u2665', // heart
+				':D'=>'\u1f603', // grin
+				'XD'=>'\u1f606', // laugh
+				';)'=>'\u1f609', // wink
+				':P'=>'\u1f60b', // tongue
+				':,'=>'\u1f60f', // think
+				':/'=>'\u1f623', // skeptic
+				'8O'=>'\u1f632', // oops
+			]+Base::instance()->EMOJI;
 		return $this->translate(str_replace(array_keys($map),
 			array_values($map),$str));
 	}

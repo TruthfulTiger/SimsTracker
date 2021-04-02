@@ -1,9 +1,9 @@
 <?php
 
-class User extends DB\SQL\Mapper{
+class User extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'user';
+		$this->table='user';
 		parent::__construct($db,$this->table);
 	}
 
@@ -18,7 +18,7 @@ class User extends DB\SQL\Mapper{
 	}
 
 	public function getByName($name) {
-		$this->load(array('email=?', $name));
+		$this->load(array('email=?',$name));
 	}
 
 	public function add() {
@@ -40,7 +40,7 @@ class User extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

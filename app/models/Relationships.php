@@ -1,9 +1,9 @@
 <?php
 
-class Relationships extends DB\SQL\Mapper{
+class Relationships extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'relationship';
+		$this->table='relationship';
 		parent::__construct($db,$this->table);
 	}
 
@@ -48,21 +48,21 @@ class Relationships extends DB\SQL\Mapper{
 		$this->save();
 	}
 
-	public function relCreate($userID, $hood, $sim1, $sim2, $ship){
-			$this->reset();
-			$this->userID = $userID;
-			$this->nhID = $hood;
-			$this->sim1 = $sim1;
-			$this->sim2 = $sim2;
-			$this->isFamily = 1;
-			$this->relName = $ship;
-			$this->save();
-	} 
+	public function relCreate($userID,$hood,$sim1,$sim2,$ship) {
+		$this->reset();
+		$this->userID=$userID;
+		$this->nhID=$hood;
+		$this->sim1=$sim1;
+		$this->sim2=$sim2;
+		$this->isFamily=1;
+		$this->relName=$ship;
+		$this->save();
+	}
 
-	public function relEdit($id, $sim1, $sim2) {
+	public function relEdit($id,$sim1,$sim2) {
 		$this->load(array('id=?',$id));
-		$this->sim1 = $sim1;
-		$this->sim2 = $sim2;
+		$this->sim1=$sim1;
+		$this->sim2=$sim2;
 		$this->update();
 	}
 
@@ -73,7 +73,7 @@ class Relationships extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

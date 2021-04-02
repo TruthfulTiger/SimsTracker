@@ -1,6 +1,9 @@
+let randNum = 0;
+let numbers = [];
+
 // General functions
 function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1) ) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // http://codetheory.in/weighted-biased-random-number-generation-with-javascript-based-on-probability/
@@ -37,3 +40,46 @@ function shuffle(max, len) {
 	}
 	return a;
 }
+
+function random(min, max, n, rep) {
+	$.ajax({
+		url: 'https://api.random.org/json-rpc/2/invoke',
+		type: "POST",
+		data: JSON.stringify({
+			"jsonrpc": "2.0",
+			"method": "generateIntegers",
+			"params": {
+				"apiKey": "e7cca124-0c36-460c-972a-163ba70fd2dc",
+				"n": n,
+				"min": min,
+				"max": max,
+				"replacement": rep,
+				"base": 10
+			},
+			"id": 28247
+		}),
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function (number) {
+			if (n > 1) {
+				numbers = number.result.random.data;
+				$.each(numbers, function (index, value) {
+					console.log(value);
+				});
+			} else {
+				randNum = JSON.stringify(number.result.random.data[0]);
+				console.log(JSON.stringify(number.result.random.data[0]));
+			}
+
+		},
+		error: function (result) {
+			console.log("File not found");
+		}
+	});
+	if (n > 1) {
+		return numbers;
+	} else {
+		return parseInt(randNum);
+	}
+}  
+

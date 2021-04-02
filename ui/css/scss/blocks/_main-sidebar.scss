@@ -17,8 +17,8 @@
 
   // Opened state
   &.open {
-   transform: translateX(0);
-   box-shadow: $side-shadow;
+    transform: translateX(0);
+    box-shadow: $side-shadow;
   }
 
   // Toggle sidebar
@@ -131,7 +131,7 @@
     box-shadow: $main-sidebar-dropdown-menu-box-shadow;
 
     .dropdown-item {
-      padding: $main-sidebar-dropdown-item-padding-y $main-sidebar-dropdown-item-padding-x ;
+      padding: $main-sidebar-dropdown-item-padding-y $main-sidebar-dropdown-item-padding-x;
       border-bottom: $main-sidebar-dropdown-item-border;
       color: $main-sidebar-dropdown-item-color;
       font-size: $main-sidebar-dropdown-item-font-size;

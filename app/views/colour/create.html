@@ -7,19 +7,22 @@
 
 	<div class="form-group">
 		<label for="generation">Generation</label>
-		<input type="number" min="1" value="1" class="form-control" required="required" name="generation" id="generation" />
+		<input type="number" min="1" value="1" class="form-control" required="required" name="generation"
+			   id="generation"/>
 	</div>
 
 	<div class="control-group">
 		<div class="">
-			<input type="text" name="hptrap" class="hptrap" />
-			<input hidden name="colour" id="colour" value="" />
-			<input type="hidden" name="create" value="create" />
-			<input hidden name="gen" id="gen" value="{{@colour.generation}}" />
-			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}" />
-			<input type="hidden" name="challengeID" value="{{@SESSION.challenge}}" />
-			<button type="submit" class="btn btn-primary"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Colour</button>
-			<a href="{{ @BASE.'/colours/'. @SESSION.challenge }}" class="btn btn-secondary"><i class="fa fa-times mr-2"></i>Cancel</a>
+			<input type="text" name="hptrap" class="hptrap"/>
+			<input hidden name="colour" id="colour" value=""/>
+			<input type="hidden" name="create" value="create"/>
+			<input hidden name="gen" id="gen" value="{{@colour.generation}}"/>
+			<input type="hidden" name="userID" value="{{@SESSION.user[2]}}"/>
+			<input type="hidden" name="challengeID" value="{{@SESSION.challenge}}"/>
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Colour
+			</button>
+			<a href="{{ @BASE.'/colours/'. @SESSION.challenge }}" class="btn btn-secondary"><i
+					class="fa fa-times mr-2"></i>Cancel</a>
 		</div>
 	</div>
 </form>
@@ -28,7 +31,7 @@
 <script>
 	$('#colourpick').colorPalettePicker({
 		buttonText: 'Choose colour',
-		lines:2,
+		lines: 2,
 		palette: [
 			'red',
 			'orange',
@@ -44,7 +47,7 @@
 			'brown',
 			'pink'
 		],
-		onSelected: function(color){
+		onSelected: function (color) {
 			colour(color);
 		}
 	});

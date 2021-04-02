@@ -34,20 +34,20 @@ class StaticMap {
 		$query=array();
 
 	/**
-	*	Specify API key-value pair via magic call
-	*	@return object
-	*	@param $func string
-	*	@param $args array
-	**/
+	 *    Specify API key-value pair via magic call
+	 * @param $func string
+	 * @param $args array
+	 **@return object
+	 */
 	function __call($func,array $args) {
 		$this->query[]=array($func,$args[0]);
 		return $this;
 	}
 
 	/**
-	*	Generate map
-	*	@return string
-	**/
+	 *    Generate map
+	 * @return string
+	 **/
 	function dump() {
 		$fw=\Base::instance();
 		$web=\Web::instance();

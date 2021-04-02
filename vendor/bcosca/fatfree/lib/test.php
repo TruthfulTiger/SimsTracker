@@ -39,35 +39,35 @@ class Test {
 		$level;
 
 	/**
-	*	Return test results
-	*	@return array
-	**/
+	 *    Return test results
+	 * @return array
+	 **/
 	function results() {
 		return $this->data;
 	}
 
 	/**
-	*	Return FALSE if at least one test case fails
-	*	@return bool
-	**/
+	 *    Return FALSE if at least one test case fails
+	 * @return bool
+	 **/
 	function passed() {
 		return $this->passed;
 	}
 
 	/**
-	*	Evaluate condition and save test result
-	*	@return object
-	*	@param $cond bool
-	*	@param $text string
-	**/
+	 *    Evaluate condition and save test result
+	 * @param $cond bool
+	 * @param $text string
+	 **@return object
+	 */
 	function expect($cond,$text=NULL) {
 		$out=(bool)$cond;
 		if ($this->level==$out || $this->level==self::FLAG_Both) {
 			$data=['status'=>$out,'text'=>$text,'source'=>NULL];
 			foreach (debug_backtrace() as $frame)
 				if (isset($frame['file'])) {
-					$data['source']=Base::instance()->
-						fixslashes($frame['file']).':'.$frame['line'];
+					$data['source']=
+						Base::instance()->fixslashes($frame['file']).':'.$frame['line'];
 					break;
 				}
 			$this->data[]=$data;
@@ -78,19 +78,19 @@ class Test {
 	}
 
 	/**
-	*	Append message to test results
-	*	@return NULL
-	*	@param $text string
-	**/
+	 *    Append message to test results
+	 * @param $text string
+	 **@return NULL
+	 */
 	function message($text) {
 		$this->expect(TRUE,$text);
 	}
 
 	/**
-	*	Class constructor
-	*	@return NULL
-	*	@param $level int
-	**/
+	 *    Class constructor
+	 * @param $level int
+	 **@return NULL
+	 */
 	function __construct($level=self::FLAG_Both) {
 		$this->level=$level;
 	}

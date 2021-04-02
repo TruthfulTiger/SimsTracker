@@ -28,11 +28,11 @@ class F3 {
 		$fw;
 
 	/**
-	*	Forward function calls to framework
-	*	@return mixed
-	*	@param $func callback
-	*	@param $args array
-	**/
+	 *    Forward function calls to framework
+	 * @param $func callback
+	 * @param $args array
+	 **@return mixed
+	 */
 	static function __callstatic($func,array $args) {
 		if (!self::$fw)
 			self::$fw=Base::instance();

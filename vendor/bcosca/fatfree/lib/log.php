@@ -28,11 +28,11 @@ class Log {
 		$file;
 
 	/**
-	*	Write specified text to log file
-	*	@return string
-	*	@param $text string
-	*	@param $format string
-	**/
+	 *    Write specified text to log file
+	 * @param $text string
+	 * @param $format string
+	 **@return string
+	 */
 	function write($text,$format='r') {
 		$fw=Base::instance();
 		foreach (preg_split('/\r?\n|\r/',trim($text)) as $line)
@@ -41,26 +41,26 @@ class Log {
 				date($format).
 				(isset($_SERVER['REMOTE_ADDR'])?
 					(' ['.$_SERVER['REMOTE_ADDR'].
-					(($fwd=filter_var($fw->get('HEADERS.X-Forwarded-For'),
-						FILTER_VALIDATE_IP))?(' ('.$fwd.')'):'')
-					.']'):'').' '.
+						(($fwd=filter_var($fw->get('HEADERS.X-Forwarded-For'),
+							FILTER_VALIDATE_IP))?(' ('.$fwd.')'):'')
+						.']'):'').' '.
 				trim($line).PHP_EOL,
 				TRUE
 			);
 	}
 
 	/**
-	*	Erase log
-	*	@return NULL
-	**/
+	 *    Erase log
+	 * @return NULL
+	 **/
 	function erase() {
 		@unlink($this->file);
 	}
 
 	/**
-	*	Instantiate class
-	*	@param $file string
-	**/
+	 *    Instantiate class
+	 * @param $file string
+	 **/
 	function __construct($file) {
 		$fw=Base::instance();
 		if (!is_dir($dir=$fw->LOGS))

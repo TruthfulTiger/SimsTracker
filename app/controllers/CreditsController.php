@@ -7,12 +7,12 @@
  */
 
 class CreditsController extends Controller {
-	function beforeroute(){
+	function beforeroute() {
 
 	}
 
-    function index($f3) {
-        $f3->set('content','credits.html');
-        $f3->set('title', 'Credits');
-    }
+	function index($f3) {
+		$f3->set('content','credits.html');
+		$f3->set('title','Credits');
+	}
 }

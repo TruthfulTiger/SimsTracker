@@ -39,92 +39,92 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 		$trigger=[];
 
 	/**
-	*	Return database type
-	*	@return string
-	**/
+	 *    Return database type
+	 * @return string
+	 **/
 	abstract function dbtype();
 
 	/**
-	*	Return field names
-	*	@return array
-	**/
+	 *    Return field names
+	 * @return array
+	 **/
 	abstract function fields();
 
 	/**
-	*	Return fields of mapper object as an associative array
-	*	@return array
-	*	@param $obj object
-	**/
+	 *    Return fields of mapper object as an associative array
+	 * @param $obj object
+	 **@return array
+	 */
 	abstract function cast($obj=NULL);
 
 	/**
-	*	Return records (array of mapper objects) that match criteria
-	*	@return array
-	*	@param $filter string|array
-	*	@param $options array
-	*	@param $ttl int
-	**/
+	 *    Return records (array of mapper objects) that match criteria
+	 * @param $filter string|array
+	 * @param $options array
+	 * @param $ttl int
+	 **@return array
+	 */
 	abstract function find($filter=NULL,array $options=NULL,$ttl=0);
 
 	/**
-	*	Count records that match criteria
-	*	@return int
-	*	@param $filter array
-	*	@param $options array
-	*	@param $ttl int
-	**/
+	 *    Count records that match criteria
+	 * @param $filter array
+	 * @param $options array
+	 * @param $ttl int
+	 **@return int
+	 */
 	abstract function count($filter=NULL,array $options=NULL,$ttl=0);
 
 	/**
-	*	Insert new record
-	*	@return array
-	**/
+	 *    Insert new record
+	 * @return array
+	 **/
 	abstract function insert();
 
 	/**
-	*	Update current record
-	*	@return array
-	**/
+	 *    Update current record
+	 * @return array
+	 **/
 	abstract function update();
 
 	/**
-	*	Hydrate mapper object using hive array variable
-	*	@return NULL
-	*	@param $var array|string
-	*	@param $func callback
-	**/
+	 *    Hydrate mapper object using hive array variable
+	 * @param $var array|string
+	 * @param $func callback
+	 **@return NULL
+	 */
 	abstract function copyfrom($var,$func=NULL);
 
 	/**
-	*	Populate hive array variable with mapper fields
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Populate hive array variable with mapper fields
+	 * @param $key string
+	 **@return NULL
+	 */
 	abstract function copyto($key);
 
 	/**
-	*	Get cursor's equivalent external iterator
-	*	Causes a fatal error in PHP 5.3.5 if uncommented
-	*	return ArrayIterator
-	**/
+	 *    Get cursor's equivalent external iterator
+	 *    Causes a fatal error in PHP 5.3.5 if uncommented
+	 *    return ArrayIterator
+	 **/
 	abstract function getiterator();
 
 
 	/**
-	*	Return TRUE if current cursor position is not mapped to any record
-	*	@return bool
-	**/
+	 *    Return TRUE if current cursor position is not mapped to any record
+	 * @return bool
+	 **/
 	function dry() {
 		return empty($this->query[$this->ptr]);
 	}
 
 	/**
-	*	Return first record (mapper object) that matches criteria
-	*	@return static|FALSE
-	*	@param $filter string|array
-	*	@param $options array
-	*	@param $ttl int
-	**/
+	 *    Return first record (mapper object) that matches criteria
+	 * @param $filter string|array
+	 * @param $options array
+	 * @param $ttl int
+	 **@return static|FALSE
+	 */
 	function findone($filter=NULL,array $options=NULL,$ttl=0) {
 		if (!$options)
 			$options=[];
@@ -134,17 +134,17 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Return array containing subset of records matching criteria,
-	*	total number of records in superset, specified limit, number of
-	*	subsets available, and actual subset position
-	*	@return array
-	*	@param $pos int
-	*	@param $size int
-	*	@param $filter string|array
-	*	@param $options array
-	*	@param $ttl int
-	*	@param $bounce bool
-	**/
+	 *    Return array containing subset of records matching criteria,
+	 *    total number of records in superset, specified limit, number of
+	 *    subsets available, and actual subset position
+	 * @param $pos int
+	 * @param $size int
+	 * @param $filter string|array
+	 * @param $options array
+	 * @param $ttl int
+	 * @param $bounce bool
+	 **@return array
+	 */
 	function paginate(
 		$pos=0,$size=10,$filter=NULL,array $options=NULL,$ttl=0,$bounce=TRUE) {
 		$total=$this->count($filter,$options,$ttl);
@@ -167,47 +167,47 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Map to first record that matches criteria
-	*	@return array|FALSE
-	*	@param $filter string|array
-	*	@param $options array
-	*	@param $ttl int
-	**/
+	 *    Map to first record that matches criteria
+	 * @param $filter string|array
+	 * @param $options array
+	 * @param $ttl int
+	 **@return array|FALSE
+	 */
 	function load($filter=NULL,array $options=NULL,$ttl=0) {
 		$this->reset();
 		return ($this->query=$this->find($filter,$options,$ttl)) &&
-			$this->skip(0)?$this->query[$this->ptr]:FALSE;
+		$this->skip(0)?$this->query[$this->ptr]:FALSE;
 	}
 
 	/**
-	*	Return the count of records loaded
-	*	@return int
-	**/
+	 *    Return the count of records loaded
+	 * @return int
+	 **/
 	function loaded() {
 		return count($this->query);
 	}
 
 	/**
-	*	Map to first record in cursor
-	*	@return mixed
-	**/
+	 *    Map to first record in cursor
+	 * @return mixed
+	 **/
 	function first() {
 		return $this->skip(-$this->ptr);
 	}
 
 	/**
-	*	Map to last record in cursor
-	*	@return mixed
-	**/
+	 *    Map to last record in cursor
+	 * @return mixed
+	 **/
 	function last() {
 		return $this->skip(($ofs=count($this->query)-$this->ptr)?$ofs-1:0);
 	}
 
 	/**
-	*	Map to nth record relative to current cursor position
-	*	@return mixed
-	*	@param $ofs int
-	**/
+	 *    Map to nth record relative to current cursor position
+	 * @param $ofs int
+	 **@return mixed
+	 */
 	function skip($ofs=1) {
 		$this->ptr+=$ofs;
 		return $this->ptr>-1 && $this->ptr<count($this->query)?
@@ -215,17 +215,17 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Map next record
-	*	@return mixed
-	**/
+	 *    Map next record
+	 * @return mixed
+	 **/
 	function next() {
 		return $this->skip();
 	}
 
 	/**
-	*	Map previous record
-	*	@return mixed
-	**/
+	 *    Map previous record
+	 * @return mixed
+	 **/
 	function prev() {
 		return $this->skip(-1);
 	}
@@ -238,17 +238,17 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Save mapped record
-	*	@return mixed
-	**/
+	 *    Save mapped record
+	 * @return mixed
+	 **/
 	function save() {
 		return $this->query?$this->update():$this->insert();
 	}
 
 	/**
-	*	Delete current record
-	*	@return int|bool
-	**/
+	 *    Delete current record
+	 * @return int|bool
+	 **/
 	function erase() {
 		$this->query=array_slice($this->query,0,$this->ptr,TRUE)+
 			array_slice($this->query,$this->ptr,NULL,TRUE);
@@ -256,73 +256,73 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Define onload trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define onload trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function onload($func) {
 		return $this->trigger['load']=$func;
 	}
 
 	/**
-	*	Define beforeinsert trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define beforeinsert trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function beforeinsert($func) {
 		return $this->trigger['beforeinsert']=$func;
 	}
 
 	/**
-	*	Define afterinsert trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define afterinsert trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function afterinsert($func) {
 		return $this->trigger['afterinsert']=$func;
 	}
 
 	/**
-	*	Define oninsert trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define oninsert trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function oninsert($func) {
 		return $this->afterinsert($func);
 	}
 
 	/**
-	*	Define beforeupdate trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define beforeupdate trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function beforeupdate($func) {
 		return $this->trigger['beforeupdate']=$func;
 	}
 
 	/**
-	*	Define afterupdate trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define afterupdate trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function afterupdate($func) {
 		return $this->trigger['afterupdate']=$func;
 	}
 
 	/**
-	*	Define onupdate trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define onupdate trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function onupdate($func) {
 		return $this->afterupdate($func);
 	}
 
 	/**
-	*	Define beforesave trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define beforesave trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function beforesave($func) {
 		$this->trigger['beforeinsert']=$func;
 		$this->trigger['beforeupdate']=$func;
@@ -330,10 +330,10 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Define aftersave trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define aftersave trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function aftersave($func) {
 		$this->trigger['afterinsert']=$func;
 		$this->trigger['afterupdate']=$func;
@@ -341,45 +341,45 @@ abstract class Cursor extends \Magic implements \IteratorAggregate {
 	}
 
 	/**
-	*	Define onsave trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define onsave trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function onsave($func) {
 		return $this->aftersave($func);
 	}
 
 	/**
-	*	Define beforeerase trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define beforeerase trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function beforeerase($func) {
 		return $this->trigger['beforeerase']=$func;
 	}
 
 	/**
-	*	Define aftererase trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define aftererase trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function aftererase($func) {
 		return $this->trigger['aftererase']=$func;
 	}
 
 	/**
-	*	Define onerase trigger
-	*	@return callback
-	*	@param $func callback
-	**/
+	 *    Define onerase trigger
+	 * @param $func callback
+	 **@return callback
+	 */
 	function onerase($func) {
 		return $this->aftererase($func);
 	}
 
 	/**
-	*	Reset cursor
-	*	@return NULL
-	**/
+	 *    Reset cursor
+	 * @return NULL
+	 **/
 	function reset() {
 		$this->query=[];
 		$this->ptr=0;

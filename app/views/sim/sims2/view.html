@@ -8,13 +8,31 @@
 		<check if="{{ @sim.gender == 'M'}}">
 			<img src="{{@BASE}}{{@s2path}}Male.png" alt="Male" data-toggle="tooltip" title="Male"/>
 		</check>
-		<input hidden id="gender" value="{{trim(@sim.gender)}}" />
+		<input hidden id="gender" value="{{trim(@sim.gender)}}"/>
+	</div>
+	{* Gender pref. *}
+	<div class="col">
+		<check if="{{ @sim.preference == 'Males'}}">
+			<img src="{{@BASE}}{{@s2path}}pref_male.png" alt="Prefers Males" data-toggle="tooltip"
+				 title="Prefers Males"/>
+		</check>
+		<check if="{{ @sim.preference == 'Females'}}">
+			<img src="{{@BASE}}{{@s2path}}pref_female.png" alt="Prefers Females" data-toggle="tooltip"
+				 title="Prefers Females"/>
+		</check>
+		<check if="{{ @sim.preference == 'Both'}}">
+			<img src="{{@BASE}}{{@s2path}}pref_both.png" alt="Bisexual" data-toggle="tooltip" title="Bisexual"/>
+		</check>
+		<check if="{{ @sim.preference == 'Neither'}}">
+			<img src="{{@BASE}}{{@s2path}}pref_neither.png" alt="No attraction/unknown" data-toggle="tooltip"
+				 title="No attraction/unknown"/>
+		</check>
 	</div>
 	{* Age *}
 	<div class="col">
-    	<input hidden id = "age" value="{{trim(@sim.age)}}" />
+		<input hidden id="age" value="{{trim(@sim.age)}}"/>
 		<check if="{{ @sim.age == 'Infant'}}">
-        	<img src="{{@BASE}}{{@s2path}}Age0.png" alt="Infant" data-toggle="tooltip" title="Infant"/>
+			<img src="{{@BASE}}{{@s2path}}Age0.png" alt="Infant" data-toggle="tooltip" title="Infant"/>
 		</check>
 		<check if="{{ @sim.age == 'Toddler'}}">
 			<img src="{{@BASE}}{{@s2path}}Age1.png" alt="Toddler" data-toggle="tooltip" title="Toddler"/>
@@ -25,8 +43,8 @@
 		<check if="{{ @sim.age == 'Teen'}}">
 			<img src="{{@BASE}}{{@s2path}}Age3.png" alt="Teen" data-toggle="tooltip" title="Teen"/>
 		</check>
-        <check if="{{ @sim.age == 'Young Adult'}}">
-			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Young Adult" data-toggle="tooltip" title="Young Adult"/>
+		<check if="{{ @sim.age == 'Young Adult'}}">
+			<img src="{{@BASE}}{{@s2path}}AgeYA.png" alt="Young Adult" data-toggle="tooltip" title="Young Adult"/>
 		</check>
 		<check if="{{ @sim.age == 'Adult'}}">
 			<img src="{{@BASE}}{{@s2path}}Age4.png" alt="Adult" data-toggle="tooltip" title="Adult"/>
@@ -38,7 +56,7 @@
 	{* Skin *}
 	<div class="col">
 		<check if="{{ @sim.skintone == 'Light'}}">
-        	<img src="{{@BASE}}{{@s2path}}S1.png" alt="Light skintone" data-toggle="tooltip" title="Light skintone"/>
+			<img src="{{@BASE}}{{@s2path}}S1.png" alt="Light skintone" data-toggle="tooltip" title="Light skintone"/>
 		</check>
 		<check if="{{ @sim.skintone == 'Tan'}}">
 			<img src="{{@BASE}}{{@s2path}}S2.png" alt="Tan skintone" data-toggle="tooltip" title="Tan skintone"/>
@@ -49,20 +67,20 @@
 		<check if="{{ @sim.skintone == 'Dark'}}">
 			<img src="{{@BASE}}{{@s2path}}S4.png" alt="Dark skintone" data-toggle="tooltip" title="Dark skintone"/>
 		</check>
-        <check if="{{ @sim.skintone == 'Alien'}}">
+		<check if="{{ @sim.skintone == 'Alien'}}">
 			<img src="{{@BASE}}{{@s2path}}S5.png" alt="Alien skintone" data-toggle="tooltip" title="Alien skintone"/>
 		</check>
 		<check if="{{ @sim.skintone == 'Custom'}}">
 			<img src="{{@BASE}}{{@s2path}}S0.png" alt="Custom skintone" data-toggle="tooltip" title="Custom skintone"/>
 		</check>
 		<check if="{{ @sim.skintone == null}}">
-			<img src="{{@BASE}}{{@s2path}}Null.png" />
+			<img src="{{@BASE}}{{@s2path}}Null.png"/>
 		</check>
 	</div>
 	{* Hair *}
 	<div class="col">
 		<check if="{{ @sim.hair == 'Blond'}}">
-        	<img src="{{@BASE}}{{@s2path}}turnon15.png" alt="Blond hair" data-toggle="tooltip" title="Blond hair"/>
+			<img src="{{@BASE}}{{@s2path}}turnon15.png" alt="Blond hair" data-toggle="tooltip" title="Blond hair"/>
 		</check>
 		<check if="{{ @sim.hair == 'Brown'}}">
 			<img src="{{@BASE}}{{@s2path}}turnon17.png" alt="Brown hair" data-toggle="tooltip" title="Brown hair"/>
@@ -73,20 +91,21 @@
 		<check if="{{ @sim.hair == 'Black'}}">
 			<img src="{{@BASE}}{{@s2path}}turnon18.png" alt="Black hair" data-toggle="tooltip" title="Black hair"/>
 		</check>
-        <check if="{{ @sim.hair == 'Grey'}}">
+		<check if="{{ @sim.hair == 'Grey'}}">
 			<img src="{{@BASE}}{{@s2path}}turnon5.png" alt="Grey hair" data-toggle="tooltip" title="Grey hair"/>
 		</check>
 		<check if="{{ @sim.hair == 'Custom'}}">
 			<img src="{{@BASE}}{{@s2path}}turnon19.png" alt="Custom hair" data-toggle="tooltip" title="Custom hair"/>
 		</check>
 		<check if="{{ @sim.hair == null}}">
-			<img src="{{@BASE}}{{@s2path}}Null.png" />
+			<img src="{{@BASE}}{{@s2path}}Null.png"/>
 		</check>
 	</div>
 	{* Eyes *}
 	<div class="col">
 		<check if="{{ @sim.eyes == 'Dark Blue'}}">
-        	<img src="{{@BASE}}{{@s2path}}dark_blue_eyes.png" alt="Dark Blue eyes" data-toggle="tooltip" title="Dark Blue eyes"/>
+			<img src="{{@BASE}}{{@s2path}}dark_blue_eyes.png" alt="Dark Blue eyes" data-toggle="tooltip"
+				 title="Dark Blue eyes"/>
 		</check>
 		<check if="{{ @sim.eyes == 'Brown'}}">
 			<img src="{{@BASE}}{{@s2path}}brown_eyes.png" alt="Brown eyes" data-toggle="tooltip" title="Brown eyes"/>
@@ -95,364 +114,586 @@
 			<img src="{{@BASE}}{{@s2path}}green_eyes.png" alt="Green eyes" data-toggle="tooltip" title="Green eyes"/>
 		</check>
 		<check if="{{ @sim.eyes == 'Light Blue'}}">
-			<img src="{{@BASE}}{{@s2path}}light_blue_eyes.png" alt="Light Blue eyes" data-toggle="tooltip" title="Light Blue eyes"/>
+			<img src="{{@BASE}}{{@s2path}}light_blue_eyes.png" alt="Light Blue eyes" data-toggle="tooltip"
+				 title="Light Blue eyes"/>
 		</check>
-        <check if="{{ @sim.eyes == 'Grey'}}">
+		<check if="{{ @sim.eyes == 'Grey'}}">
 			<img src="{{@BASE}}{{@s2path}}grey_eyes.png" alt="Grey eyes" data-toggle="tooltip" title="Grey eyes"/>
 		</check>
-	    <check if="{{ @sim.eyes == 'Alien'}}">
+		<check if="{{ @sim.eyes == 'Alien'}}">
 			<img src="{{@BASE}}{{@s2path}}black_eyes.png" alt="Alien eyes" data-toggle="tooltip" title="Alien eyes"/>
 		</check>
 		<check if="{{ @sim.eyes == 'Custom'}}">
 			<img src="{{@BASE}}{{@s2path}}custom_eyes.png" alt="Custom eyes" data-toggle="tooltip" title="Custom eyes"/>
 		</check>
 		<check if="{{ @sim.eyes == null}}">
-			<img src="{{@BASE}}{{@s2path}}Null.png" />
+			<img src="{{@BASE}}{{@s2path}}Null.png"/>
 		</check>
 	</div>
 </div>
 
-<h4>University</h4>
-	<check if="{{ @sim.studyStatus == 0}}">
+<h4>Traits</h4>
+{* Supernatural *}
+<check if="{{ @sim.lifeState == 'Deceased'}}">
+	<img src="{{@BASE}}{{@s2path}}ghost.png" class="pl-2" data-toggle="tooltip" height="64" title="Ghost" alt="Ghost">
+</check>
+<check if="{{ @s2sim.isAlien == 1}}">
+	<img src="{{@BASE}}{{@s2path}}ufo.png" class="pl-2" data-toggle="tooltip" height="64" title="Alien" alt="Alien">
+</check>
+<check if="{{ @s2sim.isZombie == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon29.png" class="pl-2" data-toggle="tooltip" title="Zombie" alt="Zombie">
+</check>
+<check if="{{ @s2sim.isVampire == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon9.png" class="pl-2" data-toggle="tooltip" title="Vampire" alt="Vampire">
+</check>
+<check if="{{ @s2sim.isServo == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon31.png" class="pl-2" data-toggle="tooltip" title="Servo" alt="Servo">
+</check>
+<check if="{{ @s2sim.isWerewolf == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon33.png" class="pl-2" data-toggle="tooltip" title="Werewolf" alt="Werewolf">
+</check>
+<check if="{{ @s2sim.isPlantSim == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon32.png" class="pl-2" data-toggle="tooltip" title="PlantSim" alt="PlantSim">
+</check>
+<check if="{{ @s2sim.isWitch == 1}}">
+	<img src="{{@BASE}}{{@s2path}}turnon34.png" class="pl-2" data-toggle="tooltip" title="Witch" alt="Witch">
+</check>
+<check if="{{ @human == true}}">
+	<img src="{{@BASE}}{{@s2path}}human.png" class="pl-2" data-toggle="tooltip" title="Human" alt="Human">
+</check>
+<h3>More Details</h3>
+<h4>Education</h4>
+<check if="{{ @sim.schoolType == 'private'}}">
 	<true>
-	<p>Never studied</p>
+		<img src="{{@BASE}}{{@s2path}}privateschool.png" class="pl-2" data-toggle="tooltip" title="Private school"
+			 alt="Private school">
 	</true>
 	<false>
-		<repeat group="{{ @majors }}" key="{{@mkey}}" value="{{ @major }}">
-			<check if="{{ @sim.major == @mkey}}">
-			<check if="{{ @sim.age == 'Young Adult'}}">
-				<check if="{{ @sim.studyStatus == 1}}">
-					<div class="card mb-3">
-						<div class="card-header">
-							<h6><a data-toggle="collapse" href="#major" aria-expanded="false" aria-controls="major">Currently studying: {{ @major }}</a></h6>
-						</div>
-						<div class="card-body collapse" id="major">
-						<div class="row">
-						<div class="col">
-						<h6>Current</h6>
-						<p><b>Job: </b><span id="job"></span></p>
-						<p><b>Pay: </b><span id="pay"></span></p>
-						<p><b>Bonus: </b><span id="bonus"></span></p>
-						</div>
-						<div class="col">
-						<h6>Needed to progress</h6>
-						<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" class="friends" data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking" data-toggle="tooltip" title="Cooking"> <span id="cook"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical" data-toggle="tooltip" title="Mechanical"> <span id="mech"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma" data-toggle="tooltip" title="Charisma"> <span id="char"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body" data-toggle="tooltip" title="Body"> <span id="body"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic" data-toggle="tooltip" title="Logic"> <span id="logic"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create" alt="Creativity" data-toggle="tooltip" title="Creativity"> <span id="create"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning" data-toggle="tooltip" title="Cleaning"> <span id="clean"></span></p>
-						</div>
-						</div>                   
-						</div>
-					</div>
-				</check>
-				<check if="{{ @sim.studyStatus == 3}}">
-					<p>Academic probation in {{ @major }}</p>
-				</check>
-			</check>
-				<check if="{{ @sim.studyStatus == 2}}">
-					<p>Graduated in {{ @major }}</p>
-				</check>		
-				<check if="{{ @sim.studyStatus == 4}}">
-					<p>Dropped out from {{ @major }}</p>
-				</check>
-			</check>
-		</repeat>	
+		<img src="{{@BASE}}{{@s2path}}publicschool.png" class="pl-2" data-toggle="tooltip" title="Public school"
+			 alt="Public school">
 	</false>
-	</check>	
+</check>
+<span
+<check if="{{ @sim.grade == 'A+'}}">
+	class="badge bg-success rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'A'}}">
+	class="badge bg-success rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'A-'}}">
+	class="badge bg-success rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'B+'}}">
+	class="badge bg-info rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'B'}}">
+	class="badge bg-info rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'B-'}}">
+	class="badge bg-info rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'C+'}}">
+	class="badge bg-warning rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'C'}}">
+	class="badge bg-warning rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'C-'}}">
+	class="badge bg-warning rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'D+'}}">
+	class="badge bg-danger rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'D'}}">
+	class="badge bg-danger rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'D-'}}">
+	class="badge bg-danger rounded-pill"
+</check>
+<check if="{{ @sim.grade == 'F'}}">
+	class="badge bg-dark rounded-pill"
+</check>
+>{{ trim(@sim.grade)}}</span>
 
-<check if="{{ @sim.age != 'Young Adult'}}">
+<check if="{{ @sim.age == 'Young Adult'}}">
+	<check if="{{ @sim.studyStatus == 1}}">
+		<div class="card mb-3">
+			<div class="card-header">
+				<h6><a data-toggle="collapse" href="#major" aria-expanded="false" aria-controls="major">Currently
+					studying: {{ @major.majorName }}</a></h6>
+			</div>
+			<div class="card-body collapse" id="major">
+				<div class="row">
+					<div class="col">
+						<h6>Current</h6>
+						<p><b>Semester: {{ @sim.term}}</b></p>
+						<p><b>Class: {{ @class.className}}</b></p>
+						<p><b>Class time: </b>
+							<check if="{{ @user.timeFormat == 12 }}">
+								<true>
+									{{ date("g:i A", strtotime(@class.startTime)) }}
+								</true>
+								<false>
+									{{ date("H:i", strtotime(@class.startTime)) }}
+								</false>
+							</check>
+							-
+							<check if="{{ @user.timeFormat == 12 }}">
+								<true>
+									{{ date("g:i A", strtotime(@class.finishTime)) }}
+								</true>
+								<false>
+									{{ date("H:i", strtotime( @class.finishTime)) }}
+								</false>
+							</check>
+						</p>
+					</div>
+					<div class="col">
+						<h6>Needed to progress</h6>
+						<check if="{{@s2class.cooking >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking"
+									data-toggle="tooltip" title="Cooking">
+								<span
+								<check if="{{ @sim.cooking >= @s2class.cooking}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.cooking}}</span></p>
+						</check>
+						<check if="{{@s2class.mechanical >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical"
+									data-toggle="tooltip" title="Mechanical">
+								<span
+								<check if="{{ @sim.mechanical >= @s2class.mechanical}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.mechanical}}</span></p>
+						</check>
+						<check if="{{@s2class.charisma >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma"
+									data-toggle="tooltip" title="Charisma">
+								<span
+								<check if="{{ @sim.charisma >= @s2class.charisma}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.charisma}}</span></p>
+						</check>
+						<check if="{{@s2class.body >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body" data-toggle="tooltip"
+									title="Body">
+								<span
+								<check if="{{ @sim.body >= @s2class.body}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.body}}</span></p>
+						</check>
+						<check if="{{@s2class.logic >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic"
+									data-toggle="tooltip" title="Logic">
+								<span
+								<check if="{{ @sim.logic >= @s2class.logic}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.logic}}</span></p>
+						</check>
+						<check if="{{@s2class.creativity >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create" alt="Creativity"
+									data-toggle="tooltip" title="Creativity">
+								<span
+								<check if="{{ @s2sim.creativity >= @s2class.creativity}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.creativity}}</span></p>
+						</check>
+						<check if="{{@s2class.cleaning >= 0}}">
+							<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning"
+									data-toggle="tooltip" title="Cleaning">
+								<span
+								<check if="{{ @s2sim.cleaning >= @s2class.cleaning}}">
+									<true>
+										class="badge bg-success rounded-pill"
+									</true>
+									<false>
+										class="badge bg-danger rounded-pill"
+									</false>
+								</check>
+								>
+								{{@s2class.cleaning}}</span></p>
+						</check>
+					</div>
+				</div>
+			</div>
+		</div>
+	</check>
+	<check if="{{ @sim.studyStatus == 0}}">
+		<img src="{{@BASE}}{{@s2path}}CollegeExpelled.png" alt="Never went to university" data-toggle="tooltip"
+			 title="Never went to university">
+	</check>
+	<check if="{{ @sim.studyStatus == 3}}">
+		<img src="{{@BASE}}{{@s2path}}Probation.png" alt="Academic Probation in {{ @major.majorName }}"
+			 data-toggle="tooltip" title="Academic Probation in {{ @major.majorName }}">
+	</check>
+	<check if="{{ @sim.studyStatus == 5}}">
+		<img src="{{@BASE}}{{@s2path}}CollegeExpelled.png" alt="Expelled from University" data-toggle="tooltip"
+			 title="Expelled from University">
+	</check>
+</check>
+<check if="{{ @sim.studyStatus == 2}}">
+	<img src="{{@BASE}}{{@s2path}}Graduated.png" alt="Graduated in {{ @major.majorName }}" data-toggle="tooltip"
+		 title="Graduated in {{ @major.majorName }}">
+</check>
+<check if="{{ @sim.studyStatus == 6}}">
+	<img src="{{@BASE}}{{@s2path}}GraduatedHonours.png" alt="Graduated with honours in {{ @major.majorName }}"
+		 data-toggle="tooltip" title="Graduated with honours in {{ @major.majorName }}">
+</check>
+<check if="{{ @sim.studyStatus == 4}}">
+	<img src="{{@BASE}}{{@s2path}}Dropped_Out.png" alt="Dropped out from University" data-toggle="tooltip"
+		 title="Dropped out from University">
+</check>
+
+<check if="{{ @sim.age == 'Teen' || @sim.age == 'Adult' || @sim.age == 'Elder'}}">
+	<h4>Work</h4>
 	<check if="{{ @sim.careerTrack == 0}}">
 		<true>
 			<check if="{{ @sim.id == @business.owner}}">
 				<true>
-				<p>Self-employed</p>
+					<img src="{{@BASE}}{{@s2path}}Unemployed.png" class="pl-2" alt="Self-employed" data-toggle="tooltip"
+						 title="Self-employed">
 				</true>
 				<false>
-				<p>Unemployed</p>
+					<img src="{{@BASE}}{{@s2path}}Unemployed.png" class="pl-2" alt="Unemployed" data-toggle="tooltip"
+						 title="Unemployed">
 				</false>
-			</check>    
+			</check>
 		</true>
 		<false>
-				<check if="{{ @sim.jobLevel == 0}}">
+			<check if="{{ @sim.jobLevel == 0}}">
 				<true>
-				<p>Unemployed</p>
+					<p>Unemployed</p>
 				</true>
 				<false>
-				<check if="{{ @sim.age != 'Young Adult'}}">
-					<div class="card mb-3">
-						<div class="card-header">
-							<h6><a data-toggle="collapse" href="#career" aria-expanded="false" aria-controls="career">Career<span id="careerTitle"></span></a></h6>
+					<check if="{{ @sim.age != 'Young Adult' && @sim.retired != 1}}">
+						<div class="card mb-3">
+							<div class="card-header">
+								<h6><a data-toggle="collapse" href="#career" aria-expanded="false"
+									   aria-controls="career">Career<span id="careerTitle"></span></a></h6>
+							</div>
+							<div class="card-body collapse" id="career">
+								<div class="row">
+									<div class="col">
+										<h6>Current</h6>
+										<p><b>Job: </b><span id="job"></span></p>
+										<p><b>Pay: </b><span id="pay"></span></p>
+										<p><b>Bonus: </b><span id="bonus"></span></p>
+										<p class="reward"><b>Career reward: </b><span id="reward"></span></p>
+									</div>
+									<div class="col">
+										<h6>Needed to advance</h6>
+										<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" class="friends"
+												data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking"
+												data-toggle="tooltip" title="Cooking"> <span id="cook"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical"
+												data-toggle="tooltip" title="Mechanical"> <span id="mech"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma"
+												data-toggle="tooltip" title="Charisma"> <span id="char"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body"
+												data-toggle="tooltip" title="Body"> <span id="body"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic"
+												data-toggle="tooltip" title="Logic"> <span id="logic"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create"
+												alt="Creativity" data-toggle="tooltip" title="Creativity"> <span
+												id="create"></span></p>
+										<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning"
+												data-toggle="tooltip" title="Cleaning"> <span id="clean"></span></p>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="card-body collapse" id="career">
-						<div class="row">
-						<div class="col">
-						<h6>Current</h6>
-						<p><b>Job: </b><span id="job"></span></p>
-						<p><b>Pay: </b><span id="pay"></span></p>
-						<p><b>Bonus: </b><span id="bonus"></span></p>
-						<p class="reward"><b>Career reward: </b><span id="reward"></span></p>
-						</div>
-						<div class="col">
-						<h6>Needed to advance</h6>
-						<p><img src="{{@BASE}}{{@s2path}}FriendSm.png" alt="Friends" class="friends" data-toggle="tooltip" title="Friends"> <span id="friends"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking" data-toggle="tooltip" title="Cooking"> <span id="cook"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical" data-toggle="tooltip" title="Mechanical"> <span id="mech"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma" data-toggle="tooltip" title="Charisma"> <span id="char"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body" data-toggle="tooltip" title="Body"> <span id="body"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic" data-toggle="tooltip" title="Logic"> <span id="logic"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create" alt="Creativity" data-toggle="tooltip" title="Creativity"> <span id="create"></span></p>
-						<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning" data-toggle="tooltip" title="Cleaning"> <span id="clean"></span></p>
-						</div>
-						</div>                   
-						</div>
-					</div>
-				</check>
-
+					</check>
+					<check if="{{ @sim.retired}}">
+						<img src="{{@BASE}}{{@s2path}}Retired.png" class="pl-2" alt="Retired" data-toggle="tooltip"
+							 title="Retired">
+					</check>
 				</false>
-			</check>   
+			</check>
 		</false>
 	</check>
 </check>
 <check if="{{ @s2sim.isWitch == 1}}">
-<h4>Witchcraft - <span id="alignLevel">Level</span></h4>
-<div class="progress-wrapper mb-3">
-  <span class="progress-label">Magic level</span>
-  <div class="progress progress-lg">
-    <div 
-	<check if="{{ @s2sim.alignment <= -20}}">
-	class="progress-bar bg-dark"
-	</check>
-	<check if="{{ @s2sim.alignment < 20}}">
-	class="progress-bar bg-secondary"
-	</check>
-	<check if="{{ @s2sim.alignment >= 20}}">
-	class="progress-bar bg-info"
-	</check>
-	 role="progressbar" aria-valuenow="{{ trim(@s2sim.magicLevel) }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ trim(@s2sim.magicLevel) }}0%;">
-      <span class="progress-value">{{ trim(@s2sim.magicLevel) }}</span>
-    </div>
-  </div>
-</div>
+	<h4>Witchcraft - <span id="alignLevel">Level</span></h4>
+	<div class="progress-wrapper mb-3">
+		<span class="progress-label">Magic level</span>
+		<div class="progress progress-lg">
+			<div
+			<check if="{{ @s2sim.alignment <= -20}}">
+				class="progress-bar bg-dark"
+			</check>
+			<check if="{{ @s2sim.alignment < 20}}">
+				class="progress-bar bg-secondary"
+			</check>
+			<check if="{{ @s2sim.alignment >= 20}}">
+				class="progress-bar bg-info"
+			</check>
+			role="progressbar" aria-valuenow="{{ trim(@s2sim.magicLevel) }}" aria-valuemin="0" aria-valuemax="10"
+			style="width: {{ trim(@s2sim.magicLevel) }}0%;">
+			<span class="progress-value">{{ trim(@s2sim.magicLevel) }}</span>
+		</div>
+	</div>
+	</div>
 
-<div class="card mb-3" >
-	<div class="card-header">
-		<h6><a data-toggle="collapse" href="#spells" aria-expanded="false" aria-controls="spells">Available Spells</a></h6>
+	<div class="card mb-3">
+		<div class="card-header">
+			<h6><a data-toggle="collapse" href="#spells" aria-expanded="false" aria-controls="spells">Available
+				Spells</a></h6>
+		</div>
+		<div class="card-body collapse" id="spells">
+			<table class="table table-responsive-sm">
+				<thead>
+				<tr>
+					<th scope="col">Magic level</th>
+					<th scope="col">Evil</th>
+					<th scope="col">Neutral</th>
+					<th scope="col">Good</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">0</th>
+					<td><span class="meanDown">Corruptus Locus</span><br/>
+						<span class="goodDown">Mellifera Attackum</span><br/>
+						Spiritus Poultria
+					</td>
+					<td>Aqua Deletus<br/>
+						Cleanius Corpus<br/>
+						Folium Deletus
+					</td>
+					<td><span class="nicePlus">Beautificus Locus</span><br/>
+						Benemoodus Simae<br/>
+						<span class="evilPlus">Creatum Insecto Volucris</span>
+					</td>
+				</tr>
+				<tr class="level1">
+					<th scope="row">1</th>
+					<td></td>
+					<td>Corpus Athleticus<br/>
+						Corpus Fleshicus
+					</td>
+					<td></td>
+				</tr>
+				<tr class="level2">
+					<th scope="row">2</th>
+					<td><span class="niceDown">Inflammo</span></td>
+					<td></td>
+					<td><span class="meanPlus">Exflammo</span></td>
+				</tr>
+				<tr class="level3">
+					<th scope="row">3</th>
+					<td>
+						<span class="neutralDown">Heavus Ho</span></td>
+					<td>Magivestigium</td>
+					<td><span class="neutralPlus">Remedis Simae</span></td>
+				</tr>
+				<tr class="level4">
+					<th scope="row">4</th>
+					<td></td>
+					<td>Creatum Nutrimens<br/>
+						Expello Simae
+					</td>
+					<td></td>
+				</tr>
+				<tr class="level5">
+					<th scope="row">5</th>
+					<td><span class="meanDown">Compello Discrepo</span></td>
+					<td>Appello Cattus Amicus</td>
+					<td><span class="nicePlus">Compello Acceptus</span></td>
+				</tr>
+				<tr class="level6">
+					<th scope="row">6</th>
+					<td><span class="evilDown">Servantus Attackum</span></td>
+					<td>Purgomagus</td>
+					<td><span class="goodPlus">Appello Servantus</span></td>
+				</tr>
+				<tr class="level7">
+					<th scope="row">7</th>
+					<td><span class="evilDown">Tabula Rasa</span></td>
+					<td>Appello Simae</td>
+					<td><span class="goodPlus">Benemoodus Populus</span></td>
+				</tr>
+				<tr class="level8">
+					<th scope="row">8</th>
+					<td><span class="vEvilDown">Extractum Amorus</span></td>
+					<td></td>
+					<td><span class="vGoodPlus">Mactoamicus</span></td>
+				</tr>
+				<tr class="level9">
+					<th scope="row">9</th>
+					<td><span class="vEvilDown">Vivificus Zombiae</span></td>
+					<td>Magus Mutatio</td>
+					<td><span class="vGoodPlus">Expello Mortis</span></td>
+				</tr>
+				<tr class="level10">
+					<th scope="row">10</th>
+					<td></td>
+					<td>Tempus Interruptus</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="card-body collapse" id="spells">
-		<table class="table table-responsive-sm">
-			<thead>
-			<tr>
-				<th scope="col">Magic level</th>
-				<th scope="col">Evil</th>
-				<th scope="col">Neutral</th>
-				<th scope="col">Good</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<th scope="row">0</th>
-				<td><span class="meanDown">Corruptus Locus</span><br/>
-					<span class="goodDown">Mellifera Attackum</span><br/>
-					Spiritus Poultria
-				</td>
-				<td>Aqua Deletus<br/>
-					Cleanius Corpus<br/>
-					Folium Deletus
-				</td>
-				<td><span class="nicePlus">Beautificus Locus</span><br/>
-					Benemoodus Simae<br/>
-					<span class="evilPlus">Creatum Insecto Volucris</span>
-				</td>
-			</tr>
-			<tr class="level1">
-				<th scope="row">1</th>
-				<td></td>
-				<td>Corpus Athleticus<br/>
-					Corpus Fleshicus
-				</td>
-				<td></td>
-			</tr>
-			<tr class="level2">
-				<th scope="row">2</th>
-				<td><span class="niceDown">Inflammo</span></td>
-				<td></td>
-				<td><span class="meanPlus">Exflammo</span></td>
-			</tr>
-			<tr class="level3">
-				<th scope="row">3</th>
-				<td>
-					<span class="neutralDown">Heavus Ho</span></td>
-				<td>Magivestigium</td>
-				<td><span class="neutralPlus">Remedis Simae</span></td>
-			</tr>
-			<tr class="level4">
-				<th scope="row">4</th>
-				<td></td>
-				<td>Creatum Nutrimens<br/>
-					Expello Simae
-				</td>
-				<td></td>
-			</tr>
-			<tr class="level5">
-				<th scope="row">5</th>
-				<td><span class="meanDown">Compello Discrepo</span></td>
-				<td>Appello Cattus Amicus</td>
-				<td><span class="nicePlus">Compello Acceptus</span></td>
-			</tr>
-			<tr class="level6">
-				<th scope="row">6</th>
-				<td><span class="evilDown">Servantus Attackum</span></td>
-				<td>Purgomagus</td>
-				<td><span class="goodPlus">Appello Servantus</span></td>
-			</tr>
-			<tr class="level7">
-				<th scope="row">7</th>
-				<td><span class="evilDown">Tabula Rasa</span></td>
-				<td>Appello Simae</td>
-				<td><span class="goodPlus">Benemoodus Populus</span></td>
-			</tr>
-			<tr class="level8">
-				<th scope="row">8</th>
-				<td><span class="vEvilDown">Extractum Amorus</span></td>
-				<td></td>
-				<td><span class="vGoodPlus">Mactoamicus</span></td>
-			</tr>
-			<tr class="level9">
-				<th scope="row">9</th>
-				<td><span class="vEvilDown">Vivificus Zombiae</span></td>
-				<td>Magus Mutatio</td>
-				<td><span class="vGoodPlus">Expello Mortis</span></td>
-			</tr>
-			<tr class="level10">
-				<th scope="row">10</th>
-				<td></td>
-				<td>Tempus Interruptus</td>
-				<td></td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
 
-<div class="card mb-3">
-	<div class="card-header">
-		<h6><a data-toggle="collapse" href="#craftables" aria-expanded="false" aria-controls="craftables">Available Craftables</a></h6>
+	<div class="card mb-3">
+		<div class="card-header">
+			<h6><a data-toggle="collapse" href="#craftables" aria-expanded="false" aria-controls="craftables">Available
+				Craftables</a></h6>
+		</div>
+		<div class="card-body collapse" id="craftables">
+			<table class="table table-responsive-sm">
+				<thead>
+				<tr>
+					<th scope="col">Magic level</th>
+					<th scope="col">Type</th>
+					<th scope="col">Evil</th>
+					<th scope="col">Neutral</th>
+					<th scope="col">Good</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">0</th>
+					<td>Reagent</td>
+					<td>
+						Eye of Newt<br/>
+						Viper's Essence
+					</td>
+					<td>Dragon Scales<br/>
+						Mystic Dust
+					</td>
+					<td>
+						Essence of Light<br/>
+						Crystallised Moonbeams
+					</td>
+				</tr>
+				<tr class="level1">
+					<th scope="row">1</th>
+					<td>Potion</td>
+					<td></td>
+					<td>Lycanthropic-B<br/>
+						Plantophic-C<br/>
+						Vampirocilin-D<br/>
+						Witchbegone-E
+					</td>
+					<td></td>
+				</tr>
+				<tr class="level2">
+					<th scope="row">2</th>
+					<td>Object</td>
+					<td><span class="mean">Hand of Darkness Floor Lamp</span></td>
+					<td>Little Miss Wendolyn Sculpture</td>
+					<td><span class="nice">Faerie Fire Floor Lamp</span></td>
+				</tr>
+				<tr class="level4">
+					<th scope="row">4</th>
+					<td>Potion</td>
+					<td><span class="mean">Enchanted Essence of Cur Tails</span></td>
+					<td></td>
+					<td><span class="nice">Magically Spiced Sugar</span></td>
+				</tr>
+				<tr class="level5">
+					<th scope="row">5</th>
+					<td>Object</td>
+					<td><span class="evil">Palm of Darkness Wall Sconce</span><br/>
+						<span class="evil">Fist of Darkness Ceiling Lamp</span>
+					</td>
+					<td></td>
+					<td><span class="good">Stardust Wall Sconce</span><br/>
+						<span class="good">Star Dusted Ceiling Lamp</span>
+					</td>
+				</tr>
+				<tr class="level7">
+					<th scope="row">7</th>
+					<td>Potion</td>
+					<td></td>
+					<td>Love Potion #8.5<br/>
+						ReNuYu Porta-Chug
+					</td>
+					<td></td>
+				</tr>
+				<tr class="level9">
+					<th scope="row">9</th>
+					<td>Object</td>
+					<td><span class="vEvil">Claw of Darkness Throne</span></td>
+					<td></td>
+					<td><span class="vGood">Throne of Light</span></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="card-body collapse" id="craftables">
-		<table class="table table-responsive-sm">
-			<thead>
-			<tr>
-				<th scope="col">Magic level</th>
-				<th scope="col">Type</th>
-				<th scope="col">Evil</th>
-				<th scope="col">Neutral</th>
-				<th scope="col">Good</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<th scope="row">0</th>
-				<td>Reagent</td>
-				<td>
-					Eye of Newt<br/>
-					Viper's Essence
-				</td>
-				<td>Dragon Scales<br/>
-					Mystic Dust
-				</td>
-				<td>
-					Essence of Light<br/>
-					Crystallised Moonbeams
-				</td>
-			</tr>
-			<tr class="level1">
-				<th scope="row">1</th>
-				<td>Potion</td>
-				<td></td>
-				<td>Lycanthropic-B<br/>
-					Plantophic-C<br/>
-					Vampirocilin-D<br/>
-					Witchbegone-E
-				</td>
-				<td></td>
-			</tr>
-			<tr class="level2">
-				<th scope="row">2</th>
-				<td>Object</td>
-				<td><span class="mean">Hand of Darkness Floor Lamp</span></td>
-				<td>Little Miss Wendolyn Sculpture</td>
-				<td><span class="nice">Faerie Fire Floor Lamp</span></td>
-			</tr>
-			<tr class="level4">
-				<th scope="row">4</th>
-				<td>Potion</td>
-				<td><span class="mean">Enchanted Essence of Cur Tails</span></td>
-				<td></td>
-				<td><span class="nice">Magically Spiced Sugar</span></td>
-			</tr>
-			<tr class="level5">
-				<th scope="row">5</th>
-				<td>Object</td>
-				<td><span class="evil">Palm of Darkness Wall Sconce</span><br/>
-					<span class="evil">Fist of Darkness Ceiling Lamp</span>
-				</td>
-				<td></td>
-				<td><span class="good">Stardust Wall Sconce</span><br/>
-					<span class="good">Star Dusted Ceiling Lamp</span>
-				</td>
-			</tr>
-			<tr class="level7">
-				<th scope="row">7</th>
-				<td>Potion</td>
-				<td></td>
-				<td>Love Potion #8.5<br/>
-					ReNuYu Porta-Chug
-				</td>
-				<td></td>
-			</tr>
-			<tr class="level9">
-				<th scope="row">9</th>
-				<td>Object</td>
-				<td><span class="vEvil">Claw of Darkness Throne</span></td>
-				<td></td>
-				<td><span class="vGood">Throne of Light</span></td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
 </check>
 
 {* Scripts *}
 <script>
-$(function () {
-    let careerTitle = $('#careerTitle');
-    let job = $('#job');
-    let pay = $('#pay');
-    let bonus = $('#bonus');
-    let friends = $('#friends');
-    let reward = $('#reward');
-    let cook = $('#cook');
-    let mech = $('#mech');
-    let char = $('#char');
-    let body = $('#body');
-    let logic = $('#logic');
-    let create = $('#create');
-    let clean = $('#clean');
-    let jobLevel = 0;
-    let align = {{trim(@s2sim.alignment)}};
-    let magic = {{trim(@s2sim.magicLevel)}};
-    alignUpdate(align);
-    magicUpdate(magic);
-    careerLoad();    
-});
+	$(function () {
+		let careerTitle = $('#careerTitle');
+		let job = $('#job');
+		let pay = $('#pay');
+		let bonus = $('#bonus');
+		let friends = $('#friends');
+		let reward = $('#reward');
+		let cook = $('#cook');
+		let mech = $('#mech');
+		let char = $('#char');
+		let body = $('#body');
+		let logic = $('#logic');
+		let create = $('#create');
+		let clean = $('#clean');
+		let jobLevel = 0;
+		let align = {{trim(@s2sim.alignment)}};
+		let magic = {{trim(@s2sim.magicLevel)}};
+		alignUpdate(align);
+		magicUpdate(magic);
+		careerLoad();
+	});
 
-    function alignUpdate(v) {
-        let alignLevel = $('#alignLevel');
+	function alignUpdate(v) {
+		let alignLevel = $('#alignLevel');
 		let vEvil = $(".vEvil");
 		let evil = $(".evil");
 		let mean = $(".mean");
@@ -518,8 +759,7 @@ $(function () {
 			meanDown.attr('aria-hidden', 'false').show();
 			evilDown.attr('aria-hidden', 'false').show();
 			vEvilDown.attr('aria-hidden', 'true').hide();
-		}
-		else if (v > -50 && v <= -20) {
+		} else if (v > -50 && v <= -20) {
 			alignLevel.text("Mean");
 			vGood.attr('aria-hidden', 'true').hide();
 			good.attr('aria-hidden', 'true').hide();
@@ -541,8 +781,7 @@ $(function () {
 			meanDown.attr('aria-hidden', 'false').show();
 			evilDown.attr('aria-hidden', 'true').hide();
 			vEvilDown.attr('aria-hidden', 'true').hide();
-		}
-		else if (v > -20 && v < 20) {
+		} else if (v > -20 && v < 20) {
 			alignLevel.text("Neutral");
 			vGood.attr('aria-hidden', 'true').hide();
 			good.attr('aria-hidden', 'true').hide();
@@ -564,8 +803,7 @@ $(function () {
 			meanDown.attr('aria-hidden', 'true').hide();
 			evilDown.attr('aria-hidden', 'true').hide();
 			vEvilDown.attr('aria-hidden', 'true').hide();
-		}
-		else if (v >= 20 && v < 50) {
+		} else if (v >= 20 && v < 50) {
 			alignLevel.text("Nice");
 			vGood.attr('aria-hidden', 'true').hide();
 			good.attr('aria-hidden', 'true').hide();
@@ -587,8 +825,7 @@ $(function () {
 			meanDown.attr('aria-hidden', 'true').hide();
 			evilDown.attr('aria-hidden', 'true').hide();
 			vEvilDown.attr('aria-hidden', 'true').hide();
-		}
-		else if (v >= 50 && v < 90) {
+		} else if (v >= 50 && v < 90) {
 			alignLevel.text("Good");
 			vGood.attr('aria-hidden', 'true').hide();
 			good.attr('aria-hidden', 'false').show();
@@ -610,8 +847,7 @@ $(function () {
 			meanDown.attr('aria-hidden', 'true').hide();
 			evilDown.attr('aria-hidden', 'true').hide();
 			vEvilDown.attr('aria-hidden', 'true').hide();
-		}
-		else if (v >= 90 && v <= 100) {
+		} else if (v >= 90 && v <= 100) {
 			alignLevel.text("Infallibly Good");
 			vGood.attr('aria-hidden', 'false').show();
 			good.attr('aria-hidden', 'false').show();
@@ -783,25 +1019,25 @@ $(function () {
 				break;
 		}
 	}
-                
-    function careerLoad() {
+
+	function careerLoad() {
 		careerPath({{trim(@sim.careerTrack)}});
-        $.ajax({ 
-            type: 'POST', 
-            url: json, 
-            data: { get_param: 'value' }, 
-            dataType: 'json',
-            success: function (data) {
-                jobLevel = {{@sim.jobLevel}} - 1;
-                careerTitle.append(": " + data.name);
-                if ($('#age').val() == "Teen") {
-                    $(".reward").attr('aria-hidden', 'true').hide(); 
+		$.ajax({
+			type: 'POST',
+			url: json,
+			data: {get_param: 'value'},
+			dataType: 'json',
+			success: function (data) {
+				jobLevel = {{@sim.jobLevel}}-1;
+				careerTitle.append(": " + data.name);
+				if ($('#age').val() == "Teen") {
+					$(".reward").attr('aria-hidden', 'true').hide();
 					careerAge = data.teen;
-                }
-                if ($('#age').val() == "Adult" || $('#age').val() == "Elder") {
-                    $(".reward").attr('aria-hidden', 'false').show();
+				}
+				if ($('#age').val() == "Adult" || $('#age').val() == "Elder") {
+					$(".reward").attr('aria-hidden', 'false').show();
 					if ({{@sim.jobLevel}} < data.unlock) {
-                        reward.append("Locked");                        
+				reward.append("Locked");
                     } else {
                          reward.append(data.reward); 
                     }
@@ -823,52 +1059,53 @@ $(function () {
 				if  (careerAge[jobLevel].friends < 0) {
 					friends.append("-");
 				} else if ({{trim(@s2sim.friendsBenefit)}} == 1) {
-					friends.append(careerAge[jobLevel].friends - 1);
-				} else {
-					friends.append(careerAge[jobLevel].friends);
-				}                
+				friends.append(careerAge[jobLevel].friends - 1);
+				} else
+					{
+						friends.append(careerAge[jobLevel].friends);
+					}
 				$(".friends").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".friends").attr('aria-hidden', 'true').hide();                          
 			}  
 			if ($.isNumeric(careerAge[jobLevel].cooking)) { 
-				careerAge[jobLevel].cooking < 0 ? cook.append("-") : cook.append(careerAge[jobLevel].cooking);                        
+				careerAge[jobLevel].cooking < 0 ? cook.append("-") : cook.append(careerAge[jobLevel].cooking);
 				$(".cook").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".cook").attr('aria-hidden', 'true').hide();                          
 			}       
 			if ($.isNumeric(careerAge[jobLevel].mechanical)) {  
-				careerAge[jobLevel].mechanical < 0 ? mech.append("-") : mech.append(careerAge[jobLevel].mechanical);                       
+				careerAge[jobLevel].mechanical < 0 ? mech.append("-") : mech.append(careerAge[jobLevel].mechanical);
 				$(".mech").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".mech").attr('aria-hidden', 'true').hide();                          
 			}      
 			if ($.isNumeric(careerAge[jobLevel].charisma)) {    
-				careerAge[jobLevel].charisma < 0 ? char.append("-") : char.append(careerAge[jobLevel].charisma);                     
+				careerAge[jobLevel].charisma < 0 ? char.append("-") : char.append(careerAge[jobLevel].charisma);
 				$(".char").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".char").attr('aria-hidden', 'true').hide();                          
 			}                                
 			if ($.isNumeric(careerAge[jobLevel].body)) {       
-				careerAge[jobLevel].body < 0 ? body.append("-") : body.append(careerAge[jobLevel].body);                  
+				careerAge[jobLevel].body < 0 ? body.append("-") : body.append(careerAge[jobLevel].body);
 				$(".body").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".body").attr('aria-hidden', 'true').hide();                          
 			}                          
 			if ($.isNumeric(careerAge[jobLevel].logic)) {      
-				careerAge[jobLevel].logic < 0 ? logic.append("-") : logic.append(careerAge[jobLevel].logic);                   
+				careerAge[jobLevel].logic < 0 ? logic.append("-") : logic.append(careerAge[jobLevel].logic);
 				$(".logic").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".logic").attr('aria-hidden', 'true').hide();                          
 			}                          
 			if ($.isNumeric(careerAge[jobLevel].creativity)) { 
-				careerAge[jobLevel].creativity < 0 ? create.append("-") : create.append(careerAge[jobLevel].creativity);                        
+				careerAge[jobLevel].creativity < 0 ? create.append("-") : create.append(careerAge[jobLevel].creativity);
 				$(".create").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".create").attr('aria-hidden', 'true').hide();                          
 			}                         
 			if ($.isNumeric(careerAge[jobLevel].cleaning)) {  
-				careerAge[jobLevel].cleaning < 0 ? clean.append("-") : clean.append(careerAge[jobLevel].cleaning);                       
+				careerAge[jobLevel].cleaning < 0 ? clean.append("-") : clean.append(careerAge[jobLevel].cleaning);
 				$(".clean").attr('aria-hidden', 'false').show();  				            
 			} else {
 				$(".clean").attr('aria-hidden', 'true').hide();                          

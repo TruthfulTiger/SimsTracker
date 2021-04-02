@@ -7,12 +7,12 @@
  */
 
 class PrivacyController extends Controller {
-	function beforeroute(){
+	function beforeroute() {
 
 	}
 
-    function index($f3) {
-        $f3->set('content','privacy.html');
-        $f3->set('title', 'Privacy Policy');
-    }
+	function index($f3) {
+		$f3->set('content','privacy.html');
+		$f3->set('title','Privacy Policy');
+	}
 }

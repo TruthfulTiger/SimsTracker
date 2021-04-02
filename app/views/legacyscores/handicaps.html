@@ -1,20 +1,30 @@
-<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary" data-toggle="collapse" data-target="#handicapsHelp" aria-expanded="false" aria-label="More details" aria-controls="handicapsHelp">
+<h3 class="text-primary">{{ @cat }} <a href="#" class="badge badge-pill badge-secondary" data-toggle="collapse"
+									   data-target="#handicapsHelp" aria-expanded="false" aria-label="More details"
+									   aria-controls="handicapsHelp">
 	<i aria-hidden="true" data-toggle="tooltip" title="More details" class="fas fa-question"></i></a>
 	</a></h3>
 <div class="collapse" id="handicapsHelp">
 	<div class="card card-body">
-	<blockquote>
-	At the beginning of the challenge, before you have even created your founder, look at the long list of possible <a href="https://www.simslegacychallenge.com/legacy-challenge-rules/sims-2-legacy-challenge-rules-advanced/sims-2-legacy-challenge-handicaps/" target="_blank">handicaps.</a> You may choose as many or as few as you think you can handle. You may even choose 0 handicaps if you want a very simple challenge! Be aware that some handicapsmake others impossible to obey. (Livin’ Very Large and Presidential Phyical fitness oppose each other, for example). If you are going for a perfect score, you need to choose at least 10 points worth of handicaps.
+		<blockquote>
+			At the beginning of the challenge, before you have even created your founder, look at the long list of
+			possible <a
+				href="https://www.simslegacychallenge.com/legacy-challenge-rules/sims-2-legacy-challenge-rules-advanced/sims-2-legacy-challenge-handicaps/"
+				target="_blank">handicaps.</a> You may choose as many or as few as you think you can handle. You may
+			even choose 0 handicaps if you want a very simple challenge! Be aware that some handicapsmake others
+			impossible to obey. (Livin’ Very Large and Presidential Phyical fitness oppose each other, for example). If
+			you are going for a perfect score, you need to choose at least 10 points worth of handicaps.
 			<br/><br/>
-			Unless the handicap says otherwise, you earn the point(s) at the END of the challenge, provided you were able to obey the restriction for the entire challenge.<br/>
-			If you break a restriction on a handicap, you will not receive its points at the end of the challenge, but there is no penalty otherwise.<br/>
+			Unless the handicap says otherwise, you earn the point(s) at the END of the challenge, provided you were
+			able to obey the restriction for the entire challenge.<br/>
+			If you break a restriction on a handicap, you will not receive its points at the end of the challenge, but
+			there is no penalty otherwise.<br/>
 			Handicap points earned over 10 go into the overflow category.<br/><br/>
-		<cite>~ SimsLegacyChallenge.com</cite>
-	</blockquote>
+			<cite>~ SimsLegacyChallenge.com</cite>
+		</blockquote>
 	</div>
 </div>
 <div class="form-row">
-    <div class="col">
+	<div class="col">
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input handicaps" value="1" name="nowhere" id="nowhere"
 			<check if="{{ @s2legacy.nowhere == 1 }}">
@@ -184,7 +194,8 @@
 			<label class="custom-control-label" for="ghosts">Free Roaming Ghosts</label>
 		</div>
 		<div class="custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input handicaps" value="1" name="entrepreneur" id="entrepreneur"
+			<input type="checkbox" class="custom-control-input handicaps" value="1" name="entrepreneur"
+				   id="entrepreneur"
 			<check if="{{ @s2legacy.entrepreneur == 1 }}">
 				checked
 			</check>
@@ -221,7 +232,8 @@
 				checked
 			</check>
 			/>
-			<label class="custom-control-label" for="cultured">Multi-Cultured <img src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"></label>
+			<label class="custom-control-label" for="cultured">Multi-Cultured <img src="{{@BASE}}{{@s2path}}BV.png"
+																				   alt="Needs BV"></label>
 		</div>
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input handicaps" value="1" name="turmoil" id="turmoil"
@@ -229,7 +241,8 @@
 				checked
 			</check>
 			/>
-			<label class="custom-control-label" for="turmoil">International Turmoil <img src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"></label>
+			<label class="custom-control-label" for="turmoil">International Turmoil <img
+					src="{{@BASE}}{{@s2path}}BV.png" alt="Needs BV"></label>
 		</div>
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input handicaps" value="1" name="zone" id="zone"
@@ -237,48 +250,52 @@
 				checked
 			</check>
 			/>
-			<label class="custom-control-label" for="zone">Danger Zone <img src="{{@BASE}}{{@s2path}}FT.png" alt="Needs FT"></label>
+			<label class="custom-control-label" for="zone">Danger Zone <img src="{{@BASE}}{{@s2path}}FT.png"
+																			alt="Needs FT"></label>
 		</div>
 	</div>
 </div>
 <input type="hidden" name="handicapstotal" id="ht" value="{{ trim(@s2legacy.handicapstotal) }}">
-<p class="lead mt-3 mb-3"><b>Sub total: <output id="handicapstotal" for="ht"><span
-    <check if="{{ @s2legacy.handicapstotal }} == 0">class="badge badge-primary"</check>
-    <check if="{{ @s2legacy.handicapstotal }} > 0">class="badge badge-success"</check>
-    <check if="{{ @s2legacy.handicapstotal }} < 0">class="badge badge-danger"</check>>
-    {{ trim(@s2legacy.handicapstotal) }}
-	</span></output></b></p>
+<p class="lead mt-3 mb-3"><b>Sub total:
+	<output id="handicapstotal" for="ht"><span
+		<check if="{{ @s2legacy.handicapstotal }} == 0">class="badge badge-primary"</check>
+		<check if="{{ @s2legacy.handicapstotal }} > 0">class="badge badge-success"</check>
+		<check if="{{ @s2legacy.handicapstotal }} < 0">class="badge badge-danger"</check>
+		>
+		{{ trim(@s2legacy.handicapstotal) }}
+		</span></output>
+</b></p>
 
 <script>
 	$(function () {
 		let boxes = $('.handicaps:checked').length;
 		if ($('#isbi').prop('checked'))
-			boxes ++;
+			boxes++;
 		if ($('#aspiring').prop('checked'))
-			boxes ++;
+			boxes++;
 		if ($('#love').prop('checked'))
-			boxes ++;
+			boxes++;
 		if ($('#ghosts').prop('checked'))
-			boxes ++;
+			boxes++;
 		if ($('#entrepreneur').prop('checked'))
 			boxes += 2;
 		if ($('#apocalypse').prop('checked'))
-			boxes +=4;
+			boxes += 4;
 		handicapSub(boxes);
-		$(".handicaps").change(function(){
+		$(".handicaps").change(function () {
 			let boxes = $('.handicaps:checked').length;
 			if ($('#isbi').prop('checked'))
-				boxes ++;
+				boxes++;
 			if ($('#aspiring').prop('checked'))
-				boxes ++;
+				boxes++;
 			if ($('#love').prop('checked'))
-				boxes ++;
+				boxes++;
 			if ($('#ghosts').prop('checked'))
-				boxes ++;
+				boxes++;
 			if ($('#entrepreneur').prop('checked'))
 				boxes += 2;
 			if ($('#apocalypse').prop('checked'))
-				boxes +=4;
+				boxes += 4;
 			handicapSub(boxes);
 		});
 	});

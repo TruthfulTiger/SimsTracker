@@ -1,9 +1,9 @@
 <?php
 
-class UserColour extends DB\SQL\Mapper{
+class UserColour extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'usercolour';
+		$this->table='usercolour';
 		parent::__construct($db,$this->table);
 	}
 
@@ -29,9 +29,9 @@ class UserColour extends DB\SQL\Mapper{
 
 	public function getByChallenge($id) {
 		$this->load(array('challengeID=?',$id),
-            array(
-            'order'=>'generation'
-        ));
+			array(
+				'order'=>'generation'
+			));
 		return $this->query;
 	}
 
@@ -48,7 +48,7 @@ class UserColour extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

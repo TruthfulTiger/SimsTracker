@@ -7,12 +7,12 @@
  */
 
 class NamesController extends Controller {
-	function beforeroute(){
+	function beforeroute() {
 
 	}
 
-    function index($f3) {
-        $f3->set('content','names.html');
-        $f3->set('title', 'Name Generator');
-    }
+	function index($f3) {
+		$f3->set('content','names.html');
+		$f3->set('title','Name Generator');
+	}
 }

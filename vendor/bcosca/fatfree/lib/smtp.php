@@ -27,7 +27,8 @@ class SMTP extends Magic {
 	const
 		E_Header='%s: header is required',
 		E_Blank='Message must not be blank',
-		E_Attach='Attachment %s not found';
+		E_Attach='Attachment %s not found',
+		E_DIALOG='SMTP dialog error: %s';
 	//@}
 
 	protected
@@ -53,41 +54,41 @@ class SMTP extends Magic {
 		$log;
 
 	/**
-	*	Fix header
-	*	@return string
-	*	@param $key string
-	**/
+	 *    Fix header
+	 * @param $key string
+	 **@return string
+	 */
 	protected function fixheader($key) {
 		return str_replace(' ','-',
-			ucwords(preg_replace('/[_-]/',' ',strtolower($key))));
+			ucwords(preg_replace('/[_\-]/',' ',strtolower($key))));
 	}
 
 	/**
-	*	Return TRUE if header exists
-	*	@return bool
-	*	@param $key
-	**/
+	 *    Return TRUE if header exists
+	 * @param $key
+	 **@return bool
+	 */
 	function exists($key) {
 		$key=$this->fixheader($key);
 		return isset($this->headers[$key]);
 	}
 
 	/**
-	*	Bind value to e-mail header
-	*	@return string
-	*	@param $key string
-	*	@param $val string
-	**/
+	 *    Bind value to e-mail header
+	 * @param $key string
+	 * @param $val string
+	 **@return string
+	 */
 	function set($key,$val) {
 		$key=$this->fixheader($key);
 		return $this->headers[$key]=$val;
 	}
 
 	/**
-	*	Return value of e-mail header
-	*	@return string|NULL
-	*	@param $key string
-	**/
+	 *    Return value of e-mail header
+	 * @param $key string
+	 **@return string|NULL
+	 */
 	function &get($key) {
 		$key=$this->fixheader($key);
 		if (isset($this->headers[$key]))
@@ -98,50 +99,49 @@ class SMTP extends Magic {
 	}
 
 	/**
-	*	Remove header
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Remove header
+	 * @param $key string
+	 **@return NULL
+	 */
 	function clear($key) {
 		$key=$this->fixheader($key);
 		unset($this->headers[$key]);
 	}
 
 	/**
-	*	Return client-server conversation history
-	*	@return string
-	**/
+	 *    Return client-server conversation history
+	 * @return string
+	 **/
 	function log() {
 		return str_replace("\n",PHP_EOL,$this->log);
 	}
 
 	/**
-	*	Send SMTP command and record server response
-	*	@return string
-	*	@param $cmd string
-	*	@param $log bool|string
-	*	@param $mock bool
-	**/
+	 *    Send SMTP command and record server response
+	 * @param $cmd string
+	 * @param $log bool|string
+	 * @param $mock bool
+	 **@return string
+	 */
 	protected function dialog($cmd=NULL,$log=TRUE,$mock=FALSE) {
 		$reply='';
 		if ($mock) {
 			$host=str_replace('ssl://','',$this->host);
 			switch ($cmd) {
-			case NULL:
-				$reply='220 '.$host.' ESMTP ready'."\n";
-				break;
-			case 'DATA':
-				$reply='354 Go ahead'."\n";
-				break;
-			case 'QUIT':
-				$reply='221 '.$host.' closing connection'."\n";
-				break;
-			default:
-				$reply='250 OK'."\n";
-				break;
+				case NULL:
+					$reply='220 '.$host.' ESMTP ready'."\n";
+					break;
+				case 'DATA':
+					$reply='354 Go ahead'."\n";
+					break;
+				case 'QUIT':
+					$reply='221 '.$host.' closing connection'."\n";
+					break;
+				default:
+					$reply='250 OK'."\n";
+					break;
 			}
-		}
-		else {
+		} else {
 			$socket=&$this->socket;
 			if ($cmd)
 				fputs($socket,$cmd."\r\n");
@@ -157,16 +157,18 @@ class SMTP extends Magic {
 				$this->log.=$cmd."\n";
 			$this->log.=str_replace("\r",'',$reply);
 		}
+		if (preg_match('/^(4|5)\d{2}\s.*$/',$reply))
+			user_error(sprintf(self::E_DIALOG,$reply),E_USER_ERROR);
 		return $reply;
 	}
 
 	/**
-	*	Add e-mail attachment
-	*	@return NULL
-	*	@param $file string
-	*	@param $alias string
-	*	@param $cid string
-	**/
+	 *    Add e-mail attachment
+	 * @param $file string
+	 * @param $alias string
+	 * @param $cid string
+	 **@return NULL
+	 */
 	function attach($file,$alias=NULL,$cid=NULL) {
 		if (!is_file($file))
 			user_error(sprintf(self::E_Attach,$file),E_USER_ERROR);
@@ -176,12 +178,12 @@ class SMTP extends Magic {
 	}
 
 	/**
-	*	Transmit message
-	*	@return bool
-	*	@param $message string
-	*	@param $log bool|string
-	*	@param $mock bool
-	**/
+	 *    Transmit message
+	 * @param $message string
+	 * @param $log bool|string
+	 * @param $mock bool
+	 **@return bool
+	 */
 	function send($message,$log=TRUE,$mock=FALSE) {
 		if ($this->scheme=='ssl' && !extension_loaded('openssl'))
 			return FALSE;
@@ -308,14 +310,13 @@ class SMTP extends Magic {
 					'filename="'.$alias.'"'.$eol;
 				$out.=$eol;
 				$out.=chunk_split(base64_encode(
-					file_get_contents($file))).$eol;
+						file_get_contents($file))).$eol;
 			}
 			$out.=$eol;
 			$out.='--'.$hash.'--'.$eol;
 			$out.='.';
 			$this->dialog($out,preg_match('/verbose/i',$log),$mock);
-		}
-		else {
+		} else {
 			// Send mail headers
 			$out='';
 			foreach ($headers as $key=>$val)
@@ -334,14 +335,14 @@ class SMTP extends Magic {
 	}
 
 	/**
-	*	Instantiate class
-	*	@param $host string
-	*	@param $port int
-	*	@param $scheme string
-	*	@param $user string
-	*	@param $pw string
-	*	@param $ctx resource
-	**/
+	 *    Instantiate class
+	 * @param $host string
+	 * @param $port int
+	 * @param $scheme string
+	 * @param $user string
+	 * @param $pw string
+	 * @param $ctx resource
+	 **/
 	function __construct(
 		$host='localhost',$port=25,$scheme=NULL,$user=NULL,$pw=NULL,$ctx=NULL) {
 		$this->headers=[
@@ -350,7 +351,7 @@ class SMTP extends Magic {
 				'charset='.Base::instance()->ENCODING
 		];
 		$this->host=strtolower((($this->scheme=strtolower($scheme))=='ssl'?
-			'ssl':'tcp').'://'.$host);
+				'ssl':'tcp').'://'.$host);
 		$this->port=$port;
 		$this->user=$user;
 		$this->pw=$pw;

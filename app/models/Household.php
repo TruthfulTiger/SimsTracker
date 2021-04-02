@@ -1,9 +1,9 @@
 <?php
 
-class Household extends DB\SQL\Mapper{
+class Household extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'household';
+		$this->table='household';
 		parent::__construct($db,$this->table);
 	}
 
@@ -45,7 +45,7 @@ class Household extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('hhID=?',$id));
 		$this->erase();
 		$this->db->exec(

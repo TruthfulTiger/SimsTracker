@@ -38,29 +38,29 @@ class Session {
 		$_cache;
 
 	/**
-	*	Open session
-	*	@return TRUE
-	*	@param $path string
-	*	@param $name string
-	**/
+	 *    Open session
+	 * @param $path string
+	 * @param $name string
+	 **@return TRUE
+	 */
 	function open($path,$name) {
 		return TRUE;
 	}
 
 	/**
-	*	Close session
-	*	@return TRUE
-	**/
+	 *    Close session
+	 * @return TRUE
+	 **/
 	function close() {
 		$this->sid=NULL;
 		return TRUE;
 	}
 
 	/**
-	*	Return session data in serialized format
-	*	@return string
-	*	@param $id string
-	**/
+	 *    Return session data in serialized format
+	 * @param $id string
+	 **@return string
+	 */
 	function read($id) {
 		$this->sid=$id;
 		if (!$data=$this->_cache->get($id.'.@'))
@@ -80,11 +80,11 @@ class Session {
 	}
 
 	/**
-	*	Write session data
-	*	@return TRUE
-	*	@param $id string
-	*	@param $data string
-	**/
+	 *    Write session data
+	 * @param $id string
+	 * @param $data string
+	 **@return TRUE
+	 */
 	function write($id,$data) {
 		$fw=Base::instance();
 		$jar=$fw->JAR;
@@ -101,52 +101,52 @@ class Session {
 	}
 
 	/**
-	*	Destroy session
-	*	@return TRUE
-	*	@param $id string
-	**/
+	 *    Destroy session
+	 * @param $id string
+	 **@return TRUE
+	 */
 	function destroy($id) {
 		$this->_cache->clear($id.'.@');
 		return TRUE;
 	}
 
 	/**
-	*	Garbage collector
-	*	@return TRUE
-	*	@param $max int
-	**/
+	 *    Garbage collector
+	 * @param $max int
+	 **@return TRUE
+	 */
 	function cleanup($max) {
 		$this->_cache->reset('.@',$max);
 		return TRUE;
 	}
 
 	/**
-	 *	Return session id (if session has started)
-	 *	@return string|NULL
+	 *    Return session id (if session has started)
+	 * @return string|NULL
 	 **/
 	function sid() {
 		return $this->sid;
 	}
 
 	/**
-	 *	Return anti-CSRF token
-	 *	@return string
+	 *    Return anti-CSRF token
+	 * @return string
 	 **/
 	function csrf() {
 		return $this->_csrf;
 	}
 
 	/**
-	 *	Return IP address
-	 *	@return string
+	 *    Return IP address
+	 * @return string
 	 **/
 	function ip() {
 		return $this->_ip;
 	}
 
 	/**
-	 *	Return Unix timestamp
-	 *	@return string|FALSE
+	 *    Return Unix timestamp
+	 * @return string|FALSE
 	 **/
 	function stamp() {
 		if (!$this->sid)
@@ -156,19 +156,19 @@ class Session {
 	}
 
 	/**
-	 *	Return HTTP user agent
-	 *	@return string
+	 *    Return HTTP user agent
+	 * @return string
 	 **/
 	function agent() {
 		return $this->_agent;
 	}
 
 	/**
-	*	Instantiate class
-	*	@param $onsuspect callback
-	*	@param $key string
-	**/
-	function __construct($onsuspect=NULL,$key=NULL,$cache=null) {
+	 *    Instantiate class
+	 * @param $onsuspect callback
+	 * @param $key string
+	 **/
+	function __construct($onsuspect=NULL,$key=NULL,$cache=NULL) {
 		$this->onsuspect=$onsuspect;
 		$this->_cache=$cache?:Cache::instance();
 		session_set_save_handler(
@@ -183,10 +183,10 @@ class Session {
 		$fw=\Base::instance();
 		$headers=$fw->HEADERS;
 		$this->_csrf=$fw->hash($fw->SEED.
-			extension_loaded('openssl')?
-				implode(unpack('L',openssl_random_pseudo_bytes(4))):
-				mt_rand()
-			);
+		extension_loaded('openssl')?
+			implode(unpack('L',openssl_random_pseudo_bytes(4))):
+			mt_rand()
+		);
 		if ($key)
 			$fw->$key=$this->_csrf;
 		$this->_agent=isset($headers['User-Agent'])?$headers['User-Agent']:'';

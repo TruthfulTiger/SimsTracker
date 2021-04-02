@@ -38,19 +38,19 @@ class Session extends Mapper {
 		$onsuspect;
 
 	/**
-	*	Open session
-	*	@return TRUE
-	*	@param $path string
-	*	@param $name string
-	**/
+	 *    Open session
+	 * @param $path string
+	 * @param $name string
+	 **@return TRUE
+	 */
 	function open($path,$name) {
 		return TRUE;
 	}
 
 	/**
-	*	Close session
-	*	@return TRUE
-	**/
+	 *    Close session
+	 * @return TRUE
+	 **/
 	function close() {
 		$this->reset();
 		$this->sid=NULL;
@@ -58,10 +58,10 @@ class Session extends Mapper {
 	}
 
 	/**
-	*	Return session data in serialized format
-	*	@return string
-	*	@param $id string
-	**/
+	 *    Return session data in serialized format
+	 * @param $id string
+	 **@return string
+	 */
 	function read($id) {
 		$this->load(['@session_id=?',$this->sid=$id]);
 		if ($this->dry())
@@ -82,11 +82,11 @@ class Session extends Mapper {
 	}
 
 	/**
-	*	Write session data
-	*	@return TRUE
-	*	@param $id string
-	*	@param $data string
-	**/
+	 *    Write session data
+	 * @param $id string
+	 * @param $data string
+	 **@return TRUE
+	 */
 	function write($id,$data) {
 		$this->set('session_id',$id);
 		$this->set('data',$data);
@@ -98,53 +98,53 @@ class Session extends Mapper {
 	}
 
 	/**
-	*	Destroy session
-	*	@return TRUE
-	*	@param $id string
-	**/
+	 *    Destroy session
+	 * @param $id string
+	 **@return TRUE
+	 */
 	function destroy($id) {
 		$this->erase(['@session_id=?',$id]);
 		return TRUE;
 	}
 
 	/**
-	*	Garbage collector
-	*	@return TRUE
-	*	@param $max int
-	**/
+	 *    Garbage collector
+	 * @param $max int
+	 **@return TRUE
+	 */
 	function cleanup($max) {
 		$this->erase(['@stamp+?<?',$max,time()]);
 		return TRUE;
 	}
 
 	/**
-	 *	Return session id (if session has started)
-	 *	@return string|NULL
+	 *    Return session id (if session has started)
+	 * @return string|NULL
 	 **/
 	function sid() {
 		return $this->sid;
 	}
 
 	/**
-	 *	Return anti-CSRF token
-	 *	@return string
+	 *    Return anti-CSRF token
+	 * @return string
 	 **/
 	function csrf() {
 		return $this->_csrf;
 	}
 
 	/**
-	 *	Return IP address
-	 *	@return string
+	 *    Return IP address
+	 * @return string
 	 **/
 	function ip() {
 		return $this->_ip;
 	}
 
 	/**
-	*	Return Unix timestamp
-	*	@return string|FALSE
-	**/
+	 *    Return Unix timestamp
+	 * @return string|FALSE
+	 **/
 	function stamp() {
 		if (!$this->sid)
 			session_start();
@@ -152,20 +152,20 @@ class Session extends Mapper {
 	}
 
 	/**
-	*	Return HTTP user agent
-	*	@return string|FALSE
-	**/
+	 *    Return HTTP user agent
+	 * @return string|FALSE
+	 **/
 	function agent() {
 		return $this->_agent;
 	}
 
 	/**
-	*	Instantiate class
-	*	@param $db \DB\Jig
-	*	@param $file string
-	*	@param $onsuspect callback
-	*	@param $key string
-	**/
+	 *    Instantiate class
+	 * @param $db \DB\Jig
+	 * @param $file string
+	 * @param $onsuspect callback
+	 * @param $key string
+	 **/
 	function __construct(\DB\Jig $db,$file='sessions',$onsuspect=NULL,$key=NULL) {
 		parent::__construct($db,$file);
 		$this->onsuspect=$onsuspect;
@@ -181,10 +181,10 @@ class Session extends Mapper {
 		$fw=\Base::instance();
 		$headers=$fw->HEADERS;
 		$this->_csrf=$fw->hash($fw->SEED.
-			extension_loaded('openssl')?
-				implode(unpack('L',openssl_random_pseudo_bytes(4))):
-				mt_rand()
-			);
+		extension_loaded('openssl')?
+			implode(unpack('L',openssl_random_pseudo_bytes(4))):
+			mt_rand()
+		);
 		if ($key)
 			$fw->$key=$this->_csrf;
 		$this->_agent=isset($headers['User-Agent'])?$headers['User-Agent']:'';

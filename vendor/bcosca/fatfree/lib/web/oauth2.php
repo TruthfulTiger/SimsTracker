@@ -29,31 +29,31 @@ class OAuth2 extends \Magic {
 		//! Scopes and claims
 		$args=[],
 		//! Encoding
-		$enc_type = PHP_QUERY_RFC1738;
+		$enc_type=PHP_QUERY_RFC1738;
 
 	/**
-	*	Return OAuth2 authentication URI
-	*	@return string
-	*	@param $endpoint string
-	*	@param $query bool
-	**/
+	 *    Return OAuth2 authentication URI
+	 * @param $endpoint string
+	 * @param $query bool
+	 **@return string
+	 */
 	function uri($endpoint,$query=TRUE) {
 		return $endpoint.($query?('?'.
-				http_build_query($this->args,null,'&',$this->enc_type)):'');
+				http_build_query($this->args,NULL,'&',$this->enc_type)):'');
 	}
 
 	/**
-	*	Send request to API/token endpoint
-	*	@return string|FALSE
-	*	@param $uri string
-	*	@param $method string
-	*	@param $token array
-	**/
+	 *    Send request to API/token endpoint
+	 * @param $uri string
+	 * @param $method string
+	 * @param $token string
+	 **@return string|array|FALSE
+	 */
 	function request($uri,$method,$token=NULL) {
 		$web=\Web::instance();
 		$options=[
 			'method'=>$method,
-			'content'=>http_build_query($this->args,null,'&',$this->enc_type),
+			'content'=>http_build_query($this->args,NULL,'&',$this->enc_type),
 			'header'=>['Accept: application/json']
 		];
 		if ($token)
@@ -77,18 +77,17 @@ class OAuth2 extends \Magic {
 				if (isset($token['error']))
 					user_error($token['error'],E_USER_ERROR);
 				return $token;
-			}
-			else
+			} else
 				return $response['body'];
 		}
 		return FALSE;
 	}
 
 	/**
-	*	Parse JSON Web token
-	*	@return array
-	*	@param $token string
-	**/
+	 *    Parse JSON Web token
+	 * @param $token string
+	 **@return array
+	 */
 	function jwt($token) {
 		return json_decode(
 			base64_decode(
@@ -103,42 +102,42 @@ class OAuth2 extends \Magic {
 	 * @param $type
 	 */
 	function setEncoding($type) {
-		$this->enc_type = $type;
+		$this->enc_type=$type;
 	}
 
 	/**
-	*	URL-safe base64 encoding
-	*	@return array
-	*	@param $data string
-	**/
+	 *    URL-safe base64 encoding
+	 * @param $data string
+	 **@return array
+	 */
 	function b64url($data) {
 		return trim(strtr(base64_encode($data),'+/','-_'),'=');
 	}
 
 	/**
-	*	Return TRUE if scope/claim exists
-	*	@return bool
-	*	@param $key string
-	**/
+	 *    Return TRUE if scope/claim exists
+	 * @param $key string
+	 **@return bool
+	 */
 	function exists($key) {
 		return isset($this->args[$key]);
 	}
 
 	/**
-	*	Bind value to scope/claim
-	*	@return string
-	*	@param $key string
-	*	@param $val string
-	**/
+	 *    Bind value to scope/claim
+	 * @param $key string
+	 * @param $val string
+	 **@return string
+	 */
 	function set($key,$val) {
 		return $this->args[$key]=$val;
 	}
 
 	/**
-	*	Return value of scope/claim
-	*	@return mixed
-	*	@param $key string
-	**/
+	 *    Return value of scope/claim
+	 * @param $key string
+	 **@return mixed
+	 */
 	function &get($key) {
 		if (isset($this->args[$key]))
 			$val=&$this->args[$key];
@@ -148,10 +147,10 @@ class OAuth2 extends \Magic {
 	}
 
 	/**
-	*	Remove scope/claim
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Remove scope/claim
+	 * @param $key string
+	 **@return NULL
+	 */
 	function clear($key=NULL) {
 		if ($key)
 			unset($this->args[$key]);

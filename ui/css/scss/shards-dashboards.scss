@@ -43,7 +43,8 @@
 @import "blocks/page-header";
 
 // Templates
-@import "templates/common"; // Required common styles for all pages.
+@import "templates/common";
+// Required common styles for all pages.
 @import "templates/blog-overview";
 @import "templates/blog-add-new-post";
 

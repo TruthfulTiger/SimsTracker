@@ -1,8 +1,8 @@
 <?php
 
-class S2Legacy extends DB\SQL\Mapper{
+class S2Legacy extends DB\SQL\Mapper {
 	public function __construct(DB\SQL $db) {
-		$this->table = 's2legacy';
+		$this->table='s2legacy';
 		parent::__construct($db,$this->table);
 	}
 
@@ -35,7 +35,8 @@ class S2Legacy extends DB\SQL\Mapper{
 		$this->reset();
 		$this->copyFrom('GET',function($val) {
 			// the 'GET' array is passed to our callback function
-			return array_intersect_key($val, array_flip(array('PARAMS.cid','PARAMS.userID', 'PARAMS.hhID')));
+			return array_intersect_key($val,
+				array_flip(array('PARAMS.cid','PARAMS.userID','PARAMS.hhID')));
 		});
 		$this->save();
 	}
@@ -47,7 +48,7 @@ class S2Legacy extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

@@ -38,37 +38,37 @@ class Mapper extends \DB\Cursor {
 		$_reduce;
 
 	/**
-	*	Return database type
-	*	@return string
-	**/
+	 *    Return database type
+	 * @return string
+	 **/
 	function dbtype() {
 		return 'Jig';
 	}
 
 	/**
-	*	Return TRUE if field is defined
-	*	@return bool
-	*	@param $key string
-	**/
+	 *    Return TRUE if field is defined
+	 * @param $key string
+	 **@return bool
+	 */
 	function exists($key) {
 		return array_key_exists($key,$this->document);
 	}
 
 	/**
-	*	Assign value to field
-	*	@return scalar|FALSE
-	*	@param $key string
-	*	@param $val scalar
-	**/
+	 *    Assign value to field
+	 * @param $key string
+	 * @param $val scalar
+	 **@return scalar|FALSE
+	 */
 	function set($key,$val) {
 		return ($key=='_id')?FALSE:($this->document[$key]=$val);
 	}
 
 	/**
-	*	Retrieve value of field
-	*	@return scalar|FALSE
-	*	@param $key string
-	**/
+	 *    Retrieve value of field
+	 * @param $key string
+	 **@return scalar|FALSE
+	 */
 	function &get($key) {
 		if ($key=='_id')
 			return $this->id;
@@ -78,21 +78,21 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Delete field
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Delete field
+	 * @param $key string
+	 **@return NULL
+	 */
 	function clear($key) {
 		if ($key!='_id')
 			unset($this->document[$key]);
 	}
 
 	/**
-	*	Convert array to mapper object
-	*	@return object
-	*	@param $id string
-	*	@param $row array
-	**/
+	 *    Convert array to mapper object
+	 * @param $id string
+	 * @param $row array
+	 **@return object
+	 */
 	function factory($id,$row) {
 		$mapper=clone($this);
 		$mapper->reset();
@@ -106,10 +106,10 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Return fields of mapper object as an associative array
-	*	@return array
-	*	@param $obj object
-	**/
+	 *    Return fields of mapper object as an associative array
+	 * @param $obj object
+	 **@return array
+	 */
 	function cast($obj=NULL) {
 		if (!$obj)
 			$obj=$this;
@@ -117,31 +117,31 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Convert tokens in string expression to variable names
-	*	@return string
-	*	@param $str string
-	**/
+	 *    Convert tokens in string expression to variable names
+	 * @param $str string
+	 **@return string
+	 */
 	function token($str) {
 		$str=preg_replace_callback(
 			'/(?<!\w)@(\w(?:[\w\.\[\]])*)/',
 			function($token) {
 				// Convert from JS dot notation to PHP array notation
 				return '$'.preg_replace_callback(
-					'/(\.\w+)|\[((?:[^\[\]]*|(?R))*)\]/',
-					function($expr) {
-						$fw=\Base::instance();
-						return
-							'['.
-							($expr[1]?
-								$fw->stringify(substr($expr[1],1)):
-								(preg_match('/^\w+/',
-									$mix=$this->token($expr[2]))?
-									$fw->stringify($mix):
-									$mix)).
-							']';
-					},
-					$token[1]
-				);
+						'/(\.\w+)|\[((?:[^\[\]]*|(?R))*)\]/',
+						function($expr) {
+							$fw=\Base::instance();
+							return
+								'['.
+								($expr[1]?
+									$fw->stringify(substr($expr[1],1)):
+									(preg_match('/^\w+/',
+										$mix=$this->token($expr[2]))?
+										$fw->stringify($mix):
+										$mix)).
+								']';
+						},
+						$token[1]
+					);
 			},
 			$str
 		);
@@ -149,13 +149,13 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Return records that match criteria
-	*	@return static[]|FALSE
-	*	@param $filter array
-	*	@param $options array
-	*	@param $ttl int|array
-	*	@param $log bool
-	**/
+	 *    Return records that match criteria
+	 * @param $filter array
+	 * @param $options array
+	 * @param $ttl int|array
+	 * @param $log bool
+	 **@return static[]|FALSE
+	 */
 	function find($filter=NULL,array $options=NULL,$ttl=0,$log=TRUE) {
 		if (!$options)
 			$options=[];
@@ -174,8 +174,9 @@ class Mapper extends \DB\Cursor {
 		if (is_array($ttl))
 			list($ttl,$tag)=$ttl;
 		if (!$fw->CACHE || !$ttl || !($cached=$cache->exists(
-			$hash=$fw->hash($this->db->dir().
-				$fw->stringify([$filter,$options])).($tag?'.'.$tag:'').'.jig',$data)) ||
+				$hash=$fw->hash($this->db->dir().
+						$fw->stringify([$filter,$options])).($tag?'.'.$tag:'').'.jig',
+				$data)) ||
 			$cached[0]+$ttl<microtime(TRUE)) {
 			$data=$db->read($this->file);
 			if (is_null($data))
@@ -198,7 +199,7 @@ class Mapper extends \DB\Cursor {
 				$tokens=array_slice(
 					token_get_all('<?php '.$this->token($expr)),1);
 				$data=array_filter($data,
-					function($_row) use($fw,$args,$tokens) {
+					function($_row) use ($fw,$args,$tokens) {
 						$_expr='';
 						$ctr=0;
 						$named=FALSE;
@@ -206,10 +207,9 @@ class Mapper extends \DB\Cursor {
 							if (is_string($token))
 								if ($token=='?') {
 									// Positional
-									$ctr++;
+									++$ctr;
 									$key=$ctr;
-								}
-								else {
+								} else {
 									if ($token==':')
 										$named=TRUE;
 									else
@@ -220,8 +220,7 @@ class Mapper extends \DB\Cursor {
 								token_name($token[0])=='T_STRING') {
 								$key=':'.$token[1];
 								$named=FALSE;
-							}
-							else {
+							} else {
 								$_expr.=$token[1];
 								continue;
 							}
@@ -242,20 +241,20 @@ class Mapper extends \DB\Cursor {
 				$cols=array_reverse($fw->split($options['group']));
 				// sort into groups
 				$data=$this->sort($data,$options['group']);
-				foreach($data as $i=>&$row) {
+				foreach ($data as $i=>&$row) {
 					if (!isset($prev)) {
 						$prev=$row;
 						$prev_i=$i;
 					}
-					$drop=false;
+					$drop=FALSE;
 					foreach ($cols as $col)
 						if ($prev_i!=$i && array_key_exists($col,$row) &&
 							array_key_exists($col,$prev) && $row[$col]==$prev[$col])
 							// reduce/modify
 							$drop=!isset($this->_reduce[$col]) || call_user_func_array(
-								$this->_reduce[$col][0],[&$prev,&$row])!==FALSE;
+									$this->_reduce[$col][0],[&$prev,&$row])!==FALSE;
 						elseif (isset($this->_reduce[$col])) {
-							$null=null;
+							$null=NULL;
 							// initial
 							call_user_func_array($this->_reduce[$col][0],[&$row,&$null]);
 						}
@@ -269,7 +268,7 @@ class Mapper extends \DB\Cursor {
 				}
 				// finalize
 				if ($this->_reduce[$col][1])
-					foreach($data as $i=>&$row) {
+					foreach ($data as $i=>&$row) {
 						$row=call_user_func($this->_reduce[$col][1],$row);
 						if (!$row)
 							unset($data[$i]);
@@ -304,16 +303,16 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Sort a collection
-	*	@param $data
-	*	@param $cond
-	*	@return mixed
-	*/
+	 *    Sort a collection
+	 * @param $data
+	 * @param $cond
+	 * @return mixed
+	 */
 	protected function sort($data,$cond) {
 		$cols=\Base::instance()->split($cond);
 		uasort(
 			$data,
-			function($val1,$val2) use($cols) {
+			function($val1,$val2) use ($cols) {
 				foreach ($cols as $col) {
 					$parts=explode(' ',$col,2);
 					$order=empty($parts[1])?
@@ -336,22 +335,22 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Add reduce handler for grouped fields
-	*	@param $key string
-	*	@param $handler callback
-	*	@param $finalize callback
-	*/
-	function reduce($key,$handler,$finalize=null){
+	 *    Add reduce handler for grouped fields
+	 * @param $key string
+	 * @param $handler callback
+	 * @param $finalize callback
+	 */
+	function reduce($key,$handler,$finalize=NULL) {
 		$this->_reduce[$key]=[$handler,$finalize];
 	}
 
 	/**
-	*	Count records that match criteria
-	*	@return int
-	*	@param $filter array
-	*	@param $options array
-	*	@param $ttl int|array
-	**/
+	 *    Count records that match criteria
+	 * @param $filter array
+	 * @param $options array
+	 * @param $ttl int|array
+	 **@return int
+	 */
 	function count($filter=NULL,array $options=NULL,$ttl=0) {
 		$now=microtime(TRUE);
 		$out=count($this->find($filter,$options,$ttl,FALSE));
@@ -361,11 +360,11 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Return record at specified offset using criteria of previous
-	*	load() call and make it active
-	*	@return array
-	*	@param $ofs int
-	**/
+	 *    Return record at specified offset using criteria of previous
+	 *    load() call and make it active
+	 * @param $ofs int
+	 **@return array
+	 */
 	function skip($ofs=1) {
 		$this->document=($out=parent::skip($ofs))?$out->document:[];
 		$this->id=$out?$out->id:NULL;
@@ -375,9 +374,9 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Insert new record
-	*	@return array
-	**/
+	 *    Insert new record
+	 * @return array
+	 **/
 	function insert() {
 		if ($this->id)
 			return $this->update();
@@ -405,9 +404,9 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Update current record
-	*	@return array
-	**/
+	 *    Update current record
+	 * @return array
+	 **/
 	function update() {
 		$db=$this->db;
 		$now=microtime(TRUE);
@@ -427,11 +426,11 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Delete current record
-	*	@return bool
-	*	@param $filter array
-	*	@param $quick bool
-	**/
+	 *    Delete current record
+	 * @param $filter array
+	 * @param $quick bool
+	 **@return bool
+	 */
 	function erase($filter=NULL,$quick=FALSE) {
 		$db=$this->db;
 		$now=microtime(TRUE);
@@ -439,15 +438,13 @@ class Mapper extends \DB\Cursor {
 		$pkey=['_id'=>$this->id];
 		if ($filter) {
 			foreach ($this->find($filter,NULL,FALSE) as $mapper)
-				if (!$mapper->erase(null,$quick))
+				if (!$mapper->erase(NULL,$quick))
 					return FALSE;
 			return TRUE;
-		}
-		elseif (isset($this->id)) {
+		} elseif (isset($this->id)) {
 			unset($data[$this->id]);
 			parent::erase();
-		}
-		else
+		} else
 			return FALSE;
 		if (!$quick && isset($this->trigger['beforeerase']) &&
 			\Base::instance()->call($this->trigger['beforeerase'],
@@ -460,8 +457,7 @@ class Mapper extends \DB\Cursor {
 				array_slice($filter,1,NULL,TRUE);
 			$args=is_array($args)?$args:[1=>$args];
 			foreach ($args as $key=>$val) {
-				$vals[]=\Base::instance()->
-					stringify(is_array($val)?$val[0]:$val);
+				$vals[]=\Base::instance()->stringify(is_array($val)?$val[0]:$val);
 				$keys[]='/'.(is_numeric($key)?'\?':preg_quote($key)).'/';
 			}
 		}
@@ -475,9 +471,9 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Reset cursor
-	*	@return NULL
-	**/
+	 *    Reset cursor
+	 * @return NULL
+	 **/
 	function reset() {
 		$this->id=NULL;
 		$this->document=[];
@@ -485,11 +481,11 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Hydrate mapper object using hive array variable
-	*	@return NULL
-	*	@param $var array|string
-	*	@param $func callback
-	**/
+	 *    Hydrate mapper object using hive array variable
+	 * @param $var array|string
+	 * @param $func callback
+	 **@return NULL
+	 */
 	function copyfrom($var,$func=NULL) {
 		if (is_string($var))
 			$var=\Base::instance()->$var;
@@ -500,10 +496,10 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Populate hive array variable with mapper fields
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Populate hive array variable with mapper fields
+	 * @param $key string
+	 **@return NULL
+	 */
 	function copyto($key) {
 		$var=&\Base::instance()->ref($key);
 		foreach ($this->document as $key=>$field)
@@ -511,27 +507,27 @@ class Mapper extends \DB\Cursor {
 	}
 
 	/**
-	*	Return field names
-	*	@return array
-	**/
+	 *    Return field names
+	 * @return array
+	 **/
 	function fields() {
 		return array_keys($this->document);
 	}
 
 	/**
-	*	Retrieve external iterator for fields
-	*	@return object
-	**/
+	 *    Retrieve external iterator for fields
+	 * @return object
+	 **/
 	function getiterator() {
 		return new \ArrayIterator($this->cast());
 	}
 
 	/**
-	*	Instantiate class
-	*	@return void
-	*	@param $db object
-	*	@param $file string
-	**/
+	 *    Instantiate class
+	 * @param $db object
+	 * @param $file string
+	 **@return void
+	 */
 	function __construct(\DB\Jig $db,$file) {
 		$this->db=$db;
 		$this->file=$file;

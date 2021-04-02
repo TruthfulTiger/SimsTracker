@@ -46,10 +46,10 @@ class Jig {
 		$lazy;
 
 	/**
-	*	Read data from memory/file
-	*	@return array
-	*	@param $file string
-	**/
+	 *    Read data from memory/file
+	 * @param $file string
+	 **@return array
+	 */
 	function &read($file) {
 		if (!$this->dir || !is_file($dst=$this->dir.$file)) {
 			if (!isset($this->data[$file]))
@@ -68,16 +68,16 @@ class Jig {
 				$data=$fw->unserialize($raw);
 				break;
 		}
-		$this->data[$file] = $data;
+		$this->data[$file]=$data;
 		return $this->data[$file];
 	}
 
 	/**
-	*	Write data to memory/file
-	*	@return int
-	*	@param $file string
-	*	@param $data array
-	**/
+	 *    Write data to memory/file
+	 * @param $file string
+	 * @param $data array
+	 **@return int
+	 */
 	function write($file,array $data=NULL) {
 		if (!$this->dir || $this->lazy)
 			return count($this->data[$file]=$data);
@@ -94,26 +94,26 @@ class Jig {
 	}
 
 	/**
-	*	Return directory
-	*	@return string
-	**/
+	 *    Return directory
+	 * @return string
+	 **/
 	function dir() {
 		return $this->dir;
 	}
 
 	/**
-	*	Return UUID
-	*	@return string
-	**/
+	 *    Return UUID
+	 * @return string
+	 **/
 	function uuid() {
 		return $this->uuid;
 	}
 
 	/**
-	*	Return profiler results (or disable logging)
-	*	@param $flag bool
-	*	@return string
-	**/
+	 *    Return profiler results (or disable logging)
+	 * @param $flag bool
+	 * @return string
+	 **/
 	function log($flag=TRUE) {
 		if ($flag)
 			return $this->log;
@@ -121,19 +121,19 @@ class Jig {
 	}
 
 	/**
-	*	Jot down log entry
-	*	@return NULL
-	*	@param $frame string
-	**/
+	 *    Jot down log entry
+	 * @param $frame string
+	 **@return NULL
+	 */
 	function jot($frame) {
 		if ($frame)
 			$this->log.=date('r').' '.$frame.PHP_EOL;
 	}
 
 	/**
-	*	Clean storage
-	*	@return NULL
-	**/
+	 *    Clean storage
+	 * @return NULL
+	 **/
 	function drop() {
 		if ($this->lazy) // intentional
 			$this->data=[];
@@ -149,10 +149,10 @@ class Jig {
 	}
 
 	/**
-	*	Instantiate class
-	*	@param $dir string
-	*	@param $format int
-	**/
+	 *    Instantiate class
+	 * @param $dir string
+	 * @param $format int
+	 **/
 	function __construct($dir=NULL,$format=self::FORMAT_JSON,$lazy=FALSE) {
 		if ($dir && !is_dir($dir))
 			mkdir($dir,\Base::MODE,TRUE);
@@ -162,12 +162,12 @@ class Jig {
 	}
 
 	/**
-	*	save file on destruction
-	**/
+	 *    save file on destruction
+	 **/
 	function __destruct() {
 		if ($this->lazy) {
-			$this->lazy = FALSE;
-			foreach ($this->data?:[] as $file => $data)
+			$this->lazy=FALSE;
+			foreach ($this->data?:[] as $file=>$data)
 				$this->write($file,$data);
 		}
 	}

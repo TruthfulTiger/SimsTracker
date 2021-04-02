@@ -1,70 +1,102 @@
-<h3 class="text-primary">{{ @cat }} <img src="{{@BASE}}{{@s2path}}Pets.png" title="Needs Pets" data-toggle="tooltip" alt="Needs Pets"> <a href="#" class="badge badge-pill badge-secondary" data-toggle="collapse" data-target="#petsHelp" aria-expanded="false" aria-label="More details" aria-controls="petsHelp">
+<h3 class="text-primary">{{ @cat }} <img src="{{@BASE}}{{@s2path}}Pets.png" title="Needs Pets" data-toggle="tooltip"
+										 alt="Needs Pets"> <a href="#" class="badge badge-pill badge-secondary"
+															  data-toggle="collapse" data-target="#petsHelp"
+															  aria-expanded="false" aria-label="More details"
+															  aria-controls="petsHelp">
 	<i aria-hidden="true" data-toggle="tooltip" title="More details" class="fas fa-question"></i></a>
 	</a></h3>
 <div class="collapse" id="petsHelp">
 	<div class="card card-body">
-	<blockquote>
-	Your Legacy family prides itself on creating a strong and brand new breed. Rather than trying for a strict pedigree, the family seeks to create a new breed, one with a diverse gene pool.
+		<blockquote>
+			Your Legacy family prides itself on creating a strong and brand new breed. Rather than trying for a strict
+			pedigree, the family seeks to create a new breed, one with a diverse gene pool.
 			<br/><br/>
 			Pick an animal, dog or cat. This category will only count for one type of animal or the other.
-			If you created a pet with the Legacy Founder, that pet becomes the breed founder. If you did not create a pet in CAS, the first animal that joins the family by any means becomes the founder. The pet bloodline works exactly like the family bloodline. Each generation may only have one heir, and that heir must breed to produce the next generation.
+			If you created a pet with the Legacy Founder, that pet becomes the breed founder. If you did not create a
+			pet in CAS, the first animal that joins the family by any means becomes the founder. The pet bloodline works
+			exactly like the family bloodline. Each generation may only have one heir, and that heir must breed to
+			produce the next generation.
 			<br/><br/>
 			Your goal is to build up the ‘breed strength’ of the family pet.
 			<br/><br/>
 			Your “Family Breed” points = your breed strength.<br/>
-			Like all categories, this one has a maximum of 10 points. Points earned over 10 go into the overflow category.<br/><br/>
+			Like all categories, this one has a maximum of 10 points. Points earned over 10 go into the overflow
+			category.<br/><br/>
 			<cite>~ SimsLegacyChallenge.com</cite>
-	</blockquote>
+		</blockquote>
 	</div>
 </div>
 <div class="form-row">
-    <div class="col">
-        <div class="form-group">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="1" onchange="petsCheck()" name="casfounder" id="casfounder" <check if="{{ @s2legacy.casfounder == 1 }}">
-                checked
-                </check>>
-                <label class="custom-control-label" for="casfounder">Founder is custom animal</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="adopted">Adopted mates</label>
-            <input type="number" min="0" class="form-control" oninput="adoptedChange(value)" id="adopted" value="{{ trim(@s2legacy.adopted) }}" name="adopted"/>
-        </div>
-        <div class="form-group">
-            <label for="other">Mates brought in by other means</label>
-            <input type="number" min="0" class="form-control" id="other" oninput="otherChange(value)" value="{{ trim(@s2legacy.other) }}" name="other"/>
-        </div>
-        <div class="form-group">
-            <label for="topbilling">Heirs that have learned all skills and peaked career</label>
-            <input type="number" min="0" class="form-control" oninput="topbillingChange(value)" id="topbilling" value="{{ trim(@s2legacy.topbilling) }}" name="topbilling"/>
-        </div>
-    </div>
+	<div class="col">
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" value="1" onchange="petsCheck()" name="casfounder"
+					   id="casfounder"
+				<check if="{{ @s2legacy.casfounder == 1 }}">
+					checked
+				</check>
+				>
+				<label class="custom-control-label" for="casfounder">Founder is custom animal</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="adopted">Adopted mates</label>
+			<input type="number" min="0" class="form-control" oninput="adoptedChange(value)" id="adopted"
+				   value="{{ trim(@s2legacy.adopted) }}" name="adopted"/>
+		</div>
+		<div class="form-group">
+			<label for="other">Mates brought in by other means</label>
+			<input type="number" min="0" class="form-control" id="other" oninput="otherChange(value)"
+				   value="{{ trim(@s2legacy.other) }}" name="other"/>
+		</div>
+		<div class="form-group">
+			<label for="topbilling">Heirs that have learned all skills and peaked career</label>
+			<input type="number" min="0" class="form-control" oninput="topbillingChange(value)" id="topbilling"
+				   value="{{ trim(@s2legacy.topbilling) }}" name="topbilling"/>
+		</div>
+	</div>
 </div>
 <input type="hidden" name="petstotal" id="pt" value="{{ trim(@s2legacy.petstotal) }}">
-<p class="lead"><b>Sub total: <output id="petstotal" for="pt"><span
-    <check if="{{ @s2legacy.petstotal }} == 0">class="badge badge-primary"</check>
-    <check if="{{ @s2legacy.petstotal }} > 0">class="badge badge-success"</check>
-    <check if="{{ @s2legacy.petstotal }} < 0">class="badge badge-danger"</check>>
-    {{ trim(@s2legacy.petstotal) }}
-	</span></output></b></p>
+<p class="lead"><b>Sub total:
+	<output id="petstotal" for="pt"><span
+		<check if="{{ @s2legacy.petstotal }} == 0">class="badge badge-primary"</check>
+		<check if="{{ @s2legacy.petstotal }} > 0">class="badge badge-success"</check>
+		<check if="{{ @s2legacy.petstotal }} < 0">class="badge badge-danger"</check>
+		>
+		{{ trim(@s2legacy.petstotal) }}
+		</span></output>
+</b></p>
 
 <script>
 	let f = 0;
 	$(function () {
-		$('#casfounder').val({{@s2legacy.casfounder}});
+		$('#casfounder').val({
+		{@s2legacy.casfounder
+		}
+	})
+		;
 		petsCheck();
 	});
 
 	function petsCheck() {
-		if ( $('#casfounder').prop("checked"))  {
-			if ({{@s2legacy.casfounder}} == 0) {
+		if ($('#casfounder').prop("checked")) {
+			if ({{@s2legacy.casfounder
+			}
+		} ==
+			0
+		)
+			{
 				f += 0.5;
 			}
-			else
-				f = 0.5;
+		else
+			f = 0.5;
 		} else {
-			if ({{@s2legacy.casfounder}} == 1) {
+			if ({{@s2legacy.casfounder
+			}
+		} ==
+			1
+		)
+			{
 				f = 0.5;
 				f -= 0.5;
 			}

@@ -1,11 +1,15 @@
 {
   "name": "SimsTracker",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "^4.5.2",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bootstrap": "^4.5.3",
+    "browserify": "^17.0.0",
     "file-upload-with-preview": "^4.1.0",
     "jquery": "^3.5.1",
+    "random-org": "^2.1.0",
+    "require": "^2.4.20",
     "shards-ui": "^3.0.0",
     "yuicompressor": "^2.4.8"
   },

@@ -1,8 +1,8 @@
 {
-    "gameVersion": 0, 
-    "main": [
-        {
-            "name" : "Test"
-        }
-    ]
+  "gameVersion": 0,
+  "main": [
+    {
+      "name": "Test"
+    }
+  ]
 }

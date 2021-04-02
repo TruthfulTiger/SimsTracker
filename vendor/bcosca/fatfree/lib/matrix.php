@@ -24,15 +24,15 @@
 class Matrix extends Prefab {
 
 	/**
-	*	Retrieve values from a specified column of a multi-dimensional
-	*	array variable
-	*	@return array
-	*	@param $var array
-	*	@param $col mixed
-	**/
+	 *    Retrieve values from a specified column of a multi-dimensional
+	 *    array variable
+	 * @param $var array
+	 * @param $col mixed
+	 **@return array
+	 */
 	function pick(array $var,$col) {
 		return array_map(
-			function($row) use($col) {
+			function($row) use ($col) {
 				return $row[$col];
 			},
 			$var
@@ -45,9 +45,9 @@ class Matrix extends Prefab {
 	 * @param string|array $data hive key or array
 	 * @return array
 	 */
-	function select($fields, $data) {
-		return array_intersect_key(is_array($data) ? $data : \Base::instance()->get($data),
-			array_flip(is_array($fields) ? $fields : \Base::instance()->split($fields)));
+	function select($fields,$data) {
+		return array_intersect_key(is_array($data)?$data:\Base::instance()->get($data),
+			array_flip(is_array($fields)?$fields:\Base::instance()->split($fields)));
 	}
 
 	/**
@@ -59,17 +59,17 @@ class Matrix extends Prefab {
 	 * @param callable $callback (mixed &$value, string $key, array $data)
 	 * @return array modified subset data
 	 */
-	function walk($fields, $data, $callback) {
-		$subset=$this->select($fields, $data);
-		array_walk($subset, $callback, $data);
+	function walk($fields,$data,$callback) {
+		$subset=$this->select($fields,$data);
+		array_walk($subset,$callback,$data);
 		return $subset;
 	}
 
 	/**
-	*	Rotate a two-dimensional array variable
-	*	@return NULL
-	*	@param $var array
-	**/
+	 *    Rotate a two-dimensional array variable
+	 * @param $var array
+	 **@return NULL
+	 */
 	function transpose(array &$var) {
 		$out=[];
 		foreach ($var as $keyx=>$cols)
@@ -79,16 +79,16 @@ class Matrix extends Prefab {
 	}
 
 	/**
-	*	Sort a multi-dimensional array variable on a specified column
-	*	@return bool
-	*	@param $var array
-	*	@param $col mixed
-	*	@param $order int
-	**/
+	 *    Sort a multi-dimensional array variable on a specified column
+	 * @param $var array
+	 * @param $col mixed
+	 * @param $order int
+	 **@return bool
+	 */
 	function sort(array &$var,$col,$order=SORT_ASC) {
 		uasort(
 			$var,
-			function($val1,$val2) use($col,$order) {
+			function($val1,$val2) use ($col,$order) {
 				list($v1,$v2)=[$val1[$col],$val2[$col]];
 				$out=is_numeric($v1) && is_numeric($v2)?
 					Base::instance()->sign($v1-$v2):strcmp($v1,$v2);
@@ -101,12 +101,12 @@ class Matrix extends Prefab {
 	}
 
 	/**
-	*	Change the key of a two-dimensional array element
-	*	@return NULL
-	*	@param $var array
-	*	@param $old string
-	*	@param $new string
-	**/
+	 *    Change the key of a two-dimensional array element
+	 * @param $var array
+	 * @param $old string
+	 * @param $new string
+	 **@return NULL
+	 */
 	function changekey(array &$var,$old,$new) {
 		$keys=array_keys($var);
 		$vals=array_values($var);
@@ -115,12 +115,12 @@ class Matrix extends Prefab {
 	}
 
 	/**
-	*	Return month calendar of specified date, with optional setting for
-	*	first day of week (0 for Sunday)
-	*	@return array
-	*	@param $date string|int
-	*	@param $first int
-	**/
+	 *    Return month calendar of specified date, with optional setting for
+	 *    first day of week (0 for Sunday)
+	 * @param $date string|int
+	 * @param $first int
+	 **@return array
+	 */
 	function calendar($date='now',$first=0) {
 		$out=FALSE;
 		if (extension_loaded('calendar')) {
@@ -130,7 +130,7 @@ class Matrix extends Prefab {
 			$days=cal_days_in_month(CAL_GREGORIAN,$parts['mon'],$parts['year']);
 			$ref=date('w',strtotime(date('Y-m',$parts[0]).'-01'))+(7-$first)%7;
 			$out=[];
-			for ($i=0;$i<$days;$i++)
+			for ($i=0;$i<$days;++$i)
 				$out[floor(($ref+$i)/7)][($ref+$i)%7]=$i+1;
 		}
 		return $out;

@@ -1,9 +1,9 @@
 <?php
 
-class S3Sim extends DB\SQL\Mapper{
+class S3Sim extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 's3sim';
+		$this->table='s3sim';
 		parent::__construct($db,$this->table);
 	}
 
@@ -35,7 +35,7 @@ class S3Sim extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

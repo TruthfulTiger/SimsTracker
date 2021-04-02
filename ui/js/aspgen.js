@@ -1,22 +1,22 @@
 $(function () {
 	// Checks for Sims 2 related checkboxes
 	checkEPs();
-	$(".s2eps").change(function(){
+	$(".s2eps").change(function () {
 		checkEPs();
-	});	
+	});
 
 	// Sims 2 specific functions
-	$("button#sims2gen").click(function(){ // Sims 2 aspirations
+	$("button#sims2gen").click(function () { // Sims 2 aspirations
 		let sims2asp = 0;
 		let aspimg = '';
 		let aspalt = '';
 
 		if ($("#cheese").prop("checked")) {
-			sims2asp = getRandomInt(1, 7);
+			sims2asp = random(1, 7, 1, true);
 		} else if ($('#nl').prop('checked')) {
-			sims2asp = getRandomInt(1, 6);
+			sims2asp = random(1, 6, 1, true);
 		} else {
-			sims2asp = getRandomInt(1, 5);
+			sims2asp = random(1, 5, 1, true);
 		}
 
 		switch (sims2asp) {
@@ -45,22 +45,22 @@ $(function () {
 				aspalt = "Pleasure";
 				break;
 			default:
-				aspimg = "Aspiration7.png";
-				aspalt = "Grilled Cheese";
+				aspimg = "Null.png";
+				aspalt = "";
 				break;
 		}
-		$("#aspiration").attr("src",s2path+aspimg);
-		$("#aspiration").attr("alt",aspalt);
+		$("#aspiration").attr("src", s2path + aspimg);
+		$("#aspiration").attr("alt", aspalt);
 
 		if (!$("#tocheck").prop("disabled") && $("#tocheck").prop("checked")) {
 			tofrandom();
 		} else {
-			$("#ton1").attr("src",s2path+'Null.png');
-			$("#ton1").attr("alt",'');
-			$("#ton2").attr("src",s2path+'Null.png');
-			$("#ton2").attr("alt",'');
-			$("#toff").attr("src",s2path+'Null.png');
-			$("#toff").attr("alt",'');
+			$("#ton1").attr("src", s2path + 'Null.png');
+			$("#ton1").attr("alt", '');
+			$("#ton2").attr("src", s2path + 'Null.png');
+			$("#ton2").attr("alt", '');
+			$("#toff").attr("src", s2path + 'Null.png');
+			$("#toff").attr("alt", '');
 		}
 	});
 
@@ -70,29 +70,29 @@ $(function () {
 		let rnd1 = 0; // Used for setting 1st turn-on
 		let rnd2 = 0; // Used for setting 2nd turn-on
 		let rnd3 = 0; // Used for setting turn-off
-		let to1img = ''; // Relative path for 1st turn-on
+		let to1img = 'Null.png'; // Relative path for 1st turn-on
 		let to1alt = ''; // Alt text for 1st turn-on
-		let to2img = ''; // Relative path for 2nd turn-on
+		let to2img = 'Null.png'; // Relative path for 2nd turn-on
 		let to2alt = ''; // Alt text for 2nd turn-on
-		let toffimg = ''; // Relative path for turn-off
+		let toffimg = 'Null.png'; // Relative path for turn-off
 		let toffalt = ''; // Alt text for turn-off
 
 		// If AL is false, don't include witches
 		if ($('#al').prop('checked') === false) {
 			// If BV and FT are false, don't include new turn-ons
 			if ($('#bv').prop('checked') === false && $('#ft').prop('checked') === false) {
-				result = shuffle(19, 3);
+				result = random(1, 19, 3, false);
 				rnd1 = result[0];
 				rnd2 = result[1];
 				rnd3 = result[2];
 			} else {
-				result = shuffle(33, 3);
+				result = random(1, 33, 3, false);
 				rnd1 = result[0];
 				rnd2 = result[1];
 				rnd3 = result[2];
 			}
 		} else {
-			result = shuffle(34, 3);
+			result = random(1, 34, 3, false);
 			rnd1 = result[0];
 			rnd2 = result[1];
 			rnd3 = result[2];
@@ -146,7 +146,7 @@ $(function () {
 		if (rnd1 === 5) {
 			to1img = 'turnon5.png';
 			to1alt = 'Grey hair';
-				} else if (rnd2 === 5) {
+		} else if (rnd2 === 5) {
 			to2img = "turnon5.png";
 			to2alt = "Grey hair";
 		} else if (rnd3 === 5) {
@@ -475,33 +475,32 @@ $(function () {
 		}
 
 		// Once all checks are done, set the appropriate image and alt text
-		$("#ton1").attr("src",s2path+to1img);
-		$("#ton1").attr("alt",to1alt);
-		$("#ton2").attr("src",s2path+to2img);
-		$("#ton2").attr("alt",to2alt);
-		$("#toff").attr("src",s2path+toffimg);
-		$("#toff").attr("alt",toffalt);
+		$("#ton1").attr("src", s2path + to1img);
+		$("#ton1").attr("alt", to1alt);
+		$("#ton2").attr("src", s2path + to2img);
+		$("#ton2").attr("alt", to2alt);
+		$("#toff").attr("src", s2path + toffimg);
+		$("#toff").attr("alt", toffalt);
 	}
 
 	function checkEPs() {
-				// If only Uni (or no EPs) checked, don't randomise turn-ons
-				if (!$('#nl').prop('checked') && !$('#ofb').prop('checked') && !$('#pets').prop('checked') && !$('#sns').prop('checked') && !$('#bv').prop('checked') && !$('#ft').prop('checked') && !$('#al').prop('checked')) {
-					$("#ton1").attr("src",s2path+'Null.png');
-					$("#ton1").attr("alt",'');
-					$("#ton2").attr("src",s2path+'Null.png');
-					$("#ton2").attr("alt",'');
-					$("#toff").attr("src",s2path+'Null.png');
-					$("#toff").attr("alt",'');
-					// If turn-ons not applicable, disable TO and cheese options
-					$("#tocheck").prop("checked", false);
-					$("#tocheck").prop("disabled", true);
-					$("#cheese").prop("checked", false);
-					$("#cheese").prop("disabled", true);
-				} else {
-					// If relevant EPs checked, enable TO / cheese options and see if it's checked
-					$("#tocheck").prop("disabled", false);
-					$("#cheese").prop("disabled", false);
-				}
+		// If only Uni (or no EPs) checked, don't randomise turn-ons
+		if (!$('#nl').prop('checked') && !$('#ofb').prop('checked') && !$('#pets').prop('checked') && !$('#sns').prop('checked') && !$('#bv').prop('checked') && !$('#ft').prop('checked') && !$('#al').prop('checked')) {
+			$("#ton1").attr("src", s2path + 'Null.png');
+			$("#ton1").attr("alt", '');
+			$("#ton2").attr("src", s2path + 'Null.png');
+			$("#ton2").attr("alt", '');
+			$("#toff").attr("src", s2path + 'Null.png');
+			$("#toff").attr("alt", '');
+			// If turn-ons not applicable, disable TO and cheese options
+			$("#tocheck").prop("checked", false);
+			$("#tocheck").prop("disabled", true);
+			$("#cheese").prop("checked", false);
+			$("#cheese").prop("disabled", true);
+		} else {
+			// If relevant EPs checked, enable TO / cheese options and see if it's checked
+			$("#tocheck").prop("disabled", false);
+			$("#cheese").prop("disabled", false);
+		}
 	}
-
 });

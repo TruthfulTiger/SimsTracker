@@ -1,822 +1,824 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "4f1cea9e65d3c0c62efe8ae3051ec6d6",
-    "packages": [
-        {
-            "name": "bcosca/fatfree",
-            "version": "3.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bcosca/fatfree.git",
-                "reference": "b51905e89d2bf970b34c4fbb37879eeb1572e76c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bcosca/fatfree/zipball/b51905e89d2bf970b34c4fbb37879eeb1572e76c",
-                "reference": "b51905e89d2bf970b34c4fbb37879eeb1572e76c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/base.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
-            "homepage": "http://fatfreeframework.com/",
-            "time": "2020-05-28T16:20:24+00:00"
-        },
-        {
-            "name": "bcosca/fatfree-core",
-            "version": "3.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bcosca/fatfree-core.git",
-                "reference": "a0f7ecf456a2f1e099a9b6d7aedc22970be56030"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bcosca/fatfree-core/zipball/a0f7ecf456a2f1e099a9b6d7aedc22970be56030",
-                "reference": "a0f7ecf456a2f1e099a9b6d7aedc22970be56030",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "."
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
-            "homepage": "http://fatfreeframework.com/",
-            "time": "2020-05-28T16:14:27+00:00"
-        },
-        {
-            "name": "geofmureithi/f3-validate",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/geofmureithi/f3-validate.git",
-                "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
-                "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
-                "shasum": ""
-            },
-            "require": {
-                "bcosca/fatfree": "^3.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.3"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Geof Mureithi",
-                    "email": "mureithinjuguna@gmail.com"
-                }
-            ],
-            "description": "A validation lib for Fat Free Framework",
-            "time": "2019-07-18T22:53:37+00:00"
-        },
-        {
-            "name": "guzzlehttp/guzzle",
-            "version": "7.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0aa74dfb41ae110835923ef10a9d803a22d50e79",
-                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7",
-                "php": "^7.2.5 || ^8.0",
-                "psr/http-client": "^1.0"
-            },
-            "provide": {
-                "psr/http-client-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "php-http/client-integration-tests": "^3.0",
-                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
-                "psr/log": "^1.1"
-            },
-            "suggest": {
-                "ext-curl": "Required for CURL handler support",
-                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
-                "psr/log": "Required for using the Log middleware"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "psr-18",
-                "psr-7",
-                "rest",
-                "web service"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/alexeyshockov",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/gmponos",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-10-10T11:47:56+00:00"
-        },
-        {
-            "name": "guzzlehttp/promises",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/promises.git",
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^4.4 || ^5.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle promises library",
-            "keywords": [
-                "promise"
-            ],
-            "time": "2020-09-30T07:37:28+00:00"
-        },
-        {
-            "name": "guzzlehttp/psr7",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0",
-                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
-            },
-            "suggest": {
-                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Tobias Schultze",
-                    "homepage": "https://github.com/Tobion"
-                }
-            ],
-            "description": "PSR-7 message implementation that also provides common utility methods",
-            "keywords": [
-                "http",
-                "message",
-                "psr-7",
-                "request",
-                "response",
-                "stream",
-                "uri",
-                "url"
-            ],
-            "time": "2020-09-30T07:37:11+00:00"
-        },
-        {
-            "name": "ikkez/f3-assets",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ikkez/f3-assets.git",
-                "reference": "669241ae34c34d1de14e6869a05d1436c348fedc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ikkez/f3-assets/zipball/669241ae34c34d1de14e6869a05d1436c348fedc",
-                "reference": "669241ae34c34d1de14e6869a05d1436c348fedc",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "CSS/JS Assets Plugin for PHP Fat-Free Framework",
-            "homepage": "https://github.com/ikkez/f3-assets",
-            "keywords": [
-                "F3",
-                "JS",
-                "css",
-                "fatfree",
-                "minify"
-            ],
-            "time": "2020-03-27T10:32:06+00:00"
-        },
-        {
-            "name": "ikkez/f3-cortex",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ikkez/f3-cortex.git",
-                "reference": "eb60c951ee7170fd3256e69478fb864eae91e86f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ikkez/f3-cortex/zipball/eb60c951ee7170fd3256e69478fb864eae91e86f",
-                "reference": "eb60c951ee7170fd3256e69478fb864eae91e86f",
-                "shasum": ""
-            },
-            "require": {
-                "ikkez/f3-schema-builder": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "A multi-engine ORM / ODM for the PHP Fat-Free Framework",
-            "homepage": "https://github.com/ikkez/f3-cortex",
-            "keywords": [
-                "F3",
-                "fatfree",
-                "mongo",
-                "orm",
-                "sql"
-            ],
-            "time": "2020-07-21T13:13:10+00:00"
-        },
-        {
-            "name": "ikkez/f3-schema-builder",
-            "version": "v2.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ikkez/f3-schema-builder.git",
-                "reference": "89281f27056dc41adb6fba3f9d6eaf5dc6f81739"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ikkez/f3-schema-builder/zipball/89281f27056dc41adb6fba3f9d6eaf5dc6f81739",
-                "reference": "89281f27056dc41adb6fba3f9d6eaf5dc6f81739",
-                "shasum": ""
-            },
-            "require": {
-                "bcosca/fatfree-core": "^3.6"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "SQL Schema Builder Plugin for PHP Fat-Free Framework",
-            "homepage": "https://github.com/ikkez/f3-schema-builder",
-            "keywords": [
-                "F3",
-                "fatfree",
-                "sql"
-            ],
-            "time": "2019-11-25T17:04:32+00:00"
-        },
-        {
-            "name": "league/oauth2-client",
-            "version": "2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/oauth2-client.git",
-                "reference": "d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb",
-                "reference": "d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.0 || ^7.0",
-                "paragonie/random_compat": "^1|^2|^9.99",
-                "php": "^5.6|^7.0"
-            },
-            "require-dev": {
-                "eloquent/liberator": "^2.0",
-                "eloquent/phony-phpunit": "^1.0|^3.0",
-                "jakub-onderka/php-parallel-lint": "^0.9.2",
-                "phpunit/phpunit": "^5.7|^6.0",
-                "squizlabs/php_codesniffer": "^2.3|^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\OAuth2\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Bilbie",
-                    "email": "hello@alexbilbie.com",
-                    "homepage": "http://www.alexbilbie.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Woody Gilk",
-                    "homepage": "https://github.com/shadowhand",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "OAuth 2.0 Client Library",
-            "keywords": [
-                "Authentication",
-                "SSO",
-                "authorization",
-                "identity",
-                "idp",
-                "oauth",
-                "oauth2",
-                "single sign on"
-            ],
-            "time": "2020-07-18T17:54:32+00:00"
-        },
-        {
-            "name": "paragonie/random_compat",
-            "version": "v9.99.99",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*|5.*",
-                "vimeo/psalm": "^1"
-            },
-            "suggest": {
-                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Paragon Initiative Enterprises",
-                    "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com"
-                }
-            ],
-            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
-            "keywords": [
-                "csprng",
-                "polyfill",
-                "pseudorandom",
-                "random"
-            ],
-            "time": "2018-07-02T15:55:56+00:00"
-        },
-        {
-            "name": "phpmailer/phpmailer",
-            "version": "v6.1.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "917ab212fa00dc6eacbb26e8bc387ebe40993bc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/917ab212fa00dc6eacbb26e8bc387ebe40993bc1",
-                "reference": "917ab212fa00dc6eacbb26e8bc387ebe40993bc1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ctype": "*",
-                "ext-filter": "*",
-                "ext-hash": "*",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "doctrine/annotations": "^1.2",
-                "friendsofphp/php-cs-fixer": "^2.2",
-                "phpunit/phpunit": "^4.8 || ^5.7"
-            },
-            "suggest": {
-                "ext-mbstring": "Needed to send email in multibyte encoding charset",
-                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
-                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
-                "psr/log": "For optional PSR-3 debug logging",
-                "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
-                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PHPMailer\\PHPMailer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1-only"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Bointon",
-                    "email": "phpmailer@synchromedia.co.uk"
-                },
-                {
-                    "name": "Jim Jagielski",
-                    "email": "jimjag@gmail.com"
-                },
-                {
-                    "name": "Andy Prevost",
-                    "email": "codeworxtech@users.sourceforge.net"
-                },
-                {
-                    "name": "Brent R. Matzelle"
-                }
-            ],
-            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "funding": [
-                {
-                    "url": "https://github.com/synchro",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-10-09T14:55:58+00:00"
-        },
-        {
-            "name": "psr/http-client",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-client.git",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0 || ^8.0",
-                "psr/http-message": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP clients",
-            "homepage": "https://github.com/php-fig/http-client",
-            "keywords": [
-                "http",
-                "http-client",
-                "psr",
-                "psr-18"
-            ],
-            "time": "2020-06-29T06:28:15+00:00"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06T14:39:51+00:00"
-        },
-        {
-            "name": "ralouphie/getallheaders",
-            "version": "3.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ralouphie/getallheaders.git",
-                "reference": "120b605dfeb996808c31b6477290a714d356e822"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
-                "reference": "120b605dfeb996808c31b6477290a714d356e822",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^5 || ^6.5"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/getallheaders.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ralph Khattar",
-                    "email": "ralph.khattar@gmail.com"
-                }
-            ],
-            "description": "A polyfill for getallheaders.",
-            "time": "2019-03-08T08:55:37+00:00"
-        },
-        {
-            "name": "stevenmaguire/oauth2-microsoft",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stevenmaguire/oauth2-microsoft.git",
-                "reference": "f24f79d8c47224d24a1240270ca3b0a4c1521ed4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stevenmaguire/oauth2-microsoft/zipball/f24f79d8c47224d24a1240270ca3b0a4c1521ed4",
-                "reference": "f24f79d8c47224d24a1240270ca3b0a4c1521ed4",
-                "shasum": ""
-            },
-            "require": {
-                "league/oauth2-client": "^2.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stevenmaguire\\OAuth2\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Steven Maguire",
-                    "email": "stevenmaguire@gmail.com",
-                    "homepage": "https://github.com/stevenmaguire"
-                }
-            ],
-            "description": "Microsoft OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
-            "keywords": [
-                "authorisation",
-                "authorization",
-                "client",
-                "microsoft",
-                "oauth",
-                "oauth2"
-            ],
-            "time": "2017-06-07T13:42:47+00:00"
-        }
-    ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {
-        "geofmureithi/f3-validate": 20,
-        "ikkez/f3-assets": 20
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "4f1cea9e65d3c0c62efe8ae3051ec6d6",
+  "packages": [
+    {
+      "name": "bcosca/fatfree",
+      "version": "3.7.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/bcosca/fatfree.git",
+        "reference": "62f40d88994b99a51cfba5556931e80e1bb64a8c"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/bcosca/fatfree/zipball/62f40d88994b99a51cfba5556931e80e1bb64a8c",
+        "reference": "62f40d88994b99a51cfba5556931e80e1bb64a8c",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.4"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "lib/base.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "GPL-3.0"
+      ],
+      "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
+      "homepage": "http://fatfreeframework.com/",
+      "time": "2020-12-13T12:52:53+00:00"
     },
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    {
+      "name": "bcosca/fatfree-core",
+      "version": "3.7.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/bcosca/fatfree-core.git",
+        "reference": "3e23ae05384b2f830e99c5888b94118819ed948b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/bcosca/fatfree-core/zipball/3e23ae05384b2f830e99c5888b94118819ed948b",
+        "reference": "3e23ae05384b2f830e99c5888b94118819ed948b",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.4"
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "."
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "GPL-3.0"
+      ],
+      "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
+      "homepage": "http://fatfreeframework.com/",
+      "time": "2020-12-13T12:49:39+00:00"
+    },
+    {
+      "name": "geofmureithi/f3-validate",
+      "version": "dev-master",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/geofmureithi/f3-validate.git",
+        "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/geofmureithi/f3-validate/zipball/ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
+        "reference": "ae526a8c7f276400e5ea1a50e34eea95c0d4105f",
+        "shasum": ""
+      },
+      "require": {
+        "bcosca/fatfree": "^3.5"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^7.3"
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "lib/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Geof Mureithi",
+          "email": "mureithinjuguna@gmail.com"
+        }
+      ],
+      "description": "A validation lib for Fat Free Framework",
+      "time": "2019-07-18T22:53:37+00:00"
+    },
+    {
+      "name": "guzzlehttp/guzzle",
+      "version": "7.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/guzzle/guzzle.git",
+        "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0aa74dfb41ae110835923ef10a9d803a22d50e79",
+        "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79",
+        "shasum": ""
+      },
+      "require": {
+        "ext-json": "*",
+        "guzzlehttp/promises": "^1.4",
+        "guzzlehttp/psr7": "^1.7",
+        "php": "^7.2.5 || ^8.0",
+        "psr/http-client": "^1.0"
+      },
+      "provide": {
+        "psr/http-client-implementation": "1.0"
+      },
+      "require-dev": {
+        "ext-curl": "*",
+        "php-http/client-integration-tests": "^3.0",
+        "phpunit/phpunit": "^8.5.5 || ^9.3.5",
+        "psr/log": "^1.1"
+      },
+      "suggest": {
+        "ext-curl": "Required for CURL handler support",
+        "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+        "psr/log": "Required for using the Log middleware"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "7.1-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "GuzzleHttp\\": "src/"
+        },
+        "files": [
+          "src/functions_include.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Michael Dowling",
+          "email": "mtdowling@gmail.com",
+          "homepage": "https://github.com/mtdowling"
+        },
+        {
+          "name": "Márk Sági-Kazár",
+          "email": "mark.sagikazar@gmail.com",
+          "homepage": "https://sagikazarmark.hu"
+        }
+      ],
+      "description": "Guzzle is a PHP HTTP client library",
+      "homepage": "http://guzzlephp.org/",
+      "keywords": [
+        "client",
+        "curl",
+        "framework",
+        "http",
+        "http client",
+        "psr-18",
+        "psr-7",
+        "rest",
+        "web service"
+      ],
+      "funding": [
+        {
+          "url": "https://github.com/GrahamCampbell",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/Nyholm",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/alexeyshockov",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/gmponos",
+          "type": "github"
+        }
+      ],
+      "time": "2020-10-10T11:47:56+00:00"
+    },
+    {
+      "name": "guzzlehttp/promises",
+      "version": "1.4.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/guzzle/promises.git",
+        "reference": "60d379c243457e073cff02bc323a2a86cb355631"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
+        "reference": "60d379c243457e073cff02bc323a2a86cb355631",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.5"
+      },
+      "require-dev": {
+        "symfony/phpunit-bridge": "^4.4 || ^5.1"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.4-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "GuzzleHttp\\Promise\\": "src/"
+        },
+        "files": [
+          "src/functions_include.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Michael Dowling",
+          "email": "mtdowling@gmail.com",
+          "homepage": "https://github.com/mtdowling"
+        }
+      ],
+      "description": "Guzzle promises library",
+      "keywords": [
+        "promise"
+      ],
+      "time": "2020-09-30T07:37:28+00:00"
+    },
+    {
+      "name": "guzzlehttp/psr7",
+      "version": "1.7.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/guzzle/psr7.git",
+        "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
+        "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.4.0",
+        "psr/http-message": "~1.0",
+        "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+      },
+      "provide": {
+        "psr/http-message-implementation": "1.0"
+      },
+      "require-dev": {
+        "ext-zlib": "*",
+        "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
+      },
+      "suggest": {
+        "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.7-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "GuzzleHttp\\Psr7\\": "src/"
+        },
+        "files": [
+          "src/functions_include.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Michael Dowling",
+          "email": "mtdowling@gmail.com",
+          "homepage": "https://github.com/mtdowling"
+        },
+        {
+          "name": "Tobias Schultze",
+          "homepage": "https://github.com/Tobion"
+        }
+      ],
+      "description": "PSR-7 message implementation that also provides common utility methods",
+      "keywords": [
+        "http",
+        "message",
+        "psr-7",
+        "request",
+        "response",
+        "stream",
+        "uri",
+        "url"
+      ],
+      "time": "2020-09-30T07:37:11+00:00"
+    },
+    {
+      "name": "ikkez/f3-assets",
+      "version": "dev-master",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ikkez/f3-assets.git",
+        "reference": "63719d63a4f288f3b77cbb09444edf9b3ea6d385"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ikkez/f3-assets/zipball/63719d63a4f288f3b77cbb09444edf9b3ea6d385",
+        "reference": "63719d63a4f288f3b77cbb09444edf9b3ea6d385",
+        "shasum": ""
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "lib/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "GPL-3.0"
+      ],
+      "description": "CSS/JS Assets Plugin for PHP Fat-Free Framework",
+      "homepage": "https://github.com/ikkez/f3-assets",
+      "keywords": [
+        "F3",
+        "JS",
+        "css",
+        "fatfree",
+        "minify"
+      ],
+      "time": "2020-11-30T00:50:46+00:00"
+    },
+    {
+      "name": "ikkez/f3-cortex",
+      "version": "v1.7.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ikkez/f3-cortex.git",
+        "reference": "22b7fb87ff4a406e9a6de7fee8ab4de7f580ded2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ikkez/f3-cortex/zipball/22b7fb87ff4a406e9a6de7fee8ab4de7f580ded2",
+        "reference": "22b7fb87ff4a406e9a6de7fee8ab4de7f580ded2",
+        "shasum": ""
+      },
+      "require": {
+        "ikkez/f3-schema-builder": "2.*"
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "lib/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "GPL-3.0"
+      ],
+      "description": "A multi-engine ORM / ODM for the PHP Fat-Free Framework",
+      "homepage": "https://github.com/ikkez/f3-cortex",
+      "keywords": [
+        "F3",
+        "fatfree",
+        "mongo",
+        "orm",
+        "sql"
+      ],
+      "time": "2020-12-06T22:08:57+00:00"
+    },
+    {
+      "name": "ikkez/f3-schema-builder",
+      "version": "v2.2.4",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ikkez/f3-schema-builder.git",
+        "reference": "89281f27056dc41adb6fba3f9d6eaf5dc6f81739"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ikkez/f3-schema-builder/zipball/89281f27056dc41adb6fba3f9d6eaf5dc6f81739",
+        "reference": "89281f27056dc41adb6fba3f9d6eaf5dc6f81739",
+        "shasum": ""
+      },
+      "require": {
+        "bcosca/fatfree-core": "^3.6"
+      },
+      "type": "library",
+      "autoload": {
+        "classmap": [
+          "lib/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "GPL-3.0"
+      ],
+      "description": "SQL Schema Builder Plugin for PHP Fat-Free Framework",
+      "homepage": "https://github.com/ikkez/f3-schema-builder",
+      "keywords": [
+        "F3",
+        "fatfree",
+        "sql"
+      ],
+      "time": "2019-11-25T17:04:32+00:00"
+    },
+    {
+      "name": "league/oauth2-client",
+      "version": "2.6.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/thephpleague/oauth2-client.git",
+        "reference": "badb01e62383430706433191b82506b6df24ad98"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/badb01e62383430706433191b82506b6df24ad98",
+        "reference": "badb01e62383430706433191b82506b6df24ad98",
+        "shasum": ""
+      },
+      "require": {
+        "guzzlehttp/guzzle": "^6.0 || ^7.0",
+        "paragonie/random_compat": "^1 || ^2 || ^9.99",
+        "php": "^5.6 || ^7.0 || ^8.0"
+      },
+      "require-dev": {
+        "mockery/mockery": "^1.3",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpunit/phpunit": "^5.7 || ^6.0 || ^9.3",
+        "squizlabs/php_codesniffer": "^2.3 || ^3.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-2.x": "2.0.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "League\\OAuth2\\Client\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Alex Bilbie",
+          "email": "hello@alexbilbie.com",
+          "homepage": "http://www.alexbilbie.com",
+          "role": "Developer"
+        },
+        {
+          "name": "Woody Gilk",
+          "homepage": "https://github.com/shadowhand",
+          "role": "Contributor"
+        }
+      ],
+      "description": "OAuth 2.0 Client Library",
+      "keywords": [
+        "Authentication",
+        "SSO",
+        "authorization",
+        "identity",
+        "idp",
+        "oauth",
+        "oauth2",
+        "single sign on"
+      ],
+      "time": "2020-10-28T02:03:40+00:00"
+    },
+    {
+      "name": "paragonie/random_compat",
+      "version": "v9.99.100",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/paragonie/random_compat.git",
+        "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+        "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">= 7"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "4.*|5.*",
+        "vimeo/psalm": "^1"
+      },
+      "suggest": {
+        "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+      },
+      "type": "library",
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Paragon Initiative Enterprises",
+          "email": "security@paragonie.com",
+          "homepage": "https://paragonie.com"
+        }
+      ],
+      "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+      "keywords": [
+        "csprng",
+        "polyfill",
+        "pseudorandom",
+        "random"
+      ],
+      "time": "2020-10-15T08:29:30+00:00"
+    },
+    {
+      "name": "phpmailer/phpmailer",
+      "version": "v6.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/PHPMailer/PHPMailer.git",
+        "reference": "e38888a75c070304ca5514197d4847a59a5c853f"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/e38888a75c070304ca5514197d4847a59a5c853f",
+        "reference": "e38888a75c070304ca5514197d4847a59a5c853f",
+        "shasum": ""
+      },
+      "require": {
+        "ext-ctype": "*",
+        "ext-filter": "*",
+        "ext-hash": "*",
+        "php": ">=5.5.0"
+      },
+      "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "doctrine/annotations": "^1.2",
+        "phpcompatibility/php-compatibility": "^9.3.5",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.5.6",
+        "yoast/phpunit-polyfills": "^0.2.0"
+      },
+      "suggest": {
+        "ext-mbstring": "Needed to send email in multibyte encoding charset",
+        "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+        "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+        "psr/log": "For optional PSR-3 debug logging",
+        "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
+        "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "PHPMailer\\PHPMailer\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "LGPL-2.1-only"
+      ],
+      "authors": [
+        {
+          "name": "Marcus Bointon",
+          "email": "phpmailer@synchromedia.co.uk"
+        },
+        {
+          "name": "Jim Jagielski",
+          "email": "jimjag@gmail.com"
+        },
+        {
+          "name": "Andy Prevost",
+          "email": "codeworxtech@users.sourceforge.net"
+        },
+        {
+          "name": "Brent R. Matzelle"
+        }
+      ],
+      "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+      "funding": [
+        {
+          "url": "https://github.com/Synchro",
+          "type": "github"
+        }
+      ],
+      "time": "2020-11-25T15:24:57+00:00"
+    },
+    {
+      "name": "psr/http-client",
+      "version": "1.0.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/http-client.git",
+        "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+        "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.0 || ^8.0",
+        "psr/http-message": "^1.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.0.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Psr\\Http\\Client\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "http://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interface for HTTP clients",
+      "homepage": "https://github.com/php-fig/http-client",
+      "keywords": [
+        "http",
+        "http-client",
+        "psr",
+        "psr-18"
+      ],
+      "time": "2020-06-29T06:28:15+00:00"
+    },
+    {
+      "name": "psr/http-message",
+      "version": "1.0.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/http-message.git",
+        "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+        "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.3.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.0.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Psr\\Http\\Message\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "http://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interface for HTTP messages",
+      "homepage": "https://github.com/php-fig/http-message",
+      "keywords": [
+        "http",
+        "http-message",
+        "psr",
+        "psr-7",
+        "request",
+        "response"
+      ],
+      "time": "2016-08-06T14:39:51+00:00"
+    },
+    {
+      "name": "ralouphie/getallheaders",
+      "version": "3.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ralouphie/getallheaders.git",
+        "reference": "120b605dfeb996808c31b6477290a714d356e822"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+        "reference": "120b605dfeb996808c31b6477290a714d356e822",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.6"
+      },
+      "require-dev": {
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpunit/phpunit": "^5 || ^6.5"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "src/getallheaders.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Ralph Khattar",
+          "email": "ralph.khattar@gmail.com"
+        }
+      ],
+      "description": "A polyfill for getallheaders.",
+      "time": "2019-03-08T08:55:37+00:00"
+    },
+    {
+      "name": "stevenmaguire/oauth2-microsoft",
+      "version": "2.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/stevenmaguire/oauth2-microsoft.git",
+        "reference": "f24f79d8c47224d24a1240270ca3b0a4c1521ed4"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/stevenmaguire/oauth2-microsoft/zipball/f24f79d8c47224d24a1240270ca3b0a4c1521ed4",
+        "reference": "f24f79d8c47224d24a1240270ca3b0a4c1521ed4",
+        "shasum": ""
+      },
+      "require": {
+        "league/oauth2-client": "^2.0"
+      },
+      "require-dev": {
+        "mockery/mockery": "~0.9",
+        "phpunit/phpunit": "~4.0",
+        "squizlabs/php_codesniffer": "~2.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Stevenmaguire\\OAuth2\\Client\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Steven Maguire",
+          "email": "stevenmaguire@gmail.com",
+          "homepage": "https://github.com/stevenmaguire"
+        }
+      ],
+      "description": "Microsoft OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+      "keywords": [
+        "authorisation",
+        "authorization",
+        "client",
+        "microsoft",
+        "oauth",
+        "oauth2"
+      ],
+      "time": "2017-06-07T13:42:47+00:00"
+    }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": {
+    "geofmureithi/f3-validate": 20,
+    "ikkez/f3-assets": 20
+  },
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": [],
+  "plugin-api-version": "1.1.0"
 }

@@ -1,9 +1,9 @@
 <?php
 
-class Sim extends DB\SQL\Mapper{
+class Sim extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'sim';
+		$this->table='sim';
 		parent::__construct($db,$this->table);
 	}
 
@@ -50,7 +50,7 @@ class Sim extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

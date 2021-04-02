@@ -31,21 +31,21 @@ class Audit extends Prefab {
 	//@}
 
 	/**
-	*	Return TRUE if string is a valid URL
-	*	@return bool
-	*	@param $str string
-	**/
+	 *    Return TRUE if string is a valid URL
+	 * @param $str string
+	 **@return bool
+	 */
 	function url($str) {
 		return is_string(filter_var($str,FILTER_VALIDATE_URL));
 	}
 
 	/**
-	*	Return TRUE if string is a valid e-mail address;
-	*	Check DNS MX records if specified
-	*	@return bool
-	*	@param $str string
-	*	@param $mx boolean
-	**/
+	 *    Return TRUE if string is a valid e-mail address;
+	 *    Check DNS MX records if specified
+	 * @param $str string
+	 * @param $mx boolean
+	 **@return bool
+	 */
 	function email($str,$mx=TRUE) {
 		$hosts=[];
 		return is_string(filter_var($str,FILTER_VALIDATE_EMAIL)) &&
@@ -53,48 +53,48 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return TRUE if string is a valid IPV4 address
-	*	@return bool
-	*	@param $addr string
-	**/
+	 *    Return TRUE if string is a valid IPV4 address
+	 * @param $addr string
+	 **@return bool
+	 */
 	function ipv4($addr) {
 		return (bool)filter_var($addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4);
 	}
 
 	/**
-	*	Return TRUE if string is a valid IPV6 address
-	*	@return bool
-	*	@param $addr string
-	**/
+	 *    Return TRUE if string is a valid IPV6 address
+	 * @param $addr string
+	 **@return bool
+	 */
 	function ipv6($addr) {
 		return (bool)filter_var($addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV6);
 	}
 
 	/**
-	*	Return TRUE if IP address is within private range
-	*	@return bool
-	*	@param $addr string
-	**/
+	 *    Return TRUE if IP address is within private range
+	 * @param $addr string
+	 **@return bool
+	 */
 	function isprivate($addr) {
 		return !(bool)filter_var($addr,FILTER_VALIDATE_IP,
 			FILTER_FLAG_IPV4|FILTER_FLAG_IPV6|FILTER_FLAG_NO_PRIV_RANGE);
 	}
 
 	/**
-	*	Return TRUE if IP address is within reserved range
-	*	@return bool
-	*	@param $addr string
-	**/
+	 *    Return TRUE if IP address is within reserved range
+	 * @param $addr string
+	 **@return bool
+	 */
 	function isreserved($addr) {
 		return !(bool)filter_var($addr,FILTER_VALIDATE_IP,
 			FILTER_FLAG_IPV4|FILTER_FLAG_IPV6|FILTER_FLAG_NO_RES_RANGE);
 	}
 
 	/**
-	*	Return TRUE if IP address is neither private nor reserved
-	*	@return bool
-	*	@param $addr string
-	**/
+	 *    Return TRUE if IP address is neither private nor reserved
+	 * @param $addr string
+	 **@return bool
+	 */
 	function ispublic($addr) {
 		return (bool)filter_var($addr,FILTER_VALIDATE_IP,
 			FILTER_FLAG_IPV4|FILTER_FLAG_IPV6|
@@ -102,10 +102,10 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return TRUE if user agent is a desktop browser
-	*	@return bool
-	*	@param $agent string
-	**/
+	 *    Return TRUE if user agent is a desktop browser
+	 * @param $agent string
+	 **@return bool
+	 */
 	function isdesktop($agent=NULL) {
 		if (!isset($agent))
 			$agent=Base::instance()->AGENT;
@@ -114,10 +114,10 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return TRUE if user agent is a mobile device
-	*	@return bool
-	*	@param $agent string
-	**/
+	 *    Return TRUE if user agent is a mobile device
+	 * @param $agent string
+	 **@return bool
+	 */
 	function ismobile($agent=NULL) {
 		if (!isset($agent))
 			$agent=Base::instance()->AGENT;
@@ -125,10 +125,10 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return TRUE if user agent is a Web bot
-	*	@return bool
-	*	@param $agent string
-	**/
+	 *    Return TRUE if user agent is a Web bot
+	 * @param $agent string
+	 **@return bool
+	 */
 	function isbot($agent=NULL) {
 		if (!isset($agent))
 			$agent=Base::instance()->AGENT;
@@ -136,25 +136,25 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return TRUE if specified ID has a valid (Luhn) Mod-10 check digit
-	*	@return bool
-	*	@param $id string
-	**/
+	 *    Return TRUE if specified ID has a valid (Luhn) Mod-10 check digit
+	 * @param $id string
+	 **@return bool
+	 */
 	function mod10($id) {
 		if (!ctype_digit($id))
 			return FALSE;
 		$id=strrev($id);
 		$sum=0;
-		for ($i=0,$l=strlen($id);$i<$l;$i++)
+		for ($i=0,$l=strlen($id);$i<$l;++$i)
 			$sum+=$id[$i]+$i%2*(($id[$i]>4)*-4+$id[$i]%5);
 		return !($sum%10);
 	}
 
 	/**
-	*	Return credit card type if number is valid
-	*	@return string|FALSE
-	*	@param $id string
-	**/
+	 *    Return credit card type if number is valid
+	 * @param $id string
+	 **@return string|FALSE
+	 */
 	function card($id) {
 		$id=preg_replace('/[^\d]/','',$id);
 		if ($this->mod10($id)) {
@@ -176,10 +176,10 @@ class Audit extends Prefab {
 	}
 
 	/**
-	*	Return entropy estimate of a password (NIST 800-63)
-	*	@return int|float
-	*	@param $str string
-	**/
+	 *    Return entropy estimate of a password (NIST 800-63)
+	 * @param $str string
+	 **@return int|float
+	 */
 	function entropy($str) {
 		$len=strlen($str);
 		return 4*min($len,1)+($len>1?(2*(min($len,8)-1)):0)+

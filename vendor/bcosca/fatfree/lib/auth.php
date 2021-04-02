@@ -40,98 +40,102 @@ class Auth {
 		$func;
 
 	/**
-	*	Jig storage handler
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	*	@param $realm string
-	**/
+	 *    Jig storage handler
+	 * @param $id string
+	 * @param $pw string
+	 * @param $realm string
+	 **@return bool
+	 */
 	protected function _jig($id,$pw,$realm) {
-		$success = (bool)
-			call_user_func_array(
-				[$this->mapper,'load'],
-				[
-					array_merge(
-						[
-							'@'.$this->args['id'].'==?'.
-							($this->func?'':' AND @'.$this->args['pw'].'==?').
-							(isset($this->args['realm'])?
-								(' AND @'.$this->args['realm'].'==?'):''),
-							$id
-						],
-						($this->func?[]:[$pw]),
-						(isset($this->args['realm'])?[$realm]:[])
-					)
-				]
-			);
+		$success=(bool)
+		call_user_func_array(
+			[$this->mapper,'load'],
+			[
+				array_merge(
+					[
+						'@'.$this->args['id'].'==?'.
+						($this->func?'':' AND @'.$this->args['pw'].'==?').
+						(isset($this->args['realm'])?
+							(' AND @'.$this->args['realm'].'==?'):''),
+						$id
+					],
+					($this->func?[]:[$pw]),
+					(isset($this->args['realm'])?[$realm]:[])
+				)
+			]
+		);
 		if ($success && $this->func)
-			$success = call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
+			$success=
+				call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
 		return $success;
 	}
 
 	/**
-	*	MongoDB storage handler
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	*	@param $realm string
-	**/
+	 *    MongoDB storage handler
+	 * @param $id string
+	 * @param $pw string
+	 * @param $realm string
+	 **@return bool
+	 */
 	protected function _mongo($id,$pw,$realm) {
-		$success = (bool)
-			$this->mapper->load(
-				[$this->args['id']=>$id]+
-				($this->func?[]:[$this->args['pw']=>$pw])+
-				(isset($this->args['realm'])?
-					[$this->args['realm']=>$realm]:[])
-			);
+		$success=(bool)
+		$this->mapper->load(
+			[$this->args['id']=>$id]+
+			($this->func?[]:[$this->args['pw']=>$pw])+
+			(isset($this->args['realm'])?
+				[$this->args['realm']=>$realm]:[])
+		);
 		if ($success && $this->func)
-			$success = call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
+			$success=
+				call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
 		return $success;
 	}
 
 	/**
-	*	SQL storage handler
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	*	@param $realm string
-	**/
+	 *    SQL storage handler
+	 * @param $id string
+	 * @param $pw string
+	 * @param $realm string
+	 **@return bool
+	 */
 	protected function _sql($id,$pw,$realm) {
-		$success = (bool)
-			call_user_func_array(
-				[$this->mapper,'load'],
-				[
-					array_merge(
-						[
-							$this->args['id'].'=?'.
-							($this->func?'':' AND '.$this->args['pw'].'=?').
-							(isset($this->args['realm'])?
-								(' AND '.$this->args['realm'].'=?'):''),
-							$id
-						],
-						($this->func?[]:[$pw]),
-						(isset($this->args['realm'])?[$realm]:[])
-					)
-				]
-			);
+		$success=(bool)
+		call_user_func_array(
+			[$this->mapper,'load'],
+			[
+				array_merge(
+					[
+						$this->args['id'].'=?'.
+						($this->func?'':' AND '.$this->args['pw'].'=?').
+						(isset($this->args['realm'])?
+							(' AND '.$this->args['realm'].'=?'):''),
+						$id
+					],
+					($this->func?[]:[$pw]),
+					(isset($this->args['realm'])?[$realm]:[])
+				)
+			]
+		);
 		if ($success && $this->func)
-			$success = call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
+			$success=
+				call_user_func($this->func,$pw,$this->mapper->get($this->args['pw']));
 		return $success;
 	}
 
 	/**
-	*	LDAP storage handler
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	**/
+	 *    LDAP storage handler
+	 * @param $id string
+	 * @param $pw string
+	 **@return bool
+	 */
 	protected function _ldap($id,$pw) {
 		$port=(int)($this->args['port']?:389);
 		$filter=$this->args['filter']=$this->args['filter']?:"uid=".$id;
 		$this->args['attr']=$this->args['attr']?:["uid"];
 		array_walk($this->args['attr'],
-		function($attr)use(&$filter,$id) {
-			$filter=str_ireplace($attr."=*",$attr."=".$id,$filter);});
+			function($attr) use (&$filter,$id) {
+				$filter=str_ireplace($attr."=*",$attr."=".$id,$filter);
+			});
 		$dc=@ldap_connect($this->args['dc'],$port);
 		if ($dc &&
 			ldap_set_option($dc,LDAP_OPT_PROTOCOL_VERSION,3) &&
@@ -144,7 +148,9 @@ class Auth {
 			$info['count']==1 &&
 			@ldap_bind($dc,$info[0]['dn'],$pw) &&
 			@ldap_close($dc)) {
-			return in_array($id,(array_map(function($value){return $value[0];},
+			return in_array($id,(array_map(function($value) {
+				return $value[0];
+			},
 				array_intersect_key($info[0],
 					array_flip($this->args['attr'])))),TRUE);
 		}
@@ -152,17 +158,17 @@ class Auth {
 	}
 
 	/**
-	*	SMTP storage handler
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	**/
+	 *    SMTP storage handler
+	 * @param $id string
+	 * @param $pw string
+	 **@return bool
+	 */
 	protected function _smtp($id,$pw) {
 		$socket=@fsockopen(
 			(strtolower($this->args['scheme'])=='ssl'?
 				'ssl://':'').$this->args['host'],
-				$this->args['port']);
-		$dialog=function($cmd=NULL) use($socket) {
+			$this->args['port']);
+		$dialog=function($cmd=NULL) use ($socket) {
 			if (!is_null($cmd))
 				fputs($socket,$cmd."\r\n");
 			$reply='';
@@ -199,21 +205,21 @@ class Auth {
 	}
 
 	/**
-	*	Login auth mechanism
-	*	@return bool
-	*	@param $id string
-	*	@param $pw string
-	*	@param $realm string
-	**/
+	 *    Login auth mechanism
+	 * @param $id string
+	 * @param $pw string
+	 * @param $realm string
+	 **@return bool
+	 */
 	function login($id,$pw,$realm=NULL) {
 		return $this->{'_'.$this->storage}($id,$pw,$realm);
 	}
 
 	/**
-	*	HTTP basic auth mechanism
-	*	@return bool
-	*	@param $func callback
-	**/
+	 *    HTTP basic auth mechanism
+	 * @param $func callback
+	 **@return bool
+	 */
 	function basic($func=NULL) {
 		$fw=Base::instance();
 		$realm=$fw->REALM;
@@ -241,19 +247,18 @@ class Auth {
 	}
 
 	/**
-	*	Instantiate class
-	*	@return object
-	*	@param $storage string|object
-	*	@param $args array
-	*	@param $func callback
-	**/
+	 *    Instantiate class
+	 * @param $storage string|object
+	 * @param $args array
+	 * @param $func callback
+	 **@return object
+	 */
 	function __construct($storage,array $args=NULL,$func=NULL) {
 		if (is_object($storage) && is_a($storage,'DB\Cursor')) {
 			$this->storage=$storage->dbtype();
 			$this->mapper=$storage;
 			unset($ref);
-		}
-		else
+		} else
 			$this->storage=$storage;
 		$this->args=$args;
 		$this->func=$func;

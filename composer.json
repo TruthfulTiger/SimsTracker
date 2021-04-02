@@ -15,6 +15,7 @@
     "phpmailer/phpmailer": "^6.1",
     "stevenmaguire/oauth2-microsoft": "^2.2",
     "ikkez/f3-cortex": "1.*",
-    "ikkez/f3-assets": "dev-master"
+    "ikkez/f3-assets": "dev-master",
+    "": ""
   }
 }

@@ -37,29 +37,29 @@ class Basket extends Magic {
 		$item=[];
 
 	/**
-	*	Return TRUE if field is defined
-	*	@return bool
-	*	@param $key string
-	**/
+	 *    Return TRUE if field is defined
+	 * @param $key string
+	 **@return bool
+	 */
 	function exists($key) {
 		return array_key_exists($key,$this->item);
 	}
 
 	/**
-	*	Assign value to field
-	*	@return scalar|FALSE
-	*	@param $key string
-	*	@param $val scalar
-	**/
+	 *    Assign value to field
+	 * @param $key string
+	 * @param $val scalar
+	 **@return scalar|FALSE
+	 */
 	function set($key,$val) {
 		return ($key=='_id')?FALSE:($this->item[$key]=$val);
 	}
 
 	/**
-	*	Retrieve value of field
-	*	@return scalar|FALSE
-	*	@param $key string
-	**/
+	 *    Retrieve value of field
+	 * @param $key string
+	 **@return scalar|FALSE
+	 */
 	function &get($key) {
 		if ($key=='_id')
 			return $this->id;
@@ -70,21 +70,21 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Delete field
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Delete field
+	 * @param $key string
+	 **@return NULL
+	 */
 	function clear($key) {
 		unset($this->item[$key]);
 	}
 
 	/**
-	*	Return items that match key/value pair;
-	*	If no key/value pair specified, return all items
-	*	@return array
-	*	@param $key string
-	*	@param $val mixed
-	**/
+	 *    Return items that match key/value pair;
+	 *    If no key/value pair specified, return all items
+	 * @param $key string
+	 * @param $val mixed
+	 **@return array
+	 */
 	function find($key=NULL,$val=NULL) {
 		$out=[];
 		if (isset($_SESSION[$this->key])) {
@@ -102,21 +102,21 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Return first item that matches key/value pair
-	*	@return object|FALSE
-	*	@param $key string
-	*	@param $val mixed
-	**/
+	 *    Return first item that matches key/value pair
+	 * @param $key string
+	 * @param $val mixed
+	 **@return object|FALSE
+	 */
 	function findone($key,$val) {
 		return ($data=$this->find($key,$val))?$data[0]:FALSE;
 	}
 
 	/**
-	*	Map current item to matching key/value pair
-	*	@return array
-	*	@param $key string
-	*	@param $val mixed
-	**/
+	 *    Map current item to matching key/value pair
+	 * @param $key string
+	 * @param $val mixed
+	 **@return array
+	 */
 	function load($key,$val) {
 		if ($found=$this->find($key,$val)) {
 			$this->id=$found[0]->id;
@@ -127,25 +127,25 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Return TRUE if current item is empty/undefined
-	*	@return bool
-	**/
+	 *    Return TRUE if current item is empty/undefined
+	 * @return bool
+	 **/
 	function dry() {
 		return !$this->item;
 	}
 
 	/**
-	*	Return number of items in basket
-	*	@return int
-	**/
+	 *    Return number of items in basket
+	 * @return int
+	 **/
 	function count() {
 		return isset($_SESSION[$this->key])?count($_SESSION[$this->key]):0;
 	}
 
 	/**
-	*	Save current item
-	*	@return array
-	**/
+	 *    Save current item
+	 * @return array
+	 **/
 	function save() {
 		if (!$this->id)
 			$this->id=uniqid(NULL,TRUE);
@@ -154,11 +154,11 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Erase item matching key/value pair
-	*	@return bool
-	*	@param $key string
-	*	@param $val mixed
-	**/
+	 *    Erase item matching key/value pair
+	 * @param $key string
+	 * @param $val mixed
+	 **@return bool
+	 */
 	function erase($key,$val) {
 		$found=$this->find($key,$val);
 		if ($found && $id=$found[0]->id) {
@@ -171,27 +171,27 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Reset cursor
-	*	@return NULL
-	**/
+	 *    Reset cursor
+	 * @return NULL
+	 **/
 	function reset() {
 		$this->id=NULL;
 		$this->item=[];
 	}
 
 	/**
-	*	Empty basket
-	*	@return NULL
-	**/
+	 *    Empty basket
+	 * @return NULL
+	 **/
 	function drop() {
 		unset($_SESSION[$this->key]);
 	}
 
 	/**
-	*	Hydrate item using hive array variable
-	*	@return NULL
-	*	@param $var array|string
-	**/
+	 *    Hydrate item using hive array variable
+	 * @param $var array|string
+	 **@return NULL
+	 */
 	function copyfrom($var) {
 		if (is_string($var))
 			$var=\Base::instance()->$var;
@@ -200,10 +200,10 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Populate hive array variable with item contents
-	*	@return NULL
-	*	@param $key string
-	**/
+	 *    Populate hive array variable with item contents
+	 * @param $key string
+	 **@return NULL
+	 */
 	function copyto($key) {
 		$var=&\Base::instance()->ref($key);
 		foreach ($this->item as $key=>$field)
@@ -211,9 +211,9 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Check out basket contents
-	*	@return array
-	**/
+	 *    Check out basket contents
+	 * @return array
+	 **/
 	function checkout() {
 		if (isset($_SESSION[$this->key])) {
 			$out=$_SESSION[$this->key];
@@ -224,10 +224,10 @@ class Basket extends Magic {
 	}
 
 	/**
-	*	Instantiate class
-	*	@return void
-	*	@param $key string
-	**/
+	 *    Instantiate class
+	 * @param $key string
+	 **@return void
+	 */
 	function __construct($key='basket') {
 		$this->key=$key;
 		if (session_status()!=PHP_SESSION_ACTIVE)

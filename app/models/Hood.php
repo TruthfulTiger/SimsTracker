@@ -1,9 +1,9 @@
 <?php
 
-class Hood extends DB\SQL\Mapper{
+class Hood extends DB\SQL\Mapper {
 
 	public function __construct(DB\SQL $db) {
-		$this->table = 'hood';
+		$this->table='hood';
 		parent::__construct($db,$this->table);
 	}
 
@@ -45,7 +45,7 @@ class Hood extends DB\SQL\Mapper{
 	}
 
 	public function delete($id) {
-		$lastInsertID = $this->get('_id');
+		$lastInsertID=$this->get('_id');
 		$this->load(array('id=?',$id));
 		$this->erase();
 		$this->db->exec(

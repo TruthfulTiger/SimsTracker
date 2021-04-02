@@ -18,8 +18,8 @@
  *  https://github.com/ikkez/F3-Sugar/
  *
  *  @package DB
- *  @version 1.7.0
- *  @date 21.07.2020
+ *  @version 1.7.1
+ *  @date 06.12.2020
  *  @since 24.04.2012
  */
 
@@ -606,7 +606,7 @@ class Cortex extends Cursor {
 	 * @param array|null $filter
 	 * @param array|null $options
 	 * @param int        $ttl
-	 * @return CortexCollection|false
+	 * @return static[]|false
 	 */
 	public function find($filter = NULL, array $options = NULL, $ttl = 0) {
 		$sort=false;
@@ -801,7 +801,7 @@ class Cortex extends Cursor {
 			}
 			$this->hasCond = null;
 		}
-		$filter = $this->queryParser->prepareFilter($filter, $this->dbsType, $this->db, $this->fieldConf);
+		$filter = $this->queryParser->prepareFilter($filter, $this->dbsType, $this->db, $this->fieldConf, $this->primary);
 		if ($this->dbsType=='sql') {
 			$qtable = $this->db->quotekey($this->table);
 			if (isset($options['order']) && $this->db->driver() == 'pgsql')
@@ -921,9 +921,9 @@ class Cortex extends Cursor {
 	 * @param $sql
 	 * @param null $args
 	 * @param int $ttl
-	 * @return CortexCollection
+	 * @return static[]
 	 */
-	protected function findByRawSQL($query, $args=NULL, $ttl=0) {
+	public function findByRawSQL($query, $args=NULL, $ttl=0) {
 		$result = $this->db->exec($query, $args, $ttl);
 		$cx = new CortexCollection();
 		foreach($result as $row) {
@@ -1224,7 +1224,7 @@ class Cortex extends Cursor {
 	 * @return bool
 	 */
 	public function erase($filter = null) {
-		$filter = $this->queryParser->prepareFilter($filter, $this->dbsType, $this->db);
+		$filter = $this->queryParser->prepareFilter($filter, $this->dbsType, $this->db,null,$this->primary);
 		if (!$filter) {
 			if ($this->emit('beforeerase')===false)
 				return false;
@@ -1427,7 +1427,7 @@ class Cortex extends Cursor {
 								$filter,$options);
 						}
 						$filter = $this->queryParser->prepareFilter($filter,
-							$this->dbsType, $this->db, $this->fieldConf);
+							$this->dbsType, $this->db, $this->fieldConf, $this->primary);
 						$crit = array_shift($filter);
 						if (count($filter)>0)
 							$this->preBinds=array_merge($this->preBinds,$filter);
@@ -1452,7 +1452,7 @@ class Cortex extends Cursor {
 						$filter = $this->mergeWithRelFilter($key,[$crit]);
 						$filter[0] = $this->queryParser->sql_prependTableToFields($filter[0],$fAlias);
 						$filter = $this->queryParser->prepareFilter($filter,
-							$this->dbsType, $this->db, $this->fieldConf);
+							$this->dbsType, $this->db, $this->fieldConf, $this->primary);
 						$crit = array_shift($filter);
 						if (count($filter)>0)
 							$this->preBinds=array_merge($this->preBinds,$filter);
@@ -2258,6 +2258,7 @@ class Cortex extends Cursor {
 		if (is_array($mapper)) {
 			$mp = clone($this->mapper);
 			$mp->reset();
+			$mp->query=[$mp];
 			$cx = $this->factory($mp);
 			$cx->copyfrom($mapper);
 		} else {
@@ -2484,14 +2485,27 @@ class Cortex extends Cursor {
 	 * compare new data as an assoc array of [field => value] against the initial field values
 	 * callback functions for $new and $old values can be used to prepare new / cleanup old data
 	 * updated fields are set, $new callback must return a value
+	 * it's also possible to target children fields, i.e. [fieldA.fieldB[2].foo => value]
 	 * @param array $fields
 	 * @param callback $new
 	 * @param callback $old
 	 */
 	function compare($fields, $new, $old=NULL) {
 		foreach ($fields as $field=>$data) {
+			$partial=false;
+			$rootKey=false;
+			$parts = preg_split('/(\[.*?\]\.|\.)/', $field, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+			if (count($parts) > 1) {
+				$rootKey=array_shift($parts);
+				$partial=implode($parts);
+			}
 			if (!empty($data)) {
-				$init = $this->initial($field);
+				if ($partial) {
+					$init = $this->initial($rootKey);
+					$init = \Base::instance()->ref($partial,false,$init);
+				} else {
+					$init = $this->initial($field);
+				}
 				if (is_array($data)) {
 					// cleanup old values
 					if ($init && $old) {
@@ -2514,15 +2528,32 @@ class Cortex extends Cursor {
 					if ($new)
 						$data = call_user_func($new,$data);
 				}
-			} elseif ($old && ($old_values = $this->cleared($field))) {
-				// cleanup all
-				if (!is_array($old_values))
-					$old_values=[$old_values];
-				foreach ($old_values as $val)
-					call_user_func($old,$val);
+			} elseif ($old) {
+				if ($partial) {
+					$old_values = $this->initial($rootKey);
+					$field_value = \Base::instance()->ref($partial,false,$old_values);
+					$old_values = !empty($field_value) && empty($data) ? $field_value : null;
+				} else {
+					$old_values = $this->cleared($field);
+				}
+				if ($old_values) {
+					// cleanup all
+					if (!is_array($old_values))
+						$old_values=[$old_values];
+					foreach ($old_values as $val)
+						call_user_func($old,$val);
+				}
 			}
-			if ($data)
-				$this->set($field, $data);
+			if ($data) {
+				if ($partial) {
+					$rootFieldData = $this->get($rootKey);
+					$fieldData = &\Base::instance()->ref($partial,true,$rootFieldData);
+					$fieldData = $data;
+					$this->set($rootKey, $rootFieldData);
+				} else {
+					$this->set($field, $data);
+				}
+			}
 		}
 	}
 
@@ -2614,9 +2645,10 @@ class CortexQueryParser extends \Prefab {
 	 * @param string $engine
 	 * @param object $db
 	 * @param null $fieldConf
+	 * @param string $primary
 	 * @return array|bool|null
 	 */
-	public function prepareFilter($cond, $engine, $db, $fieldConf=null) {
+	public function prepareFilter($cond, $engine, $db, $fieldConf=null, $primary='id') {
 		if (is_null($cond)) return $cond;
 		if (is_string($cond))
 			$cond = [$cond];
@@ -2666,7 +2698,7 @@ class CortexQueryParser extends \Prefab {
 				if (!$f3->exists('CORTEX.quoteConditions',$qc) || $qc)
 					$where = $this->sql_quoteCondition($where,$db);
 				// preserve identifier
-				$where = preg_replace('/(?!\B)_id/', 'id', $where);
+				$where = preg_replace('/(?!\B)_id/', $primary, $where);
 				if ($db->driver() == 'pgsql')
 					$where = preg_replace('/\s+like\s+/i', ' ILIKE ', $where);
 				$parts = $this->splitLogical($where);

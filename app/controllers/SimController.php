@@ -1,8 +1,9 @@
 <?php
+
 class SimController extends Controller {
 	private $sim;
 	private $household;
-    private $hood;
+	private $hood;
 	private $business;
 	private $s2sim;
 	private $s3sim;
@@ -10,65 +11,70 @@ class SimController extends Controller {
 	private $users2data;
 	private $users3data;
 	private $users4data;
+	private $major;
+	private $class;
+	private $s2class;
+	private $s3class;
+	private $s4class;
+	private $userID;
 
 	public function __construct() {
 		parent::__construct();
-		$this->sim = new Sim($this->db);
-		$this->s2sim = new S2Sim($this->db);
-		$this->s3sim = new S3Sim($this->db);
-		$this->s4sim = new S4Sim($this->db);
-		$this->household = new Household($this->db);
-        $this->hood = new Hood($this->db);
-		$this->business = new Business($this->db);
-		$this->users2data = new UserS2Data($this->db);
-		$this->users3data = new UserS3Data($this->db);
-		$this->users4data = new UserS4Data($this->db);
+		$this->sim=new Sim($this->db);
+		$this->s2sim=new S2Sim($this->db);
+		$this->s3sim=new S3Sim($this->db);
+		$this->s4sim=new S4Sim($this->db);
+		$this->household=new Household($this->db);
+		$this->hood=new Hood($this->db);
+		$this->business=new Business($this->db);
+		$this->users2data=new UserS2Data($this->db);
+		$this->users3data=new UserS3Data($this->db);
+		$this->users4data=new UserS4Data($this->db);
+		$this->major=new UserMajor($this->db);
+		$this->class=new UserClass($this->db);
+		$this->s2class=new UserS2Class($this->db);
+		$this->s3class=new UserS3Class($this->db);
+		$this->s4class=new UserS4Class($this->db);
+		$this->userID=$this->f3->get('SESSION.user[2]');
 	}
 
-	public function index()
-	{
-		$userID = $this->f3->get('SESSION.user[2]');
+	public function index() {
 		$this->f3->clear('SESSION.url');
-		$this->f3->set('households',$this->household->getByUser($userID));
-		$this->f3->set('sims',$this->sim->getByUser($userID));
+		$this->f3->set('households',$this->household->getByUser($this->userID));
+		$this->f3->set('sims',$this->sim->getByUser($this->userID));
 		$this->f3->set('title','Sims');
 		$this->f3->set('content','sim/list.html');
 	}
 
-	public function create()
-	{
-		if($this->f3->exists('POST.create'))
-		{
+	public function create() {
+		if ($this->f3->exists('POST.create')) {
 			if (!empty($_POST['hptrap'])) {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				$this->f3->scrub($_POST,'p; br;');
-				$lastAdded = $this->sim->get('_id');
+				$lastAdded=$this->sim->get('_id');
 				$this->sim->add();
-				$lastID = $this->sim->get('_id');
-				if ($lastID !== $lastAdded) {
-					$this->f3->set('SESSION.success', 'Sim has been added.');
+				$lastID=$this->sim->get('_id');
+				if ($lastID!==$lastAdded) {
+					$this->f3->set('SESSION.success','Sim has been added.');
 				} else {
-					$this->f3->set('SESSION.error', 'Couldn\'t create Sim.');
+					$this->f3->set('SESSION.error','Couldn\'t create Sim.');
 				}
 
 				$this->index();
 			}
 		} else if ($this->f3->exists('POST.hh')) {
 			$this->f3->scrub($_POST,'p; br;');
-			$url = '/create/'.$this->f3->get('POST.hh');
+			$url='/create/'.$this->f3->get('POST.hh');
 			$this->f3->reroute($url);
-		}
-		else
-		{
-			$userID = $this->f3->get('SESSION.user[2]');
-			$this->f3->set('userID', $this->f3->get('SESSION.user[2]'));
-			$this->f3->set('households', $this->household->getByUser($userID));
+		} else {
+			$this->f3->set('userID',$this->userID);
+			$this->f3->set('households',$this->household->getByUser($this->userID));
 			$this->household->getById($this->f3->get('PARAMS.id'));
-			$this->f3->set('hh', $this->household);
+			$this->f3->set('hh',$this->household);
 			$this->hood->getById($this->household->nhID);
-			$this->f3->set('hood', $this->hood);
-				
+			$this->f3->set('hood',$this->hood);
+
 			$this->f3->set('title','Create Sim');
 			$this->f3->set('content','sim/create.html');
 		}
@@ -79,175 +85,191 @@ class SimController extends Controller {
 			die('Nice try, Spam-A-Lot');
 		} else {
 			$this->f3->scrub($_POST,'p; br;');
-			$hhID = $_POST['hhID'];
-				if ($this->f3->exists('POST.hhSims')) {
-					$sims[] = $this->f3->get('POST.hhSims');
-					foreach ($sims[0] as $sim){ 
-						$this->db->exec('UPDATE sim SET hhID = ? WHERE id = ?', 
+			$hhID=$_POST['hhID'];
+			if ($this->f3->exists('POST.hhSims')) {
+				$sims[]=$this->f3->get('POST.hhSims');
+				foreach ($sims[0] as $sim) {
+					$this->db->exec('UPDATE sim SET hhID = ? WHERE id = ?',
 						array(
 							$hhID,
 							$sim
 						));
-					} 
-					$this->f3->set('SESSION.success', 'Sim has been moved.'); 
-				} else {
-			$this->f3->set('SESSION.error', 'Please choose at least one sim.');
-			} 
+				}
+				$this->f3->set('SESSION.success','Sim has been moved.');
+			} else {
+				$this->f3->set('SESSION.error','Please choose at least one sim.');
+			}
 			$this->index();
 		}
 	}
 
-	public function update()
-	{
-		if($this->f3->exists('POST.update'))
-		{
+	public function update() {
+		if ($this->f3->exists('POST.update')) {
 			if (!empty($_POST['hptrap'])) {
 				die('Nice try, Spam-A-Lot');
 			} else {
 				$this->f3->scrub($_POST,'p; br;');
-				$sim = $this->f3->get('POST.id');
-				$userID = $this->f3->get('SESSION.user[2]');	
-				$maxsize = $this->f3->get('POST.MAX_FILE_SIZE');
-				$file = $_FILES["image-raw"];		
+				$sim=$this->f3->get('POST.id');
+				$maxsize=$this->f3->get('POST.MAX_FILE_SIZE');
+				$file=$_FILES["image-raw"];
 				$this->sim->getById($sim);
 				$this->save();
-				if ($this->sim->gameVersion == 2) {
+				if ($this->sim->gameVersion==2) {
 					$this->s2save();
 					$this->s2sim->getBySimId($sim);
-				}				
-
-				if ($this->sim->gameVersion == 3) {
-				//	$this->s3save();
-					$this->s3sim->getBySimId($sim);
-				}		
-
-				if ($this->sim->gameVersion == 4) {
-				//	$this->s4save();
-					$this->s4sim->getBySimId($sim);
-				}					
-				$this->sim->edit($sim);
-				if ($this->sim->gameVersion == 2) 
-					$this->s2sim->edit($this->s2sim->id);
-				if ($this->sim->gameVersion == 3) 
-					$this->s3sim->edit($this->s3sim->id);
-				if ($this->sim->gameVersion == 4) 
-					$this->s4sim->edit($this->s4sim->id);				
-				
-				if (!empty($file)) {
-				$is = new UploadController;
-				$is->imageUpload($file, $maxsize);
-				} 
-				$this->f3->set('SESSION.success', 'Sim has been updated.');
-				$this->f3->reroute($this->f3->get('SESSION.url'));
 				}
-			} else
-		{
-			if(!$this->f3->exists('SESSION.url'))
-				$this->f3->set('SESSION.url', $this->f3->get('PARAMS.0'));
-            $this->sim->getById($this->f3->get('PARAMS.id'));
-			$this->hood->getById($this->sim->nhID);
-			$userID = $this->f3->get('SESSION.user[2]');
-			$parents = $this->db->exec('SELECT id, firstName, lastName FROM sim WHERE nhID = ?', $this->sim->nhID);
 
-			if($this->f3->exists('PARAMS.id')) {
-                $this->f3->set('sim', $this->sim);
-				if ($this->sim->gameVersion == 2) {
+				if ($this->sim->gameVersion==3) {
+					//	$this->s3save();
+					$this->s3sim->getBySimId($sim);
+				}
+
+				if ($this->sim->gameVersion==4) {
+					//	$this->s4save();
+					$this->s4sim->getBySimId($sim);
+				}
+				$this->sim->edit($sim);
+				if ($this->sim->gameVersion==2)
+					$this->s2sim->edit($this->s2sim->id);
+				if ($this->sim->gameVersion==3)
+					$this->s3sim->edit($this->s3sim->id);
+				if ($this->sim->gameVersion==4)
+					$this->s4sim->edit($this->s4sim->id);
+
+				if (!empty($file)) {
+					$is=new UploadController;
+					$is->imageUpload($file,$maxsize);
+				}
+				$this->f3->set('SESSION.success','Sim has been updated.');
+				$this->f3->reroute($this->f3->get('SESSION.url'));
+			}
+		} else {
+			if (!$this->f3->exists('SESSION.url'))
+				$this->f3->set('SESSION.url',$this->f3->get('PARAMS.0'));
+			$this->sim->getById($this->f3->get('PARAMS.id'));
+			$this->hood->getById($this->sim->nhID);
+			$parents=
+				$this->db->exec('SELECT id, firstName, lastName FROM sim WHERE nhID = ?',
+					$this->sim->nhID);
+
+			if ($this->f3->exists('PARAMS.id')) {
+				$this->f3->set('sim',$this->sim);
+				if ($this->sim->gameVersion==2) {
 					$this->f3->config('config/sims2.cfg');
 					$this->s2sim->getBySimId($this->f3->get('PARAMS.id'));
-					$this->f3->set('s2sim', $this->s2sim);
-					$this->users2data->getByUserId($userID);
-					$this->f3->set('users2', $this->users2data);
+					$this->f3->set('s2sim',$this->s2sim);
+					$this->users2data->getByUserId($this->userID);
+					$this->f3->set('users2',$this->users2data);
 				}
 
-				if ($this->sim->gameVersion == 3) {
+				if ($this->sim->gameVersion==3) {
 					$this->f3->config('config/sims3.cfg');
 					$this->s3sim->getBySimId($this->f3->get('PARAMS.id'));
-					$this->f3->set('s3sim', $this->s3sim);
-					$this->users3data->getByUserId($userID);
-					$this->f3->set('users3', $this->users3data);
+					$this->f3->set('s3sim',$this->s3sim);
+					$this->users3data->getByUserId($this->userID);
+					$this->f3->set('users3',$this->users3data);
 				}
 
-				if ($this->sim->gameVersion == 4) {
+				if ($this->sim->gameVersion==4) {
 					$this->f3->config('config/sims4.cfg');
 					$this->s4sim->getBySimId($this->f3->get('PARAMS.id'));
-					$this->f3->set('s4sim', $this->s4sim);
-					$this->users4data->getByUserId($userID);
-					$this->f3->set('users4', $this->users4data);
+					$this->f3->set('s4sim',$this->s4sim);
+					$this->users4data->getByUserId($this->userID);
+					$this->f3->set('users4',$this->users4data);
 				}
-				$this->f3->set('hood', $this->hood);
-				$this->user->getById($userID);
-				$this->f3->set('households', $this->household->getByUser($userID));
+				$this->f3->set('hood',$this->hood);
+				$this->user->getById($this->userID);
+				$this->f3->set('majors',$this->major->getByUserId($this->userID));
+				$this->major->getById($this->sim->major);
+				$this->f3->set('major',$this->major);
+				$this->f3->set('classes',$this->class->getByMajor($this->major->id));
+				$this->f3->set('households',$this->household->getByUser($this->userID));
 				$this->household->getById($this->sim->hhID);
-				$this->f3->set('hh', $this->household);
-				$this->f3->set('user', $this->user);
-				$this->f3->set('parents', $parents);
-				$this->f3->set('modified', $this->date);
+				$this->f3->set('hh',$this->household);
+				$this->f3->set('user',$this->user);
+				$this->f3->set('parents',$parents);
+				$this->f3->set('modified',$this->date);
 				$this->f3->set('title','Update Sim');
 				$this->f3->set('content','sim/update.html');
-            } else {
-				$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
+			} else {
+				$this->f3->set('SESSION.error','Sim doesn\'t exist');
 				$this->index();
 			}
 		}
 	}
 
 
-	public function delete()
-	{
-		if($this->f3->exists('PARAMS.id'))
-		{
+	public function delete() {
+		if ($this->f3->exists('PARAMS.id')) {
 			$this->sim->delete($this->f3->get('PARAMS.id'));
-			$this->f3->set('SESSION.success', 'Sim was deleted');
+			$this->f3->set('SESSION.success','Sim was deleted');
 		} else {
-			$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
+			$this->f3->set('SESSION.error','Sim doesn\'t exist');
 		}
 
 		$this->f3->reroute('/sims');
 	}
 
-	public function view()
-	{
-		if($this->f3->exists('PARAMS.id')) {
+	public function view() {
+		if ($this->f3->exists('PARAMS.id')) {
 			$this->sim->getById($this->f3->get('PARAMS.id'));
 			$this->hood->getById($this->sim->nhID);
+			$this->major->getById($this->sim->major);
+			$this->class->getById($this->sim->class);
 			$this->business->getByOwner($this->f3->get('PARAMS.id'));
-			$name = $this->sim->firstName.' '.$this->sim->lastName;
-			if ($this->hood->gameVersion == 2) {
+			$name=$this->sim->firstName.' '.$this->sim->lastName;
+			$human=TRUE;
+			if ($this->hood->gameVersion==2) {
 				$this->f3->config('config/sims2.cfg');
 				$this->s2sim->getBySimId($this->sim->id);
+				$this->s2class->getByClassId($this->sim->class);
 			}
 
-			if ($this->hood->gameVersion == 3) {
-				$this->s3sim->getBySimId($this->sim->id);
+			if ($this->hood->gameVersion==3) {
 				$this->f3->config('config/sims3.cfg');
+				$this->s3sim->getBySimId($this->sim->id);
+				$this->s3class->getByClassId($this->sim->class);
 			}
 
-			if ($this->hood->gameVersion == 4) {
-				$this->s4sim->getBySimId($this->sim->id);
+			if ($this->hood->gameVersion==4) {
 				$this->f3->config('config/sims4.cfg');
+				$this->s4sim->getBySimId($this->sim->id);
+				$this->s4class->getByClassId($this->sim->class);
 			}
 
-			$this->f3->set('sim',$this->sim); 
-			if ($this->sim->gameVersion == 2) {
+			$this->f3->set('sim',$this->sim);
+			if ($this->sim->gameVersion==2) {
 				$this->s2sim->getBySimId($this->f3->get('PARAMS.id'));
-				$this->f3->set('s2sim', $this->s2sim);
+				$this->f3->set('s2sim',$this->s2sim);
+				$this->f3->set('s2class',$this->s2class);
+				$s2sim=$this->s2sim;
+				if ($s2sim->isAlien==1 || $s2sim->isZombie==1 || $s2sim->isVampire==1 ||
+					$s2sim->isServo==1 || $s2sim->isWerewolf==1 ||
+					$s2sim->isPlantSim==1 || $s2sim->isWitch==1) {
+					$human=FALSE;
+				}
 			}
 
-			if ($this->sim->gameVersion == 3) {
+			if ($this->sim->gameVersion==3) {
 				$this->s3sim->getBySimId($this->f3->get('PARAMS.id'));
-				$this->f3->set('s3sim', $this->s3sim);
+				$this->f3->set('s3sim',$this->s3sim);
+				$this->f3->set('s3class',$this->s3class);
 			}
 
-			if ($this->sim->gameVersion == 4) {
+			if ($this->sim->gameVersion==4) {
 				$this->s4sim->getBySimId($this->f3->get('PARAMS.id'));
-				$this->f3->set('s4sim', $this->s4sim);
+				$this->f3->set('s4sim',$this->s4sim);
+				$this->f3->set('s4class',$this->s4class);
 			}
-			$this->f3->set('hood', $this->hood);
-			$this->f3->set('business', $this->business);
+			$this->f3->set('human',$human);
+			$this->f3->set('hood',$this->hood);
+			$this->f3->set('business',$this->business);
+			$this->f3->set('major',$this->major);
+			$this->f3->set('class',$this->class);
 			$this->f3->set('title',$name);
 			$this->f3->set('content','sim/view.html');
 		} else {
-			$this->f3->set('SESSION.error', 'Sim doesn\'t exist');
+			$this->f3->set('SESSION.error','Sim doesn\'t exist');
 			$this->index();
 		}
 	}
@@ -264,7 +286,7 @@ class SimController extends Controller {
 
 	function s2save() {
 		if (isset($_POST['save'])) {
-			$this->f3->set('POST.isAlien', isset($_POST["isAlien"])?1:0);
+			$this->f3->set('POST.isAlien',isset($_POST["isAlien"])?1:0);
 			$this->f3->set('POST.isZombie',isset($_POST["isZombie"])?1:0);
 			$this->f3->set('POST.isVampire',isset($_POST["isVampire"])?1:0);
 			$this->f3->set('POST.isServo',isset($_POST["isServo"])?1:0);
@@ -273,12 +295,13 @@ class SimController extends Controller {
 			$this->f3->set('POST.isWitch',isset($_POST["isWitch"])?1:0);
 			$this->f3->set('POST.rhyme',isset($_POST["rhyme"])?1:0);
 
-			$this->f3->set('POST.earnedAthletics', isset($_POST["earnedAthletics"])?1:0);
+			$this->f3->set('POST.earnedAthletics',isset($_POST["earnedAthletics"])?1:0);
 			$this->f3->set('POST.earnedCharisma',isset($_POST["earnedCharisma"])?1:0);
 			$this->f3->set('POST.earnedHygienics',isset($_POST["earnedHygienics"])?1:0);
 			$this->f3->set('POST.earnedCulinary',isset($_POST["earnedCulinary"])?1:0);
 			$this->f3->set('POST.earnedGenius',isset($_POST["earnedGenius"])?1:0);
-			$this->f3->set('POST.earnedEngineering',isset($_POST["earnedEngineering"])?1:0);
+			$this->f3->set('POST.earnedEngineering',
+				isset($_POST["earnedEngineering"])?1:0);
 			$this->f3->set('POST.earnedArts',isset($_POST["earnedArts"])?1:0);
 			$this->f3->set('POST.earnedYEA',isset($_POST["earnedYEA"])?1:0);
 			$this->f3->set('POST.earnedScholar',isset($_POST["earnedScholar"])?1:0);
@@ -288,7 +311,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.earnedOrphan',isset($_POST["earnedOrphan"])?1:0);
 			$this->f3->set('POST.earnedET',isset($_POST["earnedET"])?1:0);
 
-			$this->f3->set('POST.cash1', isset($_POST["cash1"])?1:0);
+			$this->f3->set('POST.cash1',isset($_POST["cash1"])?1:0);
 			$this->f3->set('POST.cash2',isset($_POST["cash2"])?1:0);
 			$this->f3->set('POST.cash3',isset($_POST["cash3"])?1:0);
 			$this->f3->set('POST.cash4',isset($_POST["cash4"])?1:0);
@@ -314,7 +337,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.connections4',isset($_POST["connections4"])?1:0);
 			$this->f3->set('POST.connections5',isset($_POST["connections5"])?1:0);
 
-			$this->f3->set('POST.goodHols', isset($_POST["goodHols"])?1:0);
+			$this->f3->set('POST.goodHols',isset($_POST["goodHols"])?1:0);
 			$this->f3->set('POST.goodHols3',isset($_POST["goodHols3"])?1:0);
 			$this->f3->set('POST.goodHols5',isset($_POST["goodHols5"])?1:0);
 			$this->f3->set('POST.tour',isset($_POST["tour"])?1:0);
@@ -391,7 +414,7 @@ class SimController extends Controller {
 			$this->f3->set('POST.sfbSpider',isset($_POST["sfbSpider"])?1:0);
 			$this->f3->set('POST.tbSpider',isset($_POST["tbSpider"])?1:0);
 
-			$this->f3->set('POST.artsplq', isset($_POST["artsplq"])?1:0);
+			$this->f3->set('POST.artsplq',isset($_POST["artsplq"])?1:0);
 			$this->f3->set('POST.filmplq',isset($_POST["filmplq"])?1:0);
 			$this->f3->set('POST.fitplq',isset($_POST["fitplq"])?1:0);
 			$this->f3->set('POST.cusplaq',isset($_POST["cusplaq"])?1:0);
@@ -402,13 +425,14 @@ class SimController extends Controller {
 			$this->f3->set('POST.sportplq',isset($_POST["sportplq"])?1:0);
 			$this->f3->set('POST.tinkplq',isset($_POST["tinkplq"])?1:0);
 
-			$this->f3->set('POST.learnedFire', isset($_POST["learnedFire"])?1:0);
+			$this->f3->set('POST.learnedFire',isset($_POST["learnedFire"])?1:0);
 			$this->f3->set('POST.learnedAnger',isset($_POST["learnedAnger"])?1:0);
 			$this->f3->set('POST.learnedHappiness',isset($_POST["learnedHappiness"])?1:0);
 			$this->f3->set('POST.learnedPhysio',isset($_POST["learnedPhysio"])?1:0);
-			$this->f3->set('POST.learnedCounseling',isset($_POST["learnedCounseling"])?1:0);
+			$this->f3->set('POST.learnedCounseling',
+				isset($_POST["learnedCounseling"])?1:0);
 			$this->f3->set('POST.learnedParenting',isset($_POST["learnedParenting"])?1:0);
 			$this->f3->set('POST.friendsBenefit',isset($_POST["friendsBenefit"])?1:0);
 		}
-	} 
+	}
 }
