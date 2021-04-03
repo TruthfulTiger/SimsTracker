@@ -250,7 +250,7 @@
 					</div>
 					<div class="col">
 						<h6>Needed to progress</h6>
-						<check if="{{@s2class.cooking >= 0}}">
+						<check if="{{@s2class.cooking > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}CookingSm.png" class="cook" alt="Cooking"
 									data-toggle="tooltip" title="Cooking">
 								<span
@@ -265,7 +265,7 @@
 								>
 								{{@s2class.cooking}}</span></p>
 						</check>
-						<check if="{{@s2class.mechanical >= 0}}">
+						<check if="{{@s2class.mechanical > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}MechanicalSm.png" class="mech" alt="Mechanical"
 									data-toggle="tooltip" title="Mechanical">
 								<span
@@ -280,7 +280,7 @@
 								>
 								{{@s2class.mechanical}}</span></p>
 						</check>
-						<check if="{{@s2class.charisma >= 0}}">
+						<check if="{{@s2class.charisma > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}CharismaSm.png" class="char" alt="Charisma"
 									data-toggle="tooltip" title="Charisma">
 								<span
@@ -295,7 +295,7 @@
 								>
 								{{@s2class.charisma}}</span></p>
 						</check>
-						<check if="{{@s2class.body >= 0}}">
+						<check if="{{@s2class.body > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}BodySm.png" class="body" alt="Body" data-toggle="tooltip"
 									title="Body">
 								<span
@@ -310,7 +310,7 @@
 								>
 								{{@s2class.body}}</span></p>
 						</check>
-						<check if="{{@s2class.logic >= 0}}">
+						<check if="{{@s2class.logic > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}LogicSm.png" class="logic" alt="Logic"
 									data-toggle="tooltip" title="Logic">
 								<span
@@ -325,7 +325,7 @@
 								>
 								{{@s2class.logic}}</span></p>
 						</check>
-						<check if="{{@s2class.creativity >= 0}}">
+						<check if="{{@s2class.creativity > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}CreativitySm.png" class="create" alt="Creativity"
 									data-toggle="tooltip" title="Creativity">
 								<span
@@ -340,7 +340,7 @@
 								>
 								{{@s2class.creativity}}</span></p>
 						</check>
-						<check if="{{@s2class.cleaning >= 0}}">
+						<check if="{{@s2class.cleaning > 0}}">
 							<p><img src="{{@BASE}}{{@s2path}}CleaningSm.png" class="clean" alt="Cleaning"
 									data-toggle="tooltip" title="Cleaning">
 								<span

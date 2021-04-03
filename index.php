@@ -12,6 +12,9 @@ new Session();
 
 $f3->set('ONERROR',
 	function($f3) {
+	$controller = new Controller();
+	$errorcontroller = new ErrorController();
+	$errorcontroller->beforeroute();
 		$log=new Log('error.log');
 		// recursively clear existing output buffers:
 		while (ob_get_level())
@@ -19,7 +22,7 @@ $f3->set('ONERROR',
 		$msg=$f3->get('ERROR.status').' '.$f3->get('ERROR.text');
 		$f3->set('title',$f3->get('ERROR.status'));
 		$log->write($msg);
-		echo Template::instance()->render('error.html');
+		$errorcontroller->afterroute();
 	}
 );
 

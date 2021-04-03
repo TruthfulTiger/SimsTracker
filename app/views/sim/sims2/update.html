@@ -1090,7 +1090,7 @@
 								checked
 							</check>
 							>
-							<label class="custom-control-label" for="earnedArts">Quigley Visual Arts Grant</label>
+							<label class="custom-control-label" for="earnedArts">Quigley Visual Arts Stipend</label>
 						</div>
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input scholars" value="750" id="earnedYEA"
@@ -2657,6 +2657,7 @@
 	let major;
 	let generation = {{trim(@sim.generation)}};
 	let mclass;
+	let term;
 	let careerAge;
 
 	$(function () {
@@ -2664,33 +2665,14 @@
 		ltwCheck();
 		scholarshipTotal();
 		careerLoad();
+		aspChangeCheck();
+		secondAspCheck();
 
 		asp = $('#aspiration').val();
 		secondAsp = $('#secondAsp').val();
-
-		$('#secondAsp').children('option').each(function () {
-			if ($(this).val() === asp) {
-				$(this).hide();
-				if ($(growup).is(':selected') === true) {
-					$(growup).removeAttr('selected')
-					$(growup).next().attr('selected', '')
-				}
-			} else {
-				$(this).show();
-			}
-		});
-
-		$('#aspiration').children('option').each(function () {
-			if ($(this).val() === secondAsp) {
-				$(this).hide();
-				if ($(growup).is(':selected') === true) {
-					$(growup).removeAttr('selected')
-					$(growup).next().attr('selected', '')
-				}
-			} else {
-				$(this).show();
-			}
-		});
+		major = $('#major').val();
+		mclass = $('#class').val();
+		term = $('#term').val();
 
 		$('#ltw').change(function () {
 			ltwCheck();
@@ -2727,27 +2709,11 @@
 		});
 
 		$('#aspiration').on('change', function () {
-			asp = $(this).val();
-
-			$('#secondAsp').children('option').each(function () {
-				if ($(this).val() === asp) {
-					$(this).hide();
-				} else {
-					$(this).show();
-				}
-			});
+			aspChangeCheck();
 		});
 
 		$('#secondAsp').on('change', function () {
-			asp = $(this).val();
-
-			$('#aspiration').children('option').each(function () {
-				if ($(this).val() === asp) {
-					$(this).hide();
-				} else {
-					$(this).show();
-				}
-			});
+			secondAspCheck();
 		});
 
 		$("#origin").change(function () {
@@ -2758,6 +2724,56 @@
 			witchshow();
 		});
 	});
+
+	function aspChangeCheck() {
+		asp = $('#aspiration').val();
+
+		$('#aspiration').children('option').each(function () {
+			if ($(this).val() === secondAsp) {
+				$(this).hide();
+				if ($(growup).is(':selected') === true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
+		$('#secondAsp').children('option').each(function () {
+
+			if ($(this).val() === asp) {
+				$(this).hide();
+			} else {
+				$(this).show();
+			}
+		});
+	}
+
+	function secondAspCheck() {
+		asp = $('#secondAsp').val();
+
+		$('#secondAsp').children('option').each(function () {
+			if ($(this).val() === asp) {
+				$(this).hide();
+				if ($(growup).is(':selected') === true) {
+					$(growup).removeAttr('selected')
+					$(growup).next().attr('selected', '')
+				}
+			} else {
+				$(this).show();
+			}
+		});
+
+		$('#aspiration').children('option').each(function () {
+			if ($(this).val() === asp) {
+				$(this).hide();
+			} else {
+				$(this).show();
+			}
+		});
+	}
+
 
 	function genshow() {
 		if ($("#origin").val() === "big" || $("#origin").val() === "cas") {

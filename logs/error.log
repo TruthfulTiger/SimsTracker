@@ -2214,3 +2214,15 @@ Thu, 04 Feb 2021 15:28:36 +0000 [127.0.0.1] Internal Server Error syntax error, 
 Mon, 08 Mar 2021 20:06:48 +0000 [127.0.0.1] Internal Server Error SQLSTATE[01000]: Warning: 1265 Data truncated for column 'pdHobby' at row 1 [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:230]
 Mon, 08 Mar 2021 20:08:47 +0000 [127.0.0.1] Internal Server Error SQLSTATE[01000]: Warning: 1265 Data truncated for column 'pdHobby' at row 1 [E:\Documents\SimsTracker\vendor\bcosca\fatfree-core\db\sql.php:230]
 Wed, 10 Mar 2021 12:17:24 +0000 [127.0.0.1] Internal Server Error syntax error, unexpected '}' [E:\Documents\SimsTracker\tmp\hml3nma0n86i.27k2u89d29j44.php:1063]
+Fri, 02 Apr 2021 17:25:07 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:38:56 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:39:04 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:41:48 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:43:01 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:45:02 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:45:14 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:46:55 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:49:53 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 17:53:59 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 18:07:50 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)
+Fri, 02 Apr 2021 18:08:03 +0100 [127.0.0.1] Not Found HTTP 404 (GET /user/careers)

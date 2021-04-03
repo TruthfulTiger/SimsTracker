@@ -13,13 +13,13 @@
  *              |  |    < |    <|  -__|-- __|
  *              |__|__|__||__|__|_____|_____|
  *
- *  Copyright (c) 2020 by ikkez
+ *  Copyright (c) 2021 by ikkez
  *  Christian Knuth <mail@ikkez.de>
  *  https://github.com/ikkez/F3-Sugar/
  *
  *  @package DB
- *  @version 1.7.1
- *  @date 06.12.2020
+ *  @version 1.7.2
+ *  @date 18.02.2021
  *  @since 24.04.2012
  */
 
@@ -725,6 +725,7 @@ class Cortex extends Cursor {
 					$hasCond = [null,null];
 				}
 				list($has_filter,$has_options) = $hasCond;
+				$isOrCondition = $has_options['OR'] ?? FALSE;
 				$type = $this->fieldConf[$key]['relType'];
 				$fromConf = $this->fieldConf[$key][$type];
 				switch($type) {
@@ -791,7 +792,7 @@ class Cortex extends Cursor {
 					if (!$filter)
 						$filter = [''];
 					if (!empty($filter[0]))
-						$filter[0] .= ' and ';
+						$filter[0] .= $isOrCondition?' or ':' and ';
 					$cond = array_shift($addToFilter);
 					if ($this->dbsType=='sql')
 						$cond = $this->queryParser->sql_prependTableToFields($cond,$this->table);
@@ -981,6 +982,19 @@ class Cortex extends Cursor {
 	}
 
 	/**
+	 * add has-conditional filter with OR operator to previous condition
+	 * @param $key
+	 * @param $filter
+	 * @param null $options
+	 */
+	public function orHas($key, $filter, $options = null) {
+		if (!$options)
+			$options=[];
+		$options['OR'] = TRUE;
+		$this->has($key, $filter, $options);
+	}
+
+	/**
 	 * return IDs of records that has a linkage to this mapper
 	 * @param string $key     relation field
 	 * @param array  $filter  condition for foreign records
@@ -1077,7 +1091,8 @@ class Cortex extends Cursor {
 			$rel = $fieldConf[0]::resolveConfiguration();
 			$toConf = $fieldConf[0]::resolveRelationConf($rel['fieldConf'][$fieldConf[1]])['has-many'];
 			$hasJoin[] = $this->_sql_left_join($toConf['relField'],$mmTable,$fieldConf['relPK'],$relTable);
-			$this->_sql_mergeRelCondition($hasCond,$relTable,$filter,$options);
+			$glue = isset($cond[1]['OR']) && $cond[1]['OR']===TRUE ? 'OR' : 'AND';
+			$this->_sql_mergeRelCondition($hasCond,$relTable,$filter,$options, $glue);
 		}
 		return $hasJoin;
 	}
@@ -1093,7 +1108,8 @@ class Cortex extends Cursor {
 			$this->fieldConf[$key]['belongs-to-one'][1] : $rel->primary;
 		$alias = $table.'__'.$key;
 		$query = $this->_sql_left_join($key,$this->table,$fkey,[$table,$alias]);
-		$this->_sql_mergeRelCondition($cond,$alias,$filter,$options);
+		$glue = isset($cond[1]['OR']) && $cond[1]['OR']===TRUE ? 'OR' : 'AND';
+		$this->_sql_mergeRelCondition($cond,$alias,$filter,$options, $glue);
 		return $query;
 	}
 
@@ -3192,8 +3208,12 @@ class CortexCollection extends \ArrayIterator {
 				$val = $model->get($prop, $raw);
 				if (!empty($val))
 					$out[] = $val;
-			} elseif($raw)
-				$out[] = is_array($model) ? $model[$prop] : $model;
+			} elseif($raw) {
+				if (!is_array($model))
+					$out[] = $model;
+				elseif (!empty($model[$prop]))
+					$out[] = $model[$prop];
+			}
 		}
 		return $out;
 	}
