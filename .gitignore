@@ -7,3 +7,4 @@ logs/*.*
 uploads/*.*
 uploads/1/Blank.jpg
 vendor/composer/config.json
+/composer.phar
